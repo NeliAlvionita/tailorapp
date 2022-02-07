@@ -124,7 +124,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/dataAdmin" class="nav-link">
+                <a href="/admin/admin" class="nav-link">
                   <i class="fas fa-fw fa-cog nav-icon"></i>
                   <p>Data Admin</p>
                 </a>
