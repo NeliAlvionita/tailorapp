@@ -4,9 +4,10 @@
 
 @section('content')
 
-<div class="card">
+<div class="card card-info card-outline">
     <div class="card-header">
       <h3 class="card-title">Data Admin</h3>
+      <a href="/admin/admin/tambah" class="btn btn-primary float-right">Tambah</a>
     </div>
     <div class="card-body p-0">
       <table class="table table-hover">
@@ -19,6 +20,7 @@
             <th>Password</th>
             <th>Nomor Telepon</th>
             <th>Alamat</th>
+            <th>Level</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +33,7 @@
             <td>{{$item->password}}</td>
             <td>{{$item->nomorhp}}</td>
             <td>{{$item->alamat}}</td>
+            <td>{{$item->level}}</td>
           </tr>
           @endforeach
         </tbody>

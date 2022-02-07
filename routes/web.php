@@ -18,7 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', 'AdminController@admin');
-Route::get('/admin/dataAdmin', 'AdminController@index');
+Route::get('/admin/admin', 'AdminController@index');
+Route::get('/admin/admin/tambah', 'AdminController@tambah');
+Route::post('/admin/admin', 'AdminController@store');
 /* Route Tabel Pelanggan*/
 Route::get('/admin/pelanggan', 'PelangganController@index');
 
