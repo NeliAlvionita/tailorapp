@@ -17,10 +17,8 @@
             <th>Nama</th>
             <th>Username</th>
             <th>Email</th>
-            <th>Password</th>
-            <th>Nomor Telepon</th>
-            <th>Alamat</th>
             <th>Level</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -30,10 +28,16 @@
             <td>{{$item->name}}</td>
             <td>{{$item->username}}</td>
             <td>{{$item->email}}</td>
-            <td>{{$item->password}}</td>
-            <td>{{$item->nomorhp}}</td>
-            <td>{{$item->alamat}}</td>
             <td>{{$item->level}}</td>
+            <td>
+              <form action="/admin/admin/{{$item->id}}" method="post">
+                <a class="btn btn-primary" href="/admin/admin/{{$item->id}}/detail">Detail</a>
+                <a class="btn btn-warning" href="/admin/admin/{{$item->id}}/ubah">Edit</a>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Hapus</button>
+              </form>
+              </td>
           </tr>
           @endforeach
         </tbody>
