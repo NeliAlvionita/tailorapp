@@ -50,19 +50,14 @@
       <ul class="navbar-nav ml-auto"> 
         <!-- Authentication Links -->
         @guest
-       <li class="nav-item">
-           
-        </li>
-        @if (Route::has('register'))
         <li class="nav-item">
-           
+            <a class="nav-link" href="{{ route('login') }}">{{ ('Login') }}</a>
         </li>
-        @endif
         @else
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              Admin <span class="caret"></span>
+                {{ Auth::user()->name }} <span class="caret"></span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -135,6 +130,18 @@
                   <p>Data Pelanggan</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/admin/layanan" class="nav-link">
+                  <i class="fas fa-fw fa-folder nav-icon"></i>
+                  <p>Data Layanan</p>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a href="/admin/kategori" class="nav-link">
+                  <i class="fas fa-fw fa-folder nav-icon"></i>
+                  <p>Data Kategori Pakaian</p>
+                </a>
+              </li> 
               <li class="nav-item">
                 <a href="/admin/produk" class="nav-link">
                   <i class="fas fa-fw fa-folder nav-icon"></i>

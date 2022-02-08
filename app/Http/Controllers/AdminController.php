@@ -33,8 +33,6 @@ class AdminController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'alamat' => ['required', 'string', 'max:255'],
-            'nomorhp' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:3', 'confirmed'],
             'level' => ['required', 'string', 'max:255'],
         ]);
@@ -43,7 +41,6 @@ class AdminController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
-        $user->nomorhp = $request->nomorhp;
         $user->password = $request->password;
         $user->level = $request->level;
         if ($user->save()) {

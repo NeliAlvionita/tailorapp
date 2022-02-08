@@ -23,7 +23,12 @@ Route::get('/admin/admin/tambah', 'AdminController@tambah');
 Route::post('/admin/admin', 'AdminController@store');
 /* Route Tabel Pelanggan*/
 Route::get('/admin/pelanggan', 'PelangganController@index');
-
+// Route Tabel Layanan
+Route::get('/admin/layanan', 'LayananController@index');
+Route::get('/admin/layanan/tambah', 'LayananController@tambah');
+Route::post('/admin/layanan', 'LayananController@store');
+// Route Tabel Kategori 
+Route::get('/admin/kategori', 'KategoriController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
