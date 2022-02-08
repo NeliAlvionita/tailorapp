@@ -38,24 +38,6 @@
                         @enderror
                 </div>
                 <div class="form-group">
-                    <label for="alamat">{{ __('Alamat') }}</label>
-                    <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus>
-                        @error('alamat')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                </div>
-                <div class="form-group">
-                    <label for="nomorhp">{{ __('Nomor Handphone') }}</label>
-                    <input id="nomorhp" type="text" class="form-control @error('nomorhp') is-invalid @enderror" name="nomorhp" value="{{ old('nomorhp') }}" required autocomplete="nomorhp" autofocus>
-                        @error('nomorhp')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                </div>
-                <div class="form-group">
                     <label for="password">{{ __('Password') }}</label>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                     @error('password')
@@ -81,6 +63,7 @@
                         <button type="submit" class="btn btn-success">
                             {{ __('Submit') }}
                         </button>
+                        <button type="cancel" class="btn btn-default">{{ __('Batal') }}</button>
                 </div>
             </form>
         </div>

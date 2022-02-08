@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="card">
+<div class="card card-info card-outline">
     <div class="card-header">
       <h3 class="card-title">Data Pelanggan</h3>
     </div>
@@ -24,7 +24,7 @@
           <tr>
             <td>{{$index + 1}}</td>
             <td>{{$item->name}}</td>
-            <td>{{$item->username}}</td>
+            <td>{{$item->username}}</td> 
             <td>{{$item->alamat}}</td>
             <td>
               <form action="/admin/admin/{{$item->id}}" method="post">
