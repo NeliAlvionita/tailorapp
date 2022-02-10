@@ -19,15 +19,31 @@ class KategoriController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->gambar_ukuran);
+
         $this->validate($request, [
             'nama_kategori' => ['required', 'string', 'max:255'],
-            'gambar_ukuran' => ['required', 'string', 'max:255'],
+            'gambar_ukuran' => ['mimes:jpeg,png,jpg,gif,svg'],
         ]);
+        
 
-        $kategori = new Kategori();
-        $kategori->gambar_ukuran = $request->gambar_ukuran;
-        if ($kategori->save()) {
-            return redirect('/admin/kategori');
+        $input = $request->all();
+
+        if ($gambar_ukuran = $request->file('gambar_ukuran')) {
+            $destinationPath = 'gambar_ukuran/';
+            $profileImage = date('YmdHis') . "." . $gambar_ukuran->getClientOriginalExtension();
+            $gambar_ukuran->move($destinationPath, $profileImage);
+            $input['gambar_ukuran'] = "$profileImage";
         }
+        
+        Kategori::create($input);
+   
+        return redirect('/admin/kategori')->with('success','Product created successfully.');
+    }
+
+    public function show(Request $request)
+    {
+        $kategori = Kategori::find($request->id_kategori);
+        return view('admin/kategori/detail', ['kategori' => $kategori]);
     }
 }

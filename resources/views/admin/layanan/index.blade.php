@@ -1,4 +1,4 @@
-@extends('layouts.admin', ['title' => 'Data Admin'])
+@extends('layouts.admin', ['title' => 'Data Layanan'])
 
 @section('title', 'Data Layanan')
 
@@ -26,8 +26,8 @@
             <td>{{$item->id_layanan}}</td>
             <td>{{$item->nama_layanan}}</td>
             <td>
-              <form action="/admin/layanan/{{$item->id}}" method="post">
-                <a class="btn btn-warning" href="/admin/layanan/{{$item->id}}/ubah">Edit</a>
+              <form action="/admin/layanan/{{$item->id_layanan}}" method="post">
+                <a class="btn btn-warning" href="/admin/layanan/{{$item->id_layanan}}/ubah">Ubah</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Hapus</button>
