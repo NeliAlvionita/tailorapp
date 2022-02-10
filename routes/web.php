@@ -27,8 +27,14 @@ Route::get('/admin/pelanggan', 'PelangganController@index');
 Route::get('/admin/layanan', 'LayananController@index');
 Route::get('/admin/layanan/tambah', 'LayananController@tambah');
 Route::post('/admin/layanan', 'LayananController@store');
+Route::get('/admin/layanan/{id_layanan}/ubah', 'LayananController@ubah');
+Route::put('/admin/layanan/{id_layanan}', 'LayananController@update');
+Route::delete('/admin/layanan/{id_layanan}', 'LayananController@delete');
 // Route Tabel Kategori 
 Route::get('/admin/kategori', 'KategoriController@index');
+Route::get('/admin/kategori/tambah', 'KategoriController@tambah');
+Route::post('/admin/kategori', 'KategoriController@store');
+Route::get('/admin/kategori/{id_kategori}/detail', 'KategoriController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

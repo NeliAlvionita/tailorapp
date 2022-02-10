@@ -29,4 +29,26 @@ class LayananController extends Controller
             return redirect('/admin/layanan');
         }
     }
+    public function ubah(Request $request)
+    {
+        $layanan = Layanan::find($request->id_layanan);
+        return view('/admin/layanan/ubah',  ['layanan' => $layanan]);
+    }
+    public function update(Request $request)
+    {
+        $layanan = Layanan::findOrFail($request->id_layanan);
+        $layanan->nama_layanan = $request->nama_layanan;
+        $layanan->save();
+
+        return redirect('/admin/layanan');
+    }
+
+    public function delete(Request $request)
+    {
+        $layanan = Layanan::findOrFail($request->id_layanan);
+
+        if ($layanan->delete()) {
+            return redirect('/admin/layanan');
+        }
+    }
 }
