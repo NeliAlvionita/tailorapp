@@ -46,4 +46,42 @@ class KategoriController extends Controller
         $kategori = Kategori::find($request->id_kategori);
         return view('admin/kategori/detail', ['kategori' => $kategori]);
     }
+
+    public function ubah(Request $request){
+        $kategori = Kategori::find($request->id_kategori);
+        return view('admin/kategori/ubah', ['kategori' => $kategori]);
+    }
+
+    public function update(Request $request, Kategori $kategori)
+    {
+        $this->validate($request, [
+            'nama_kategori' => ['required', 'string', 'max:255'],
+            'gambar_ukuran' => ['mimes:jpeg,png,jpg,gif,svg'],
+        ]);
+
+        $input = $request->all();
+        
+        if ($gambar_ukuran = $request->file('gambar_ukuran')) {
+            $destinationPath = 'gambar_ukuran/';
+            $profileImage = date('YmdHis') . "." . $gambar_ukuran->getClientOriginalExtension();
+            $gambar_ukuran->move($destinationPath, $profileImage);
+            $input['gambar_ukuran'] = "$profileImage";
+        }
+        else{
+            unset($input['gambar_ukuran']);
+        }
+        $kategori->update($input);
+ 
+
+        return redirect('/admin/kategori')->with('success','Product created successfully.');
+    }
+
+    public function delete(Request $request)
+    {
+        $kategori = Kategori::findOrFail($request->id_kategori);
+
+        if ($kategori->delete()) {
+            return redirect('/admin/kategori');
+        }
+    }
 }

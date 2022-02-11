@@ -8,13 +8,13 @@
         <div class="card-body p-0">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Nama :</strong>
                     {{ $kategori->nama_kategori }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Detail Ukuran {{$kategori->nama_kategori}}:</strong>
+                    <strong>Detail Ukuran {{$kategori->nama_kategori}} :</strong>
                 </div>
                 <img src="/gambar_ukuran/{{ $kategori->gambar_ukuran }}" width="500px">
             </div>
