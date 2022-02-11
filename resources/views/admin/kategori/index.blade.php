@@ -28,7 +28,7 @@
             <td>
               <form action="/admin/kategori/{{$item->id_kategori}}" method="post">
                 <a class="btn btn-primary" href="/admin/kategori/{{$item->id_kategori}}/detail">Detail</a>
-                <a class="btn btn-warning" href="/admin/layanan/{{$item->id}}/ubah">Edit</a>
+                <a class="btn btn-warning" href="/admin/kategori/{{$item->id_kategori}}/ubah">Edit</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Hapus</button>
