@@ -39,7 +39,11 @@ Route::get('/admin/kategori/{id_kategori}/ubah', 'KategoriController@ubah');
 Route::put('/admin/kategori/{id_kategori}', 'KategoriController@update');
 Route::delete('/admin/kategori/{id_kategori}', 'KategoriController@delete');
 // Route Tabel Produk 
-
+Route::get('/admin/produk', 'ProdukController@index');
+Route::get('/admin/produk/tambah', 'ProdukController@tambah');
+Route::post('/admin/produk', 'ProdukController@store');
+Route::get('/admin/produk/{id_produk}/detail', 'ProdukController@show');
+Route::delete('/admin/produk/{id_produk}', 'ProdukController@delete');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
