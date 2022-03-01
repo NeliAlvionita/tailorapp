@@ -43,6 +43,8 @@ class LayananController extends Controller
         return redirect('/admin/layanan');
     }
 
+    
+
     public function delete(Request $request)
     {
         $layanan = Layanan::findOrFail($request->id_layanan);

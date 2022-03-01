@@ -54,23 +54,24 @@ class KategoriController extends Controller
 
     public function update(Request $request, Kategori $kategori)
     {
+        
+        $kategori = Kategori::find($request->id_kategori);
         $this->validate($request, [
             'nama_kategori' => ['required', 'string', 'max:255'],
             'gambar_ukuran' => ['mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
-        $input = $request->all();
-        
+       
         if ($gambar_ukuran = $request->file('gambar_ukuran')) {
             $destinationPath = 'gambar_ukuran/';
             $profileImage = date('YmdHis') . "." . $gambar_ukuran->getClientOriginalExtension();
             $gambar_ukuran->move($destinationPath, $profileImage);
-            $input['gambar_ukuran'] = "$profileImage";
+            // $input['gambar_ukuran'] = "$profileImage";
+            $kategori->gambar_ukuran=$profileImage;
         }
-        else{
-            unset($input['gambar_ukuran']);
-        }
-        $kategori->update($input);
+        
+        $kategori->nama_kategori=$request->nama_kategori;
+        $kategori->save(); 
  
 
         return redirect('/admin/kategori')->with('success','Product created successfully.');

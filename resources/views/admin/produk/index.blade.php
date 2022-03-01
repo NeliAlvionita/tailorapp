@@ -30,7 +30,7 @@
             <td>
               <form action="/admin/produk/{{$item->id_produk}}" method="post">
                 <a class="btn btn-primary" href="/admin/produk/{{$item->id_produk}}/detail">Detail</a>
-                <a class="btn btn-warning" href="/admin/kategori/{{$item->id_kategori}}/ubah">Edit</a>
+                <a class="btn btn-warning" href="/admin/produk/{{$item->id_produk}}/ubah">Edit</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Hapus</button>
