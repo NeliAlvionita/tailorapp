@@ -43,6 +43,8 @@ Route::get('/admin/produk', 'ProdukController@index');
 Route::get('/admin/produk/tambah', 'ProdukController@tambah');
 Route::post('/admin/produk', 'ProdukController@store');
 Route::get('/admin/produk/{id_produk}/detail', 'ProdukController@show');
+Route::get('/admin/produk/{id_produk}/ubah', 'ProdukController@ubah');
+Route::put('/admin/produk/{id_produk}', 'ProdukController@update');
 Route::delete('/admin/produk/{id_produk}', 'ProdukController@delete');
 Auth::routes();
 
