@@ -16,8 +16,9 @@
                 </ul>
             </div>
             @endif
-            <form action="/admin/produk/{{$produk->id_produk}}" method="post" enctype="multipart/form-data">
+            <form action="/admin/produk/{{$produk->id_produk}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="">Layanan</label>
                 <select name="id_layanan" id="id_layanan" class="form-control">
