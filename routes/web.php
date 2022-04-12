@@ -46,6 +46,8 @@ Route::get('/admin/produk/{id_produk}/detail', 'ProdukController@show');
 Route::get('/admin/produk/{id_produk}/ubah', 'ProdukController@ubah');
 Route::put('/admin/produk/{id_produk}', 'ProdukController@update');
 Route::delete('/admin/produk/{id_produk}', 'ProdukController@delete');
+// Route Pemesanan
+Route::get('/admin/pemesanan', 'PemesananController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
