@@ -19,4 +19,8 @@ class Pemesanan extends Model
     public function detail_pemesanan(){
         return $this-> hasMany('App\Detail_Pemesanan', 'id_pemesanan', 'id_pemesanan');
     }
+
+    public function pembayaran(){
+        return $this-> belongsTo('App\Pembayaran', 'id_pemesanan', 'id_pemesanan');
+    }
 }
