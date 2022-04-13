@@ -52,6 +52,9 @@ Route::get('/admin/pemesanan/{id_pemesanan}/detail', 'PemesananController@detail
 Route::put('/admin/pemesanan/{id_pemesanan}', 'PemesananController@update_status');
 Route::get('/admin/pemesanan/{id_pemesanan}/pembayaran', 'PemesananController@detail_bayar');
 Route::put('/admin/pemesanan/{id_pemesanan}/update', 'PemesananController@update_bayar');
+// Route Laporan
+Route::get('/admin/laporan', 'LaporanController@index');
+Route::post('/admin/laporan/filer', 'LaporanController@filer');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
