@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="card">
+<div class="card card-info card-outline">
     <div class="card-header">
       <h2 class="card-title">LAPORAN PEMESANAN</h2>
     </div>
@@ -32,7 +32,6 @@
         </table>
       <button class="btn btn-warning" type="submit">Filter</button>
     </form>
-    </div>
     <div class="card-body p-0">
       <table class="table table-hover">
         <thead>
@@ -55,13 +54,13 @@
           </tr>
           @endforeach
         </tbody>
-      </table>
-      
+      </table> 
     </div>
   </div>
   <form action="/admin/laporan/#" method="POST">
     <a class="btn btn-danger" href="/admin/pemesanan/#">Cetak PDF</a>
     <a class="btn btn-success" href="/admin/pemesanan/#">Cetak Excel</a>
   </form>
+</div>
   
   @endsection
