@@ -14,4 +14,16 @@ class PemesananController extends Controller
             ->get();
         return view('admin/pemesanan/index', ['pemesanan' => $pemesanan]);
     }
+
+    public function detail(Request $request){
+        $pemesanan = Pemesanan::find($request->id_pemesanan);
+        return view('admin/pemesanan/detail', ['pemesanan' => $pemesanan]);
+    } 
+
+    public function update_status(Request $request){
+        $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
+        $pemesanan->status_pemesanan=$request->status_pemesanan;
+        $pemesanan->save();
+        return redirect('/admin/pemesanan');
+    }
 }

@@ -18,9 +18,7 @@ class CreateDetailPemesananTable extends Migration
             $table->unsignedBigInteger("id_pemesanan");
             $table->unsignedBigInteger("id_produk");
             $table->integer("jumlah");
-            $table->string("nama");
-            $table->integer("harga");
-            $table->integer("subharga");
+            $table->integer("subtotal");
             $table->timestamps();
         });
     }

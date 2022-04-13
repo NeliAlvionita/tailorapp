@@ -48,6 +48,8 @@ Route::put('/admin/produk/{id_produk}', 'ProdukController@update');
 Route::delete('/admin/produk/{id_produk}', 'ProdukController@delete');
 // Route Pemesanan
 Route::get('/admin/pemesanan', 'PemesananController@index');
+Route::get('/admin/pemesanan/{id_pemesanan}/detail', 'PemesananController@detail');
+Route::put('/admin/pemesanan/{id_pemesanan}', 'PemesananController@update_status');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
