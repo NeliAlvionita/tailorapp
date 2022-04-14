@@ -18,7 +18,7 @@ class CreatePemesananTable extends Migration
             $table->unsignedBigInteger("id_pelanggan");
             $table->date("tanggal_pemesanan");
             $table->integer("total_pemesanan");
-            $table->string("alamat_pengririman");
+            $table->string("alamat_pengiriman");
             $table->string("status_pemesanan");
             $table->timestamps();
         });

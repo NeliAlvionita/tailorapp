@@ -17,6 +17,7 @@
             <th>Tanggal</th>
             <th>Total</th>
             <th>Status Pemesanan</th>
+            <th>Status Pembayaran</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -24,14 +25,15 @@
           @foreach ($pemesanan as $index => $item)
           <tr>
             <td>{{$index + 1}}</td>
-            <td>{{$item->name}}</td>
+            <td>{{$item->pelanggan->name}}</td>
             <td>{{$item->tanggal_pemesanan}}</td>
             <td>{{$item->total_pemesanan}}</td>
             <td>{{$item->status_pemesanan}}</td>
+            <td>{{$item->pembayaran->status_pembayaran}}</td>
             <td>
               <form action="/admin/pemesanan/{{$item->id_pemesanan}}" method="post">
-                <a class="btn btn-primary" href="/admin/pemesanan/{{$item->id_pemesanan}}/#">detail</a>
-                <a class="btn btn-success" href="/admin/pemesanan/{{$item->id_pemesanan}}/#">pembayaran</a>
+                <a class="btn btn-primary" href="/admin/pemesanan/{{$item->id_pemesanan}}/detail">detail</a>
+                <a class="btn btn-success" href="/admin/pemesanan/{{$item->id_pemesanan}}/pembayaran">pembayaran</a>
                 <a class="btn btn-warning" href="/admin/pemesanan/{{$item->id_pemesanan}}/#">ukuran</a>
               </form>
             </td>
