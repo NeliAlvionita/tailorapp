@@ -14,7 +14,6 @@ class RelasiProdukLayanankategori extends Migration
     public function up()
     {
         Schema::table('produk', function (Blueprint $table) {
-            $table->foreign("id_layanan")->references('id_layanan')->on('layanan');
             $table->foreign("id_kategori")->references('id_kategori')->on('kategori');
         });
     }

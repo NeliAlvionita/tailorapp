@@ -141,12 +141,6 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/layanan" class="nav-link">
-                  <i class="fas fa-fw fa-folder nav-icon"></i>
-                  <p>Data Layanan</p>
-                </a>
-              </li> 
-              <li class="nav-item">
                 <a href="/admin/kategori" class="nav-link">
                   <i class="fas fa-fw fa-folder nav-icon"></i>
                   <p>Data Kategori Pakaian</p>

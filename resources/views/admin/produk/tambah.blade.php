@@ -19,14 +19,6 @@
             <form action="/admin/produk" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="">Layanan</label>
-                <select name="id_layanan" id="id_layanan" class="form-control">
-                    @foreach ($listLayanan as $layanan)
-                    <option value="{{$layanan->id_layanan}}">{{$layanan->nama_layanan}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
                 <label for="">Kategori</label>
                 <select name="id_kategori" id="id_kategori" class="form-control">
                     @foreach ($listKategori as $kategori)

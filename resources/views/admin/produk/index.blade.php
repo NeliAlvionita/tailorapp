@@ -13,7 +13,6 @@
           <tr>
             <th>No</th>
             <th>Id</th>
-            <th>Layanan</th>
             <th>Kategori</th>
             <th>Produk</th>
             <th>Aksi</th>
@@ -24,7 +23,6 @@
           <tr>
             <td>{{$index + 1}}</td>
             <td>{{$item->id_produk}}</td>
-            <td>{{$item->layanan->nama_layanan}}</td>
             <td>{{$item->kategori->nama_kategori}}</td>
             <td>{{$item->nama_produk}}</td>
             <td>
