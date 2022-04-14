@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
+
+=======
 Route::get('/admin', 'AdminController@admin');
 Route::get('/admin/admin', 'AdminController@index');
 Route::get('/admin/admin/tambah', 'AdminController@tambah');
@@ -55,6 +57,8 @@ Route::put('/admin/pemesanan/{id_pemesanan}/update', 'PemesananController@update
 // Route Laporan
 Route::get('/admin/laporan', 'LaporanController@index');
 Route::post('/admin/laporan/filer', 'LaporanController@filer');
+// Route Pelanggan
+Route::get('/', 'BerandaController@beranda');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
