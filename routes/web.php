@@ -17,8 +17,6 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
-
     Route::get('/admin', 'AdminController@admin');
     Route::get('/admin/admin', 'AdminController@index');
     Route::get('/admin/admin/tambah', 'AdminController@tambah');
@@ -50,15 +48,6 @@ Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     Route::delete('/admin/produk/{id_produk}', 'ProdukController@delete');
     // Route Pemesanan
     Route::get('/admin/pemesanan', 'PemesananController@index');
-
-});
-
-Route::group(['middleware' => ['auth','ceklevel:pemilik']], function(){
-    
-    // Route Pemilik
-    Route::get('/admin/kategori', 'KategoriController@index');
-
-});
 
     // Route Pelanggan
     Route::get('/', 'BerandaController@beranda');
