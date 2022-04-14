@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
-
-
-=======
 Route::get('/admin', 'AdminController@admin');
 Route::get('/admin/admin', 'AdminController@index');
 Route::get('/admin/admin/tambah', 'AdminController@tambah');

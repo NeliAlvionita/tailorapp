@@ -8,8 +8,8 @@
     <div class="card-header">
       <h3 class="card-title">Data Pemesanan</h3>
     </div>
-    <div class="card-body p-0">
-      <table class="table table-hover">
+</div>
+      <table id="pemesanan" class="table table-striped table-bordered" style="width:100%">
         <thead>
           <tr>
             <th>No</th>
@@ -41,7 +41,5 @@
           @endforeach
         </tbody>
       </table>
-    </div>
-  </div>
   
   @endsection
