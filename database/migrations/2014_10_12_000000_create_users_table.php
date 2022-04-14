@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('nomorhp');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('level');
+            $table->enum('level', ['admin', 'pemilik', 'pelanggan'])->default('pelanggan');
             $table->rememberToken();
             $table->timestamps();
         });
