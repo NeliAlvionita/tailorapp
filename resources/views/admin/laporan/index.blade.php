@@ -9,7 +9,7 @@
       <h2 class="card-title">LAPORAN PEMESANAN</h2>
     </div>
     <div class="card-body">
-    <form action="/admin/laporan/filer" method="POST">
+      {{-- <form action="/admin/laporan/filer" method="POST">
       @csrf
       <div class="form-group">
         <table class="table table-hover">
@@ -31,9 +31,15 @@
             </tbody>
         </table>
       <button class="btn btn-warning" type="submit">Filter</button>
-    </form>
-    <div class="card-body p-0">
-      <table class="table table-hover">
+      </div>
+      </form> --}}
+      <form action="/admin/laporan/#" method="POST">
+        <a class="btn btn-danger" href="/admin/pemesanan/#">Cetak PDF</a>
+        <a class="btn btn-success" href="/admin/pemesanan/#">Cetak Excel</a>
+      </form>
+    </div>
+</div>
+      <table id="laporan" class="table table-striped table-bordered" style="width:100%">
         <thead>
           <tr>
             <th>No</th>
@@ -55,12 +61,5 @@
           @endforeach
         </tbody>
       </table> 
-    </div>
-  </div>
-  <form action="/admin/laporan/#" method="POST">
-    <a class="btn btn-danger" href="/admin/pemesanan/#">Cetak PDF</a>
-    <a class="btn btn-success" href="/admin/pemesanan/#">Cetak Excel</a>
-  </form>
-</div>
   
   @endsection
