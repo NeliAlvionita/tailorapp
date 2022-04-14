@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Produk;
-use App\Layanan;
 use App\Kategori;
 use Illuminate\Http\Request;
 
@@ -16,9 +15,8 @@ class ProdukController extends Controller
     }
 
     public function tambah(){
-        $listLayanan = Layanan::all();
         $listKategori = Kategori::all();
-        return view('admin/produk/tambah', ['listLayanan' => $listLayanan], ['listKategori' => $listKategori]);
+        return view('admin/produk/tambah', ['listKategori' => $listKategori]);
     }
 
     public function store(Request $request)
@@ -26,7 +24,6 @@ class ProdukController extends Controller
         // dd($request->gambar_ukuran);
 
         $this->validate($request, [
-            'id_layanan' => ['required'],
             'id_kategori' => ['required'],
             'nama_produk' => ['required', 'string', 'max:255'],
             'foto_produk' => ['mimes:jpeg,png,jpg,gif,svg'],
@@ -57,10 +54,9 @@ class ProdukController extends Controller
 
     public function ubah(Request $request)
     {
-        $listLayanan = Layanan::all();
         $listKategori = Kategori::all();
         $produk = Produk::find($request->id_produk);
-        return view('/admin/produk/ubah',['produk' => $produk, 'listLayanan' => $listLayanan, 'listKategori' => $listKategori]);
+        return view('/admin/produk/ubah',['produk' => $produk, 'listKategori' => $listKategori]);
     }
 
     public function update(Request $request, Produk $produk)
@@ -68,7 +64,6 @@ class ProdukController extends Controller
         
         $produk = Produk::find($request->id_produk);
         $this->validate($request, [
-            'id_layanan' => ['required'],
             'id_kategori' => ['required'],
             'nama_produk' => ['required', 'string', 'max:255'],
             'foto_produk' => ['mimes:jpeg,png,jpg,gif,svg'],
@@ -82,8 +77,7 @@ class ProdukController extends Controller
             $foto_produk->move($destinationPath, $profileImage);
             // $input['foto_produk'] = "$profileImage";
         }
-        
-        $produk->id_layanan=$request->id_layanan;
+    
         $produk->id_kategori=$request->id_kategori;
         $produk->nama_produk=$request->nama_produk;
         $produk->harga=$request->harga;
