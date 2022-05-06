@@ -9,7 +9,7 @@
       <h2 class="card-title">LAPORAN PEMESANAN</h2>
     </div>
     <div class="card-body">
-      {{-- <form action="/admin/laporan/filer" method="POST">
+      <form action="/admin/laporan/filer" method="POST">
       @csrf
       <div class="form-group">
         <table class="table table-hover">
@@ -32,7 +32,7 @@
         </table>
       <button class="btn btn-warning" type="submit">Filter</button>
       </div>
-      </form> --}}
+      </form>
       <form action="/admin/laporan/#" method="POST">
         <a class="btn btn-danger" href="/admin/pemesanan/#">Cetak PDF</a>
         <a class="btn btn-success" href="/admin/pemesanan/#">Cetak Excel</a>

@@ -48,14 +48,14 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($pemesanan as $index => $item)
-            {{-- <tr>
+            @foreach ($pemesanan->detail_pemesanan as $index => $item)
+            <tr>
               <td>{{$index + 1}}</td>
-              <td>{{$item->nama_produk}}</td>
+              <td>{{$item->produk->nama_produk}}</td>
               <td>{{$item->produk->harga}}</td>
               <td>{{$item->jumlah}}</td>
               <td>{{$item->subtotal}}</td>
-            </tr> --}}
+            </tr>
             @endforeach
           </tbody>
       </table>
@@ -69,7 +69,6 @@
         <form action="/admin/pemesanan/{{$pemesanan->id_pemesanan}}" method="post">
         @csrf
         @method('PUT')
-        {{-- <input type="hidden" name="id_pemesanan" value="{{$pemesanan->id_pemesanan}}"> --}}
         <div class="form-group">
           <select name="status_pemesanan" id="status_pemesanan" class="form-control">
             <option value="">-- Pilih Opsi --</option>

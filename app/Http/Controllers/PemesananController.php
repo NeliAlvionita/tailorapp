@@ -35,7 +35,7 @@ class PemesananController extends Controller
     public function update_bayar(Request $request){
         $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
         $pemesanan->pembayaran->status_pembayaran=$request->status_pembayaran;
-        $pemesanan->save();
+        $pemesanan->pembayaran->save();
         return redirect('/admin/pemesanan');
     }
 }
