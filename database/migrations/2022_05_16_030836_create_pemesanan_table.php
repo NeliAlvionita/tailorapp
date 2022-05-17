@@ -19,7 +19,7 @@ class CreatePemesananTable extends Migration
             $table->date("tanggal_pemesanan");
             $table->integer("total_pemesanan");
             $table->string("alamat_pengiriman");
-            $table->string("status_pemesanan");
+            $table->string("status_pemesanan")->default(0);
             $table->timestamps();
         });
     }

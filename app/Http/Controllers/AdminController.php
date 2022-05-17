@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $admin = User::where('level', '=', 'admin')->get();
+        $admin = User::where('level', '!=', 'pelanggan')->get();
 
         return view('admin/admin/index', ['admin'=> $admin]);
     }

@@ -520,6 +520,8 @@ header
     opacity: 1;
 }
 
+
+
 .header-area .main-nav .nav li.submenu {
     position: relative;
     padding-right: 30px;
@@ -593,6 +595,9 @@ header
     transform: translateY(0%);
     transition-delay: 0s, 0s, 0.3s;
 }
+
+.header-area .main-nav .nav li > ul{display:none;}
+.header-area .main-nav .nav li:hover ul{display:block;}
 
 .header-area .main-nav .menu-trigger {
     cursor: pointer;

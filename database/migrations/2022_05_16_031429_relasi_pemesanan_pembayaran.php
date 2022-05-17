@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RelasiUkuranPemesanan extends Migration
+class RelasiPemesananPembayaran extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class RelasiUkuranPemesanan extends Migration
      */
     public function up()
     {
-        Schema::table('ukuran', function (Blueprint $table) {
+        Schema::table('pembayaran', function (Blueprint $table) {
             $table->foreign("id_pemesanan")->references('id_pemesanan')->on('pemesanan');
         });
     }

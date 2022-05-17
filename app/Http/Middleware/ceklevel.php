@@ -13,21 +13,11 @@ class ceklevel
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, ...$level)
     {
-        //jika akun yang login sesuai dengan role 
-        //maka silahkan akses
-        //jika tidak sesuai akan diarahkan ke home
-
-        $roles = array_slice(func_get_args(), 2);
-
-        foreach ($roles as $role) { 
-            $user = \Auth::user()->role;
-            if( $user == $role){
-                return $next($request);
-            }
+        if (in_array($request->user()->level, $level)){
+            return $next($request);
         }
-
         return redirect('/');
     }
 }

@@ -11,4 +11,8 @@ class Kategori extends Model
     protected $fillable = ["nama_kategori", "gambar_ukuran"];
 
     public $timestamps = false;
+
+    public function produk(){
+        return $this->hasMany('App\Produk', 'id_kategori', 'id_kategori');
+    }
 }

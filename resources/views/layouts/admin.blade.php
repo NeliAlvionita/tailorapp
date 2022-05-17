@@ -65,23 +65,18 @@
         </li>
         @else
         <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                    style="display: none;">
-                    @csrf
-                </form>
-            </div>
-        </li>
+          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              {{ Auth::user()->name }}
+          </a>
+          <a class="dropdown-item" href="{{ route('logout') }}"
+                 onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+          </form>
+      </li>
         @endguest
 
   </nav>
@@ -119,45 +114,47 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Data
-              <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/admin" class="nav-link">
-                  <i class="fas fa-fw fa-cog nav-icon"></i>
-                  <p>Data Admin</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/pelanggan" class="nav-link">
-                  <i class="fas fa-fw fa-cog nav-icon"></i>
-                  <p>Data Pelanggan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/kategori" class="nav-link">
-                  <i class="fas fa-fw fa-folder nav-icon"></i>
-                  <p>Data Kategori Pakaian</p>
-                </a>
-              </li> 
-              <li class="nav-item">
-                <a href="/admin/produk" class="nav-link">
-                  <i class="fas fa-fw fa-folder nav-icon"></i>
-                  <p>Data Produk</p>
-                </a>
-              </li> 
-              <li class="nav-item">
-                <a href="/admin/pemesanan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Pemesanan</p>
-                </a>
-              </li>
+          @if(auth()->user()->level=='admin')
+            <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Data
+                <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/admin" class="nav-link">
+                    <i class="fas fa-fw fa-cog nav-icon"></i>
+                    <p>Data Admin</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/pelanggan" class="nav-link">
+                    <i class="fas fa-fw fa-cog nav-icon"></i>
+                    <p>Data Pelanggan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/kategori" class="nav-link">
+                    <i class="fas fa-fw fa-folder nav-icon"></i>
+                    <p>Data Kategori Pakaian</p>
+                  </a>
+                </li> 
+                <li class="nav-item">
+                  <a href="/admin/produk" class="nav-link">
+                    <i class="fas fa-fw fa-folder nav-icon"></i>
+                    <p>Data Produk</p>
+                  </a>
+                </li> 
+                <li class="nav-item">
+                  <a href="/admin/pemesanan" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Pemesanan</p>
+                  </a>
+                </li>
+            @endif
               <li class="nav-item">
                 <a href="/admin/laporan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
