@@ -1,4 +1,4 @@
-<?php
+<<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,7 +21,7 @@ class CreatePembayaranTable extends Migration
             $table->integer("jumlah");
             $table->date("tanggal_pembayaran");
             $table->string("bukti");
-            $table->string("status_pembayaran");
+            $table->string("status_pembayaran")->default(0);
             $table->timestamps();
         });
     }

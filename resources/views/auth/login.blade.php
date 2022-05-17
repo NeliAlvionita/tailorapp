@@ -107,10 +107,15 @@
         </style>
     </head>
     <body>
+        @if (Session::has('success'))
+            <div class="alert alert-success" role="alert">
+                {{Session::get('success')}}
+            </div>
+        @endif
         <div class="wrapper">
             <div class="text-center mt-4 name">
                 <center>
-                Login Admin
+                LOGIN
                 </center>
             </div>
             <div class="logo">
@@ -142,6 +147,9 @@
                 @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">Forget password?</a>
                 @endif
+            </div>
+            <div class="text-center fs-6">
+                <a href="{{ route('register') }}">Register</a>
             </div>
         </div>
     </body>

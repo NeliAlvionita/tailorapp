@@ -1,8 +1,16 @@
-@extends('pelanggan.layouts.master')
-@section('slider')
-@endsection
+@extends('pelanggan.layouts.app')
 @section('content')
 <div class="container">
+    <div class="row mb-2">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="text-dark">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Layanan</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-9">
             <h2>{{ $title }}</h2>

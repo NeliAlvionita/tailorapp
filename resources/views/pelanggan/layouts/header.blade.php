@@ -12,26 +12,40 @@
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Beranda</a></li>
               <li class="scroll-to-section"><a href="#about">Katalog</a></li>
-              <li class="scroll-to-section"><a href="">Layanan
+              <li class="scroll-to-section"><a href="{{ route('produk') }}">Layanan
                   <ul class="dropdown-menu">
-                    @foreach ($kategori as $index => $item)
+                    {{-- @foreach ($kategori as $index => $item)
                     <li><a href="{{ route('produk.kategori', $item->id_kategori) }}">
                         {{$item->nama_kategori}}</a>
                     </li>
-                    @endforeach
+                    @endforeach --}}
                     <a class="dropdown-item" href="{{ route('produk') }}">Semua Kategori</a>
                   </ul>
               </li>
               <li class="scroll-to-section">
-                <a href="#pricing">Pesanan</a>
+                <a href="{{ route('riwayat') }}">Pesanan</a>
                 <!-- <ul>
                   <li>Status Pemesanan</li>
                 </ul> -->
               </li>
-              <li class="scroll-to-section"><a href="#newsletter">Keranjang</a></li>
-              <li><div class="gradient-button"><a id="modal_trigger" href="#modal">
+              <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
+              @guest
+              <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
                 <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
-            </ul>        
+            </ul>   
+            @else  
+            <li><div class="gradient-button"><a id="modal_trigger" href="#">
+                <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a></div></li> 
+            </ul> 
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                 onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+            </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+          </form>
+          @endguest  
             <a class='menu-trigger'>
                 <span>Menu</span>
             </a>
@@ -73,58 +87,6 @@
                 <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
                 <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
             </div>
-        </div>
-
-        <!-- Username & Password Login form -->
-        <div class="user_login">
-            <form>
-                <label>Email / Username</label>
-                <input type="text" />
-                <br />
-
-                <label>Password</label>
-                <input type="password" />
-                <br />
-
-                <div class="checkbox">
-                    <input id="remember" type="checkbox" />
-                    <label for="remember">Remember me on this computer</label>
-                </div>
-
-                <div class="action_btns">
-                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                    <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
-                </div>
-            </form>
-
-            <a href="#" class="forgot_password">Forgot password?</a>
-        </div>
-
-        <!-- Register Form -->
-        <div class="user_register">
-            <form>
-                <label>Full Name</label>
-                <input type="text" />
-                <br />
-
-                <label>Email Address</label>
-                <input type="email" />
-                <br />
-
-                <label>Password</label>
-                <input type="password" />
-                <br />
-
-                <div class="checkbox">
-                    <input id="send_updates" type="checkbox" />
-                    <label for="send_updates">Send me occasional email updates</label>
-                </div>
-
-                <div class="action_btns">
-                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                    <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
-                </div>
-            </form>
         </div>
     </section>
 </div>

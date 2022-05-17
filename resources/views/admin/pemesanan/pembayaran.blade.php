@@ -13,7 +13,7 @@
         <p>Total  : {{$pemesanan->pembayaran->jumlah }}</p>
         <p>Tanggal  : {{$pemesanan->pembayaran->tanggal_pembayaran }}</p>
         <p>Bukti  : </p>
-        {{-- <p><img src="{{asset($pembayaran->bukti)}}"> </p> --}}
+        <p><img src="/bukti/{{ $pemesanan->pembayaran->bukti }}"> </p>
     </div>
 </div>
 <div class="card card-info card-outline">

@@ -1,7 +1,4 @@
-@extends('pelanggan.layouts.master')
-@section('title','Produk')
-@section('slider')
-@endsection
+@extends('pelanggan.layouts.app')
 
 @section('content')
 <div class="container">
@@ -9,7 +6,7 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-dark">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/" class="text-dark">Beranda</a></li>
                     <li class="breadcrumb-item active" aria-current="page">List Produk</li>
                 </ol>
             </nav>

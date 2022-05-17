@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
+// Route::get('/loginadmin', 'Admin\Auth\LoginController@LoginForm')->name('admin.login');
+// Route::post('/loginform', 'Admin\Auth\LoginController@login' )->name('admin.login');
+// Route::get('/logoutadmin', 'Admin\Auth\LoginController@logout')->name('admin.logout');
 Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::get('/admin/admin', 'AdminController@index');
     Route::get('/admin/admin/tambah', 'AdminController@tambah')->name('tambah.admin');;
@@ -50,6 +54,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pemilik']], function () {
     Route::get('/admin', 'AdminController@admin');
     Route::get('/admin/laporan', 'LaporanController@index');
     Route::post('/admin/laporan/filer', 'LaporanController@filer');
+    Route::get('/cetak-laporan/{tanggal_mulai}/{tanggal_akhir}', 'LaporanController@cetak')->name('cetak-laporan');
 });
 // Route Pelanggan
 Route::get('/', 'BerandaController@beranda');
@@ -57,4 +62,12 @@ Route::get('/pelanggan/produk', 'PelangganProdukController@produk_all')->name('p
 Route::get('/pelanggan/produk/{id_produk}', 'PelangganProdukController@produk_detail')->name('produk.detail');
 Route::get('/pelanggan/produk/{id_kategori}', 'PelangganProdukController@produk_kategori')->name('produk.kategori');
 Route::get('/pelanggan/produk/produk_detail/{id_produk}', 'PelangganPemesananController@index')->name('pemesanan.index');
+Route::post('/pelanggan/pemesanan', 'PelangganPemesananController@masukkanKeranjang');
+Route::get('/pelanggan/keranjang', 'KeranjangController@index')->name('keranjang');
+Route::get('/pelanggan/checkout', 'CheckoutController@index')->name('checkout');
+Route::post('/pelanggan/checkout', 'CheckoutController@checkout')->name('checkoutfix');
+Route::get('/pelanggan/riwayat', 'RiwayatController@index')->name('riwayat');
+Route::get('/pelanggan/riwayat/{id_pemesanan}', 'RiwayatController@detail')->name('riwayat.detail');
+Route::get('/pelanggan/riwayat/{id_pemesanan}/bayar', 'RiwayatController@pembayaran')->name('riwayat.bayar');
+
 Auth::routes();
