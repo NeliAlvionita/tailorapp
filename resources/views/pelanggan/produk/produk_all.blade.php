@@ -42,7 +42,7 @@
             right:20px;
             z-index:100;
         }
-
+        
         .kotak img {
             -webkit-transition: 0.4s ease;
             transition: 0.4s ease;
@@ -71,7 +71,7 @@
                                 <!-- ***** Logo End ***** -->
                                 <!-- ***** Menu Start ***** -->
                                 <ul class="nav">
-                                <li class="scroll-to-section"><a href="#top" >Beranda</a></li>
+                                <li class="scroll-to-section"><a href="/" >Beranda</a></li>
                                 <li class="scroll-to-section"><a href="/pelanggan/produk" class="active">Katalog</a></li>
                                 <li class="scroll-to-section"><a href="{{ route('produk') }}">Layanan
                                     <ul class="dropdown-menu">
