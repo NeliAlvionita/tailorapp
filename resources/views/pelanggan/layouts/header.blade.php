@@ -11,7 +11,7 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Beranda</a></li>
-              <li class="scroll-to-section"><a href="#about">Katalog</a></li>
+              <li class="scroll-to-section"><a href="/pelanggan/produk">Katalog</a></li>
               <li class="scroll-to-section"><a href="{{ route('produk') }}">Layanan
                   <ul class="dropdown-menu">
                     {{-- @foreach ($kategori as $index => $item)
