@@ -31,7 +31,7 @@ class KeranjangController extends Controller
 
     public function delete($id_detailpemesanan)
     {
-       $detailpemesanan = Detail_Pemesanan::where('id_detailpemesanan', $id_detailpemesanan)->first();
+       $detailpemesanan = Detail_Pemesanan::find($id_detailpemesanan);
        $ukuran = Ukuran::where('id_detailpemesanan',$id_detailpemesanan)->first();
        if(!empty($detailpemesanan)) {
            
@@ -52,8 +52,7 @@ class KeranjangController extends Controller
                $pemesanan->update();
            }
        }
-       return redirect(route('keranjang'));
-       session()->flash('message', 'Pesanan Dihapus');
+       return redirect(route('keranjang'))->with('message', 'Berhasil Menghapus Pesanan');
     }
 
     public function ubah(Request $request){
@@ -102,7 +101,7 @@ class KeranjangController extends Controller
         $detailpemesanan->ukuran->lebar_bawah = $request->lebar_bawah;
         $detailpemesanan->ukuran->update();
 
-        return redirect(route('keranjang'));
+        return redirect(route('keranjang'))->with('message', 'Berhasil Mengupdate Keranjang');
 
     }
 }

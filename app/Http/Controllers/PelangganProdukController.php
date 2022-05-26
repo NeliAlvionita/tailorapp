@@ -41,9 +41,9 @@ class PelangganProdukController extends Controller
     public function produk_all(){
             $kategori = Kategori::all();
             if($this->search) {
-                $produk = Produk::where('nama_produk', 'like', '%'.$this->search.'%')->paginate(8);
+                $produk = Produk::where('nama_produk', 'like', '%'.$this->search.'%')->paginate(6);
             }else {
-                $produk = Produk::paginate(8);
+                $produk = Produk::paginate(6);
             }
         
         return view('pelanggan/produk/produk_all', [

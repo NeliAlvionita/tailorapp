@@ -20,7 +20,7 @@ class TestimoniController extends Controller
         ]);
         $testimoni->save();
 
-        return redirect(route('riwayat'));
+        return redirect(route('riwayat'))->with('message', 'Berhasil Menambahkan Testimoni');
     }
 
     public function admin(){

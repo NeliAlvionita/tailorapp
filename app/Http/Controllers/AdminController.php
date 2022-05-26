@@ -44,7 +44,7 @@ class AdminController extends Controller
             'level' => $request['level'],
         ]);
         if ($user->save()) {
-            return redirect('/admin/admin');
+            return redirect('/admin/admin')->with('message', 'Berhasil Menambah Data');
         }
     }
 
@@ -68,7 +68,7 @@ class AdminController extends Controller
         $user->level = $request->level;
         $user->save();
 
-        return redirect('/admin/admin');
+        return redirect('/admin/admin')->with('message', 'Berhasil Mengubah Data');
     }
 
     public function delete(Request $request)
@@ -76,7 +76,7 @@ class AdminController extends Controller
         $user = User::findOrFail($request->id);
 
         if ($user->delete()) {
-            return redirect('/admin/admin');
+            return redirect('/admin/admin')->with('message', 'Berhasil Menghapus Data');
         }
     }
 }

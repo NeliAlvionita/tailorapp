@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Auth;
 class PelangganPemesananController extends Controller
 {
     public function index($id_produk){
+        if(!Auth::user()) {
+            return redirect()->route('login');
+        }
         $kategori=Kategori::all();
         $produk = Produk::find($id_produk);
         return view('pelanggan/pemesanan/index', [
@@ -92,7 +95,7 @@ class PelangganPemesananController extends Controller
             
         ]);
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Berhasil Menambahkan Keranjang');
 
 
     }

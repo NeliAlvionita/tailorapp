@@ -47,38 +47,10 @@
   </div>
   </div>
 </header>
-  <!-- ***** Header Area End ***** -->
-  
-  <div id="akun" class="popupContainer" style="display:none;">
-    <div class="popupHeader">
-        <span class="header_title"></span>
-        <span class="modal_close"><i class="fa fa-times"></i></span>
-    </div>
-
-    <section class="popupBody">
-        <!-- Social Login -->
-        <div class="social_login">
-            <div class="">
-                <a href="#" class="social_box fb">
-                    <span class="icon"><i class="fab fa-facebook"></i></span>
-                    <span class="icon_title">Connect with Facebook</span>
-
-                </a>
-
-                <a href="#" class="social_box google">
-                    <span class="icon"><i class="fab fa-google-plus"></i></span>
-                    <span class="icon_title">Connect with Google</span>
-                </a>
-            </div>
-
-            <div class="centeredText">
-                <span>Or use your Email address</span>
-            </div>
-
-            <div class="action_btns">
-                <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-            </div>
-        </div>
+@if (session('message'))
+<div class="alert alert-success alert-dismissible">
+  {{ session('message') }}
+</div>
+@endif
     </section>
 </div>

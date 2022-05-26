@@ -3,7 +3,11 @@
 @section('title', 'Data Admin')
 
 @section('content')
-
+@if (session('message'))
+<div class="alert alert-success alert-dismissible">
+  {{ session('message') }}
+</div>
+@endif
 <div class="card card-info card-outline">
     <div class="card-header">
       <h3 class="card-title">Data Admin</h3>

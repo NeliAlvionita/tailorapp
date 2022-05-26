@@ -17,8 +17,7 @@ class BerandaController extends Controller
 
     public function beranda()
     {
-        $kategori = Kategori::all();
-        return view('pelanggan/index', ['kategori'=> $kategori]);
+        return view('pelanggan/index');
     }
 
     

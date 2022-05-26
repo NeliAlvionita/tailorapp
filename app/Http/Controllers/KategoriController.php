@@ -37,7 +37,7 @@ class KategoriController extends Controller
         
         Kategori::create($input);
    
-        return redirect('/admin/kategori')->with('success','Product created successfully.');
+        return redirect('/admin/kategori')->with('message','Berhasil Menambahkan Kategori');
     }
 
     public function show(Request $request)
@@ -72,15 +72,19 @@ class KategoriController extends Controller
         $kategori->save(); 
  
 
-        return redirect('/admin/kategori')->with('success','Product created successfully.');
+        return redirect('/admin/kategori')->with('message','Berhasil Mengubah Kategori');
     }
 
     public function delete(Request $request)
     {
         $kategori = Kategori::findOrFail($request->id_kategori);
-
-        if ($kategori->delete()) {
-            return redirect('/admin/kategori');
+        if (count($kategori->produk) == 0) {
+            $kategori->delete();
+                return redirect('/admin/kategori')->with('message', 'Berhasil Menghapus Data');
+            
+        } else {
+            return redirect('/admin/kategori')->with('message', 'Gagal Menghapus Data, Ada Produk yang terkait dengan kategori ini');
         }
+        
     }
 }
