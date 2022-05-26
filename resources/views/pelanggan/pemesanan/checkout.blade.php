@@ -42,6 +42,7 @@
                     No. Rekening 012345-678-910 atas nama <strong>Neli Alvionita</strong>
                 </div>
             </div>
+            <input type="hidden" name="tanggal_pemesanan" value="<?php echo date("Y-m-d"); ?>">
             <div class="form-group">
                 <label for="">Nama Penyetor</label>
                 <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"

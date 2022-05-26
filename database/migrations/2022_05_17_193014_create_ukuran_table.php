@@ -15,7 +15,7 @@ class CreateUkuranTable extends Migration
     {
         Schema::create('ukuran', function (Blueprint $table) {
             $table->bigIncrements("id_ukuran");
-            $table->unsignedBigInteger("id_pemesanan");
+            $table->unsignedBigInteger("id_detailpemesanan");
             $table->string("catatan")->nullable();
             $table->string("foto_model")->nullable();
             $table->string("panjang_bahu")->nullable();

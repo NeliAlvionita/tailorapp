@@ -11,4 +11,9 @@ class PelangganController extends Controller
 
         return view('admin/pelanggan/index', ['pelanggan'=> $pelanggan]);
     }
+
+    public function detail(Request $request){
+        $pelanggan = User::find($request->id);
+        return view('admin/pelanggan/detail', ['pelanggan' => $pelanggan]);
+    }
 }

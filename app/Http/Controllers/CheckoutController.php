@@ -32,6 +32,7 @@ class CheckoutController extends Controller
 
         //update data pemesanan
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('status_pemesanan','=','0')->first();
+        $pemesanan->tanggal_pemesanan = $request->tanggal_pemesanan;
         $pemesanan->status_pemesanan = 'belum diproses';
         $pemesanan->alamat_pengiriman = $request->alamat_pengiriman;
         $pemesanan->update();
@@ -54,7 +55,7 @@ class CheckoutController extends Controller
             'status_pembayaran' => 'belum dicek',
         ]);
 
-        return redirect()->back();
+        return redirect('/');
 
     }
 }

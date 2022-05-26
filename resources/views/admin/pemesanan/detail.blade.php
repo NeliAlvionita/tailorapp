@@ -41,7 +41,7 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama</th>
+              <th>Nama Produk</th>
               <th>Harga</th>
               <th>Jumlah</th>
               <th>Sub Total</th>

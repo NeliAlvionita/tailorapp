@@ -75,7 +75,7 @@ class ProdukController extends Controller
             $destinationPath = 'foto_produk/';
             $profileImage = date('YmdHis') . "." . $foto_produk->getClientOriginalExtension();
             $foto_produk->move($destinationPath, $profileImage);
-            // $input['foto_produk'] = "$profileImage";
+            $produk->foto_produk=$profileImage;
         }
     
         $produk->id_kategori=$request->id_kategori;

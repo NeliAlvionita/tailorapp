@@ -51,14 +51,16 @@ class PelangganPemesananController extends Controller
             $pemesanan->total_pemesanan = $pemesanan->total_pemesanan+$total_harga;
             $pemesanan->update();
         }
+        
 
         //Meyimpanan Detail Pemesanan
-        Detail_Pemesanan::create([
+        $detail_pemesanan = Detail_Pemesanan::create([
             'id_pemesanan' => $pemesanan->id_pemesanan,
             'id_produk' =>  $request->id_produk,
             'jumlah' => $request->jumlah,
             'subtotal'=> $total_harga
         ]);
+        $detail_pemesanan->save();
 
         //Menyimpan Data Ukuran
         if ($foto_model = $request->file('foto_model')) {
@@ -66,9 +68,11 @@ class PelangganPemesananController extends Controller
             $profileImage = date('YmdHis') . "." . $foto_model->getClientOriginalExtension();
             $foto_model->move($destinationPath, $profileImage);
             $inputfoto = "$profileImage";
+        } else {
+            $inputfoto = '-';
         }
         Ukuran::create([
-            'id_pemesanan' => $pemesanan->id_pemesanan,
+            'id_detailpemesanan' => $detail_pemesanan->id_detailpemesanan,
             'catatan' => $request->catatan,
             'foto_model' => $inputfoto,
             'panjang_bahu' => $request->panjang_bahu,
@@ -88,7 +92,7 @@ class PelangganPemesananController extends Controller
             
         ]);
 
-        return redirect()->back();
+        return redirect('/');
 
 
     }

@@ -48,7 +48,12 @@
                             <td>Rp. {{ number_format($detail_pemesanan->produk->harga) }}</td>
                             <td><strong>Rp. {{ number_format($detail_pemesanan->subtotal) }}</strong></td>
                             <td>
-                                {{-- <i wire:click="destroy({{ $detail_pemesanan->id_detailpemesanan }})" class="fas fa-trash text-danger"></i> --}}
+                                <a class="btn btn-primary" href="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}/ubah">Ubah</a>
+                                <form action="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
                             </td>
                         </tr>    
                         @empty

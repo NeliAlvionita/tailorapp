@@ -31,19 +31,51 @@ class AdminController extends Controller
     {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:3', 'confirmed'],
             'level' => ['required', 'string', 'max:255'],
         ]);
 
-        $user = new User();
+        $user = User::create([
+            'name' => $request['name'],
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'level' => $request['level'],
+        ]);
+        if ($user->save()) {
+            return redirect('/admin/admin');
+        }
+    }
+
+    public function ubah(Request $request){
+        $user = User::find($request->id);
+        return view('admin/admin/ubah', ['user' => $user]);
+    }
+
+    public function update(Request $request, User $user){
+        $user = User::find($request->id);
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:3', 'confirmed'],
+            'level' => ['required', 'string', 'max:255'],
+        ]);
+
         $user->name = $request->name;
-        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->level = $request->level;
-        if ($user->save()) {
+        $user->save();
+
+        return redirect('/admin/admin');
+    }
+
+    public function delete(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+
+        if ($user->delete()) {
             return redirect('/admin/admin');
         }
     }

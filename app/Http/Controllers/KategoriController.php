@@ -19,7 +19,6 @@ class KategoriController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->gambar_ukuran);
 
         $this->validate($request, [
             'nama_kategori' => ['required', 'string', 'max:255'],
@@ -66,7 +65,6 @@ class KategoriController extends Controller
             $destinationPath = 'gambar_ukuran/';
             $profileImage = date('YmdHis') . "." . $gambar_ukuran->getClientOriginalExtension();
             $gambar_ukuran->move($destinationPath, $profileImage);
-            // $input['gambar_ukuran'] = "$profileImage";
             $kategori->gambar_ukuran=$profileImage;
         }
         

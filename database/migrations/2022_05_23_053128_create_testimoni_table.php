@@ -4,17 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RelasiUkuranPemesanan extends Migration
+class CreateTestimoniTable extends Migration
 {
-     /**
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::table('ukuran', function (Blueprint $table) {
-            $table->foreign("id_pemesanan")->references('id_pemesanan')->on('pemesanan');
+        Schema::create('testimoni', function (Blueprint $table) {
+            $table->bigIncrements("id_testimoni");
+            $table->unsignedBigInteger("id_pemesanan");
+            $table->string("isi_testimoni");
         });
     }
 
@@ -25,6 +27,6 @@ class RelasiUkuranPemesanan extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('testimoni');
     }
 }

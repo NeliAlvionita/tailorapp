@@ -46,11 +46,14 @@
                             <td>Rp. {{ number_format($pemesanan->total_pemesanan) }}</td>
                             <td>{{ $pemesanan->pembayaran->status_pembayaran }}</td>
                             <td>
-                                    <a class="btn btn-primary" href="{{ route('riwayat.detail', $pemesanan->id_pemesanan) }}">Detail</a>
+                                    <a class="btn btn-primary" href="/pelanggan/riwayat/{{$pemesanan->id_pemesanan}}">Detail</a>
                                     <a class="btn btn-warning" href="{{ route('riwayat.bayar', $pemesanan->id_pemesanan) }}">Lihat Pembayaran</a>
+                                    @if($pemesanan->status_pemesanan=='Pesanan Selesai')
+                                    <a class="btn btn-warning" href="{{ route('tambah.testimoni', $pemesanan->id_pemesanan)}}">Tambah Testimoni</a>
+                                    @endif
                             </td>
                         </tr>
-                        @empty
+                        @empty 
                         <tr>
                             <td colspan="7">Data Kosong</td>
                         </tr>
@@ -60,5 +63,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

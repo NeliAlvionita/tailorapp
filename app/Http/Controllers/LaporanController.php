@@ -12,17 +12,7 @@ class LaporanController extends Controller
         $laporan = DB::table('pemesanan')
             ->join('users', 'users.id', '=', 'pemesanan.id_pelanggan')
             ->select('pemesanan.*', 'users.*')
-            ->get();
-        return view('admin/laporan/index', ['laporan' => $laporan]);
-    }
-
-    public function filer(Request $request)
-    {
-        $laporan = DB::table('pemesanan')
-            ->join('users', 'users.id', '=', 'pemesanan.id_pelanggan')
-            ->select('pemesanan.*', 'users.*')
-            ->where('pemesanan.tanggal_pemesanan', '>=', $request->tanggal_mulai)
-            ->where('pemesanan.tanggal_pemesanan', '<=', $request->tanggal_akhir)
+            ->where('status_pemesanan', '!=', '0')
             ->get();
         return view('admin/laporan/index', ['laporan' => $laporan]);
     }
@@ -31,6 +21,7 @@ class LaporanController extends Controller
         $cetaklaporan = DB::table('pemesanan')
             ->join('users', 'users.id', '=', 'pemesanan.id_pelanggan')
             ->select('pemesanan.*', 'users.*')
+            ->where('status_pemesanan', '!=', '0')
             ->whereBetween('tanggal_pemesanan', [$tanggal_mulai, $tanggal_akhir])
             ->get();
         return view('admin/laporan/cetak', ['cetaklaporan' => $cetaklaporan]);
