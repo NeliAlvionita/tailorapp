@@ -13,6 +13,10 @@
                     <td>Tanggal Pemesanan: {{ $pemesanan->tanggal_pemesanan }}</td>
                     <td>Nama Penyetor : {{ $pemesanan->pembayaran->nama }}</td>
                 </tr>
+                <tr>
+                    <td></td>
+                    <td>Bank          : {{ $pemesanan->pembayaran->bank}} </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -40,24 +44,19 @@
             </tr>
             @endforeach
             <tr>
-                <td align="left"><strong>Total Yang Harus dibayarkan : </strong></td>
+                <td align="left"><strong>Total Pembayaran : </strong></td>
                 <td align="left"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
                 <td></td>
             </tr>
+            
           </tbody>
       </table>
-      @if($pemesanan->pembayaran->status_pembayaran=='Belum Lunas')
-      <div class="row">
+    @if($pemesanan->pembayaran->status_pembayaran=='belum dicek')
+    <div class="row">
         <div class="col">
             <div class="card shadow">
                 <div class="card-body">
-                    <p>Untuk kekurangan pembayaran sebanyak Rp. {{ number_format($pemesanan->total_pemesanan-$pemesanan->pembayaran->jumlah) }} silahkan dapat transfer di rekening dibawah ini : </p>
-                    <div class="media">
-                        <div class="media-body">
-                            <h5 class="mt-0">BANK BNI</h5>
-                            No. Rekening 012345-678-910 atas nama <strong>Neli Alvionita</strong>
-                        </div>
-                    </div>
+                    <p>Prembayaran yang telah anda lakukan sedang dalam proses pengecekan oleh admin </p>
                 </div>
             </div>
         </div>
@@ -75,7 +74,7 @@
             </div>
             <div class="card shadow">
                 <div class="card-body">
-                    <a class="btn btn-primary" href="#">Cetak</a>
+                    <a class="btn btn-primary" href="#">Cetak Nota</a>
                 </div>
             </div>
         </div>

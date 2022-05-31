@@ -3,7 +3,11 @@
 @section('title', 'Data Admin')
 
 @section('content')
-
+@if (session('message'))
+<div class="alert alert-success alert-dismissible">
+  {{ session('message') }}
+</div>
+@endif
 <div class="card card-info card-outline">
     <div class="card-header">
       <h3 class="card-title">Data Admin</h3>
@@ -15,7 +19,6 @@
           <tr>
             <th>No</th>
             <th>Nama</th>
-            <th>Username</th>
             <th>Email</th>
             <th>Level</th>
             <th>Aksi</th>
@@ -26,7 +29,6 @@
           <tr>
             <td>{{$index + 1}}</td>
             <td>{{$item->name}}</td>
-            <td>{{$item->username}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->level}}</td>
             <td>

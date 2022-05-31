@@ -12,8 +12,8 @@
                     Pesan online dari rumah aja!
                   </h2>
                     <p>
-                    Pesan jahit dan permak online, cukup tunggu santai dari rumah saja!
-                    San Tailor akan selalu siap membantu setiap kebutuhan Jahit & Permak pakaian anda.
+                    Cukup tunggu santai dari rumah saja!
+                    San Tailor akan selalu siap membantu setiap kebutuhan jahit pakaian anda.
                     </p>
                   </div>
                   <div class="col-lg-12">
@@ -21,7 +21,7 @@
                       <a href="https://api.whatsapp.com/send?phone=6281339908155">Konsultasi <i class="fab fa-whatsapp"></i></a>
                     </div>
                     <div class="white-button scroll-to-section">
-                      <a href="#">Testimoni <i class="far fa-comment-dots"></i></a>
+                      <a href="{{route('testi') }}">Testimoni <i class="far fa-comment-dots"></i></a>
                     </div>
                   </div>
                 </div>

@@ -42,18 +42,15 @@
             right:20px;
             z-index:100;
         }
-
         .kotak img {
             -webkit-transition: 0.4s ease;
             transition: 0.4s ease;
             width: 700px;
         }
-
         .zoom-effect:hover .kotak img {
             -webkit-transform: scale(1.08);
             transform: scale(1.08);
         }
-
         .btn {
             width: 140px;
             height: 45px;
@@ -71,7 +68,6 @@
             cursor: pointer;
             outline: none;
         }
-
         .btn:hover {
             background-color: #2EE59D;
             box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -117,28 +113,26 @@
                                 <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
                                 @guest
                                 <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
-                                    <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
-                                </ul>   
-                                @else  
-                                <li>
-                                <div class="gradient-button"><a id="modal_trigger" href="#">
-                                            <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a>
-                                        </div>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-                                            </li>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                            </form>
-                                            @endguest  
-                                        </ul>
+                                  <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
+                              </ul>   
+                              @else  
+                                <li><div class="gradient-button"><a id="modal_trigger" href="#">
+                                  <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a></div>
+                                  <ul>
+                                    <a class="dropdown-item"  href="{{ route('lihat.akun')}}">Lihat Akun</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                   </a>
+                  
+                                  </ul> 
                                 </li> 
-                                </ul>  
+                              
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                            </form>
+                            @endguest
                                 <a class='menu-trigger'>
                                     <span>Menu</span>
                                 </a>
@@ -149,7 +143,7 @@
                         </div>
                     </header>
                     <!-- ***** Header Area End ***** -->
-                    
+
                 </div>
 
                 <div class="row" style="margin-top: 120px;">
@@ -158,21 +152,11 @@
                             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                                 Kategori 
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">Seragam Sekolah</a>
-                            <a href="#" class="list-group-item list-group-item-action">Kantor</a>
-                            <a href="#" class="list-group-item list-group-item-action">Busana Muslim</a>
-                            <a href="#" class="list-group-item list-group-item-action">Baju Batik</a>
+                            <a href="#" class="list-group-item list-group-item-action">{{ $produk_detail->kategori->nama_kategori }}</a>
                         </div>
                     </div>
 
                     <div class="col col-lg-9">
-                        <div class="input-group mb-3 wow slideInDown" data-wow-duration="0.95s" data-wow-delay="0s">
-                            <input wire:model="search" type="text" class="form-control" placeholder="Cari . . ." aria-label="Search"
-                                aria-describedby="basic-addon1">
-                            <button type="submit" class="button btn-primary" style="border:none; padding: 10px;">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
 
                         <div class="row">
                             <div class="col-md-12">
@@ -205,12 +189,12 @@
                                 <p>
                                     {{ $produk_detail->detail_produk }}
                                 </p><br><br>
-                                
+
                             </div>
 
                             <br><br>
 
-                            
+
                         </div>
                         <br>
                         <div class="row wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s">
@@ -222,7 +206,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- footer -->
         <footer id="newsletter">
             <div class="container">
@@ -300,4 +284,3 @@
         <script src="{{ asset('assets/js/custom.js')}}"></script>
     </body>
 </html>
-

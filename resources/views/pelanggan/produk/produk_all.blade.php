@@ -48,7 +48,6 @@
             transition: 0.4s ease;
             width: 700px;
         }
-
         .zoom-effect:hover .kotak img {
             -webkit-transform: scale(1.08);
             transform: scale(1.08);
@@ -72,49 +71,33 @@
                                 <!-- ***** Menu Start ***** -->
                                 <ul class="nav">
                                 <li class="scroll-to-section"><a href="/" >Beranda</a></li>
-                                <li class="scroll-to-section"><a href="/pelanggan/produk" class="active">Katalog</a></li>
-                                <li class="scroll-to-section"><a href="{{ route('produk') }}">Layanan
-                                    <ul class="dropdown-menu">
-                                        {{-- @foreach ($kategori as $index => $item)
-                                        <li><a href="{{ route('produk.kategori', $item->id_kategori) }}">
-                                            {{$item->nama_kategori}}</a>
-                                        </li>
-                                        @endforeach --}}
-                                        <a class="dropdown-item" href="{{ route('produk') }}">Semua Kategori</a>
-                                    </ul>
-                                </li>
+                                <li class="scroll-to-section"><a href="{{ route('produk') }}" class="active">Katalog</a></li>
                                 <li class="scroll-to-section">
                                     <a href="{{ route('riwayat') }}">Pesanan</a>
-                                    <!-- <ul>
-                                    <li>Status Pemesanan</li>
-                                    </ul> -->
                                 </li>
                                 <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
                                 @guest
                                 <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
-                                    <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
-                                </ul>   
-                                @else  
-                                <li>
-                                <div class="gradient-button"><a id="modal_trigger" href="#">
-                                            <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a>
-                                        </div>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-                                            </li>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                            </form>
-                                            @endguest  
-                                        </ul>
+                                  <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
+                              </ul>   
+                              @else  
+                                <li><div class="gradient-button"><a id="modal_trigger" href="#">
+                                  <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a></div>
+                                  <ul>
+                                    <a class="dropdown-item"  href="{{ route('lihat.akun')}}">Lihat Akun</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                   </a>
+                  
+                                  </ul> 
                                 </li> 
-                                </ul> 
-                                 
+                              
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                            </form>
+                            @endguest
                                 <a class='menu-trigger'>
                                     <span>Menu</span>
                                 </a>
@@ -131,14 +114,12 @@
                 <div class="row" style="margin-top: 120px;">
                     <div class="col col-lg-3 wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="0.5s">
                         <div class="list-group">
-                            <a href="#" data-filter="*" class="list-group-item list-group-item-action kategori-filters active" aria-current="true">
+                            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                                 Kategori 
                             </a>
-                            <a href="#" data-filter=".filter-jas" class="list-group-item list-group-item-action">Jas</a>
-                            <a href="#" data-filter=".filter-rok" class="list-group-item list-group-item-action">Rok</a>
-                            <a href="#" data-filter=".filter-celana" class="list-group-item list-group-item-action">Celana</a>
-                            <a href="#" data-filter=".filter-kemeja" class="list-group-item list-group-item-action">Kemeja</a>
-                            <a href="#" data-filter=".filter-seragam" class="list-group-item list-group-item-action">Seragam sekolah</a>
+                            @foreach($kategori as $index => $item)
+                            <a href="/pelanggan/produk/kategori/{{$item->id_kategori}}" class="list-group-item list-group-item-action" vm >{{$item->nama_kategori}}</a>
+                            @endforeach
                         </div>
                     </div>
 
@@ -266,4 +247,3 @@
         <script src="{{ asset('assets/js/custom.js')}}"></script>
     </body>
 </html>
-

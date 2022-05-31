@@ -18,4 +18,7 @@ class Detail_Pemesanan extends Model
     public function produk(){
         return $this-> belongsTo('App\Produk', 'id_produk', 'id_produk');
     }
+    public function ukuran(){
+        return $this-> belongsTo('App\Ukuran', 'id_detailpemesanan', 'id_detailpemesanan');
+    }
 }

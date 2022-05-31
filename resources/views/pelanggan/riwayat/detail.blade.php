@@ -51,12 +51,12 @@
               <td>{{$item->jumlah}}</td>
               <td>{{$item->subtotal}}</td>
               <td>
-                <a class="btn btn-primary" href="#">Detail Pemesanan</a>
+                <a class="btn btn-primary" href="/pelanggan/riwayat/detail/{{$item->id_detailpemesanan}}">Detail Pemesanan</a>
               </td>
             </tr>
             @endforeach
             <tr>
-                <td align="left"><strong>Total Yang Harus dibayarkan : </strong></td>
+                <td align="left"><strong>Total Pembayaran : </strong></td>
                 <td align="left"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
                 <td></td>
             </tr>

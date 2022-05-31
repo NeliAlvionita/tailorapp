@@ -12,6 +12,9 @@ class Produk extends Model
 
     public $timestamps = false;
     public function kategori(){
-        return $this-> belongsTo('App\Kategori', 'id_kategori', 'id_kategori');
+        return $this->belongsTo('App\Kategori', 'id_kategori', 'id_kategori');
+    }
+    public function detail_pemesanan(){
+        return $this->hasMany('App\Detail_Pemesanan', 'id_produk', 'id_produk');
     }
 }

@@ -8,11 +8,7 @@ use Illuminate\Support\Facades\DB;
 class PemesananController extends Controller
 {
     public function index(){ 
-        $pemesanan = Pemesanan::all();
-        // $pemesanan = DB::table('pemesanan')
-        //     ->join('users', 'users.id', '=', 'pemesanan.id_pemesanan')
-        //     ->select('pemesanan.*', 'users.name')
-        //     ->get();
+        $pemesanan = Pemesanan::where('status_pemesanan', '!=', '0')->get();
         return view('admin/pemesanan/index', ['pemesanan' => $pemesanan]);
     }
 
@@ -37,5 +33,27 @@ class PemesananController extends Controller
         $pemesanan->pembayaran->status_pembayaran=$request->status_pembayaran;
         $pemesanan->pembayaran->save();
         return redirect('/admin/pemesanan');
+    }
+    public function detail_ukuran(Request $request){
+        $pemesanan = Pemesanan::find($request->id_pemesanan);
+        return view('admin/pemesanan/ukuran', ['pemesanan' => $pemesanan]);
+    }
+    public function cetak_ukuran($id_pemesanan){
+        
+        $pemesanan =  DB::table('pemesanan')
+            ->leftjoin('users', 'users.id', '=', 'pemesanan.id_pelanggan')
+            ->select('pemesanan.*', 'users.name', 'users.nomorhp', 'users.email')
+            ->where('pemesanan.id_pemesanan', '=', $id_pemesanan)
+            ->first();
+
+        $cetak_ukuran = DB::table('pemesanan')
+            ->leftjoin('users', 'users.id', '=', 'pemesanan.id_pelanggan')
+            ->leftjoin('detail_pemesanan', 'detail_pemesanan.id_pemesanan', '=', 'pemesanan.id_pemesanan')
+            ->leftjoin('ukuran', 'ukuran.id_detailpemesanan', '=', 'detail_pemesanan.id_detailpemesanan')
+            ->leftjoin('produk', 'produk.id_produk', '=', 'detail_pemesanan.id_produk')
+            ->select('pemesanan.*', 'users.name', 'users.nomorhp', 'users.email', 'ukuran.*', 'detail_pemesanan.*', 'produk.nama_produk')
+            ->where('pemesanan.id_pemesanan', '=', $id_pemesanan)
+            ->get();
+        return view('admin/pemesanan/cetak-ukuran', ['pemesanan' => $pemesanan, 'cetak_ukuran' => $cetak_ukuran]);
     }
 }

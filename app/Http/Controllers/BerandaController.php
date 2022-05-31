@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use App\Kategori;
-use App\Produk;
-use App\User;
+use App\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -12,15 +10,9 @@ use Illuminate\Support\Facades\Hash;
 
 class BerandaController extends Controller
 {
-
-    
-
     public function beranda()
     {
-        $kategori = Kategori::all();
-        return view('pelanggan/index', ['kategori'=> $kategori]);
+        $testimoni = Testimoni::paginate(5);
+        return view('pelanggan/index', ['testimoni' => $testimoni]);
     }
-
-    
-
 }

@@ -68,15 +68,7 @@
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->name }}
           </a>
-          <a class="dropdown-item" href="{{ route('logout') }}"
-                 onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-        @csrf
-          </form>
-      </li>
+        </li>
         @endguest
 
   </nav>
@@ -154,6 +146,12 @@
                     <p>Data Pemesanan</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="/admin/testimoni" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Testimoni</p>
+                  </a>
+                </li>
             @endif
               <li class="nav-item">
                 <a href="/admin/laporan" class="nav-link">
@@ -162,6 +160,19 @@
                 </a>
               </li>
             </ul>
+            <li class="nav-item has-treeview menu-open">
+              <a href="{{ route('logout') }}" class="nav-link active"
+              onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"> 
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                Logout
+                </p>
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+            </li>
           </li>
 
           
@@ -261,7 +272,7 @@
     <script>$(document).ready(function() {$('#admin').DataTable();} );</script>
     <script>$(document).ready(function() {$('#kategori').DataTable();} );</script>
     <script>$(document).ready(function() {$('#laporan').DataTable();} );</script>
-    <script>$(document).ready(function() {$('#layanan').DataTable();} );</script>
+    <script>$(document).ready(function() {$('#testimoni').DataTable();} );</script>
     <script>$(document).ready(function() {$('#pelanggan').DataTable();} );</script>
     <script>$(document).ready(function() {$('#pemesanan').DataTable();} );</script>
     <script>$(document).ready(function() {$('#produk').DataTable();} );</script>

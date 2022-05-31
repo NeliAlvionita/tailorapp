@@ -19,7 +19,6 @@ class KategoriController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->gambar_ukuran);
 
         $this->validate($request, [
             'nama_kategori' => ['required', 'string', 'max:255'],
@@ -38,7 +37,7 @@ class KategoriController extends Controller
         
         Kategori::create($input);
    
-        return redirect('/admin/kategori')->with('success','Product created successfully.');
+        return redirect('/admin/kategori')->with('message','Berhasil Menambahkan Kategori');
     }
 
     public function show(Request $request)
@@ -66,7 +65,6 @@ class KategoriController extends Controller
             $destinationPath = 'gambar_ukuran/';
             $profileImage = date('YmdHis') . "." . $gambar_ukuran->getClientOriginalExtension();
             $gambar_ukuran->move($destinationPath, $profileImage);
-            // $input['gambar_ukuran'] = "$profileImage";
             $kategori->gambar_ukuran=$profileImage;
         }
         
@@ -74,15 +72,19 @@ class KategoriController extends Controller
         $kategori->save(); 
  
 
-        return redirect('/admin/kategori')->with('success','Product created successfully.');
+        return redirect('/admin/kategori')->with('message','Berhasil Mengubah Kategori');
     }
 
     public function delete(Request $request)
     {
         $kategori = Kategori::findOrFail($request->id_kategori);
-
-        if ($kategori->delete()) {
-            return redirect('/admin/kategori');
+        if (count($kategori->produk) == 0) {
+            $kategori->delete();
+                return redirect('/admin/kategori')->with('message', 'Berhasil Menghapus Data');
+            
+        } else {
+            return redirect('/admin/kategori')->with('message', 'Gagal Menghapus Data, Ada Produk yang terkait dengan kategori ini');
         }
+        
     }
 }

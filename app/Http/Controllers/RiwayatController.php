@@ -22,8 +22,8 @@ class RiwayatController extends Controller
         ]);
     }
 
-    public function detail($id_pemesanan){
-        $pemesanan = Pemesanan::find($id_pemesanan);
+    public function detail(Request $request){
+        $pemesanan = Pemesanan::find($request->id_pemesanan);
 
         return view('pelanggan/riwayat/detail', [
             'pemesanan' => $pemesanan
@@ -36,5 +36,11 @@ class RiwayatController extends Controller
         return view('pelanggan/riwayat/pembayaran', [
             'pemesanan' => $pemesanan
         ]);
+    }
+
+    public function detailpemesanan(Request $request)
+    {
+        $detail = Detail_Pemesanan::find($request->id_detailpemesanan);
+        return view('pelanggan/riwayat/detailpemesanan', ['detail' => $detail]);
     }
 }

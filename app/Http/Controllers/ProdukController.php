@@ -43,7 +43,7 @@ class ProdukController extends Controller
         
         Produk::create($input);
    
-        return redirect('/admin/produk')->with('success','Product created successfully.');
+        return redirect('/admin/produk')->with('message','Berhasil Menambah Produk');
     }
 
     public function show(Request $request)
@@ -75,7 +75,7 @@ class ProdukController extends Controller
             $destinationPath = 'foto_produk/';
             $profileImage = date('YmdHis') . "." . $foto_produk->getClientOriginalExtension();
             $foto_produk->move($destinationPath, $profileImage);
-            // $input['foto_produk'] = "$profileImage";
+            $produk->foto_produk=$profileImage;
         }
     
         $produk->id_kategori=$request->id_kategori;
@@ -85,15 +85,19 @@ class ProdukController extends Controller
         $produk->save(); 
  
 
-        return redirect('/admin/produk')->with('success','Product created successfully.');
+        return redirect('/admin/produk')->with('message','Berhasil Mengubah Data Produk');
     }
 
     public function delete(Request $request)
     {
         $produk = Produk::findOrFail($request->id_produk);
 
-        if ($produk->delete()) {
-            return redirect('/admin/produk');
+        if (count($produk->detail_pemesanan) == 0) {
+            $produk->delete();
+                return redirect('/admin/produk')->with('message', 'Berhasil Menghapus Data');
+            
+        } else {
+            return redirect('/admin/produk')->with('message', 'Gagal Menghapus Data, Ada Pemesanan yang terkait dengan produk ini');
         }
     }
 }

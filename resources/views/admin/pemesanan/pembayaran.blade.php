@@ -28,7 +28,7 @@
         <div class="form-group">
           <select name="status_pembayaran" id="status_pembayaran" class="form-control">
             <option value="">-- Pilih Opsi --</option>
-            <option value="Belum Lunas">Belum Lunas</option>
+            <option value="Belum Dicek">Belum Dicek</option>
             <option value="Lunas">Lunas</option>
           </select> 
         </div>

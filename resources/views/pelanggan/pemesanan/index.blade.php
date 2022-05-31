@@ -5,73 +5,51 @@
         <div class="col col-lg-12">
             <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <nav class="main-nav">
-                                <!-- ***** Logo Start ***** -->
-                                <a href="/" class="logo">
-                                    <img src="{{ asset('assets/logo.png')}}" alt=" ">
-                                </a>
-                                <!-- ***** Logo End ***** -->
-                                <!-- ***** Menu Start ***** -->
-                                <ul class="nav">
-                                    <li class="scroll-to-section"><a href="/" >Beranda</a></li>
-                                    <li class="scroll-to-section"><a href="/pelanggan/produk">Katalog</a></li>
-                                    <li class="scroll-to-section"><a href="{{ route('produk') }}">Layanan
-                                        <ul class="dropdown-menu">
-                                            {{-- @foreach ($kategori as $index => $item)
-                                            <li><a href="{{ route('produk.kategori', $item->id_kategori) }}">
-                                                {{$item->nama_kategori}}</a>
-                                            </li>
-                                            @endforeach --}}
-                                            <a class="dropdown-item" href="{{ route('produk') }}">Semua Kategori</a>
-                                        </ul>
-                                    </li>
-                                    <li class="scroll-to-section">
-                                        <a href="{{ route('riwayat') }}">Pesanan</a>
-                                        <!-- <ul>
-                                        <li>Status Pemesanan</li>
-                                        </ul> -->
-                                    </li>
-                                    <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
-                                    @guest
-                                    <li>
-                                        <div class="gradient-button">
-                                            <a id="modal_trigger" href="{{ route('login') }}">
-                                                <i class="fa fa-sign-in-alt"></i> Masuk
-                                            </a>
-                                        </div>
-                                    </li> 
-                                    </ul>   
-                                    @else  
-                                    <li>
-                                        <div class="gradient-button"><a id="modal_trigger" href="#">
-                                            <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a>
-                                        </div>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-                                            </li>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                            </form>
-                                            @endguest  
-                                        </ul>
-                                    </li> 
-                                </ul> 
-                                <a class='menu-trigger'>
-                                    <span>Menu</span>
-                                </a>
-                                <!-- ***** Menu End ***** -->
-                            </nav>
-                        </div>
+                <div class="row">
+                    <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/" class="logo">
+                        <img src="{{ asset('assets/logo.png')}}" alt=" ">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                        <li class="scroll-to-section"><a href="/" >Beranda</a></li>
+                        <li class="scroll-to-section"><a href="{{ route('produk') }}">Katalog</a></li>
+                        <li class="scroll-to-section"><a href="{{ route('riwayat') }}">Pesanan</a></li>
+                        <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
+                        @guest
+                        <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
+                          <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
+                      </ul>   
+                      @else  
+                        <li><div class="gradient-button"><a id="modal_trigger" href="#">
+                          <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a></div>
+                          <ul>
+                            <a class="dropdown-item"  href="{{ route('lihat.akun')}}">Lihat Akun</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                           </a>
+              
+                          </ul> 
+                        </li> 
+                      
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                    </form>
+                    @endguest
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
                     </div>
                 </div>
-            </header>
+                </div>
+              </header>
             <!-- ***** Header Area End ***** -->
 
             <div class="row">
@@ -610,6 +588,11 @@
                         @endif
 
                         @if($produk->kategori->nama_kategori=='Seragam')
+                        <div class="heading">
+                            <h6>Atasan</h6>
+                            <hr style="height:5px;color:black;background-color:black">
+                            
+                        </div>
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
@@ -722,113 +705,119 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Pinggang :</h6> </label>
-                                    <input id="lingkar_pinggang" type="text"
-                                        class="form-control @error('lingkar_pinggang') is-invalid @enderror"
-                                        name="lingkar_pinggang" value="{{ old('lingkar_pinggang') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('lingkar_pinggang')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                        </div><br>
+                        <div class="heading">
+                            <h6>Bawahan</h6>
+                            <hr style="height:5px;color:black;background-color:black">
+                            
+                        </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label><h6>Lingkar Pinggang :</h6> </label>
+                                        <input id="lingkar_pinggang" type="text"
+                                            class="form-control @error('lingkar_pinggang') is-invalid @enderror"
+                                            name="lingkar_pinggang" value="{{ old('lingkar_pinggang') }}"
+                                            autocomplete="name" autofocus>
+    
+                                        @error('lingkar_pinggang')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Keris :</h6> </label>
-                                    <input id="lingkar_keris" type="text"
-                                        class="form-control @error('lingkar_keris') is-invalid @enderror"
-                                        name="lingkar_keris" value="{{ old('lingkar_keris') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('lingkar_keris')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+    
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label><h6>Lingkar Keris :</h6> </label>
+                                        <input id="lingkar_keris" type="text"
+                                            class="form-control @error('lingkar_keris') is-invalid @enderror"
+                                            name="lingkar_keris" value="{{ old('lingkar_keris') }}"
+                                            autocomplete="name" autofocus>
+    
+                                        @error('lingkar_keris')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar lutut :</h6> </label>
-                                    <input id="lingkar_lutut" type="text"
-                                        class="form-control @error('lingkar_lutut') is-invalid @enderror"
-                                        name="lingkar_lutut" value="{{ old('lingkar_lutut') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('lingkar_lutut')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+    
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label><h6>Lingkar lutut :</h6> </label>
+                                        <input id="lingkar_lutut" type="text"
+                                            class="form-control @error('lingkar_lutut') is-invalid @enderror"
+                                            name="lingkar_lutut" value="{{ old('lingkar_lutut') }}"
+                                            autocomplete="name" autofocus>
+    
+                                        @error('lingkar_lutut')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Paha :</h6> </label>
-                                    <input id="lingkar_paha" type="text"
-                                        class="form-control @error('lingkar_paha') is-invalid @enderror"
-                                        name="lingkar_paha" value="{{ old('lingkar_paha') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('lingkar_paha')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+    
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label><h6>Lingkar Paha :</h6> </label>
+                                        <input id="lingkar_paha" type="text"
+                                            class="form-control @error('lingkar_paha') is-invalid @enderror"
+                                            name="lingkar_paha" value="{{ old('lingkar_paha') }}"
+                                            autocomplete="name" autofocus>
+    
+                                        @error('lingkar_paha')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Panjang Celana :</h6> </label>
-                                    <input id="panjang_celana" type="text"
-                                        class="form-control @error('panjang_celana') is-invalid @enderror"
-                                        name="panjang_celana" value="{{ old('panjang_celana') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('panjang_celana')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+    
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label><h6>Panjang Celana :</h6> </label>
+                                        <input id="panjang_celana" type="text"
+                                            class="form-control @error('panjang_celana') is-invalid @enderror"
+                                            name="panjang_celana" value="{{ old('panjang_celana') }}"
+                                            autocomplete="name" autofocus>
+    
+                                        @error('panjang_celana')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lebar Bawah :</h6> </label>
-                                    <input id="lebar_bawah" type="text"
-                                        class="form-control @error('lebar_bawah') is-invalid @enderror"
-                                        name="lebar_bawah" value="{{ old('lebar_bawah') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('lebar_bawah')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+    
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label><h6>Lebar Bawah :</h6> </label>
+                                        <input id="lebar_bawah" type="text"
+                                            class="form-control @error('lebar_bawah') is-invalid @enderror"
+                                            name="lebar_bawah" value="{{ old('lebar_bawah') }}"
+                                            autocomplete="name" autofocus>
+    
+                                        @error('lebar_bawah')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
+                            </div><br><br>
+                            
+                        @endif
+                        <div class="row wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s">
+                            <div class="col" >
+                                <button type="submit" class="btn btn-dark btn-block"><i class="fas fa-shopping-cart"></i>  Masukkan Keranjang</button>
                             </div>
                         </div>
-                        @endif
                     </form><br><br>
 
-                    <div class="row wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s">
-                        <div class="col" >
-                            <a class="btn" href="{{ route('checkout') }}">
-                                <i class="fa fa-shopping-cart"></i>  Masukkan Keranjang
-                            </a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <!-- ***** End form order ***** -->  

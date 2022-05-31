@@ -34,7 +34,7 @@
               <form action="/admin/pemesanan/{{$item->id_pemesanan}}" method="post">
                 <a class="btn btn-primary" href="/admin/pemesanan/{{$item->id_pemesanan}}/detail">detail</a>
                 <a class="btn btn-success" href="/admin/pemesanan/{{$item->id_pemesanan}}/pembayaran">pembayaran</a>
-                <a class="btn btn-warning" href="/admin/pemesanan/{{$item->id_pemesanan}}/#">ukuran</a>
+                <a class="btn btn-warning" href="/admin/pemesanan/{{$item->id_pemesanan}}/ukuran">ukuran</a>
               </form>
             </td>
           </tr>
