@@ -14,7 +14,7 @@
     <title>San Tailor</title>
 
     <!-- fav icons -->
-    <link rel="shortcut icon" href="assets/logo1.png">
+    <link rel="shortcut icon" href="{{ asset('assets/logo1.png')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -26,12 +26,23 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 
-    <style type="text/css">
+    <a href="https://api.whatsapp.com/send?phone=6281339908155">
+      <img src="https://hantamo.com/free/whatsapp.svg" class="wabutton" alt="Whatsapp-Button" />
+    </a>
+    <style>
       b {
         color: #4b8ef1;
       }
       p {
         color: #504e4e;
+      }
+      .wabutton{
+        width:50px;
+        height:50px;
+        position:fixed;
+        bottom:20px;
+        right:20px;
+        z-index:100;
       }
     </style>
 

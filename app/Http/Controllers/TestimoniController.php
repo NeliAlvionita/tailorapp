@@ -27,4 +27,10 @@ class TestimoniController extends Controller
         $testimoni = Testimoni::all();
         return view('admin/testimoni/index', ['testimoni' => $testimoni]);
     }
+
+    public function index()
+    {
+        $testimoni = Testimoni::paginate(5);
+        return view('pelanggan.testimoni', ['testimoni' => $testimoni]);
+    }
 }

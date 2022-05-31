@@ -68,7 +68,7 @@ Route::put('/pelanggan/akun/{id}', 'AkunController@update');
 //produk
 Route::get('/pelanggan/produk', 'PelangganProdukController@produk_all')->name('produk');
 Route::get('/pelanggan/produk/{id_produk}', 'PelangganProdukController@produk_detail')->name('produk.detail');
-Route::get('/pelanggan/produk/{id_kategori}', 'PelangganProdukController@produk_kategori')->name('produk.kategori');
+Route::get('/pelanggan/produk/kategori/{id_kategori}', 'PelangganProdukController@produk_kategori');
 // pemesanan
 Route::get('/pelanggan/produk/produk_detail/{id_produk}', 'PelangganPemesananController@index')->name('pemesanan.index');
 // keranjang
@@ -84,9 +84,10 @@ Route::post('/pelanggan/checkout', 'CheckoutController@checkout')->name('checkou
 Route::get('/pelanggan/riwayat', 'RiwayatController@index')->name('riwayat');
 Route::get('/pelanggan/riwayat/{id_pemesanan}', 'RiwayatController@detail');
 Route::get('/pelanggan/riwayat/{id_pemesanan}/bayar', 'RiwayatController@pembayaran')->name('riwayat.bayar');
-Route::get('/pelanggan/riwayat/detail/{id_detailpemesanan}', 'RiwayatController@detailpemesanan')->name('riwayat.detailpemesanan');
+Route::get('/pelanggan/riwayat/detail/{id_detailpemesanan}', 'RiwayatController@detailpemesanan');
 //testimoni
 Route::get('/pelanggan/riwayat/{id_pemesanan}/testimoni', 'TestimoniController@tambah')->name('tambah.testimoni');
+Route::get('/pelanggan/testimoni', 'TestimoniController@index')->name('testi');
 Route::post('/pelanggan/riwayat/testimoni', 'TestimoniController@store');
 
 Auth::routes();

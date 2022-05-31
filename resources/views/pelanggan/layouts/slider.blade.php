@@ -12,16 +12,16 @@
                     Pesan online dari rumah aja!
                   </h2>
                     <p>
-                    Pesan jahit dan permak online, cukup tunggu santai dari rumah saja!
-                    San Tailor akan selalu siap membantu setiap kebutuhan Jahit & Permak pakaian anda.
+                    Cukup tunggu santai dari rumah saja!
+                    San Tailor akan selalu siap membantu setiap kebutuhan jahit pakaian anda.
                     </p>
                   </div>
                   <div class="col-lg-12">
                     <div class="white-button first-button scroll-to-section">
-                      <a href="#contact">Free Quote <i class="fab fa-apple"></i></a>
+                      <a href="https://api.whatsapp.com/send?phone=6281339908155">Konsultasi <i class="fab fa-whatsapp"></i></a>
                     </div>
                     <div class="white-button scroll-to-section">
-                      <a href="#contact">Free Quote <i class="fab fa-google-play"></i></a>
+                      <a href="{{route('testi') }}">Testimoni <i class="far fa-comment-dots"></i></a>
                     </div>
                   </div>
                 </div>
@@ -66,9 +66,6 @@
             Sistem bekerja, sekolah, dan beraktivitas telah dibatasi oleh Pemerintah. 
             Hal ini membutuhkan kerjasama anda juga demi memutus penyebaran wabah Virus Covid-19. 
             </p>
-            <div class="text-button">
-              <a href="#">Selengkapnya <i class="fa fa-arrow-right"></i></a>
-            </div>
           </div>
         </div>
         <div class="col-lg-3">
@@ -79,9 +76,6 @@
             Sistem bekerja, sekolah, dan beraktivitas telah dibatasi oleh Pemerintah. 
             Hal ini membutuhkan kerjasama anda juga demi memutus penyebaran wabah Virus Covid-19. 
             </p>
-            <div class="text-button">
-              <a href="#">Selengkapnya <i class="fa fa-arrow-right"></i></a>
-            </div>
           </div>
         </div>
         <div class="col-lg-3">
@@ -93,9 +87,6 @@
               <b>Metode ini kami hadirkan untuk mempermudah proses bertransaksi anda.</b>
               Cukup lakukan pembayaran sebelum pesanan anda dikonfirmasi.
             </p>
-            <div class="text-button">
-              <a href="#">Selengkapnya <i class="fa fa-arrow-right"></i></a>
-            </div>
           </div>
         </div>
         <div class="col-lg-3">
@@ -108,9 +99,6 @@
               <b>Metode ini kami hadirkan untuk mempermudah proses bertransaksi anda.</b>
               Cukup lakukan pembayaran sebelum pesanan anda dikonfirmasi.
             </p>
-            <div class="text-button">
-              <a href="#">Selengkapnya <i class="fa fa-arrow-right"></i></a>
-            </div>
           </div>
         </div>
       </div>

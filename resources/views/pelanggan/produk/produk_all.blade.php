@@ -117,10 +117,9 @@
                             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                                 Kategori 
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">Seragam Sekolah</a>
-                            <a href="#" class="list-group-item list-group-item-action">Kantor</a>
-                            <a href="#" class="list-group-item list-group-item-action">Busana Muslim</a>
-                            <a href="#" class="list-group-item list-group-item-action">Baju Batik</a>
+                            @foreach($kategori as $index => $item)
+                            <a href="/pelanggan/produk/kategori/{{$item->id_kategori}}" class="list-group-item list-group-item-action" vm >{{$item->nama_kategori}}</a>
+                            @endforeach
                         </div>
                     </div>
 
