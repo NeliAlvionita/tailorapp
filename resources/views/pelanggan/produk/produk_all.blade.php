@@ -95,18 +95,26 @@
                                     <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
                                 </ul>   
                                 @else  
-                                <li><div class="gradient-button"><a id="modal_trigger" href="#">
-                                    <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a></div></li> 
+                                <li>
+                                <div class="gradient-button"><a id="modal_trigger" href="#">
+                                            <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a>
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+                                            </li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                            </form>
+                                            @endguest  
+                                        </ul>
+                                </li> 
                                 </ul> 
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                            </form>
-                            @endguest  
+                                 
                                 <a class='menu-trigger'>
                                     <span>Menu</span>
                                 </a>
@@ -123,13 +131,14 @@
                 <div class="row" style="margin-top: 120px;">
                     <div class="col col-lg-3 wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="0.5s">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                            <a href="#" data-filter="*" class="list-group-item list-group-item-action kategori-filters active" aria-current="true">
                                 Kategori 
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">Seragam Sekolah</a>
-                            <a href="#" class="list-group-item list-group-item-action">Kantor</a>
-                            <a href="#" class="list-group-item list-group-item-action">Busana Muslim</a>
-                            <a href="#" class="list-group-item list-group-item-action">Baju Batik</a>
+                            <a href="#" data-filter=".filter-jas" class="list-group-item list-group-item-action">Jas</a>
+                            <a href="#" data-filter=".filter-rok" class="list-group-item list-group-item-action">Rok</a>
+                            <a href="#" data-filter=".filter-celana" class="list-group-item list-group-item-action">Celana</a>
+                            <a href="#" data-filter=".filter-kemeja" class="list-group-item list-group-item-action">Kemeja</a>
+                            <a href="#" data-filter=".filter-seragam" class="list-group-item list-group-item-action">Seragam sekolah</a>
                         </div>
                     </div>
 

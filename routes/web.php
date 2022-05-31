@@ -69,5 +69,6 @@ Route::post('/pelanggan/checkout', 'CheckoutController@checkout')->name('checkou
 Route::get('/pelanggan/riwayat', 'RiwayatController@index')->name('riwayat');
 Route::get('/pelanggan/riwayat/{id_pemesanan}', 'RiwayatController@detail')->name('riwayat.detail');
 Route::get('/pelanggan/riwayat/{id_pemesanan}/bayar', 'RiwayatController@pembayaran')->name('riwayat.bayar');
+Route::get('/pelanggan/testimoni', 'TestimoniController@index')->name('testi');
 
 Auth::routes();

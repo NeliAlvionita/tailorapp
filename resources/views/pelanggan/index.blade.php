@@ -8,7 +8,7 @@
         <div class="section-heading">
           <h4>Katalog Produk <em> San Tailor</em> </h4>
           <img src="assets/images/heading-line-dec.png" alt="">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
+          <p>Ini adalah produk-produk yang ada di San Tailor.</p>
         </div>
         <div class="row">
           <div class="col-lg-6">
@@ -38,17 +38,17 @@
           <div class="col-lg-12">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor idunte ut labore et dolore adipiscing  magna.</p>
             <div class="gradient-button">
-              <a href="#">Start 14-Day Free Trial</a>
+              <a href="{{ route('produk') }}">Selengkapnya</a>
             </div>
-            <span>*No Credit Card Required</span>
+            <!-- <span>*No Credit Card Required</span> -->
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <!-- <div class="col-lg-6">
         <div class="right-image">
           <img src="assets/images/about-right-dec.png" alt="">
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

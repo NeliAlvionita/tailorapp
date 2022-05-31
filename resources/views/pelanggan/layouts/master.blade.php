@@ -14,7 +14,7 @@
     <title>San Tailor</title>
 
     <!-- fav icons -->
-    <link rel="shortcut icon" href="assets/logo1.png">
+    <link rel="shortcut icon" href="{{ asset('assets/logo1.png')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
