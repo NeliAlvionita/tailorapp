@@ -48,10 +48,12 @@
             transition: 0.4s ease;
             width: 700px;
         }
+
         .zoom-effect:hover .kotak img {
             -webkit-transform: scale(1.08);
             transform: scale(1.08);
         }
+
         .btn {
             font-family: 'Roboto', sans-serif;
             font-size: 15px;
