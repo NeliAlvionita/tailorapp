@@ -66,9 +66,8 @@
             <div class="row" style="margin-top: 120px;">
                 <div class="col-lg-12">
                     <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
-                        <center><h4>Halaman <em>Checkout</em> </h4>
+                        <center><h4><em>Checkout</em> </h4>
                         <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
-                        <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span>
                         <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
                     </div>
                     <br><br>
@@ -78,14 +77,16 @@
                         <div class="col">
                             <h4>Total Tagihan</h4>
                             <hr>
-                            <p>Untuk pembayaran silahkan dapat transfer di rekening dibawah ini sebesar : <strong> Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </p>
-                            <div class="media">
-                                {{-- <img class="mr-3" src="{{ url('assets/bri.png') }}" alt="Bank BRI" width="60"> --}}
-                                <div class="media-body">
-                                    <h5 class="mt-0">BANK BRI</h5>
-                                    No. Rekening 012345-678-910 atas nama <strong>Neli Alvionita</strong>
-                                </div>
+                            <div class="alert alert-info">
+                              <h5>
+                                Untuk pembayaran silahkan dapat transfer di rekening dibawah ini sebesar <strong> Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> 
+                              </h5><br>
+                              <h6>BANK BRI</h6>
+                              No. Rekening 012345-678-910 atas nama <strong>San Tailor</strong><br><br>
+                              <h6>BANK BCA</h6>
+                              No. Rekening 016789-234-510 atas nama <strong>San Tailor</strong><br>
                             </div>
+
                             <input type="hidden" name="tanggal_pemesanan" value="<?php echo date("Y-m-d"); ?>">
                             <div class="form-group">
                                 <label for="">Nama Penyetor</label>
@@ -97,7 +98,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label for="">Bank</label>
                                 <input id="bank" type="text" class="form-control @error('bank') is-invalid @enderror" name="bank"
@@ -108,7 +109,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label for="">Jumlah</label>
                                 <input id="jumlah" type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah"
@@ -119,7 +120,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label for="">Tanggal Pembayaran</label>
                                 <input id="tanggal_pembayaran" type="date" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" name="tanggal_pembayaran"
@@ -130,7 +131,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label for="">Bukti</label>
                                 <input id="bukti" type="file" class="form-control @error('bukti') is-invalid @enderror" name="bukti"
@@ -142,17 +143,14 @@
                                 </span>
                                 @enderror
                             </div>
-                            
-                            
-                
-                        </div>
+                        </div><br>
                         <div class="col">
                             <h4>Informasi Pengiriman</h4>
                             <hr>
                 
                                 <div class="form-group">
-                                    <label for="">Alamat Pengiriman</label>
-                                    <textarea name="alamat_pengiriman" class="form-control @error('alamat_pengiriman') is-invalid @enderror"></textarea>
+                                    <h6>Alamat Pengiriman :</h6>
+                                    <textarea name="alamat_pengiriman" rows="5" class="form-control @error('alamat_pengiriman') is-invalid @enderror"></textarea>
                 
                                     @error('alamat_pengiriman')
                                     <span class="invalid-feedback" role="alert">
@@ -162,8 +160,10 @@
                                 </div>    
                         </div>
                     </div><br><br>
-                    <button type="submit" class="btn btn-success btn-block"> <i class="fas fa-arrow-right"></i> Checkout </button>
-                </form>
+                    <div class="gradient-button">
+                      <button type="submit" class="btn btn-success btn-block"> <i class="fas fa-arrow-right"></i> Checkout </button>
+                    </div>
+                  </form>
                 </div>
             </div>
         </div>
