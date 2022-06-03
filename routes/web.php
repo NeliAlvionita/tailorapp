@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::get('/admin/pemesanan', 'PemesananController@index');
     Route::get('/admin/pemesanan/{id_pemesanan}/detail', 'PemesananController@detail');
     Route::put('/admin/pemesanan/{id_pemesanan}', 'PemesananController@update_status');
+    Route::put('/admin/pemesanan/{id_pemesanan}/resi', 'PemesananController@submitResi');
     Route::get('/admin/pemesanan/{id_pemesanan}/pembayaran', 'PemesananController@detail_bayar');
     Route::put('/admin/pemesanan/{id_pemesanan}/update', 'PemesananController@update_bayar');
     Route::get('/admin/pemesanan/{id_pemesanan}/ukuran', 'PemesananController@detail_ukuran');

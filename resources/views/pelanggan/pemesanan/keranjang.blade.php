@@ -31,7 +31,6 @@
         p {
             color: #504e4e;
         }
-
         .btns{
             font-family: 'Roboto', sans-serif;
             font-size: 15px;

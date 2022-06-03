@@ -19,17 +19,27 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Tanggal: {{ $pemesanan->tanggal_pemesanan }}</td>
-                    <td>Nama: {{ $pemesanan->pelanggan->name }}</td>
-                    <td>Alamat: {{ $pemesanan->alamat_pengiriman }}</td>
+                    <td>Tanggal   : {{ $pemesanan->tanggal_pemesanan }}</td>
+                    <td>Nama      : {{ $pemesanan->pelanggan->name }}</td>
+                    <td>Alamat    : {{ $pemesanan->alamat_pengiriman }}</td>
                 </tr>
                 <tr>
-                    <td>Total: {{ $pemesanan->total_pemesanan}}</td>
-                    <td>Nomor Hp: {{ $pemesanan->pelanggan->nomorhp }}</td>
+                    <td>Total     : {{ $pemesanan->total_pemesanan}}</td>
+                    <td>Nomor Hp  : {{ $pemesanan->pelanggan->nomorhp }}</td>
+                    @if($pemesanan->ekspedisi == NULL)
+                    <td>Ekspedisi : Belum Dikirim</td>
+                    @else
+                    <td>Ekspedisi : {{ $pemesanan->ekspedisi}}</td>
+                    @endif
                 </tr>
                 <tr>
-                    <td>Status: {{ $pemesanan->status_pemesanan }}</td>
-                    <td>Email: {{ $pemesanan->pelanggan->email }}</td>
+                    <td>Status`   : {{ $pemesanan->status_pemesanan }}</td>
+                    <td>Email     : {{ $pemesanan->pelanggan->email }}</td>
+                    @if($pemesanan->no_resi == NULL)
+                    <td>Nomor Resi: Belum Dikirim</td>
+                    @else
+                    <td>Nomor Resi: {{ $pemesanan->no_resi}}</td>
+                    @endif
                 </tr>
             </tbody>
         </table>
@@ -80,6 +90,28 @@
         <button type="submit" class="btn btn-success">Simpan</button>
       </form>
     </div>
+</div>
+<div class="card card-info card-outline">
+  <div class="card-header">
+      <h3 class="card-title">Kirim Nomor Resi</h3>
+  </div>
+  <div class="card-body">
+      <form action="/admin/pemesanan/{{$pemesanan->id_pemesanan}}/resi" method="post">
+      @csrf
+      @method('PUT')
+      <div class="form-group">
+        <label for="ekspedisi">Nama Ekspedisi Pengiriman</label>
+        <input type="text" name="ekspedisi" id="ekspedisi" class="form-control" placeholder="Nama Ekspedisi"
+        aria-describedby="helpId">
+      </div>
+      <div class="form-group">
+        <label for="no_resi">Nomor Resi</label>
+        <input type="text" name="no_resi" id="no_resi" class="form-control" placeholder="Nomor Resi"
+        aria-describedby="helpId">
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
 </div>
   
   @endsection

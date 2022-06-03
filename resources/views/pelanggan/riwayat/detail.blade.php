@@ -103,10 +103,20 @@
                 <tr>
                     <td>Total: {{ $pemesanan->total_pemesanan}}</td>
                     <td>Nomor Hp: {{ $pemesanan->pelanggan->nomorhp }}</td>
+                    @if($pemesanan->ekspedisi == NULL)
+                    <td>Ekspedisi : Belum Dikirim</td>
+                    @else
+                    <td>Ekspedisi : {{ $pemesanan->ekspedisi}}</td>
+                    @endif
                 </tr>
                 <tr>
                     <td>Status: {{ $pemesanan->status_pemesanan }}</td>
                     <td>Email: {{ $pemesanan->pelanggan->email }}</td>
+                    @if($pemesanan->no_resi == NULL)
+                    <td>Nomor Resi: Belum Dikirim</td>
+                    @else
+                    <td>Nomor Resi: {{ $pemesanan->no_resi}}</td>
+                    @endif
                 </tr>
             </tbody>
         </table>
