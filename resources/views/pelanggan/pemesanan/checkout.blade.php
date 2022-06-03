@@ -112,8 +112,8 @@
                             </div><br>
                             <div class="form-group">
                                 <label for="">Jumlah</label>
-                                <input id="jumlah" type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah"
-                                autocomplete="jumlah" autofocus>
+                                <input id="jumlah" type="text" disabled class="form-control @error('jumlah') is-invalid @enderror" name="jumlah"
+                                autocomplete="jumlah" value={{$pemesanan->total_pemesanan}}>
                 
                                 @error('jumlah')
                                 <span class="invalid-feedback" role="alert">
