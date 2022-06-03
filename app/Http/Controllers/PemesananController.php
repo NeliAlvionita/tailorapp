@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Whoops\Run;
 
 class PemesananController extends Controller
 {
@@ -20,6 +21,13 @@ class PemesananController extends Controller
     public function update_status(Request $request){
         $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
         $pemesanan->status_pemesanan=$request->status_pemesanan;
+        $pemesanan->save();
+        return redirect('/admin/pemesanan');
+    }
+    public function submitResi(Request $request){
+        $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
+        $pemesanan->ekspedisi=$request->ekspedisi;
+        $pemesanan->no_resi=$request->no_resi;
         $pemesanan->save();
         return redirect('/admin/pemesanan');
     }

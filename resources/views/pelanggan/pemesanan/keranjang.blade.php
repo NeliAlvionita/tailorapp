@@ -25,12 +25,33 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 
     <style>
-      b {
-        color: #4b8ef1;
-      }
-      p {
-        color: #504e4e;
-      }
+        b {
+            color: #4b8ef1;
+        }
+        p {
+            color: #504e4e;
+        }
+        .btns{
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 500;
+            color: #fff;
+            background-color: #3490dc;
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+        }
+        .btns:hover {
+            background-color: #2EE59D;
+            box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+            color: #fff;
+            transform: translateY(-7px);
+        }
     </style>
 </head>
 <body>
@@ -49,7 +70,7 @@
                 <li class="scroll-to-section"><a href="/" >Beranda</a></li>
                 <li class="scroll-to-section"><a href="{{ route('produk') }}">Katalog</a></li>
                 <li class="scroll-to-section"><a href="{{ route('riwayat') }}">Pesanan</a></li>
-                <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
+                <li class="scroll-to-section"><a href="{{ route('keranjang') }}" class="active">Keranjang</a></li>
                 @guest
                 <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
                   <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
@@ -105,8 +126,8 @@
                                 <td>Produk</td>
                                 <td>Jumlah</td>
                                 <td>Harga</td>
-                                <td><strong>Sub Total</strong></td>
                                 <td>Aksi</td>
+                                <td><strong>Sub Total</strong></td>
                                 <td></td>
                             </tr>
                         </thead>
@@ -119,19 +140,20 @@
                                 <td>{{ $detail_pemesanan->produk->nama_produk }}</td>
                                 <td>{{ $detail_pemesanan->jumlah }}</td>
                                 <td>Rp. {{ number_format($detail_pemesanan->produk->harga) }}</td>
-                                <td class="text-left"><strong>Rp. {{ number_format($detail_pemesanan->subtotal) }}</strong></td>
-                                <td>
-                                    <a class="btn btn-default btn-xs" href="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}/ubah">
-                                        <i class="fa fa-eye">Edit</i>
+                                <td class="align-left">
+                                    <a href="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}/ubah">
+                                        Ubah
                                     </a>
                                     <span>
                                         <form action="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="fa fa-trash">Hapus</button>
+                                            <button type="submit" >Hapus</button>
                                         </form>
                                     </span>
                                 </td>
+                                <td class="text-left"><strong>Rp. {{ number_format($detail_pemesanan->subtotal) }}</strong></td>
+                                
                             </tr>    
                             @empty
                             <tr>
@@ -142,15 +164,17 @@
                             @if(!empty($pemesanan))
                                 <tr>
                                     <td colspan="6" align="right"><strong>Total Yang Harus dibayarkan : </strong></td>
-                                    <td align="right"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
+                                    <td align="center"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td colspan="6"></td>
                                     <td colspan="2">
-                                        <a href="{{ route('checkout')}}" class="btn">
-                                            <i class="fas fa-arrow-right"></i> Check Out
-                                        </a>
+                                        <div class="gradient-button">
+                                            <a href="{{ route('checkout')}}" class="btns btn-xs ">
+                                                <i class="fa fa-arrow-right"></i> Check Out
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             @endif

@@ -24,6 +24,6 @@ class LaporanController extends Controller
             ->where('status_pemesanan', '!=', '0')
             ->whereBetween('tanggal_pemesanan', [$tanggal_mulai, $tanggal_akhir])
             ->get();
-        return view('admin/laporan/cetak', ['cetaklaporan' => $cetaklaporan]);
+        return view('admin/laporan/cetak', ['cetaklaporan' => $cetaklaporan, 'tanggal_mulai' => $tanggal_mulai, 'tanggal_akhir' => $tanggal_akhir]);
     }
 }

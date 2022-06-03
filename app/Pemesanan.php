@@ -8,7 +8,7 @@ class Pemesanan extends Model
 {
     protected $table = "pemesanan";
     protected $primaryKey = "id_pemesanan";
-    protected $fillable = ["id_pelanggan", "tanggal_pemesanan", "total_pemesanan", "alamat_pengiriman", "status_pemesanan"];
+    protected $fillable = ["id_pelanggan", "tanggal_pemesanan", "total_pemesanan", "alamat_pengiriman", "status_pemesanan", "ekspedisi", "no_resi"];
 
     public $timestamps = false;
 
