@@ -53,7 +53,7 @@
               <div class="row" style="margin-top: 120px;">
                 <div class="col-lg-12">
                     <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
-                        <center><h4>Berikan <em>Testimoni</em> </h4>
+                        <center><h4>Berikan <em>Testimoni</em> Anda</h4>
                         <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
                         <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span>
                         <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
@@ -72,10 +72,10 @@
                         @endif
                         <div class="row mt-4">
                             <div class="col">
-                                <h4>Pemesanan No {{$pemesanan->id_pemesanan }}</h4>
+                                <h4>Pemesanan No. {{$pemesanan->id_pemesanan }}</h4>
                                 <hr>
-                                <p>Tanggal Pemesanan: <strong> {{$pemesanan->tanggal_pemesanan}} </p>
-                                <p>Total Pemesanan: <strong> {{$pemesanan->total_pemesanan}} </p>
+                                <p>Tanggal Pemesanan : <strong> {{$pemesanan->tanggal_pemesanan}} </p>
+                                <p>Total Pemesanan : <strong> {{$pemesanan->total_pemesanan}} </p>
                             </div>
                         </div>
                         <form action="/pelanggan/riwayat/testimoni" method="post">

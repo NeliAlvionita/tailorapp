@@ -1,5 +1,4 @@
-<!-- @extends('pelanggan.layouts.app')
-@section('content') -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,64 +28,65 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
   </head>
   <body>
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-  <div class="container">
-  <div class="row">
-      <div class="col-12">
-      <nav class="main-nav">
-          <!-- ***** Logo Start ***** -->
-          <a href="/" class="logo">
-          <img src="{{ asset('assets/logo.png')}}" alt=" ">
-          </a>
-          <!-- ***** Logo End ***** -->
-          <!-- ***** Menu Start ***** -->
-          <ul class="nav">
-          <li class="scroll-to-section"><a href="/" >Beranda</a></li>
-          <li class="scroll-to-section"><a href="{{ route('produk') }}">Katalog</a></li>
-          <li class="scroll-to-section"><a href="{{ route('riwayat') }}" class="active">Pesanan</a></li>
-          <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
-          @guest
-          <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
-            <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
-        </ul>   
-        @else  
-          <li><div class="gradient-button"><a id="modal_trigger" href="#">
-            <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a></div>
-            <ul>
-              <a class="dropdown-item"  href="{{ route('lihat.akun')}}">Lihat Akun</a>
-              <a class="dropdown-item" href="{{ route('logout') }}"
-             onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
-             </a>
-
-            </ul> 
-          </li> 
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="/" class="logo">
+              <img src="{{ asset('assets/logo.png')}}" alt=" ">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="/" >Beranda</a></li>
+              <li class="scroll-to-section"><a href="{{ route('produk') }}">Katalog</a></li>
+              <li class="scroll-to-section"><a href="{{ route('riwayat') }}" class="active">Pesanan</a></li>
+              <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
+              @guest
+              <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
+                <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
+            </ul>   
+            @else  
+              <li><div class="gradient-button"><a id="modal_trigger" href="#">
+                <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a></div>
+                  <ul>
+                    <a class="dropdown-item"  href="{{ route('lihat.akun')}}">Lihat Akun</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                  </a>
+                </ul> 
+              </li> 
         
-      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-    @csrf
-      </form>
-      @endguest
-          <a class='menu-trigger'>
-              <span>Menu</span>
-          </a>
-          <!-- ***** Menu End ***** -->
-      </nav>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+              </form>
+              @endguest
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
       </div>
+    </div>
+  </header>
+  @if (session('message'))
+  <div class="alert alert-success alert-dismissible">
+    {{ session('message') }}
   </div>
+  @endif
+  </section>
   </div>
-</header>
-@if (session('message'))
-<div class="alert alert-success alert-dismissible">
-  {{ session('message') }}
-</div>
-@endif
-    </section>
-</div>
- <div class="row" style="margin-top: 120px;">
-<div class="card card-info ">
-    <div class="card-body p-0">
-        <table class="table table-hover">
+
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <div class="card card-info" style="margin-top: 120px;">
+        <div class="card-body">
+          <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Pemesanan</th>
@@ -96,36 +96,39 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Tanggal: {{ $pemesanan->tanggal_pemesanan }}</td>
-                    <td>Nama: {{ $pemesanan->pelanggan->name }}</td>
-                    <td rowspan="3">Alamat: {{ $pemesanan->alamat_pengiriman }}</td>
+                    <td>Tanggal&nbsp; : {{ $pemesanan->tanggal_pemesanan }}</td>
+                    <td>Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->name }}</td>
+                    <td>Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->alamat_pengiriman }}</td>
                 </tr>
                 <tr>
-                    <td>Total: {{ $pemesanan->total_pemesanan}}</td>
-                    <td>Nomor Hp: {{ $pemesanan->pelanggan->nomorhp }}</td>
+                    <td>Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->total_pemesanan}}</td>
+                    <td>Nomor Hp&nbsp; : {{ $pemesanan->pelanggan->nomorhp }}</td>
                     @if($pemesanan->ekspedisi == NULL)
-                    <td>Ekspedisi : Belum Dikirim</td>
+                    <td>Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Belum Dikirim</td>
                     @else
-                    <td>Ekspedisi : {{ $pemesanan->ekspedisi}}</td>
+                    <td>Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->ekspedisi}}</td>
                     @endif
                 </tr>
                 <tr>
-                    <td>Status: {{ $pemesanan->status_pemesanan }}</td>
-                    <td>Email: {{ $pemesanan->pelanggan->email }}</td>
+                    <td>Status&nbsp;&nbsp;&nbsp;&nbsp;: {{ $pemesanan->status_pemesanan }}</td>
+                    <td>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->email }}</td>
                     @if($pemesanan->no_resi == NULL)
-                    <td>Nomor Resi: Belum Dikirim</td>
+                    <td>Nomor Resi&nbsp;&nbsp;: Belum Dikirim</td>
                     @else
-                    <td>Nomor Resi: {{ $pemesanan->no_resi}}</td>
+                    <td>Nomor Resi&nbsp;&nbsp;: {{ $pemesanan->no_resi}}</td>
                     @endif
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+</div>
+
+<div class="col-lg-10 offset-lg-1">
 <div class="card card-info card-outline">
-    <div class="card-body p-0">
+    <div class="card-body">
         <table class="table table-hover">
-          <thead>
+          <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
             <tr>
               <th>No</th>
               <th>Nama</th>
@@ -142,11 +145,12 @@
               <td>{{$item->produk->nama_produk}}</td>
               <td>{{$item->produk->harga}}</td>
               <td>{{$item->jumlah}}</td>
-              <td>{{$item->subtotal}}</td>
+              <td>Rp. {{ number_format($item->subtotal)}}</td>
               <td>
-                  <div class="gradient-button">
-                <a class="btn" href="/pelanggan/riwayat/detail/{{$item->id_detailpemesanan}}">Detail Pemesanan</a>
-                </div>
+                <a class="btn" href="/pelanggan/riwayat/detail/{{$item->id_detailpemesanan}}" style="background-color: #008CBA;">
+                  <i class="fa fa-eye"></i>  
+                  Detail
+                </a>
             </td>
             </tr>
             @endforeach
@@ -175,6 +179,7 @@
     </div>
     @endif
     </div>
+</div>
 </div>
 </div>
 
@@ -254,4 +259,3 @@
   </body>
 </html>
   
-  <!-- @endsection -->
