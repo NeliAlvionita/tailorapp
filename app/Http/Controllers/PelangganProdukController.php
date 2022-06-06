@@ -18,6 +18,23 @@ class PelangganProdukController extends Controller
         ]);
     }
 
+    public function cari(Request $request){
+        // menangkap data pencarian
+        $kategori = Kategori::all();
+		$cari = $request->cari;
+        dd($cari);
+ 
+        // mengambil data dari table produk sesuai pencarian data
+        $produk = Produk::where('nama_produk','like',"%".$cari."%")
+        ->paginate(6);
+
+        // mengirim data pegawai ke view produk
+		return view('pelanggan/produk/produk_all', [
+            'produk' => $produk,
+            'kategori' => $kategori,
+        ]);
+    }
+
     public function produk_kategori(Request $request){
         $kategori = Kategori::all();
         $produk = Produk::where('id_kategori', $request->id_kategori)->paginate(6);

@@ -124,13 +124,16 @@
                     </div>
 
                     <div class="col col-lg-9">
+                        <form action="/pelanggan/produk/cari" method="GET"> 
+                            @csrf
                         <div class="input-group mb-3 wow slideInDown" data-wow-duration="0.95s" data-wow-delay="0s">
-                            <input wire:model="search" type="text" class="form-control" placeholder="Cari . . ." aria-label="Search"
+                            <input name="cari" type="text" class="form-control" placeholder="Cari . . ." aria-label="Search"
                                 aria-describedby="basic-addon1">
                             <button type="submit" class="button btn-primary" style="border:none; padding: 10px;">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
+                        </form>
 
                         <!-- row katalog -->
                         <div class="row mt-100 wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s">
