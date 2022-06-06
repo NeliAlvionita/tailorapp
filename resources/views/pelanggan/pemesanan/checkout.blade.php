@@ -88,7 +88,8 @@
                             </div>
 
                             <input type="hidden" name="tanggal_pemesanan" value="<?php echo date("Y-m-d"); ?>">
-                            <div class="form-group">
+                            <div class="col-lg-12">
+                            <div class="form-group col-lg-12">
                                 <label for="">Nama Penyetor</label>
                                 <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
                                 autocomplete="nama" autofocus>
@@ -112,7 +113,7 @@
                             </div><br>
                             <div class="form-group">
                                 <label for="">Jumlah</label>
-                                <input id="jumlah" type="text" disabled class="form-control @error('jumlah') is-invalid @enderror" name="jumlah"
+                                <input id="jumlah" type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah"
                                 autocomplete="jumlah" value={{$pemesanan->total_pemesanan}}>
                 
                                 @error('jumlah')
@@ -144,6 +145,7 @@
                                 @enderror
                             </div>
                         </div><br>
+                        </div>
                         <div class="col">
                             <h4>Informasi Pengiriman</h4>
                             <hr>
