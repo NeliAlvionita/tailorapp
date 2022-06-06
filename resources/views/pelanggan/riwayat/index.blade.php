@@ -95,7 +95,7 @@
             <div class="col">
                 <div class="table-responsive">
                     <table class="table mb-0 text-center">
-                        <thead class="table-primary">
+                        <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
                             <tr>
                                 <td>No.</td>
                                 <td>Tanggal</td>
@@ -115,10 +115,16 @@
                             <td>Rp. {{ number_format($pemesanan->total_pemesanan) }}</td>
                             <td>{{ $pemesanan->pembayaran->status_pembayaran }}</td>
                             <td>
-                                    <a class="btn btn-primary" href="/pelanggan/riwayat/{{$pemesanan->id_pemesanan}}">Detail</a>
-                                    <a class="btn btn-warning" href="{{ route('riwayat.bayar', $pemesanan->id_pemesanan) }}">Lihat Pembayaran</a>
+                                    <a class="btn" href="/pelanggan/riwayat/{{$pemesanan->id_pemesanan}}" style="background-color: #008CBA;">
+                                        Detail
+                                    </a>&nbsp;
+                                    <a class="btn" href="{{ route('riwayat.bayar', $pemesanan->id_pemesanan) }}" style="background-color: #ffae00">
+                                        Lihat Pembayaran
+                                    </a>
                                     @if($pemesanan->status_pemesanan=='Pesanan Selesai')
-                                    <a class="btn btn-warning" href="{{ route('tambah.testimoni', $pemesanan->id_pemesanan)}}">Tambah Testimoni</a>
+                                    <a class="btn" href="{{ route('tambah.testimoni', $pemesanan->id_pemesanan)}}" style="background-color: #4CAF50;">
+                                        Tambah Testimoni
+                                    </a>
                                     @endif
                             </td>
                         </tr>

@@ -52,6 +52,24 @@
             color: #fff;
             transform: translateY(-7px);
         }
+        .edit{
+            background-color: white; 
+            color: black; 
+            border: 2px solid #008CBA;
+        }
+        .edit:hover{
+            background-color: #008CBA;
+            color: white;
+        }
+        .hapus{
+            background-color: white; 
+            color: black; 
+            border: 2px solid #f44336;
+        }
+        .hapus:hover{
+            background-color: #f44336;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -119,7 +137,7 @@
             <div class="col">
                 <div class="table-responsive">
                     <table class="table mb-0 text-center">
-                        <thead class="table-primary">
+                        <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
                             <tr>
                                 <td>No.</td>
                                 <td>Kategori</td>
@@ -140,17 +158,20 @@
                                 <td>{{ $detail_pemesanan->produk->nama_produk }}</td>
                                 <td>{{ $detail_pemesanan->jumlah }}</td>
                                 <td>Rp. {{ number_format($detail_pemesanan->produk->harga) }}</td>
-                                <td class="align-left">
+                                <td>
                                     <a href="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}/ubah">
-                                        Ubah
+                                        <button class="edit">
+                                            <i class="fa fa-edit"></i> Ubah&nbsp;
+                                        </button>
                                     </a>
-                                    <span>
-                                        <form action="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}" method="post">
+                                        <form action="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}" method="post"  style="margin-top:5px;>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" >Hapus</button>
+                                            <button type="submit" class="hapus">
+                                                <i class="fa fa-trash"></i> Hapus
+                                            </button>
                                         </form>
-                                    </span>
+                                    
                                 </td>
                                 <td class="text-left"><strong>Rp. {{ number_format($detail_pemesanan->subtotal) }}</strong></td>
                                 
@@ -184,7 +205,6 @@
             </div>
         </div>
     </div>
-
     <!-- ***** footer ***** -->
     <footer id="newsletter">
         <div class="container">
@@ -251,7 +271,6 @@
             </div>
         </div>
     </footer>
-
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js')}}"></script>
