@@ -1,54 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <title>San Tailor</title>
-
-    <!-- fav icons -->
-    <link rel="shortcut icon" href="{{ asset('assets/logo1.png')}}">
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('assets/css/template.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/animated.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
-
-    <a href="https://api.whatsapp.com/send?phone=6281339908155">
-      <img src="https://hantamo.com/free/whatsapp.svg" class="wabutton" alt="Whatsapp-Button" />
-    </a>
-    <style>
-      b {
-        color: #4b8ef1;
-      }
-      p {
-        color: #504e4e;
-      }
-      .wabutton{
-        width:50px;
-        height:50px;
-        position:fixed;
-        bottom:20px;
-        right:20px;
-        z-index:100;
-      }
-    </style>
-
-  </head>
-  <body>
-
+@extends('pelanggan.layouts.app')
+@section('content')
 <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
   <div class="container">
   <div class="row">
@@ -116,225 +67,415 @@
 
     <div class="row" style="margin-top: 120px;">
         <div class="col">
-            
-            <table class="table" style="border-top : hidden">
-                <tr>
-                    <td>Kategori</td>
-                    <td>:</td>
-                    <td>{{ $detail->produk->kategori->nama_kategori }}</td>
-                </tr>
-                <tr>
-                    <td>Nama Produk</td>
-                    <td>:</td>
-                    <td>{{ $detail->produk->nama_produk }}</td>
-                </tr>
-                <tr>
-                    <td>Nama Pelanggan</td>
-                    <td>:</td>
-                    <td>{{ Auth::user()->name }}</td>
-                </tr>
-                <tr>
-                    <td>Nomor Telepon</td>
-                    <td>:</td>
-                    <td>{{ Auth::user()->nomorhp }}</td>
-                </tr>
-                <tr>
-                    <td>Jumlah Pesanan</td>
-                    <td>:</td>
-                    <td>{{ $detail->jumlah }}</td>
-                </tr>
-                <tr>
-                    <td>Catatan</td>
-                    <td>:</td>
-                    <td>{{ $detail->ukuran->catatan }}</td>
-                </tr>
-            </table>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Model Baju yang akan dibuat :</strong>
-                </div>
-                <img src="/foto_model/{{ $detail->ukuran->foto_model }}" width="50px"> 
+            <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                <center><h4>Detail <em> Pesanan</em> </h4>
+                <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
+                <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span>
+                <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>PENGUKURAN</strong>
+            <br><br>
+
+            <form> 
+                <div class="row ">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><h6> Kategori :</h6></label>
+                            <input type="text" name="kategori" class="form-control" placeholder="{{ $detail->produk->kategori->nama_kategori }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><h6> Nama Produk :</h6></label>
+                            <input type="text" name="produk" class="form-control" placeholder="{{ $detail->produk->nama_produk }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><h6> Nama Pelanggan :</h6></label>
+                            <input type="text" name="name" readonly class="form-control" placeholder="{{ Auth::user()->name }}">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><h6> Nomor Telepon :</h6></label>
+                            <input type="text" name="notelp" readonly class="form-control" placeholder="{{ Auth::user()->nomorhp }}">
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><h6> Jumlah Pesanan :</h6></label>
+                            <input type="text" name="jumlah" readonly class="form-control" placeholder="{{ $detail->jumlah }}">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><h6> Catatan :</h6></label>
+                            <input type="text" name="catatan" readonly class="form-control" placeholder="{{ $detail->ukuran->catatan }}" rows="3" >
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <strong>Model Baju yang akan dibuat :</strong>
+                        </div>
+                        <img src="/foto_model/{{ $detail->ukuran->foto_model }}" width="50"> 
+                    </div>
+                </div><br><br>
+
+                <div class="heading">
+                    <h4> Pengukuran</h4>
+                    <hr style="height:5px;color:black;background-color:black">
                 </div>
-                <img src="/gambar_ukuran/{{ $detail->produk->kategori->gambar_ukuran }}" class="img-fluid">
-            </div>
-            <table>
+
+                <div class="alert alert-primary">
+                    <h6 style="color:black;">PANDUAN PENGUKURAN</h6><br>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Anda hanya membutuhkan alat bantu berupa meteran</li>
+                        <li class="list-group-item">Mengukur dengan cara langsung mengukur di badan atau Mengukur dengan baju yang pas</li>
+                        <li class="list-group-item">Melihat Contoh Model Yang mengenakan</li>
+                        <li class="list-group-item">Mencatat Ukuran Pakaian Anda</li>
+                    </ol>
+                </div>
+
+                <div class="row">
+                    <div class="card-body">
+                        <img src="/gambar_ukuran/{{ $detail->produk->kategori->gambar_ukuran }}" class="img-fluid">
+                    </div>
+                </div><br>
+
                 @if($detail->produk->kategori->nama_kategori=='Celana')
-                <tr>
-                    <td>Lingkar Pinggang</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_pinggang }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Keris</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_keris }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Lutut</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_lutut }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Paha</td><td>:</td>
-                    <td> {{ $detail->ukuran->lingkar_paha}}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Celana</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_celana }}</td>
-                </tr>
-                <tr>
-                    <td>lebar_bawah</td><td>:</td>
-                    <td>{{ $detail->ukuran->lebar_bawah }}</td>
-                </tr>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Pinggang :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
+                        </div>
+                    </div> 
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Keris :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Lutut :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_lutut }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Paha :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_paha }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Panjang Celana :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lebar Bawah :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lebar_bawah }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
                 @endif
+
                 @if($detail->produk->kategori->nama_kategori=='Rok')
-                <tr>
-                    <td>Lingkar Pinggang</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_pinggang }}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Celana</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_celana }}</td>
-                </tr>
-                <tr>
-                    <td>Lebar Bawah</td><td>:</td>
-                    <td>{{ $detail->ukuran->lebar_bawah }}</td>
-                </tr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Pinggang :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Rok :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lebar Bawah :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lebar_bawah }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
                 @endif
+
                 @if($detail->produk->kategori->nama_kategori=='Jas')
-                <tr>
-                    <td>Panjang Bahu</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_bahu }}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Lengan</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_lengan }}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Baju</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_baju }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Dada</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_dada }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Lengan</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_lengan }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Ketiak</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_ketiak }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Leher</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_leher }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Perut</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_perut }}</td>
-                </tr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Bahu :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_bahu }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Lengan :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_lengan }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Baju :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Dada :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Ketiak :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Leher :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_leher }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Perut :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_perut }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
                 @endif
+
                 @if($detail->produk->kategori->nama_kategori=='Kemeja')
-                <tr>
-                    <td>Panjang Bahu</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_bahu }}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Lengan</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_lengan }}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Baju</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_baju }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Dada</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_dada }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Lengan</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_lengan }}</td>
-                </tr
-                <tr>
-                    <td>Lingkar Ketiak</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_ketiak }}</td>
-                </tr>
-                <tr>
-                    <td>lingkar_leher</td>
-                    <td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_leher }} </td>
-                </tr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Bahu :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_bahu }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Lengan :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_lengan }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Baju :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Dada :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Ketiak :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+                    
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Leher :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_leher }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
                 @endif
+
                 @if($detail->produk->kategori->nama_kategori=='Seragam')
-                <tr>
-                    <td colspan="3"><strong>Atasan</strong> </td>
-                </tr>
-                <tr>
-                    <td>Panjang Bahu</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_bahu }}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Lengan</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_lengan }}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Baju</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_baju }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Dada</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_dada }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Lengan</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_lengan }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Ketiak</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_ketiak }}</td>
-                </tr>
-                <tr>
-                    <td>lingkar_leher</td>
-                    <td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_leher }} </td>
-                </tr>
-                <tr>
-                    <td colspan="3"><strong>Bawahan</strong> </td>
-                </tr>
-                <tr>
-                    <td>Lingkar Pinggang</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_pinggang }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Keris</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_keris }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Lutut</td><td>:</td>
-                    <td>{{ $detail->ukuran->lingkar_lutut }}</td>
-                </tr>
-                <tr>
-                    <td>Lingkar Paha</td><td>:</td>
-                    <td> {{ $detail->ukuran->lingkar_paha}}</td>
-                </tr>
-                <tr>
-                    <td>Panjang Celana</td><td>:</td>
-                    <td>{{ $detail->ukuran->panjang_celana }}</td>
-                </tr>
-                <tr>
-                    <td>lebar_bawah</td><td>:</td>
-                    <td>{{ $detail->ukuran->lebar_bawah }}</td>
-                </tr>
+                <br>
+                <div class="alert alert-success">
+                    <h6>Atasan</h6>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Bahu :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_bahu }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Lengan :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_lengan }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Baju :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Dada :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Ketiak :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Leher :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_leher }}" readonly>
+                        </div>
+                    </div>
+                </div><br><br>
+
+                <div class="alert alert-success">
+                    <h6>Bawahan</h6>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Pinggang :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Keris :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Lutut :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_lutut }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Paha :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_paha }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Celana :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lebar Bawah :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lebar_bawah }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
                 @endif
-            </table>
             </form>
         </div>
     </div>
 </div>
 
-    <footer id="newsletter">
+<footer id="newsletter">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
@@ -399,13 +540,4 @@
       </div>
     </div>
   </footer>
-
-<script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset('assets/js/owl-carousel.js')}}"></script>
-    <script src="{{ asset('assets/js/animation.js')}}"></script>
-    <script src="{{ asset('assets/js/imagesloaded.js')}}"></script>
-    <script src="{{ asset('assets/js/popup.js')}}"></script>
-    <script src="{{ asset('assets/js/custom.js')}}"></script>
-  </body>
-</html>
+@endsection

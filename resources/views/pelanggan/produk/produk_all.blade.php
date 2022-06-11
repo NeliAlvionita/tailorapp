@@ -125,11 +125,16 @@
 
                     <div class="col col-lg-9">
                         <div class="input-group mb-3 wow slideInDown" data-wow-duration="0.95s" data-wow-delay="0s">
-                            <input wire:model="search" type="text" class="form-control" placeholder="Cari . . ." aria-label="Search"
-                                aria-describedby="basic-addon1">
-                            <button type="submit" class="button btn-primary" style="border:none; padding: 10px;">
-                                <i class="fa fa-search"></i>
-                            </button>
+                            <div class="col-lg-12">
+                                <form action="/pelanggan/cari/produk" method="GET">
+                                    <div class="form-group d-flex" style="align:right;">
+                                        <input type="text" name="cari" class="form-control" placeholder="Cari Produk. . ." value="{{ old('cari') }}">
+                                        <button type="submit" class="button btn-primary" style="border:none; padding: 10px;">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
 
                         <!-- row katalog -->

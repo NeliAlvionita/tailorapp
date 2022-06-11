@@ -102,55 +102,100 @@
 
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
-            <div class="card card-info" style="margin-top: 120px;">
+            <div class="card card-info" style="margin-top: 120px; border:none;">
                 <div class="card-body">
                     <table class="table table-hover">
-                        <tbody>
-                            <tr>
-                                <td><strong>No Pemesanan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>  {{ $pemesanan->id_pemesanan}}</td>
-                                <td><strong>Nama Pelanggan&nbsp;: </strong>  {{ $pemesanan->pelanggan->name }}</td>
+                        <tbody >
+                            <tr >
+                                <td style="border:none;"><strong>No Pemesanan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>  {{ $pemesanan->id_pemesanan}}</td>
+                                <td style="border:none;"><strong>Nama Pelanggan&nbsp;: </strong>  {{ $pemesanan->pelanggan->name }}</td>
                             </tr>
                             <tr>
-                                <td><strong>Tanggal Pemesanan&nbsp;&nbsp; :</strong> {{ $pemesanan->tanggal_pemesanan }}</td>
-                                <td><strong>Nama Penyetor&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->nama }}</td>
+                                <td style="border:none;"><strong>Tanggal Pemesanan&nbsp;&nbsp; :</strong> {{ $pemesanan->tanggal_pemesanan }}</td>
+                                <td style="border:none;"><strong>Nama Penyetor&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->nama }}</td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td><strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->bank}} </td>
+                                <td style="border:none;"></td>
+                                <td style="border:none;"><strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->bank}} </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <div class="card card-info card-outline">
+            <div class="card card-info card-outline" style="border:none;">
                 <div class="card-body p-0">
-                    <table class="table table-hover">
-                        <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
-                            <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Harga</th>
-                            <th>Jumlah</th>
-                            <th>Sub Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($pemesanan->detail_pemesanan as $index => $item)
-                            <tr>
-                            <td>{{$index + 1}}</td>
-                            <td>{{$item->produk->nama_produk}}</td>
-                            <td>Rp. {{ number_format($item->produk->harga) }}</td>
-                            <td>{{$item->jumlah}}</td>
-                            <td>Rp. {{ number_format($item->subtotal) }}</td>
-                            </tr>
-                            @endforeach
-                            <tr>
-                                <td colspan="4"><strong>Total Pembayaran : </strong></td>
-                                <td><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
-                            </tr>
-                        </tbody>
-                    </table><br>
+                    <div class="card shadow">
+                        <table class="table table-hover">
+                            <thead class="table shadow" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
+                                <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Harga</th>
+                                <th>Jumlah</th>
+                                <th>Sub Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($pemesanan->detail_pemesanan as $index => $item)
+                                <tr>
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{$item->produk->nama_produk}}</td>
+                                    <td>Rp. {{ number_format($item->produk->harga) }}</td>
+                                    <td>{{$item->jumlah}}</td>
+                                    <td>Rp. {{ number_format($item->subtotal) }}</td>
+                                </tr>
+                                @endforeach
+                                <tr>
+                                    <td colspan="5" style="border:none;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"></td>
+                                    <td><strong>Total Pembayaran </strong></td>
+                                    <td><strong> Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
+                                </tr>
+
+                                @if($pemesanan->pembayaran->status_pembayaran=='Lunas')
+                                <tr>
+                                    <td colspan="5" style="border:none;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="border:none;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="border:none;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="border:none;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="border:none;" ></td>
+                                    <td style="border:none;">Malang, {{ $pemesanan->tanggal_pemesanan }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="border:none;"></td>
+                                    <td style="border:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hormat Kami,</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="border:none;"></td>
+                                    <td><img src="{{ asset('assets/stempel.png') }}" width="93" height="40"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="border:none;"></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Tailor</td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                    <br><br>    
+                    </div>
+                        <div class="gradient-button">
+                            <a class="btns" href="#">
+                                <i class="fas fa-print"></i> Cetak Nota
+                            </a>
+                        </div>
+                    @endif
+                    <br>
                     @if($pemesanan->pembayaran->status_pembayaran=='belum dicek')
                     <div class="row">
                         <div class="col">
@@ -160,26 +205,7 @@
                         </div>
                     </div>
                     @endif
-                    @if($pemesanan->pembayaran->status_pembayaran=='Lunas')
-                    <div class="row">
-                        <div class="col">
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <p>Malang, Tanggal Bulan Tahun</p>
-                                    <p>Hormat kami</p>
-                                    <p>San Tailor</p>
-                                </div>
-                            </div>
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <a class="btns" href="#">Cetak Nota</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
                 </div>
-            </div>
             </div>
         </div>
 

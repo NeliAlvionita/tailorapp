@@ -94,7 +94,7 @@
         <div class="row" style="margin-top: 120px;">
             <div class="col">
                 <div class="table-responsive">
-                    <table class="table mb-0 text-center">
+                    <table class="table mb-0 text-center" >
                         <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
                             <tr>
                                 <td>No.</td>
