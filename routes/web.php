@@ -91,5 +91,9 @@ Route::get('/pelanggan/riwayat/detail/{id_detailpemesanan}', 'RiwayatController@
 Route::get('/pelanggan/riwayat/{id_pemesanan}/testimoni', 'TestimoniController@tambah')->name('tambah.testimoni');
 Route::get('/pelanggan/testimoni', 'TestimoniController@index')->name('testi');
 Route::post('/pelanggan/riwayat/testimoni', 'TestimoniController@store');
+//cekongkir
+Route::get('/ongkir', 'CheckOngkirController@index');
+Route::post('/ongkir', 'CheckOngkirController@check_ongkir');
+Route::get('/cities/{province_id}', 'CheckOngkirController@getCities');
 
 Auth::routes();
