@@ -102,93 +102,104 @@
 
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
-            <div class="card card-info" style="margin-top: 120px; border:none;">
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <tbody >
-                            <tr >
-                                <td style="border:none;"><strong>No Pemesanan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>  {{ $pemesanan->id_pemesanan}}</td>
-                                <td style="border:none;"><strong>Nama Pelanggan&nbsp;: </strong>  {{ $pemesanan->pelanggan->name }}</td>
-                            </tr>
-                            <tr>
-                                <td style="border:none;"><strong>Tanggal Pemesanan&nbsp;&nbsp; :</strong> {{ $pemesanan->tanggal_pemesanan }}</td>
-                                <td style="border:none;"><strong>Nama Penyetor&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->nama }}</td>
-                            </tr>
-                            <tr>
-                                <td style="border:none;"></td>
-                                <td style="border:none;"><strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->bank}} </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="card card-info card-outline" style="border:none;">
-                <div class="card-body p-0">
-                    <div class="card shadow">
+                <div class="card card-info" style="margin-top: 120px; border:none;">
+                    <div class="card-body">
                         <table class="table table-hover">
-                            <thead class="table shadow" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
-                                <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Harga</th>
-                                <th>Jumlah</th>
-                                <th>Sub Total</th>
-                                </tr>
-                            </thead>
                             <tbody>
-                                @foreach ($pemesanan->detail_pemesanan as $index => $item)
-                                <tr>
-                                    <td>{{$index + 1}}</td>
-                                    <td>{{$item->produk->nama_produk}}</td>
-                                    <td>Rp. {{ number_format($item->produk->harga) }}</td>
-                                    <td>{{$item->jumlah}}</td>
-                                    <td>Rp. {{ number_format($item->subtotal) }}</td>
-                                </tr>
-                                @endforeach
-                                <tr>
-                                    <td colspan="5" style="border:none;"></td>
+                                <tr >
+                                    <td style="border:none;"><strong>No Pemesanan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>  {{ $pemesanan->id_pemesanan}}</td>
+                                    <td style="border:none;"><strong>Nama Pelanggan&nbsp;: </strong>  {{ $pemesanan->pelanggan->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3"></td>
-                                    <td><strong>Total Pembayaran </strong></td>
-                                    <td><strong> Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
-                                </tr>
-
-                                @if($pemesanan->pembayaran->status_pembayaran=='Lunas')
-                                <tr>
-                                    <td colspan="5" style="border:none;"></td>
+                                    <td style="border:none;"><strong>Tanggal Pemesanan&nbsp;&nbsp; :</strong> {{ $pemesanan->tanggal_pemesanan }}</td>
+                                    <td style="border:none;"><strong>Nama Penyetor&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->nama }}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="5" style="border:none;"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" style="border:none;"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" style="border:none;"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4" style="border:none;" ></td>
-                                    <td style="border:none;">Malang, {{ $pemesanan->tanggal_pemesanan }}</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4" style="border:none;"></td>
-                                    <td style="border:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hormat Kami,</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4" style="border:none;"></td>
-                                    <td><img src="{{ asset('assets/stempel.png') }}" width="93" height="40"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4" style="border:none;"></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Tailor</td>
+                                    <td style="border:none;"></td>
+                                    <td style="border:none;"><strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->bank}} </td>
                                 </tr>
                             </tbody>
-                        </table> 
+                        </table>
                     </div>
-                    <br><br>    
-                    </div>
+                </div>
+
+                <div class="card card-info card-outline" style="border:none;">
+                    <div class="card-body p-0">
+                            <table class="table shadow table-hover">
+                                <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Jumlah</th>
+                                        <th>Harga</th>
+                                        <th>Sub Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($pemesanan->detail_pemesanan as $index => $item)
+                                    <tr>
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{$item->produk->nama_produk}}</td>
+                                        <td>{{$item->jumlah}}</td>
+                                        <td>Rp. {{ number_format($item->produk->harga) }}</td>
+                                        <td>Rp. {{ number_format($item->subtotal) }}</td>
+                                    </tr>
+                                    @endforeach
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"></td>
+                                        <td><strong>Total Pembayaran </strong></td>
+                                        <td><strong> Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
+                                    </tr>
+
+                                    @if($pemesanan->pembayaran->status_pembayaran=='belum dicek')
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr style="background: #FF7F00;  color: #fff;  font-weight: bold;">
+                                        <td style="border:none;"></td>
+                                        <td style="border:none;"></td>
+                                        <td><h6 align="center" >Pembayaran yang telah anda lakukan sedang dalam proses pengecekan oleh admin </h6></td>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    @endif
+
+                                    @if($pemesanan->pembayaran->status_pembayaran=='Lunas')
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="border:none;" ></td>
+                                        <td style="border:none;">Malang, {{ $pemesanan->tanggal_pemesanan }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="border:none;"></td>
+                                        <td style="border:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hormat Kami,</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="border:none;"></td>
+                                        <td><img src="{{ asset('assets/stempel.png') }}" width="93" height="40"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="border:none;"></td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Tailor</td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                        </div>
+                        <br><br>
+                    </div>   
                         <div class="gradient-button">
                             <a class="btns" href="#">
                                 <i class="fas fa-print"></i> Cetak Nota
@@ -196,84 +207,13 @@
                         </div>
                     @endif
                     <br>
-                    @if($pemesanan->pembayaran->status_pembayaran=='belum dicek')
-                    <div class="row">
-                        <div class="col">
-                            <div class="alert alert-info">
-                                <h6 align="center">Pembayaran yang telah anda lakukan sedang dalam proses pengecekan oleh admin </h6>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
+                </div>
                 </div>
             </div>
         </div>
 
-        <footer id="newsletter">
-            <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                <div class="section-heading">
-                    <h4>Bergabunglah dengan email kami untuk menerima berita &amp; promo terbaru</h4>
-                </div>
-                </div>
-                <div class="col-lg-6 offset-lg-3">
-                <form id="search" action="#" method="GET">
-                    <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <fieldset>
-                        <input type="address" name="address" class="email" placeholder="Alamat Email..." autocomplete="on" required>
-                        </fieldset>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <fieldset>
-                        <button type="submit" class="main-button">Langganan <i class="fa fa-angle-right"></i></button>
-                        </fieldset>
-                    </div>
-                    </div>
-                </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                <div class="footer-widget">
-                    <h4>Kontak Kami</h4>
-                    <p>San Tailor</p>
-                    <p>Jl. Silikat No.50A, Kota Malang</p>
-                    <p><a href="#">08123456789</a></p>
-                    <p><a href="#">santailor@gmail.com</a></p>
-                </div>
-                </div>
-                <div class="col-lg-4">
-                <div class="footer-widget">
-                    <h4>Tentang Kami</h4>
-                    <p>
-                    San Tailor merupakan penjahit yang melayani jasa menjahit 
-                    pakaian dari kemeja, seragam sekolah, celana, rok, sampai jas, 
-                    baik untuk laki-laki maupun perempuan. 
-                    </p>
-                </div>
-                </div>
-                <div class="col-lg-4">
-                <div class="footer-widget">
-                    <h4>About Our Company</h4>
-                    <div class="logo">
-                    <img src="assets/logo.png" alt="">
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                </div>
-                </div>
-                <div class="col-lg-12">
-                <div class="copyright-text">
-                    <p>Copyright © 2022 San Tailor. All Rights Reserved. 
-                    <br> 
-                    <!-- Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a> -->
-                    </p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </footer>
+        
+        
 
         <script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

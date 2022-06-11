@@ -164,7 +164,7 @@
                                             <i class="fa fa-edit"></i> Ubah&nbsp;
                                         </button>
                                     </a>
-                                        <form action="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}" method="post"  style="margin-top:5px;>
+                                        <form action="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}" method="post"  style="margin-top:5px;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="hapus">
