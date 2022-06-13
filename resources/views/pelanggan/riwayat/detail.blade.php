@@ -38,7 +38,7 @@
 
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
-      <div class="card card-info" style="margin-top: 120px;">
+      <div class="card card-info" style="margin-top: 120px; border:none;">
         <div class="card-body">
           <table class="table table-hover">
             <thead>
@@ -50,26 +50,26 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Tanggal&nbsp; : {{ $pemesanan->tanggal_pemesanan }}</td>
-                    <td>Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->name }}</td>
-                    <td>Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->alamat_pengiriman }}</td>
+                    <td style="border:none;">Tanggal&nbsp; : {{ $pemesanan->tanggal_pemesanan }}</td>
+                    <td style="border:none;">Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->name }}</td>
+                    <td style="border:none;">Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->alamat_pengiriman }}</td>
                 </tr>
                 <tr>
-                    <td>Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->total_pemesanan}}</td>
-                    <td>Nomor Hp&nbsp; : {{ $pemesanan->pelanggan->nomorhp }}</td>
+                    <td style="border:none;">Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->total_pemesanan}}</td>
+                    <td style="border:none;">Nomor Hp&nbsp; : {{ $pemesanan->pelanggan->nomorhp }}</td>
                     @if($pemesanan->ekspedisi == NULL)
-                    <td>Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Belum Dikirim</td>
+                    <td style="border:none;">Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Belum Dikirim</td>
                     @else
-                    <td>Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->ekspedisi}}</td>
+                    <td style="border:none;">Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->ekspedisi}}</td>
                     @endif
                 </tr>
                 <tr>
-                    <td>Status&nbsp;&nbsp;&nbsp;&nbsp;: {{ $pemesanan->status_pemesanan }}</td>
-                    <td>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->email }}</td>
+                    <td style="border:none;">Status&nbsp;&nbsp;&nbsp;&nbsp;: {{ $pemesanan->status_pemesanan }}</td>
+                    <td style="border:none;">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->email }}</td>
                     @if($pemesanan->no_resi == NULL)
-                    <td>Nomor Resi&nbsp;&nbsp;: Belum Dikirim</td>
+                    <td style="border:none;">Nomor Resi&nbsp;&nbsp;: Belum Dikirim</td>
                     @else
-                    <td>Nomor Resi&nbsp;&nbsp;: {{ $pemesanan->no_resi}}</td>
+                    <td style="border:none;">Nomor Resi&nbsp;&nbsp;: {{ $pemesanan->no_resi}}</td>
                     @endif
                 </tr>
                 <tr>
@@ -90,9 +90,9 @@
 </div>
 
 <div class="col-lg-10 offset-lg-1">
-<div class="card card-info card-outline">
+<div class="card card-info card-outline" style="border:none;">
     <div class="card-body">
-        <table class="table table-hover">
+        <table class="table shadow table-hover">
           <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
             <tr>
               <th>No</th>
@@ -122,9 +122,16 @@
             </tr>
             @endforeach
             <tr>
-                <td colspan="4"><strong>Total Pembayaran : </strong></td>
-                <td align="left"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
+              <td colspan="6" style="border:none;"></td>
+            </tr>
+            <tr>
+              <td colspan="3" style="border:none;"></td>
+                <td style="border:none;"><strong>Total Pembayaran : </strong></td>
+                <td align="left" style="border:none;"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
                 <td></td>
+            </tr>
+            <tr>
+              <td colspan="6" style="border:none;"></td>
             </tr>
           </tbody>
       </table>

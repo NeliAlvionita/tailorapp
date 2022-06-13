@@ -428,6 +428,5 @@
         </div>
     </div>
 </div>
-
 @include('pelanggan.layouts.footer')
 @endsection

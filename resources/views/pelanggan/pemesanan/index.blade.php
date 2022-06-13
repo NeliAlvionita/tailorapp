@@ -34,14 +34,15 @@
                                     <label><h6> Kategori :</h6></label>
                                     <input type="hidden" name="id_kategori" value={{ $produk->id_kategori}}>
                                     <input type="text" name="kategori" disabled class="form-control" placeholder="{{ $produk->kategori->nama_kategori }}">
-                                    
+                                    <input type="text" name="kategori" readonly class="form-control" placeholder="{{ $produk->kategori->nama_kategori }}">
+                 
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label><h6> Nama Produk :</h6></label>
-                                    <input type="text" name="produk" disabled class="form-control" placeholder="{{ $produk->nama_produk }}">
+                                    <input type="text" name="produk" readonly class="form-control" placeholder="{{ $produk->nama_produk }}">
                                     <input type="hidden" name="harga" value={{ $produk->harga}}>
                                     <input type="hidden" name="berat_produk" value={{ $produk->berat_produk}}>
                                     <input type="hidden" name="id_produk" value={{ $produk->id_produk}}>
@@ -54,7 +55,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label><h6> Nama Pelanggan :</h6></label>
-                                    <input type="text" name="name" disabled class="form-control" placeholder="{{ Auth::user()->name }}">
+                                    <input type="text" name="name" readonly class="form-control" placeholder="{{ Auth::user()->name }}">
                                     
                                 </div>
                             </div>
@@ -62,7 +63,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label><h6> Nomor Telepon :</h6></label>
-                                    <input type="text" name="notelp" disabled class="form-control" placeholder="{{ Auth::user()->nomorhp }}">
+                                    <input type="text" name="notelp" readonly class="form-control" placeholder="{{ Auth::user()->nomorhp }}">
                                 </div>
                             </div>
                         </div><br>

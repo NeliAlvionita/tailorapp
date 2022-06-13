@@ -112,3 +112,4 @@ Route::get('/ongkir/province/{province_id}/cities', 'OngkirController@getCities'
 Route::post('/ongkir', 'OngkirController@submit');
 
 Auth::routes();
+
