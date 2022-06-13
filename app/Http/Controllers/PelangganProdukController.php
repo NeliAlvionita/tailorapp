@@ -68,22 +68,4 @@ class PelangganProdukController extends Controller
             'footer' => $footer
         ]);
     }
-
-    public function cari(Request $request)
-	{
-		// menangkap data pencarian
-		$cari = $request->cari;
- 
-    	// mengambil data dari table produk sesuai pencarian data
-        $kategori = Kategori::all();
-		$produk = Produk::where('nama_produk','like',"%".$cari."%")
-		->paginate();
- 
-    	// mengirim data produk ke view
-        return view('pelanggan/produk/produk_all',[
-            'produk' => $produk,
-            'kategori' => $kategori,
-        ]);
- 
-	}
 }
