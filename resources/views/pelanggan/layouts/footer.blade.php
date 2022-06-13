@@ -27,19 +27,17 @@
         <div class="col-lg-4">
           <div class="footer-widget">
             <h4>Kontak Kami</h4>
-            <p>San Tailor</p>
-            <p>Jl. Silikat No.50A, Kota Malang</p>
-            <p><a href="#">08123456789</a></p>
-            <p><a href="#">santailor@gmail.com</a></p>
+            <p>{{$footer->nama_toko}}</p>
+            <p>{{$footer->alamat_toko}}</p>
+            <p><a href="#">{{$footer->nomor_telepon}}</a></p>
+            <p><a href="#">{{$footer->email_toko}}</a></p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="footer-widget">
             <h4>Tentang Kami</h4>
             <p>
-            San Tailor merupakan penjahit yang melayani jasa menjahit 
-            pakaian dari kemeja, seragam sekolah, celana, rok, sampai jas, 
-            baik untuk laki-laki maupun perempuan. 
+            {{$footer->tentang}}
             </p>
           </div>
         </div>

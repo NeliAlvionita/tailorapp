@@ -8,7 +8,7 @@ class Produk extends Model
 {
     protected $table = "produk";
     protected $primaryKey = "id_produk";
-    protected $fillable = ["id_kategori", "nama_produk", "foto_produk", "harga", "detail_produk"];
+    protected $fillable = ["id_kategori", "nama_produk", "nama_bahan", "foto_produk", "harga", "detail_produk", "berat_produk"];
 
     public $timestamps = false;
     public function kategori(){

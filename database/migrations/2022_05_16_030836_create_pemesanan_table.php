@@ -18,7 +18,9 @@ class CreatePemesananTable extends Migration
             $table->unsignedBigInteger("id_pelanggan");
             $table->date("tanggal_pemesanan");
             $table->integer("total_pemesanan");
-            $table->string("alamat_pengiriman");
+            $table->integer("total_berat");
+            $table->integer("biaya_ongkir")->nullable();
+            $table->string("alamat_pengiriman")->nullable();
             $table->string("status_pemesanan")->default(0);
             $table->string('ekspedisi')->nullable();
             $table->string('no_resi')->nullable();

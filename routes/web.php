@@ -35,6 +35,13 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::get('/admin/kategori/{id_kategori}/ubah', 'KategoriController@ubah');
     Route::put('/admin/kategori/{id_kategori}', 'KategoriController@update');
     Route::delete('/admin/kategori/{id_kategori}', 'KategoriController@delete');
+    // Route Tabel Bahan
+    Route::get('/admin/bahan', 'BahanController@index');
+    Route::get('/admin/bahan/tambah', 'BahanController@tambah');
+    Route::post('/admin/bahan', 'BahanController@store');
+    Route::get('/admin/bahan/{id_bahan}/ubah', 'BahanController@ubah');
+    Route::put('/admin/bahan/{id_bahan}', 'BahanController@update');
+    Route::delete('/admin/bahan/{id_bahan}', 'BahanController@delete');
     // Route Tabel Produk 
     Route::get('/admin/produk', 'ProdukController@index');
     Route::get('/admin/produk/tambah', 'ProdukController@tambah');
@@ -47,6 +54,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::get('/admin/pemesanan', 'PemesananController@index');
     Route::get('/admin/pemesanan/{id_pemesanan}/detail', 'PemesananController@detail');
     Route::put('/admin/pemesanan/{id_pemesanan}', 'PemesananController@update_status');
+    Route::put('/admin/pemesanan/{id_pemesanan}/tanggal_proses', 'PemesananController@tanggal_proses');
     Route::put('/admin/pemesanan/{id_pemesanan}/resi', 'PemesananController@submitResi');
     Route::get('/admin/pemesanan/{id_pemesanan}/pembayaran', 'PemesananController@detail_bayar');
     Route::put('/admin/pemesanan/{id_pemesanan}/update', 'PemesananController@update_bayar');
@@ -54,6 +62,11 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::get('/admin/pemesanan/{id_pemesanan}/cetak-ukuran', 'PemesananController@cetak_ukuran')->name('admin.cetak.ukuran');
     // Route Testimoni
     Route::get('/admin/testimoni', 'TestimoniController@admin');
+    // Route Footer
+    Route::get('/admin/footer', 'FooterController@index');
+    Route::get('/admin/footer/{id_footer}/ubah', 'FooterController@ubah');
+    Route::put('/admin/footer/{id_footer}', 'FooterController@update');
+
 });
 // Route Laporan
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pemilik']], function () {
@@ -86,10 +99,16 @@ Route::post('/pelanggan/checkout', 'CheckoutController@checkout')->name('checkou
 Route::get('/pelanggan/riwayat', 'RiwayatController@index')->name('riwayat');
 Route::get('/pelanggan/riwayat/{id_pemesanan}', 'RiwayatController@detail');
 Route::get('/pelanggan/riwayat/{id_pemesanan}/bayar', 'RiwayatController@pembayaran')->name('riwayat.bayar');
+Route::get('/pelanggan/riwayat/{id_pemesanan}/cetak-nota', 'RiwayatController@cetak_nota')->name('cetak.nota');
 Route::get('/pelanggan/riwayat/detail/{id_detailpemesanan}', 'RiwayatController@detailpemesanan');
 //testimoni
 Route::get('/pelanggan/riwayat/{id_pemesanan}/testimoni', 'TestimoniController@tambah')->name('tambah.testimoni');
 Route::get('/pelanggan/testimoni', 'TestimoniController@index')->name('testi');
 Route::post('/pelanggan/riwayat/testimoni', 'TestimoniController@store');
+
+//ongkir
+Route::get('/ongkir', 'OngkirController@index');
+Route::get('/ongkir/province/{province_id}/cities', 'OngkirController@getCities');
+Route::post('/ongkir', 'OngkirController@submit');
 
 Auth::routes();

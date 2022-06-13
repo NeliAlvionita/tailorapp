@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Footer;
 use Illuminate\Http\Request;
 
 class AkunController extends Controller
 {
     public function lihat(){
-        return view('pelanggan/akun/lihat');
+        $footer = Footer::first();
+        return view('pelanggan/akun/lihat', ['footer' => $footer]);
     }
 
     public function ubah(Request $request){
+        $footer = Footer::first();
         $user = User::find($request->id);
-        return view('pelanggan/akun/ubah', ['user' => $user]);
+        return view('pelanggan/akun/ubah', ['user' => $user], ['footer' => $footer]);
     }
 
     public function update(Request $request, User $user){

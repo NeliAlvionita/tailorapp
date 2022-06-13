@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Province;
+use App\Courier;
 use App\Pembayaran;
 use App\Pemesanan;
+use App\Footer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,10 +15,16 @@ class CheckoutController extends Controller
         if(!Auth::user()) {
             return redirect()->route('login');
         }
+        $footer = Footer::first();
+        $couriers = Courier::pluck('name', 'code');
+        $provinces = Province::pluck('name', 'province_id');
 
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('status_pemesanan','=','0')->first();
         return view('pelanggan/pemesanan/checkout',[
             'pemesanan' => $pemesanan,
+            'couriers' => $couriers,
+            'provinces' => $provinces,
+            'footer' => $footer
         ]);
     }
 
@@ -27,14 +35,12 @@ class CheckoutController extends Controller
             'jumlah' => 'required',
             'tanggal_pembayaran' => 'required',
             'bukti' => ['mimes:jpeg,png,jpg,gif,svg'],
-            'alamat_pengiriman' => 'required',
         ]);
 
         //update data pemesanan
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('status_pemesanan','=','0')->first();
         $pemesanan->tanggal_pemesanan = $request->tanggal_pemesanan;
         $pemesanan->status_pemesanan = 'belum diproses';
-        $pemesanan->alamat_pengiriman = $request->alamat_pengiriman;
         $pemesanan->update();
 
         //simpan data pembayaran

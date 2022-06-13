@@ -26,9 +26,15 @@
                     @endforeach
                 </select>
             </div>
+            <input type="hidden" name="nama_bahan" value="drill">
             <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Nama Produk"
+                aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+                <label for="nama_bahan">Nama Bahan</label>
+                <input type="text" name="nama_bahan" id="nama_bahan" class="form-control" placeholder="Nama Bahan"
                 aria-describedby="helpId">
             </div>
             <div class="form-group">
@@ -38,6 +44,11 @@
             <div class="form-group">
                 <label for="harga">Harga</label>
                 <input type="text" name="harga" id="harga" class="form-control" placeholder="Harga (Rp.)"
+                aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+                <label for="berat_produk">Berat Produk</label>
+                <input type="text" name="berat_produk" id="berat_produk" class="form-control" placeholder="Berat Produk (gram)"
                 aria-describedby="helpId">
             </div>
             <div class="form-group">

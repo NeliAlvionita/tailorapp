@@ -33,6 +33,11 @@
                 aria-describedby="helpId">
             </div>
             <div class="form-group">
+                <label for="nama_bahan">Nama Bahan</label>
+                <input type="text" name="nama_bahan" id="nama_bahan" class="form-control" value="{{ $produk->nama_bahan }}" placeholder="Nama Bahan"
+                aria-describedby="helpId">
+            </div>
+            <div class="form-group">
                 <label for="foto_produk">File Foto Produk</label>
                 <input type="file" name="foto_produk" id="foto_produk" class="form-control">
                 <img src="/foto_produk/{{ $produk->foto_produk }}" width="500px">
@@ -40,6 +45,11 @@
             <div class="form-group">
                 <label for="harga">Harga</label>
                 <input type="text" name="harga" id="harga" class="form-control" value="{{ $produk->harga }}" placeholder="Harga (Rp.)"
+                aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+                <label for="berat_produk">Berat (gr)</label>
+                <input type="text" name="berat_produk" id="berat_produk" class="form-control" value="{{ $produk->berat_produk }}" placeholder="Harga (Rp.)"
                 aria-describedby="helpId">
             </div>
             <div class="form-group">

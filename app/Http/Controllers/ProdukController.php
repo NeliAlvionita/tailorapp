@@ -26,9 +26,11 @@ class ProdukController extends Controller
         $this->validate($request, [
             'id_kategori' => ['required'],
             'nama_produk' => ['required', 'string', 'max:255'],
+            'nama_bahan' => ['required', 'string'],
             'foto_produk' => ['mimes:jpeg,png,jpg,gif,svg'],
             'harga' => ['required', 'numeric'],
             'detail_produk' => ['required', 'string', 'max:255'],
+            'berat_produk' => ['required', 'numeric'],
         ]);
         
 
@@ -66,9 +68,11 @@ class ProdukController extends Controller
         $this->validate($request, [
             'id_kategori' => ['required'],
             'nama_produk' => ['required', 'string', 'max:255'],
+            'nama_bahan' => ['required', 'string', 'max:255'],
             'foto_produk' => ['mimes:jpeg,png,jpg,gif,svg'],
             'harga' => ['required', 'numeric'],
             'detail_produk' => ['required', 'string', 'max:255'],
+            'berat_produk' => ['required', 'numeric'],
         ]);
 
         if ($foto_produk = $request->file('foto_produk')) {
@@ -80,8 +84,10 @@ class ProdukController extends Controller
     
         $produk->id_kategori=$request->id_kategori;
         $produk->nama_produk=$request->nama_produk;
+        $produk->nama_bahan=$request->nama_bahan;
         $produk->harga=$request->harga;
         $produk->detail_produk=$request->detail_produk;
+        $produk->berat_produk=$request->berat_produk;
         $produk->save(); 
  
 
