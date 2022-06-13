@@ -34,9 +34,7 @@
                   </div>
                   @endforeach
                 </div>
-                
               </div>
-
               <div class="col-lg-5">
                 <ul class="nacc">
                   @foreach($testimoni as $index => $item)

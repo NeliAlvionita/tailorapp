@@ -73,54 +73,7 @@
     </style>
 </head>
 <body>
-    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-        <div class="container">
-        <div class="row">
-            <div class="col-12">
-            <nav class="main-nav">
-                <!-- ***** Logo Start ***** -->
-                <a href="/" class="logo">
-                <img src="{{ asset('assets/logo.png')}}" alt=" ">
-                </a>
-                <!-- ***** Logo End ***** -->
-                <!-- ***** Menu Start ***** -->
-                <ul class="nav">
-                <li class="scroll-to-section"><a href="/" >Beranda</a></li>
-                <li class="scroll-to-section"><a href="{{ route('produk') }}">Katalog</a></li>
-                <li class="scroll-to-section"><a href="{{ route('riwayat') }}">Pesanan</a></li>
-                <li class="scroll-to-section"><a href="{{ route('keranjang') }}" class="active">Keranjang</a></li>
-                @guest
-                <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
-                  <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
-              </ul>   
-              @else  
-                <li><div class="gradient-button"><a id="modal_trigger" href="#">
-                  <i class="fa fa-sign-in-alt"></i> {{ Auth::user()->name }}</a></div>
-                  <ul>
-                    <a class="dropdown-item"  href="{{ route('lihat.akun')}}">Lihat Akun</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                   </a>
-      
-                  </ul> 
-                </li> 
-              
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-          @csrf
-            </form>
-            @endguest
-                <a class='menu-trigger'>
-                    <span>Menu</span>
-                </a>
-                <!-- ***** Menu End ***** -->
-            </nav>
-            </div>
-        </div>
-        </div>
-      </header>
-    <!-- ***** Header Area End ***** -->
+    @include('pelanggan.layouts.header')
 
     <div class="container">
         <div class="row">
@@ -144,6 +97,7 @@
                                 <td>Produk</td>
                                 <td>Jumlah</td>
                                 <td>Harga</td>
+                                <td>Biaya Tambahan</td>
                                 <td>Aksi</td>
                                 <td><strong>Sub Total</strong></td>
                                 <td></td>
@@ -158,6 +112,7 @@
                                 <td>{{ $detail_pemesanan->produk->nama_produk }}</td>
                                 <td>{{ $detail_pemesanan->jumlah }}</td>
                                 <td>Rp. {{ number_format($detail_pemesanan->produk->harga) }}</td>
+                                <td>Rp. {{ number_format($detail_pemesanan->biaya_tambahan) }} /pcs</td>
                                 <td>
                                     <a href="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}/ubah">
                                         <button class="edit">
@@ -205,72 +160,7 @@
             </div>
         </div>
     </div>
-    <!-- ***** footer ***** -->
-    <footer id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="section-heading">
-                        <h4>Bergabunglah dengan email kami untuk menerima berita &amp; promo terbaru</h4>
-                    </div>
-                </div>
-                <div class="col-lg-6 offset-lg-3">
-                    <form id="search" action="#" method="GET">
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-6">
-                                <fieldset>
-                                    <input type="address" name="address" class="email" placeholder="Alamat Email..." autocomplete="on" required>
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-6 col-sm-6">
-                                <fieldset>
-                                    <button type="submit" class="main-button">Langganan <i class="fa fa-angle-right"></i></button>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="footer-widget">
-                        <h4>Kontak Kami</h4>
-                        <p>San Tailor</p>
-                        <p>Jl. Silikat No.50A, Kota Malang</p>
-                        <p><a href="#">08123456789</a></p>
-                        <p><a href="#">santailor@gmail.com</a></p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="footer-widget">
-                        <h4>Tentang Kami</h4>
-                        <p>
-                            San Tailor merupakan penjahit yang melayani jasa menjahit 
-                            pakaian dari kemeja, seragam sekolah, celana, rok, sampai jas, 
-                            baik untuk laki-laki maupun perempuan. 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="footer-widget">
-                        <h4>About Our Company</h4>
-                        <div class="logo">
-                            <img src="assets/logo.png" alt="">
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="copyright-text">
-                        <p>Copyright © 2022 San Tailor. All Rights Reserved. 
-                        <br> 
-                        <!-- Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a> -->
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @include('pelanggan.layouts.footer')
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js')}}"></script>

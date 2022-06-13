@@ -20,8 +20,20 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Nama Bahan :</strong>
+                    {{ $produk->nama_bahan}}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Harga :</strong>
-                    {{ $produk->harga}}
+                    Rp. {{ number_format($produk->harga)}}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Berat (gr) :</strong>
+                    {{ number_format($produk->berat_produk)}}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

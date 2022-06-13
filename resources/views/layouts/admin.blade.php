@@ -107,6 +107,23 @@
             </a>
           </li>
           @if(auth()->user()->level=='admin')
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Footer
+              <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/footer" class="nav-link">
+                  <i class="fas fa-fw fa-cog nav-icon"></i>
+                  <p>Footer Website</p>
+                </a>
+              </li>
+            </ul>
+          </li>
             <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -135,11 +152,28 @@
                   </a>
                 </li> 
                 <li class="nav-item">
+                  <a href="/admin/bahan" class="nav-link">
+                    <i class="fas fa-fw fa-folder nav-icon"></i>
+                    <p>Data Bahan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="/admin/produk" class="nav-link">
                     <i class="fas fa-fw fa-folder nav-icon"></i>
                     <p>Data Produk</p>
                   </a>
                 </li> 
+              </ul>
+            </li>
+            <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Transaksi
+                <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/admin/pemesanan" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
@@ -160,6 +194,7 @@
                 </a>
               </li>
             </ul>
+            </li>
             <li class="nav-item has-treeview menu-open">
               <a href="{{ route('logout') }}" class="nav-link active"
               onclick="event.preventDefault();
@@ -268,15 +303,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.js"
         integrity="sha256-siqh9650JHbYFKyZeTEAhq+3jvkFCG8Iz+MHdr9eKrw=" crossorigin="anonymous"></script>
-
-    <script>$(document).ready(function() {$('#admin').DataTable();} );</script>
-    <script>$(document).ready(function() {$('#kategori').DataTable();} );</script>
-    <script>$(document).ready(function() {$('#laporan').DataTable();} );</script>
-    <script>$(document).ready(function() {$('#testimoni').DataTable();} );</script>
-    <script>$(document).ready(function() {$('#pelanggan').DataTable();} );</script>
-    <script>$(document).ready(function() {$('#pemesanan').DataTable();} );</script>
-    <script>$(document).ready(function() {$('#produk').DataTable();} );</script>
-          
 
 
 </body>

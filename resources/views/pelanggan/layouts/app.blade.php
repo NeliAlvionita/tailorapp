@@ -87,5 +87,45 @@
     <script src="{{ asset('assets/js/imagesloaded.js')}}"></script>
     <script src="{{ asset('assets/js/popup.js')}}"></script>
     <script src="{{ asset('assets/js/custom.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+                $('select[name="province_origin"]').on('change', function (){
+                    let provinceId = $(this).val();
+                    if(provinceId){
+                        jQuery.ajax({
+                            url: '/ongkir/province/' + provinceId+ '/cities',
+                            type:"GET",
+                            dataType: "json",
+                            success:function(data){
+                                $('select[name="city_origin"]').empty();
+                                $.each(data, function(key, value){
+                                    $('select[name="city_origin"]').append('<option value="' + key + '">' + value + '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        $('select[name="city_origin"]').empty();
+                    }
+                });
+                $('select[name="province_destination"]').on('change', function (){
+                    let provinceId = $(this).val();
+                    if(provinceId){
+                        jQuery.ajax({
+                            url: '/ongkir/province/' + provinceId+ '/cities',
+                            type:"GET",
+                            dataType: "json",
+                            success:function(data){
+                                $('select[name="city_destination"]').empty();
+                                $.each(data, function(key, value){
+                                    $('select[name="city_destination"]').append('<option value="' + key + '">' + value + '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        $('select[name="city_destination"]').empty();
+                    }
+                });
+            });
+        </script>
   </body>
 </html>
