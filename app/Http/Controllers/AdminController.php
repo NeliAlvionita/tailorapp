@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Pemesanan;
+use App\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,7 +15,16 @@ class AdminController extends Controller
 
     public function admin()
     {
-        return view('admin.index');
+        $produk = Produk::count();
+        $user = User::where('level', '=', 'pelanggan')->count();
+        $pemesanan = Pemesanan::where('status_pemesanan', '!=', '0')
+        ->Where('status_pemesanan', '!=', 'belum bayar')
+        ->count();
+        return view('admin.index', [
+            'produk' => $produk, 
+            'user'   => $user,
+            'pemesanan' => $pemesanan
+        ]);
     }
 
     public function index()

@@ -102,5 +102,14 @@
     <script src="{{ asset('assets/js/imagesloaded.js')}}"></script>
     <script src="{{ asset('assets/js/popup.js')}}"></script>
     <script src="{{ asset('assets/js/custom.js')}}"></script>
+    <script type="text/javascript" language="javascript"
+    src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript"
+    src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#table').DataTable();
+        });
+    </script>
 </body>
 </html>
