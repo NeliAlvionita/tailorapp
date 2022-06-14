@@ -22,26 +22,45 @@
                     </div>
                     <br><br>
                     <div class="row mt-4">
+                      <div class="col">
+                          <div class="table-responsive">
+                              <table class="table mb-0 text-center">
+                                  <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
+                                      <tr>
+                                          <td>No.</td>
+                                          <td>Kategori</td>
+                                          <td>Produk</td>
+                                          <td>Jumlah</td>
+                                          <td>Harga</td>
+                                          <td>Biaya Tambahan</td>
+                                          <td><strong>Sub Total</strong></td>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <?php $no = 1 ?>
+                                      @foreach ($pemesanan->detail_pemesanan as $detail_pemesanan)
+                                      <tr>
+                                          <td>{{ $no++ }}</td>
+                                          <td>{{ $detail_pemesanan->produk->kategori->nama_kategori }}</td>
+                                          <td>{{ $detail_pemesanan->produk->nama_produk }}</td>
+                                          <td>{{ $detail_pemesanan->jumlah }}</td>
+                                          <td>Rp. {{ number_format($detail_pemesanan->produk->harga) }}</td>
+                                          <td>Rp. {{ number_format($detail_pemesanan->biaya_tambahan) }} /pcs</td>
+                                          <td class="text-left"><strong>Rp. {{ number_format($detail_pemesanan->subtotal) }}</strong></td>    
+                                      </tr> 
+                                      @endforeach   
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+
+                    <div class="row mt-4">
                       <form action="{{route('checkoutfix')}}" class="horizontal" role="form" method="POST">
                             @csrf
                             <div class="col">
                               <h4>Informasi Pengiriman</h4>
                               <hr>
-                              {{-- <div class="form-group">
-                                <label for="">Provinsi Asal</label>
-                                <select  name="province_origin" class="form-control provinsi-asal">
-                                    <option value=""> --Provinsi-- </option>
-                                    @foreach ($provinces as $province => $value)
-                                    <option value="{{$province}}">{{$value}}</option>
-                                    @endforeach
-                                </select>
-                              </div>
-                              <div class="form-group">
-                                <label for="">Kota Asal</label>
-                                <select name="city_origin" class="form-control kota-asal">
-                                    <option> --Kota-- </option>
-                                </select>
-                              </div> --}}
                               <div class="form-group">
                                 <label for="">Provinsi Tujuan</label>
                                 <select name="province_destination" class="form-control provinsi-tujuan">

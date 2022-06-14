@@ -6,6 +6,7 @@ use App\Courier;
 use App\City;
 use App\Pemesanan;
 use App\Footer;
+use App\Detail_Pemesanan;
 use Kavist\RajaOngkir\Facades\RajaOngkir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,7 @@ class CheckoutController extends Controller
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('status_pemesanan','=','0')->first();
         return view('pelanggan/pemesanan/checkout',[
             'pemesanan' => $pemesanan,
+            
             'couriers' => $couriers,
             'provinces' => $provinces,
             'footer' => $footer

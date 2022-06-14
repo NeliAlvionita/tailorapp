@@ -11,6 +11,7 @@
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
           <li class="scroll-to-section"><a href="/" >Beranda</a></li>
+          <li class="scroll-to-section"><a href="/faq">FaQ</a></li>
           <li class="scroll-to-section"><a href="{{ route('produk') }}">Katalog</a></li>
           <li class="scroll-to-section"><a href="{{ route('riwayat') }}">Pesanan</a></li>
           <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
