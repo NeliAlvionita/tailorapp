@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use App\Pembayaran;
 use App\Pemesanan;
 use App\Footer;
 use App\Detail_Pemesanan;
@@ -38,11 +39,52 @@ class RiwayatController extends Controller
     public function pembayaran($id_pemesanan){
         $footer = Footer::first();
         $pemesanan = Pemesanan::find($id_pemesanan);
+        if($pemesanan->status_pemesanan=="belum bayar"){
+            return view('pelanggan/riwayat/konfirm_bayar', [
+                'pemesanan' => $pemesanan,
+                'footer' => $footer
+            ]);
+        }
+        else{
+            return view('pelanggan/riwayat/pembayaran', [
+                'pemesanan' => $pemesanan,
+                'footer' => $footer
+            ]);
+        }
+       
+    }
 
-        return view('pelanggan/riwayat/pembayaran', [
-            'pemesanan' => $pemesanan,
-            'footer' => $footer
+    public function konfirm_bayar(Request $request){ 
+        $this->validate($request,[
+            'nama' => 'required',
+            'bank' => 'required',
+            'jumlah' => 'required',
+            'tanggal_pembayaran' => 'required',
+            'bukti' => ['mimes:jpeg,png,jpg,gif,svg'],
         ]);
+
+        $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('id_pemesanan','=', $request->id_pemesanan)->first();
+        $pemesanan->status_pemesanan = 'pesanan masuk';
+        $pemesanan->update();
+
+        if ($bukti = $request->file('bukti')) {
+            $destinationPath = 'bukti/';
+            $profileImage = date('YmdHis') . "." . $bukti->getClientOriginalExtension();
+            $bukti->move($destinationPath, $profileImage);
+            $inputbukti = "$profileImage";
+        }
+
+        Pembayaran::create([
+            'id_pemesanan' => $request->id_pemesanan,
+            'nama' =>  $request->nama,
+            'bank' => $request->bank,
+            'jumlah' => $request->jumlah,
+            'tanggal_pembayaran' => $request->tanggal_pembayaran,
+            'bukti' => $inputbukti,
+            'status_pembayaran' => 'belum dicek',
+        ]);
+
+        return redirect(route('riwayat'));
     }
 
     public function detailpemesanan(Request $request)
