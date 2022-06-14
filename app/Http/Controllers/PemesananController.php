@@ -9,7 +9,9 @@ use Whoops\Run;
 class PemesananController extends Controller
 {
     public function index(){ 
-        $pemesanan = Pemesanan::where('status_pemesanan', '!=', '0')->get();
+        $pemesanan = Pemesanan::where('status_pemesanan', '!=', '0')
+        ->Where('status_pemesanan', '!=', 'belum bayar')
+        ->get();
         return view('admin/pemesanan/index', ['pemesanan' => $pemesanan]);
     }
 

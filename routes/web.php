@@ -99,6 +99,7 @@ Route::post('/pelanggan/checkout', 'CheckoutController@checkout')->name('checkou
 Route::get('/pelanggan/riwayat', 'RiwayatController@index')->name('riwayat');
 Route::get('/pelanggan/riwayat/{id_pemesanan}', 'RiwayatController@detail');
 Route::get('/pelanggan/riwayat/{id_pemesanan}/bayar', 'RiwayatController@pembayaran')->name('riwayat.bayar');
+Route::post('/pelanggan/riwayat/konfirm', 'RiwayatController@konfirm_bayar')->name('konfirm_bayar');
 Route::get('/pelanggan/riwayat/{id_pemesanan}/cetak-nota', 'RiwayatController@cetak_nota')->name('cetak.nota');
 Route::get('/pelanggan/riwayat/detail/{id_detailpemesanan}', 'RiwayatController@detailpemesanan');
 //testimoni

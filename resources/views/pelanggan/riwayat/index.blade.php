@@ -67,13 +67,19 @@
                             <td>{{ $pemesanan->tanggal_pemesanan }}</td>
                             <td>{{ $pemesanan->status_pemesanan }}</td>
                             <td>Rp. {{ number_format($pemesanan->total_pemesanan) }}</td>
-                            <td>{{ $pemesanan->pembayaran->status_pembayaran }}</td>
+                            <td>
+                                @if($pemesanan->status_pemesanan == 'belum bayar')
+                                belum bayar
+                                @else
+                                {{ $pemesanan->pembayaran->status_pembayaran }}
+                                @endif
+                            </td>
                             <td>
                                     <a class="btn" href="/pelanggan/riwayat/{{$pemesanan->id_pemesanan}}" style="background-color: #008CBA;">
                                         Detail
                                     </a>&nbsp;
                                     <a class="btn" href="{{ route('riwayat.bayar', $pemesanan->id_pemesanan) }}" style="background-color: #ffae00">
-                                        Lihat Pembayaran
+                                        Pembayaran
                                     </a>
                                     @if($pemesanan->status_pemesanan=='Pesanan Selesai')
                                     <a class="btn" href="{{ route('tambah.testimoni', $pemesanan->id_pemesanan)}}" style="background-color: #4CAF50;">
