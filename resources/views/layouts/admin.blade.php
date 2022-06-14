@@ -111,7 +111,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Footer
+                Dashboard Pelanggan
               <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -120,6 +120,12 @@
                 <a href="/admin/footer" class="nav-link">
                   <i class="fas fa-fw fa-cog nav-icon"></i>
                   <p>Footer Website</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/faq" class="nav-link">
+                  <i class="fas fa-fw fa-cog nav-icon"></i>
+                  <p>FaQ</p>
                 </a>
               </li>
             </ul>
@@ -303,7 +309,17 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.js"
         integrity="sha256-siqh9650JHbYFKyZeTEAhq+3jvkFCG8Iz+MHdr9eKrw=" crossorigin="anonymous"></script>
-
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#laporan').DataTable();
+            $('#produk').DataTable();
+            $('#kategori').DataTable();
+            $('#pemesanan').DataTable();
+            $('#admin').DataTable();
+            $('#pelanggan').DataTable();
+            $('#footer').DataTable();
+          });
+        </script>
 
 </body>
 </html>
