@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+  
   </head>
   <body>
     @include('pelanggan.layouts.header')
@@ -92,7 +93,7 @@
 <div class="col-lg-10 offset-lg-1">
 <div class="card card-info card-outline" style="border:none;">
     <div class="card-body">
-        <table class="table shadow table-hover">
+        <table  class="table shadow table-hover">
           <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
             <tr>
               <th>No</th>
@@ -148,5 +149,6 @@
     <script src="{{ asset('assets/js/imagesloaded.js')}}"></script>
     <script src="{{ asset('assets/js/popup.js')}}"></script>
     <script src="{{ asset('assets/js/custom.js')}}"></script>
+</body>
   </body>
 </html>

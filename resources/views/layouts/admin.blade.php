@@ -318,6 +318,8 @@
             $('#admin').DataTable();
             $('#pelanggan').DataTable();
             $('#footer').DataTable();
+            $('#bahan').DataTable();
+            $('#faq').DataTable();
           });
     </script>
 

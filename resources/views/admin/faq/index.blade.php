@@ -14,7 +14,7 @@
       <a href="/admin/faq/tambah" class="btn btn-primary float-right">Tambah</a>
     </div>
 </div>
-      <table id="kategori" class="table table-striped table-bordered" style="width:100%">
+      <table id="faq" class="table table-striped table-bordered" style="width:100%">
         <thead>
           <tr>
             <th>No</th>
