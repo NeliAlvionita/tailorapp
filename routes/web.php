@@ -91,7 +91,7 @@ Route::put('/pelanggan/akun/{id}', 'AkunController@update');
 Route::get('/pelanggan/produk', 'PelangganProdukController@produk_all')->name('produk');
 Route::get('/pelanggan/produk/{id_produk}', 'PelangganProdukController@produk_detail')->name('produk.detail');
 Route::get('/pelanggan/produk/kategori/{id_kategori}', 'PelangganProdukController@produk_kategori');
-Route::get('/pelanggan/produk/cari', 'PelangganProdukController@cari');
+Route::get('/pelanggan/cari/produk', 'PelangganProdukController@cari');
 // pemesanan
 Route::get('/pelanggan/produk/produk_detail/{id_produk}', 'PelangganPemesananController@index')->name('pemesanan.index');
 // keranjang

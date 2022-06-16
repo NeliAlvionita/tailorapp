@@ -21,7 +21,7 @@
                       <a href="https://api.whatsapp.com/send?phone=6281339908155">Konsultasi <i class="fab fa-whatsapp"></i></a>
                     </div>
                     <div class="white-button scroll-to-section">
-                      <a href="{{route('testi') }}">Testimoni <i class="far fa-comment-dots"></i></a>
+                      <a href=#clients>Testimoni <i class="far fa-comment-dots"></i></a>
                     </div>
                   </div>
                 </div>

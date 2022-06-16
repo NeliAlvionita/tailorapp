@@ -133,7 +133,7 @@ class PelangganPemesananController extends Controller
             
         ]);
 
-        return redirect('/')->with('message', 'Berhasil Menambahkan Keranjang');
+        return redirect(route('produk'))->with('message', 'Berhasil Menambahkan Keranjang');
 
 
     }

@@ -34,6 +34,8 @@ class CheckoutController extends Controller
     public function checkout(Request $request){
         $this->validate($request,[
             'alamat_pengiriman' => 'required',
+            'city_destination' => 'required',
+            'province_destination' => 'required'
         ]);
         $cost = RajaOngkir::ongkosKirim([
             'origin'  => "255",

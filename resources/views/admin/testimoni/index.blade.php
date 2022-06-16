@@ -4,7 +4,7 @@
 
 <div class="card card-info card-outline">
     <div class="card-header">
-      <h3 class="card-title">Data Kategori Pakaian</h3>
+      <h3 class="card-title">Data Testimoni Pelanggan</h3>
       <a href="/admin/kategori/tambah" class="btn btn-primary float-right">Tambah</a>
     </div>
 </div>

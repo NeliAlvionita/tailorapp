@@ -140,12 +140,13 @@
           @method('PUT')
           <div class="form-group">
             <label for="ekspedisi">Nama Ekspedisi Pengiriman</label>
-            <input type="text" name="ekspedisi" id="ekspedisi" class="form-control" placeholder="Nama Ekspedisi"
+            <input type="text" name="ekspedisi" id="ekspedisi" disabled class="form-control" placeholder="Nama Ekspedisi" value="{{$pemesanan->ekspedisi}}"
             aria-describedby="helpId">
           </div>
           <div class="form-group">
             <label for="no_resi">Nomor Resi</label>
-            <input type="text" name="no_resi" id="no_resi" class="form-control" placeholder="Nomor Resi"
+            <input type="text" name="no_resi" id="no_resi" class="form-control" placeholder="Nomor Resi" 
+            @if($pemesanan->status_pemesanan != NULL) value = "{{$pemesanan->no_resi }}" @endif
             aria-describedby="helpId">
           </div>
           <button type="submit" class="btn btn-success">Submit</button>

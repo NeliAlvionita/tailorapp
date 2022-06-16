@@ -63,23 +63,32 @@
                               <hr>
                               <div class="form-group">
                                 <label for="">Provinsi Tujuan</label>
-                                <select name="province_destination" class="form-control provinsi-tujuan">
+                                <select name="province_destination" class="form-control provinsi-tujuan @error('province_destination') is-invalid @enderror">
                                     <option value=""> --Provinsi-- </option>
                                     @foreach ($provinces as $province => $value)
                                     <option value="{{$province}}">{{$value}}</option>
                                     @endforeach
                                 </select>
+                                @error('province_destination')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                               </div>
                               <div class="form-group">
                                 <label for="">Kota Tujuan</label>
-                                <select name="city_destination" class="form-control kota-tujuan">
+                                <select name="city_destination" class="form-control kota-tujuan @error('city_destination') is-invalid @enderror">
                                     <option> --Kota-- </option>
                                 </select>
+                                @error('city_destination')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                               </div> <br>
                               <div class="form-group">
                                 <h6>Alamat Lengkap :</h6>
                                 <textarea name="alamat_pengiriman" rows="5" class="form-control @error('alamat_pengiriman') is-invalid @enderror"></textarea>
-            
                                 @error('alamat_pengiriman')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

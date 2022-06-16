@@ -8,7 +8,6 @@
           <p>Berikut merupakan testimoni pelanggan San Tailor yang sudah pernah order.</p>
         </div>
       </div>
-
       <div class="col-lg-12">
         <div class="naccs">
           <div class="grid">

@@ -38,6 +38,9 @@
     @include('pelanggan.layouts.header')
       <div class="container">
         <div class="row">
+            
+        </div>
+        <div class="row" style="margin-top: 120px;">
             <div class="col-md-12">
                 @if(session()->has('message'))
                 <div class="alert alert-danger">
@@ -45,8 +48,6 @@
                 </div>
                 @endif
             </div>
-        </div>
-        <div class="row" style="margin-top: 120px;">
             <div class="col">
                 <div class="table-responsive">
                     <table id="riwayat" class="table mb-0 text-center" >

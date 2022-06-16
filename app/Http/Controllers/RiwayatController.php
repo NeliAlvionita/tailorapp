@@ -84,7 +84,7 @@ class RiwayatController extends Controller
         $pembayaran->update();
         
 
-        return redirect(route('riwayat'));
+        return redirect(route('riwayat'))->with('message', 'Berhasil Melakukan Pembayaran, Tunggu Pengecekan Data oleh Admin');
     }
 
     public function detailpemesanan(Request $request)
