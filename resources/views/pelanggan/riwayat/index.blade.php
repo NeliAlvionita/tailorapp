@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
     <style>
       b {
@@ -37,6 +38,9 @@
     @include('pelanggan.layouts.header')
       <div class="container">
         <div class="row">
+            
+        </div>
+        <div class="row" style="margin-top: 120px;">
             <div class="col-md-12">
                 @if(session()->has('message'))
                 <div class="alert alert-danger">
@@ -44,11 +48,9 @@
                 </div>
                 @endif
             </div>
-        </div>
-        <div class="row" style="margin-top: 120px;">
             <div class="col">
                 <div class="table-responsive">
-                    <table class="table mb-0 text-center" >
+                    <table id="riwayat" class="table mb-0 text-center" >
                         <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
                             <tr>
                                 <td>No.</td>

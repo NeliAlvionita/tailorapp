@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/template.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 
     <style>
@@ -71,7 +72,7 @@
         <div class="row" style="margin-top: 120px;">
             <div class="col">
                 <div class="table-responsive">
-                    <table class="table mb-0 text-center">
+                    <table id="faq" class="table mb-0 text-center">
                         <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
                             <tr>
                                 <td>No.</td>
@@ -108,7 +109,7 @@
     src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-          $('#table').DataTable();
+          $('#faq').DataTable();
         });
     </script>
 </body>

@@ -13,7 +13,7 @@
       <h3 class="card-title">Footer</h3>
     </div>
 </div>
-      <table id="admin" class="table table-striped table-bordered" style="width:100%">
+      <table id="footer" class="table table-striped table-bordered" style="width:100%">
         <thead>
           <tr>
             <th>Nama Toko</th>

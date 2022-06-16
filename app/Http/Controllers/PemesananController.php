@@ -35,7 +35,6 @@ class PemesananController extends Controller
     }
     public function submitResi(Request $request){
         $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
-        $pemesanan->ekspedisi=$request->ekspedisi;
         $pemesanan->no_resi=$request->no_resi;
         $pemesanan->save();
         return redirect('/admin/pemesanan');

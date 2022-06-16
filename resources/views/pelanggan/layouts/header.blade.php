@@ -46,10 +46,5 @@
   </div>
   </div>
 </header>
-@if (session('message'))
-<div class="alert alert-success alert-dismissible">
-  {{ session('message') }}
-</div>
-@endif
     </section>
 </div>

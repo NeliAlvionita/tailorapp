@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Produk;
 use App\Kategori;
+use App\Bahan;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
@@ -15,8 +17,9 @@ class ProdukController extends Controller
     }
 
     public function tambah(){
+        $listBahan = DB::table('bahan')->select('nama_bahan')->orderBy('nama_bahan')->groupby('nama_bahan')->get();
         $listKategori = Kategori::all();
-        return view('admin/produk/tambah', ['listKategori' => $listKategori]);
+        return view('admin/produk/tambah', ['listKategori' => $listKategori, 'listBahan' => $listBahan]);
     }
 
     public function store(Request $request)
@@ -56,9 +59,10 @@ class ProdukController extends Controller
 
     public function ubah(Request $request)
     {
+        $listBahan = DB::table('bahan')->select('nama_bahan')->orderBy('nama_bahan')->groupby('nama_bahan')->get();
         $listKategori = Kategori::all();
         $produk = Produk::find($request->id_produk);
-        return view('/admin/produk/ubah',['produk' => $produk, 'listKategori' => $listKategori]);
+        return view('/admin/produk/ubah',['produk' => $produk, 'listKategori' => $listKategori, 'listBahan' => $listBahan]);
     }
 
     public function update(Request $request, Produk $produk)

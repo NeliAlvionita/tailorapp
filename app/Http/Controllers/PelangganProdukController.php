@@ -23,21 +23,21 @@ class PelangganProdukController extends Controller
     }
 
     public function cari(Request $request){
-        // menangkap data pencarian
-        $footer = Footer::first();
-        $kategori = Kategori::all();
-		$cari = $request->cari;
- 
-        // mengambil data dari table produk sesuai pencarian data
-        $produk = Produk::where('nama_produk','like',"%".$cari."%")
-        ->paginate(6);
+      // menangkap data pencarian
+       $footer = Footer::first();
+       $kategori = Kategori::all();
+       $cari = $request->cari;
 
-        // mengirim data produk ke view produk
-		return view('pelanggan/produk/produk_all', [
-            'produk' => $produk,
-            'kategori' => $kategori,
-            'footer' => $footer
-        ]);
+       // mengambil data dari table produk sesuai pencarian data
+       $produk = Produk::where('nama_produk','like',"%".$cari."%")
+       ->paginate(6);
+
+       // mengirim data produk ke view produk
+       return view('pelanggan/produk/produk_all', [
+           'produk' => $produk,
+           'kategori' => $kategori,
+           'footer' => $footer
+       ]);
     }
 
     public function produk_kategori(Request $request){

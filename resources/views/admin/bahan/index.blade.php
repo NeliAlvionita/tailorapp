@@ -14,7 +14,7 @@
       <a href="/admin/bahan/tambah" class="btn btn-primary float-right">Tambah</a>
     </div>
 </div>
-      <table id="admin" class="table table-striped table-bordered" style="width:100%">
+      <table id="bahan" class="table table-striped table-bordered" style="width:100%">
         <thead>
           <tr>
             <th>No</th>
