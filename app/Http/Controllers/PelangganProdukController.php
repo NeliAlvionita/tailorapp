@@ -23,7 +23,7 @@ class PelangganProdukController extends Controller
     }
 
     public function cari(Request $request){
-       // menangkap data pencarian
+      // menangkap data pencarian
        $footer = Footer::first();
        $kategori = Kategori::all();
        $cari = $request->cari;
