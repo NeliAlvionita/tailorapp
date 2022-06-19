@@ -23,6 +23,40 @@
     <link rel="stylesheet" href="{{ asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+     <!-- MULAI STYLE CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css"
+        integrity="sha256-pODNVtK3uOhL8FUNWWvFQK0QoQoV3YA9wGGng6mbZ0E=" crossorigin="anonymous" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" 
+  href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" 
+  href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" 
+  href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+  <!-- iCheck -->
+  <link rel="stylesheet" 
+  href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" 
+  href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" 
+  href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet"
+   href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
+  <!-- summernote -->
+  <link rel="stylesheet" 
+  href="{{asset('plugins/summernote/summernote-bs4.css')}}">
 
     <style>
         b {
@@ -52,6 +86,7 @@
             color: #fff;
             transform: translateY(-7px);
         }
+        
     </style>
 </head>
 <body>
@@ -71,7 +106,7 @@
         <div class="row" style="margin-top: 120px;">
             <div class="col">
                 <div class="table-responsive">
-                    <table class="table mb-0 text-center">
+                    <table id="faq" class="table mb-0 text-center">
                         <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
                             <tr>
                                 <td>No.</td>
@@ -84,8 +119,8 @@
                             @foreach ($faq as $faq)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $faq->pertanyaan }}</td>
-                                <td>{{ $faq->jawaban }}</td>
+                                <td style="text-align: left;">{{ $faq->pertanyaan }}</td>
+                                <td style="text-align: left;">{{ $faq->jawaban }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -108,7 +143,7 @@
     src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-          $('#table').DataTable();
+          $('#faq').DataTable();
         });
     </script>
 </body>
