@@ -121,7 +121,8 @@ class PelangganPemesananController extends Controller
         if($request->nama_kategori == "Celana"){
             // standar ukuran M
             if(($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 73)
-            && ($request->lingkar_panggul > 60 && $request->lingkar_panggul < 64)
+            && ($request->lingkar_panggul > 93 && $request->lingkar_panggul < 105)
+            && ($request->lingkar_keris > 65 && $request->lingkar_keris < 69)
             && ($request->panjang_celana > 101 &&  $request->panjang_celana < 104)){
             // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
@@ -129,7 +130,8 @@ class PelangganPemesananController extends Controller
             }
             // standar ukuran L
             else if(($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
-            && ($request->lingkar_panggul > 63 && $request->lingkar_panggul < 69)
+            && ($request->lingkar_panggul > 106 && $request->lingkar_panggul < 115)
+            && ($request->lingkar_keris > 68 && $request->lingkar_keris < 76)
             && ($request->panjang_celana > 103 &&  $request->panjang_celana < 107)){
              // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
@@ -137,6 +139,8 @@ class PelangganPemesananController extends Controller
             }
             // standar ukuran XL
             else if(($request->lingkar_pinggang > 78)
+            && ($request->lingkar_panggul > 114)
+            && ($request->lingkar_keris > 76)
             && ($request->panjang_celana > 106 )){
             // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
@@ -148,17 +152,20 @@ class PelangganPemesananController extends Controller
         } 
         else if($request->nama_kategori == "Rok"){
             if(($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 74)
-            && ($request->panjang_rok > 101 &&  $request->panjang_rok < 104)){
+            && ($request->panjang_rok > 91 &&  $request->panjang_rok < 95)
+            && ($request->lingkar_panggul > 89 &&  $request->lingkar_panggul < 97)){
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
             else if(($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
-            && ($request->panjang_rok > 103 &&  $request->panjang_rok < 107)){
+            && ($request->panjang_rok > 94 &&  $request->panjang_rok < 99)
+            && ($request->lingkar_panggul > 97 &&  $request->lingkar_panggul < 103)){
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
             else if(($request->lingkar_pinggang > 78)
-            && ($request->panjang_rok > 106 )){
+            && ($request->panjang_rok > 99 )
+            && ($request->lingkar_panggul > 102)){
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
@@ -167,24 +174,36 @@ class PelangganPemesananController extends Controller
             }
         }
         else if($request->nama_kategori == "Seragam Laki-laki"){
-            if( ($request->lingkar_lengan > 32 and $request->lingkar_lengan < 34)
-            && ($request->lingkar_panggul > 60 and $request->lingkar_panggul < 64)
+            // standar ukuran M
+            if( ($request->panjang_baju > 68 && $request->panjang_baju < 74)
+            && ($request->panjang_tangan > 55 && $request->panjang_tangan < 61)
             && ($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 73)
+            && ($request->lingkar_panggul > 93 && $request->lingkar_panggul < 105)
+            && ($request->lingkar_keris > 65 && $request->lingkar_keris < 69)
             && ($request->panjang_celana > 101 &&  $request->panjang_celana < 104)){
+            // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
-            else if( ($request->lingkar_lengan > 33 and $request->lingkar_lengan < 36)
-            && ($request->lingkar_panggul > 63 and $request->lingkar_panggul < 69)
+            // standar ukuran L
+            else if( ($request->panjang_baju > 73 && $request->panjang_baju < 76)
+            && ($request->panjang_tangan > 60 && $request->panjang_tangan < 65)
             && ($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
+            && ($request->lingkar_panggul > 106 && $request->lingkar_panggul < 115)
+            && ($request->lingkar_keris > 68 && $request->lingkar_keris < 76)
             && ($request->panjang_celana > 103 &&  $request->panjang_celana < 107)){
+             // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
-            else if( ($request->lingkar_lengan > 35)
-            && ($request->lingkar_panggul > 68)
+            // standar ukuran XL
+            else if(($request->panjang_baju > 75)
+            && ($request->panjang_tangan > 65)
             && ($request->lingkar_pinggang > 78)
+            && ($request->lingkar_panggul > 114)
+            && ($request->lingkar_keris > 76)
             && ($request->panjang_celana > 106 )){
+            // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
@@ -193,20 +212,28 @@ class PelangganPemesananController extends Controller
             }
         }
         else if($request->nama_kategori == "Seragam Perempuan"){
-            if( ($request->lingkar_lengan > 32 and $request->lingkar_lengan < 35)
+            if(($request->lebar_bahu > 39 and $request->lebar_bahu < 42)
+            &&($request->lingkar_dada > 93 and $request->lingkar_dada < 96)
+            && ($request->panjang_tangan > 53 and $request->panjang_tangan < 56)
+            &&($request->lingkar_lengan > 32 and $request->lingkar_lengan < 35)
             && ($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 73)
             && ($request->panjang_rok > 101 &&  $request->panjang_rok < 104)){
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
-            else if( ($request->lingkar_lengan > 33 and $request->lingkar_lengan < 36)
+            else if(($request->lebar_bahu > 41 and $request->lebar_bahu < 44)
+            &&($request->lingkar_dada > 95 and $request->lingkar_dada < 100)
+            &&($request->panjang_tangan > 55 and $request->panjang_tangan < 58)
+            &&($request->lingkar_lengan > 33 and $request->lingkar_lengan < 36)
             && ($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
             && ($request->panjang_rok > 103 &&  $request->panjang_rok < 107)){
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
-            else if( ($request->lingkar_lengan > 35)
-            && ($request->lingkar_panggul > 68)
+            else if( ($request->lebar_bahu > 43)
+            && ($request->lingkar_dada > 99)
+            && ($request->panjang_tangan > 57 )
+            && ($request->lingkar_lengan > 35)
             && ($request->lingkar_pinggang > 78)
             && ($request->panjang_rok > 106 )){
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
@@ -216,17 +243,64 @@ class PelangganPemesananController extends Controller
                 $hargatambahan = 0;
             }
         }
-        else if($request->nama_kategori == "Kemeja" || $request->nama_kategori ==  "Jas"){
-            if( ($request->lingkar_lengan > 32 and $request->lingkar_lengan < 35)){
+        else if($request->nama_kategori == "Kemeja"){
+            if(($request->lebar_bahu > 39 and $request->lebar_bahu < 42)
+            &&($request->lingkar_dada > 93 and $request->lingkar_dada < 96)
+            && ($request->panjang_tangan > 53 and $request->panjang_tangan < 56)
+            &&($request->lingkar_lengan > 32 and $request->lingkar_lengan < 35)){
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
-            else if(($request->lingkar_lengan > 33 and $request->lingkar_lengan < 36)){
+            else if(($request->lebar_bahu > 41 and $request->lebar_bahu < 44)
+            &&($request->lingkar_dada > 95 and $request->lingkar_dada < 100)
+            &&($request->panjang_tangan > 55 and $request->panjang_tangan < 58)
+            &&($request->lingkar_lengan > 34 and $request->lingkar_lengan < 36)){
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
-            else if( ($request->lingkar_lengan > 35)
-            ){
+            else if( ($request->lebar_bahu > 43)
+            && ($request->lingkar_dada > 99)
+            && ($request->panjang_tangan > 57 )
+            && ($request->lingkar_lengan > 35)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else {
+                $hargatambahan = 0;
+            }
+        }
+
+        else if($request->nama_kategori == "Jas"){
+            // standar ukuran M
+            if( ($request->panjang_baju > 68 && $request->panjang_baju < 74)
+            && ($request->panjang_tangan > 55 && $request->panjang_tangan < 61)
+            && ($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 73)
+            && ($request->lingkar_panggul > 93 && $request->lingkar_panggul < 105)
+            && ($request->lingkar_keris > 65 && $request->lingkar_keris < 69)
+            && ($request->panjang_celana > 101 &&  $request->panjang_celana < 104)){
+            // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            // standar ukuran L
+            else if( ($request->panjang_baju > 73 && $request->panjang_baju < 76)
+            && ($request->panjang_tangan > 60 && $request->panjang_tangan < 65)
+            && ($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
+            && ($request->lingkar_panggul > 106 && $request->lingkar_panggul < 115)
+            && ($request->lingkar_keris > 68 && $request->lingkar_keris < 76)
+            && ($request->panjang_celana > 103 &&  $request->panjang_celana < 107)){
+             // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            // standar ukuran XL
+            else if(($request->panjang_baju > 75)
+            && ($request->panjang_tangan > 65)
+            && ($request->lingkar_pinggang > 78)
+            && ($request->lingkar_panggul > 114)
+            && ($request->lingkar_keris > 76)
+            && ($request->panjang_celana > 106 )){
+            // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
             $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
             $hargatambahan = $hargabahan->harga_tambah;
             }
