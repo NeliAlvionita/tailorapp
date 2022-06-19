@@ -32,12 +32,12 @@
                        {{ $item->produk->nama_produk }}
                     </td>
                     <td>
-                        @if($item->ukuran->panjang_bahu!=null)
-                        Panjang Bahu = {{$item->ukuran->panjang_bahu}}
+                        @if($item->ukuran->lebar_bahu!=null)
+                        Panjang Bahu = {{$item->ukuran->lebar_bahu}}
                         <br>
                         @endif
-                        @if($item->ukuran->panjang_lengan!=null)
-                        Panjang Lengan = {{$item->ukuran->panjang_lengan}}
+                        @if($item->ukuran->panjang_tangan!=null)
+                        Panjang Lengan = {{$item->ukuran->panjang_tangan}}
                         <br>
                         @endif
                         @if($item->ukuran->panjang_baju!=null)
@@ -52,8 +52,12 @@
                         Lingkar Lengan = {{$item->ukuran->lingkar_lengan}}
                         <br>
                         @endif
+                        @if($item->ukuran->lingkar_lenganbawah!=null)
+                        Lingkar Lengan = {{$item->ukuran->lingkar_lenganbawah}}
+                        <br>
+                        @endif
                         @if($item->ukuran->lingkar_ketiak!=null)
-                        Lingkar Leher = {{$item->ukuran->lingkar_leher}}
+                        Lingkar Leher = {{$item->ukuran->lingkar_ketiak}}
                         <br>
                         @endif
                         @if($item->ukuran->lingkar_pinggang!=null)
@@ -64,16 +68,8 @@
                         Lingkar Keris = {{$item->ukuran->lingkar_keris}}
                         <br>
                         @endif
-                        @if($item->ukuran->lingkar_perut!=null)
-                        Lingkar Perut = {{$item->ukuran->lingkar_perut}}
-                        <br>
-                        @endif
-                        @if($item->ukuran->lingkar_paha!=null)
-                        Lingkar Paha = {{$item->ukuran->lingkar_paha}}
-                        <br>
-                        @endif
-                        @if($item->ukuran->lingkar_lutut!=null)
-                        Lingkar Lutut = {{$item->ukuran->lingkar_lutut}}
+                        @if($item->ukuran->lingkar_panggul!=null)
+                        Lingkar Paha = {{$item->ukuran->lingkar_panggul}}
                         <br>
                         @endif
                         @if($item->ukuran->panjang_celana!=null)
@@ -82,6 +78,18 @@
                         @endif
                         @if($item->ukuran->lebar_bawah!=null)
                         Lebar Bawah = {{$item->ukuran->lebar_bawah}}
+                        @endif
+                        @if($item->ukuran->panjang_rok!=null)
+                        Lingkar Lutut = {{$item->ukuran->panjang_rok}}
+                        <br>
+                        @endif
+                        @if($item->ukuran->lingkar_bawah!=null)
+                        Lingkar Lutut = {{$item->ukuran->lingkar_bawah}}
+                        <br>
+                        @endif
+                        @if($item->ukuran->tinggi_duduk!=null)
+                        Tinggi Duduk = {{$item->ukuran->tinggi_duduk}}
+                        <br>
                         @endif
                     <td>{{$item->ukuran->catatan}}</td>
                     </td>

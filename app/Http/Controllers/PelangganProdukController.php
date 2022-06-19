@@ -53,10 +53,9 @@ class PelangganProdukController extends Controller
 
     public function produk_detail(Request $request){
         $footer = Footer::first();
-        $bahan = Bahan::where('nama_bahan','like',"%".$request->nama_bahan."%")->get();
         $kategori = Kategori::all();
         $produk_detail = Produk::find($request->id_produk);
-
+        $bahan = Bahan::where('nama_bahan', '=' , $produk_detail->nama_bahan)->get();
         if($produk_detail) {
             $this->produk_detail = $produk_detail;
         }

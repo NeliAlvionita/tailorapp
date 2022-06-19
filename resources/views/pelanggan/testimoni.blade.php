@@ -15,7 +15,7 @@
               <div class="col-lg-7 align-self-center">
                 <div class="menu">
                   @foreach($testimoni as $index => $item)
-                  <div class="first-thumb active">
+                  <div class="first-thumb @if($index == 0) active @endif">
                     <div class="thumb">
                       <div class="row">
                         <div class="col-lg-4 col-sm-4 col-12">
@@ -37,7 +37,7 @@
               <div class="col-lg-5">
                 <ul class="nacc">
                   @foreach($testimoni as $index => $item)
-                  <li class="active">
+                  <li class=" @if($index == 0) active @endif">
                     <div>
                       <div class="thumb">
                         <div class="row">

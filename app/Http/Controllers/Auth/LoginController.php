@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -18,7 +18,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
+   
     use AuthenticatesUsers;
 
     /**
@@ -27,7 +27,27 @@ class LoginController extends Controller
      * @var string
      */
      
-    protected $redirectTo = '/admin';
+    public function redirectTo(){
+
+        // User role
+        $role = Auth::user()->level; 
+    
+        // Check user role
+        switch ($role) {
+            case 'admin':
+                    return '/admin';
+                break;
+            case 'pemilik':
+                    return '/admin';
+                break; 
+            case 'pelanggan':
+                    return '/';
+                break; 
+            default:
+                    return '/login'; 
+                break;
+        }
+    }
 
     /**
      * Create a new controller instance.

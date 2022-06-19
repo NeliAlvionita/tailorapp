@@ -80,6 +80,12 @@
         </div>
 
         <div class="row" style="margin-top: 120px;">
+            <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                <center><h4>Keranjang <em>Pemesanan</em> </h4>
+                <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
+                <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
+            </div>
+            <br><br><br>
             <div class="col-md-12">
                 @if(session()->has('message'))
                 <div class="alert alert-danger">
@@ -139,7 +145,7 @@
                         
                             @if(!empty($pemesanan))
                                 <tr>
-                                    <td colspan="6" align="right"><strong>Total Yang Harus dibayarkan : </strong></td>
+                                    <td colspan="7" align="right"><strong>Total Yang Harus dibayarkan : </strong></td>
                                     <td align="center"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
                                     <td></td>
                                 </tr>
