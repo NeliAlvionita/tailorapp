@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Province;
-use App\Courier;
-use App\City;
 use App\Pemesanan;
 use App\Footer;
 use App\Pembayaran;
@@ -18,14 +16,11 @@ class CheckoutController extends Controller
             return redirect()->route('login');
         }
         $footer = Footer::first();
-        $couriers = Courier::pluck('name', 'code');
         $provinces = Province::pluck('name', 'province_id');
 
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('status_pemesanan','=','0')->first();
         return view('pelanggan/pemesanan/checkout',[
             'pemesanan' => $pemesanan,
-            
-            'couriers' => $couriers,
             'provinces' => $provinces,
             'footer' => $footer
         ]);
@@ -47,7 +42,9 @@ class CheckoutController extends Controller
 
         
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('status_pemesanan','=','0')->first();
-        $pemesanan->alamat_pengiriman = $request->alamat_pengiriman ;
+        $pemesanan->alamat_pengiriman = $request->alamat_pengiriman;
+        // $pemesanan->alamat_pengiriman = $request->alamat_pengiriman .',' .$request->city_destination .',' .$request->province_destination;
+        // dd($pemesanan->alamat_pengiriman);
         $pemesanan->tanggal_pemesanan = $request->tanggal_pemesanan;
         $pemesanan->biaya_ongkir = $biaya_ongkir;
         $pemesanan->status_pemesanan = 'belum bayar';
@@ -57,7 +54,7 @@ class CheckoutController extends Controller
             'id_pemesanan' => $pemesanan->id_pemesanan,
             'status_pembayaran' => 'belum bayar',
         ]);
-        return redirect('/')->with('message','Pesanan Masuk, Silahkan Periksa Pada Menu Pesanan untuk melakukan konfirmasi pembayaran');
+        return redirect(route('riwayat'))->with('message','Pesanan Masuk, Silahkan Periksa Pada Menu Pembayaran untuk melakukan konfirmasi pembayaran');
 
     }
 }

@@ -28,47 +28,213 @@ class PelangganPemesananController extends Controller
     }
 
     public function masukkanKeranjang(Request $request){
+     //Validasi Jika Belum Login
+     if(!Auth::user()) {
+        return redirect()->route('login');
+    }
+        if($request->nama_kategori == "Celana"){
+            $this->validate($request,[
+                'jumlah' => 'required',
+                'lingkar_pinggang' => ['required', 'numeric'],
+                'lingkar_panggul' => ['required', 'numeric'],
+                'lingkar_keris' => ['required', 'numeric'],
+                'panjang_celana' => ['required', 'numeric'],
+                'lingkar_bawah' => ['required', 'numeric'],
+            ]);
+            
+        }
+        else if($request->nama_kategori == "Rok"){
+            $this->validate($request,[
+                'jumlah' => 'required',
+                'lingkar_pinggang' => ['required', 'numeric'],
+                'panjang_rok' => ['required', 'numeric'],
+                'lingkar_panggul' => ['required', 'numeric'],
+                'tinggi_duduk' => ['required', 'numeric'],
+            ]);
+        }
+        else if($request->nama_kategori == "Seragam Laki-laki"){
+            $this->validate($request,[
+                'jumlah' => 'required',
+                // validasi atasan seragam
+                'lebar_bahu' => ['required', 'numeric'],
+                'panjang_tangan' => ['required', 'numeric'],
+                'panjang_baju' => ['required', 'numeric'],
+                'lingkar_lengan'=> ['required', 'numeric'],
+                'lingkar_dada' => ['required', 'numeric'],
+                'lingkar_ketiak'=> ['required', 'numeric'],
+                // validasi bawahan seragam
+                'lingkar_pinggang' => ['required', 'numeric'],
+                'lingkar_keris' => ['required', 'numeric'],
+                'panjang_celana' => ['required', 'numeric'],
+                'lingkar_panggul' => ['required', 'numeric'],
+            ]);
+        }
+        else if($request->nama_kategori == "Seragam Perempuan"){
+            $this->validate($request,[
+                'jumlah' => 'required',
+                // validasi atasan seragam
+                'lebar_bahu' => ['required', 'numeric'],
+                'panjang_tangan' => ['required', 'numeric'],
+                'panjang_baju' => ['required', 'numeric'],
+                'lingkar_lengan'=> ['required', 'numeric'],
+                'lingkar_dada' => ['required', 'numeric'],
+                'lingkar_ketiak'=> ['required', 'numeric'],
+                // validasi bawahan seragam (rok)
+                'lingkar_pinggang' => ['required', 'numeric'],
+                'panjang_rok' => ['required', 'numeric'],
+            ]);
+        }
+        else if($request->nama_kategori == "Jas"){
+            $this->validate($request,[
+                'jumlah' => 'required',
+                // validasi atasan jas
+                'lebar_bahu' => ['required', 'numeric'],
+                'panjang_tangan' => ['required', 'numeric'],
+                'panjang_baju' => ['required', 'numeric'],
+                'lingkar_dada' => ['required', 'numeric'],
+                'lingkar_lengan'=> ['required', 'numeric'],
+                'lingkar_ketiak'=> ['required', 'numeric'],
+                'lingkar_lenganbawah'=> ['required', 'numeric'],
+                // validasi bawahan jas
+                'lingkar_pinggang' => ['required', 'numeric'],
+                'lingkar_panggul' => ['required', 'numeric'],
+                'lingkar_keris' => ['required', 'numeric'],
+                'panjang_celana' => ['required', 'numeric'],
+                'lingkar_bawah' => ['required', 'numeric'],
 
-        $this->validate($request,[
-            'jumlah' => 'required'
-        ]);
-
-        //Validasi Jika Belum Login
-        if(!Auth::user()) {
-            return redirect()->route('login');
+            ]);
         }
-        //menghitung harga tambahan ukuran S, M, L, XL
-        if(($request->lingkar_lengan > 32 and $request->lingkar_lengan < 35)
-        or ($request->lingkar_leher > 34 and $request->lingkar_leher < 37)
-        or ($request->lingkar_pinggang > 66 and $request->lingkar_pinggang < 73)
-        or ($request->lingkar_perut > 86 and $request->lingkar_perut < 92)
-        or ($request->lingkar_paha > 60 and $request->lingkar_paha < 64)
-        or ($request->panjang_celana > 101 and  $request->lingkar_celana < 104)){
-        $hargabahan = Bahan::where('nama_bahan','like',"%".$request->nama_bahan."%")->where('ukuran','=', 'M')->first();
-        $hargatambahan = $hargabahan->harga_tambah;
+        else if($request->nama_kategori == "Kemeja"){
+            $this->validate($request,[
+                'jumlah' => 'required',
+                'lebar_bahu' => ['required', 'numeric'],
+                'panjang_tangan' => ['required', 'numeric'],
+                'panjang_baju' => ['required', 'numeric'],
+                'lingkar_lengan'=> ['required', 'numeric'],
+                'lingkar_dada' => ['required', 'numeric'],
+                'lingkar_ketiak'=> ['required', 'numeric'],
+                'lingkar_lenganbawah' => ['required', 'numeric'],
+            ]);
         }
-        if(($request->lingkar_lengan > 33 and $request->lingkar_lengan < 36)
-        or ($request->lingkar_leher > 36 and $request->lingkar_leher < 39)
-        or ($request->lingkar_pinggang > 73 and $request->lingkar_pinggang < 79)
-        or ($request->lingkar_perut > 91 and $request->lingkar_perut < 99)
-        or ($request->lingkar_paha > 63 and $request->lingkar_paha < 69)
-        or ($request->panjang_celana > 103 and  $request->lingkar_celana < 107)){
-        $hargabahan = Bahan::where('nama_bahan','like',"%".$request->nama_bahan."%")->where('ukuran','=', 'L')->first();
-        $hargatambahan = $hargabahan->harga_tambah;
+        //menghitung harga tambahan ukuran M, L, XL
+        // jika kategori = celana
+        if($request->nama_kategori == "Celana"){
+            // standar ukuran M
+            if(($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 73)
+            && ($request->lingkar_panggul > 60 && $request->lingkar_panggul < 64)
+            && ($request->panjang_celana > 101 &&  $request->panjang_celana < 104)){
+            // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            // standar ukuran L
+            else if(($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
+            && ($request->lingkar_panggul > 63 && $request->lingkar_panggul < 69)
+            && ($request->panjang_celana > 103 &&  $request->panjang_celana < 107)){
+             // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            // standar ukuran XL
+            else if(($request->lingkar_pinggang > 78)
+            && ($request->panjang_celana > 106 )){
+            // menyesuaikan nama bahan baju dengan tabel bahan untuk mengambil nilai harga tambah berdasarkan bahan dan ukuran
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else {
+                $hargatambahan = 0;
+            }
+        } 
+        else if($request->nama_kategori == "Rok"){
+            if(($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 74)
+            && ($request->panjang_rok > 101 &&  $request->panjang_rok < 104)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else if(($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
+            && ($request->panjang_rok > 103 &&  $request->panjang_rok < 107)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else if(($request->lingkar_pinggang > 78)
+            && ($request->panjang_rok > 106 )){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else {
+                $hargatambahan = 0;
+            }
         }
-        if(($request->lingkar_lengan > 35)
-        or ($request->lingkar_leher > 38)
-        or ($request->lingkar_pinggang > 78)
-        or ($request->lingkar_perut > 98)
-        or ($request->lingkar_paha > 68)
-        or ($request->panjang_celana > 106 )){
-        $hargabahan = Bahan::where('nama_bahan','like',"%".$request->nama_bahan."%")->where('ukuran','=', 'XL')->first();
-        $hargatambahan = $hargabahan->harga_tambah;
+        else if($request->nama_kategori == "Seragam Laki-laki"){
+            if( ($request->lingkar_lengan > 32 and $request->lingkar_lengan < 34)
+            && ($request->lingkar_panggul > 60 and $request->lingkar_panggul < 64)
+            && ($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 73)
+            && ($request->panjang_celana > 101 &&  $request->panjang_celana < 104)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else if( ($request->lingkar_lengan > 33 and $request->lingkar_lengan < 36)
+            && ($request->lingkar_panggul > 63 and $request->lingkar_panggul < 69)
+            && ($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
+            && ($request->panjang_celana > 103 &&  $request->panjang_celana < 107)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else if( ($request->lingkar_lengan > 35)
+            && ($request->lingkar_panggul > 68)
+            && ($request->lingkar_pinggang > 78)
+            && ($request->panjang_celana > 106 )){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else {
+                $hargatambahan = 0;
+            }
         }
-        else {
-            $hargatambahan = 0;
+        else if($request->nama_kategori == "Seragam Perempuan"){
+            if( ($request->lingkar_lengan > 32 and $request->lingkar_lengan < 35)
+            && ($request->lingkar_pinggang > 66 && $request->lingkar_pinggang < 73)
+            && ($request->panjang_rok > 101 &&  $request->panjang_rok < 104)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else if( ($request->lingkar_lengan > 33 and $request->lingkar_lengan < 36)
+            && ($request->lingkar_pinggang > 73 && $request->lingkar_pinggang < 79)
+            && ($request->panjang_rok > 103 &&  $request->panjang_rok < 107)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else if( ($request->lingkar_lengan > 35)
+            && ($request->lingkar_panggul > 68)
+            && ($request->lingkar_pinggang > 78)
+            && ($request->panjang_rok > 106 )){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else {
+                $hargatambahan = 0;
+            }
         }
-        //Menghitung Total harga dan Total Berat
+        else if($request->nama_kategori == "Kemeja" || $request->nama_kategori ==  "Jas"){
+            if( ($request->lingkar_lengan > 32 and $request->lingkar_lengan < 35)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'M')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else if(($request->lingkar_lengan > 33 and $request->lingkar_lengan < 36)){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'L')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else if( ($request->lingkar_lengan > 35)
+            ){
+            $hargabahan = Bahan::where('nama_bahan','=', $request->nama_bahan)->where('ukuran','=', 'XL')->first();
+            $hargatambahan = $hargabahan->harga_tambah;
+            }
+            else {
+                $hargatambahan = 0;
+            }
+        }
+        //Menghitung Sub total harga dan SubBerat
         $total_harga = $request->jumlah*($request->harga+$hargatambahan);
         $subberat = $request->jumlah*($request->berat_produk);
 
@@ -116,20 +282,20 @@ class PelangganPemesananController extends Controller
             'id_detailpemesanan' => $detail_pemesanan->id_detailpemesanan,
             'catatan' => $request->catatan,
             'foto_model' => $inputfoto,
-            'panjang_bahu' => $request->panjang_bahu,
-            'panjang_lengan' => $request->panjang_lengan,
+            'lebar_bahu' => $request->lebar_bahu,
+            'panjang_tangan' => $request->panjang_tangan,
             'panjang_baju' => $request->panjang_baju,
             'lingkar_dada' => $request->lingkar_dada,
             'lingkar_lengan' => $request->lingkar_lengan,
+            'lingkar_lenganbawah' => $request->lingkar_lenganbawah,
             'lingkar_ketiak' => $request->lingkar_ketiak,
-            'lingkar_leher' => $request->lingkar_leher,
             'lingkar_pinggang' => $request->lingkar_pinggang,
             'lingkar_keris' => $request->lingkar_keris,
-            'lingkar_perut'=> $request->lingkar_perut,
-            'lingkar_lutut' => $request->lingkar_lutut,
-            'lingkar_paha' => $request->lingkar_paha,
+            'lingkar_panggul' => $request->lingkar_panggul,
             'panjang_celana' => $request->panjang_celana,
-            'lebar_bawah' => $request->lebar_bawah,
+            'panjang_rok' => $request->panjang_rok,
+            'lingkar_bawah' => $request->lingkar_bawah,
+            'tinggi_duduk' => $request->tinggi_duduk
             
         ]);
 

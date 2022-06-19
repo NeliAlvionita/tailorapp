@@ -72,8 +72,8 @@
         <div class="row" style="margin-top: 120px;">
             <div class="col">
                 <div class="table-responsive">
-                    <table id="faq" class="table mb-0 text-center">
-                        <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
+                    <table id="faq" class="table mb-0">
+                        <thead class="table  text-center" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
                             <tr>
                                 <td>No.</td>
                                 <td>Pertanyaan</td>

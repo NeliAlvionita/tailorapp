@@ -18,20 +18,20 @@ class CreateUkuranTable extends Migration
             $table->unsignedBigInteger("id_detailpemesanan");
             $table->string("catatan")->nullable();
             $table->string("foto_model")->nullable();
-            $table->string("panjang_bahu")->nullable();
-            $table->string("panjang_lengan")->nullable();
+            $table->string("lebar_bahu")->nullable();
+            $table->string("panjang_tangan")->nullable();
             $table->string("panjang_baju")->nullable();
             $table->string("lingkar_dada")->nullable();
             $table->string("lingkar_lengan")->nullable();
+            $table->string("lingkar_lenganbawah")->nullable();
             $table->string("lingkar_ketiak")->nullable();
-            $table->string("lingkar_leher")->nullable();
             $table->string("lingkar_pinggang")->nullable();
             $table->string("lingkar_keris")->nullable();
-            $table->string("lingkar_perut")->nullable();
-            $table->string("lingkar_lutut")->nullable();
-            $table->string("lingkar_paha")->nullable();
+            $table->string("lingkar_panggul")->nullable();
             $table->string("panjang_celana")->nullable();
             $table->string("lebar_bawah")->nullable();
+            $table->string("panjang_rok")->nullable();
+            $table->string("lingkar_bawah")->nullable();  
         });
     }
 

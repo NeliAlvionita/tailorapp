@@ -41,6 +41,12 @@
             
         </div>
         <div class="row" style="margin-top: 120px;">
+            <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                <center><h4>Riwayat <em>Pemesanan</em> </h4>
+                <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
+                <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
+            </div>
+            <br><br><br>
             <div class="col-md-12">
                 @if(session()->has('message'))
                 <div class="alert alert-danger">
