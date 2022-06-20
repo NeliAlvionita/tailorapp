@@ -37,7 +37,7 @@
                         <br>
                         @endif
                         @if($item->ukuran->panjang_tangan!=null)
-                        Panjang Lengan = {{$item->ukuran->panjang_tangan}}
+                        Panjang Tangan = {{$item->ukuran->panjang_tangan}}
                         <br>
                         @endif
                         @if($item->ukuran->panjang_baju!=null)
@@ -53,11 +53,11 @@
                         <br>
                         @endif
                         @if($item->ukuran->lingkar_lenganbawah!=null)
-                        Lingkar Lengan = {{$item->ukuran->lingkar_lenganbawah}}
+                        Lingkar Lengan Bawah= {{$item->ukuran->lingkar_lenganbawah}}
                         <br>
                         @endif
                         @if($item->ukuran->lingkar_ketiak!=null)
-                        Lingkar Leher = {{$item->ukuran->lingkar_ketiak}}
+                        Lingkar Ketiak = {{$item->ukuran->lingkar_ketiak}}
                         <br>
                         @endif
                         @if($item->ukuran->lingkar_pinggang!=null)
@@ -69,22 +69,19 @@
                         <br>
                         @endif
                         @if($item->ukuran->lingkar_panggul!=null)
-                        Lingkar Paha = {{$item->ukuran->lingkar_panggul}}
+                        Lingkar Panggul = {{$item->ukuran->lingkar_panggul}}
                         <br>
                         @endif
                         @if($item->ukuran->panjang_celana!=null)
                         Panjang Celana = {{$item->ukuran->panjang_celana}}
                         <br>
                         @endif
-                        @if($item->ukuran->lebar_bawah!=null)
-                        Lebar Bawah = {{$item->ukuran->lebar_bawah}}
-                        @endif
                         @if($item->ukuran->panjang_rok!=null)
-                        Lingkar Lutut = {{$item->ukuran->panjang_rok}}
+                        Panjang Rok = {{$item->ukuran->panjang_rok}}
                         <br>
                         @endif
                         @if($item->ukuran->lingkar_bawah!=null)
-                        Lingkar Lutut = {{$item->ukuran->lingkar_bawah}}
+                        Lingkar Bawah = {{$item->ukuran->lingkar_bawah}}
                         <br>
                         @endif
                         @if($item->ukuran->tinggi_duduk!=null)
