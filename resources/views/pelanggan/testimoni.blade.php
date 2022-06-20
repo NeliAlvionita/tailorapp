@@ -3,12 +3,11 @@
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <div class="section-heading">
-          <h4>Testimoni <em> Pelanggan </em> San Tailor</h4>
+          <h4><em> Testimoni Pelanggan </em> San Tailor</h4>
           <img src="assets/images/heading-line-dec.png" alt="">
           <p>Berikut merupakan testimoni pelanggan San Tailor yang sudah pernah order.</p>
         </div>
       </div>
-
       <div class="col-lg-12">
         <div class="naccs">
           <div class="grid">
@@ -16,7 +15,7 @@
               <div class="col-lg-7 align-self-center">
                 <div class="menu">
                   @foreach($testimoni as $index => $item)
-                  <div class="first-thumb active">
+                  <div class="first-thumb @if($index == 0) active @endif">
                     <div class="thumb">
                       <div class="row">
                         <div class="col-lg-4 col-sm-4 col-12">
@@ -38,7 +37,7 @@
               <div class="col-lg-5">
                 <ul class="nacc">
                   @foreach($testimoni as $index => $item)
-                  <li class="active">
+                  <li class=" @if($index == 0) active @endif">
                     <div>
                       <div class="thumb">
                         <div class="row">

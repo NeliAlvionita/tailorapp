@@ -32,10 +32,10 @@
             color: #504e4e;
         }
         .btns{
-            font-family: 'Roboto', sans-serif;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
+            font-family: arial;
+            padding: 10px;
+            font-size: 13px;
+            letter-spacing: 1.5px;
             font-weight: 500;
             color: #fff;
             background-color: #3490dc;
@@ -76,17 +76,23 @@
     @include('pelanggan.layouts.header')
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                @if(session()->has('message'))
-                <div class="alert alert-danger">
-                    {{ session('message') }}
-                </div>
-                @endif
-            </div>
+        <div class="row">  
         </div>
 
         <div class="row" style="margin-top: 120px;">
+            <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                <center><h4>Keranjang <em>Pemesanan</em> </h4>
+                <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
+                <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
+            </div>
+            <br><br><br>
+            <div class="col-md-12">
+                @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+                @endif
+            </div><br>
             <div class="col">
                 <div class="table-responsive">
                     <table class="table mb-0 text-center">
@@ -130,32 +136,45 @@
                                 </td>
                                 <td class="text-left"><strong>Rp. {{ number_format($detail_pemesanan->subtotal) }}</strong></td>
                                 
-                            </tr>    
+                            </tr>
+                            
                             @empty
                             <tr>
-                                <td colspan="7">Data Kosong</td>
+                                <td colspan="8">Data Kosong</td>
                             </tr>   
                             @endforelse
                         
                             @if(!empty($pemesanan))
                                 <tr>
-                                    <td colspan="6" align="right"><strong>Total Yang Harus dibayarkan : </strong></td>
+                                    <td colspan="7" align="right"><strong>Total Yang Harus dibayarkan : </strong></td>
                                     <td align="center"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="6"></td>
-                                    <td colspan="2">
-                                        <div class="gradient-button">
-                                            <a href="{{ route('checkout')}}" class="btns btn-xs ">
+                                    <td colspan="1" style="border:none;"></td>
+                                    <td style="border:none;">
+                                        <button class="btns" onclick="goBack()">
+                                            <i class="fa fa-arrow-left"></i> Kembali</button>
+                                        <script>
+                                            function goBack() {
+                                                window.history.back();
+                                            }
+                                        </script>
+                                    </td>
+                                    <td colspan="5" style="border:none;"></td>
+                                    <td style="border:none;">
+                                        <div class="gradient-button" style="align:left;">
+                                            <a href="{{ route('checkout')}}" class="btns btn-xs">
                                                 <i class="fa fa-arrow-right"></i> Check Out
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
                             @endif
+                            
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>

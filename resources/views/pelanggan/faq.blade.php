@@ -22,41 +22,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/template.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
-     <!-- MULAI STYLE CSS -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css"
-        integrity="sha256-pODNVtK3uOhL8FUNWWvFQK0QoQoV3YA9wGGng6mbZ0E=" crossorigin="anonymous" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" 
-  href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" 
-  href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" 
-  href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-  <!-- iCheck -->
-  <link rel="stylesheet" 
-  href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-  <!-- JQVMap -->
-  <link rel="stylesheet" 
-  href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" 
-  href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet"
-   href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
-  <!-- summernote -->
-  <link rel="stylesheet" 
-  href="{{asset('plugins/summernote/summernote-bs4.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 
     <style>
         b {
@@ -86,7 +53,6 @@
             color: #fff;
             transform: translateY(-7px);
         }
-        
     </style>
 </head>
 <body>
@@ -96,7 +62,7 @@
         <div class="row">
             <div class="col-md-12">
                 @if(session()->has('message'))
-                <div class="alert alert-danger">
+                <div class="alert alert-success">
                     {{ session('message') }}
                 </div>
                 @endif
@@ -104,10 +70,16 @@
         </div>
 
         <div class="row" style="margin-top: 120px;">
+            <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                <center><h4>FaQ <em> San Tailor</em> </h4>
+                <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
+                <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
+            </div>
+            <br><br><br>
             <div class="col">
                 <div class="table-responsive">
-                    <table id="faq" class="table mb-0 text-center">
-                        <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
+                    <table id="faq" class="table mb-0">
+                        <thead class="table  text-center" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
                             <tr>
                                 <td>No.</td>
                                 <td>Pertanyaan</td>
@@ -119,8 +91,8 @@
                             @foreach ($faq as $faq)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td style="text-align: left;">{{ $faq->pertanyaan }}</td>
-                                <td style="text-align: left;">{{ $faq->jawaban }}</td>
+                                <td>{{ $faq->pertanyaan }}</td>
+                                <td>{{ $faq->jawaban }}</td>
                             </tr>
                             @endforeach
                         </tbody>

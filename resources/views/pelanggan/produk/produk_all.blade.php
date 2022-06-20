@@ -60,8 +60,14 @@
                 <div class="col col-lg-12">
                 @include('pelanggan.layouts.header')
                 </div>
-
                 <div class="row" style="margin-top: 120px;">
+                    <div class="col-md-12">
+                        @if(session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                        @endif
+                    </div>
                     <div class="col col-lg-3 wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="0.5s">
                         <div class="list-group">
                             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">

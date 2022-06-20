@@ -130,6 +130,7 @@
               </li>
             </ul>
           </li>
+          @endif
             <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -139,6 +140,7 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
+                @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/admin" class="nav-link">
                     <i class="fas fa-fw fa-cog nav-icon"></i>
@@ -169,6 +171,7 @@
                     <p>Data Produk</p>
                   </a>
                 </li> 
+                @endif
               </ul>
             </li>
             <li class="nav-item has-treeview menu-open">
@@ -180,19 +183,22 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
+                @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/pemesanan" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Data Pemesanan</p>
                   </a>
                 </li>
+                @endif
+                @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/testimoni" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Data Testimoni</p>
                   </a>
                 </li>
-            @endif
+                @endif
               <li class="nav-item">
                 <a href="/admin/laporan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -318,6 +324,8 @@
             $('#admin').DataTable();
             $('#pelanggan').DataTable();
             $('#footer').DataTable();
+            $('#bahan').DataTable();
+            $('#faq').DataTable();
           });
     </script>
 

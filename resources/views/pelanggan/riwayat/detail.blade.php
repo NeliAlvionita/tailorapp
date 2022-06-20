@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+  
   </head>
   <body>
     @include('pelanggan.layouts.header')
@@ -73,13 +74,13 @@
                     @endif
                 </tr>
                 <tr>
-                  <td>Tanggal Dimulai Proses Jahit : 
+                  <td style="border:none;">Tanggal Dimulai Proses Jahit : 
                     @if($pemesanan->tanggal_mulai_jahit == NULL) belum diproses
                     @else{{ $pemesanan->tanggal_mulai_jahit}} @endif
                   </td>
                 </tr>
                 <tr>
-                  <td>Perkiraan Selesai Waktu Jahit :
+                  <td style="border:none;">Perkiraan Selesai Waktu Jahit :
                     @if($pemesanan->tanggal_selesai_jahit == NULL) belum diproses
                     @else{{ $pemesanan->tanggal_selesai_jahit}} @endif </td>
                 </tr>
@@ -92,7 +93,7 @@
 <div class="col-lg-10 offset-lg-1">
 <div class="card card-info card-outline" style="border:none;">
     <div class="card-body">
-        <table class="table shadow table-hover">
+        <table  class="table shadow table-hover">
           <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
             <tr>
               <th>No</th>
@@ -125,11 +126,24 @@
               <td colspan="6" style="border:none;"></td>
             </tr>
             <tr>
-              <td colspan="3" style="border:none;"></td>
-                <td style="border:none;"><strong>Total Pembayaran : </strong></td>
-                <td align="left" style="border:none;"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
-                <td></td>
-            </tr>
+                                <td colspan="4" style="border:none;"></td>
+                                <td style="border:none;">
+                                    <strong>Biaya Kirim </strong>
+                                </td>
+                                <td style="border:none;">
+                                    Rp. {{ number_format($pemesanan->biaya_ongkir) }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="border:none;"></td>
+                                <td style="border:none;"><strong>Total Pembayaran  </strong></td>
+                                <td style="border:none;">
+                                    <strong>
+                                        <!-- Rp. {{ number_format($pemesanan->total_pemesanan) }} -->
+                                        Rp. {{ number_format($pemesanan->total_pemesanan+$pemesanan->biaya_ongkir) }}
+                                    </strong> 
+                                </td>
+                            </tr>
             <tr>
               <td colspan="6" style="border:none;"></td>
             </tr>
@@ -148,5 +162,6 @@
     <script src="{{ asset('assets/js/imagesloaded.js')}}"></script>
     <script src="{{ asset('assets/js/popup.js')}}"></script>
     <script src="{{ asset('assets/js/custom.js')}}"></script>
+</body>
   </body>
 </html>

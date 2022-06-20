@@ -11,10 +11,10 @@
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
           <li class="scroll-to-section"><a href="/" >Beranda</a></li>
-          <li class="scroll-to-section"><a href="/faq">FaQ</a></li>
           <li class="scroll-to-section"><a href="{{ route('produk') }}">Katalog</a></li>
           <li class="scroll-to-section"><a href="{{ route('riwayat') }}">Pesanan</a></li>
           <li class="scroll-to-section"><a href="{{ route('keranjang') }}">Keranjang</a></li>
+          <li class="scroll-to-section"><a href="/faq">FaQ</a></li>
           @guest
           <li><div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}">
             <i class="fa fa-sign-in-alt"></i> Masuk</a></div></li> 
@@ -46,10 +46,5 @@
   </div>
   </div>
 </header>
-@if (session('message'))
-<div class="alert alert-success alert-dismissible">
-  {{ session('message') }}
-</div>
-@endif
     </section>
 </div>

@@ -67,24 +67,24 @@ class RiwayatController extends Controller
         $pemesanan->status_pemesanan = 'pesanan masuk';
         $pemesanan->update();
 
+        $pembayaran = Pembayaran::where('id_pemesanan', '=', $request->id_pemesanan)->first();
+
         if ($bukti = $request->file('bukti')) {
             $destinationPath = 'bukti/';
             $profileImage = date('YmdHis') . "." . $bukti->getClientOriginalExtension();
             $bukti->move($destinationPath, $profileImage);
             $inputbukti = "$profileImage";
         }
+        $pembayaran->nama =  $request->nama;
+        $pembayaran->bank = $request->bank;
+        $pembayaran->jumlah = $request->jumlah;
+        $pembayaran->tanggal_pembayaran = $request->tanggal_pembayaran;
+        $pembayaran->bukti = $inputbukti;
+        $pembayaran->status_pembayaran = 'belum dicek';
+        $pembayaran->update();
+        
 
-        Pembayaran::create([
-            'id_pemesanan' => $request->id_pemesanan,
-            'nama' =>  $request->nama,
-            'bank' => $request->bank,
-            'jumlah' => $request->jumlah,
-            'tanggal_pembayaran' => $request->tanggal_pembayaran,
-            'bukti' => $inputbukti,
-            'status_pembayaran' => 'belum dicek',
-        ]);
-
-        return redirect(route('riwayat'));
+        return redirect(route('riwayat'))->with('message', 'Berhasil Melakukan Pembayaran, Tunggu Pengecekan Data oleh Admin');
     }
 
     public function detailpemesanan(Request $request)

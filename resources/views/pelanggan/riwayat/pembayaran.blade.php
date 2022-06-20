@@ -57,21 +57,21 @@
         @include('pelanggan.layouts.header')
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
-            <div class="card card-info" style="margin-top: 120px;">
+            <div class="card card-info" style="margin-top: 120px; border:none;">
                 <div class="card-body">
                     <table class="table table-hover">
                         <tbody>
                             <tr>
-                                <td><strong>No Pemesanan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>  {{ $pemesanan->id_pemesanan}}</td>
-                                <td><strong>Nama Pelanggan&nbsp;: </strong>  {{ $pemesanan->pelanggan->name }}</td>
+                                <td style="border:none;"><strong>No Pemesanan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>  {{ $pemesanan->id_pemesanan}}</td>
+                                <td style="border:none;"><strong>Nama Pelanggan&nbsp;: </strong>  {{ $pemesanan->pelanggan->name }}</td>
                             </tr>
                             <tr>
-                                <td><strong>Tanggal Pemesanan&nbsp;&nbsp; :</strong> {{ $pemesanan->tanggal_pemesanan }}</td>
-                                <td><strong>Nama Penyetor&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->nama }}</td>
+                                <td style="border:none;"><strong>Tanggal Pemesanan&nbsp;&nbsp; :</strong> {{ $pemesanan->tanggal_pemesanan }}</td>
+                                <td style="border:none;"><strong>Nama Penyetor&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->nama }}</td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td><strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->bank}} </td>
+                                <td style="border:none;"><strong>Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong> {{ $pemesanan->ekspedisi}}</td>
+                                <td style="border:none;"><strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->bank}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -79,9 +79,9 @@
             </div>
 
             <div class="card card-info card-outline">
-                <div class="card-body p-0">
-                    <table class="table table-hover">
-                        <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
+                <div class="card-body p-0" >
+                    <table class="table table-hover" >
+                        <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal; border:none;">
                             <tr>
                             <th>No</th>
                             <th>Nama</th>
@@ -101,34 +101,71 @@
                             </tr>
                             @endforeach
                             <tr>
-                                <td colspan="4"><strong>Total Pembayaran : </strong></td>
-                                <td><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
+                                <td colspan="5"style="border:none;"></td>
                             </tr>
-                        </tbody>
-                    </table><br>
+                            <tr>
+                                <td colspan="3" style="border:none;"></td>
+                                <td style="border:none;">
+                                    <strong>Biaya Kirim </strong>
+                                </td>
+                                <td style="border:none;">
+                                    Rp. {{ number_format($pemesanan->biaya_ongkir) }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="border:none;"></td>
+                                <td style="border:none;"><strong>Total Pembayaran  </strong></td>
+                                <td style="border:none;">
+                                    <strong>
+                                        <!-- Rp. {{ number_format($pemesanan->total_pemesanan) }} -->
+                                        Rp. {{ number_format($pemesanan->total_pemesanan+$pemesanan->biaya_ongkir) }}
+                                    </strong> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            @if($pemesanan->pembayaran->status_pembayaran=='Lunas')
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" style="border:none;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="border:none;"></td>
+                                        <td style="border:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hormat Kami,</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="border:none;"></td>
+                                        <td style="border:none;"><img src="{{ asset('assets/stempel.png') }}" class="img-fluid" style="padding: 2px; width: 150px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="border:none;"></td>
+                                        <td style="border:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Tailor</td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                        </div>
+                    </div><br><br>
+                    <div class="gradient-button">
+                                <a class="btns" href="{{ route('cetak.nota', $pemesanan->id_pemesanan) }}">
+                                    <i class="fas fa-print"></i> Cetak Nota
+                                </a>
+                            </div>
+                            @endif
+
                     @if($pemesanan->pembayaran->status_pembayaran=='belum dicek')
                     <div class="row">
                         <div class="col">
                             <div class="alert alert-info">
                                 <h6 align="center">Pembayaran yang telah anda lakukan sedang dalam proses pengecekan oleh admin </h6>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
-                    @if($pemesanan->pembayaran->status_pembayaran=='Lunas')
-                    <div class="row">
-                        <div class="col">
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <p>Malang, Tanggal Bulan Tahun</p>
-                                    <p>Hormat kami</p>
-                                    <p>San Tailor</p>
-                                </div>
-                            </div>
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <a class="btns" href="{{ route('cetak.nota', $pemesanan->id_pemesanan) }}" target="_blank">Cetak Nota</a>
-                                </div>
                             </div>
                         </div>
                     </div>

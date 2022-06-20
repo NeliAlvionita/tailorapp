@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
     <style>
       b {
@@ -37,6 +38,15 @@
     @include('pelanggan.layouts.header')
       <div class="container">
         <div class="row">
+            
+        </div>
+        <div class="row" style="margin-top: 120px;">
+            <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                <center><h4>Riwayat <em>Pemesanan</em> </h4>
+                <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
+                <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
+            </div>
+            <br><br><br>
             <div class="col-md-12">
                 @if(session()->has('message'))
                 <div class="alert alert-danger">
@@ -44,19 +54,18 @@
                 </div>
                 @endif
             </div>
-        </div>
-        <div class="row" style="margin-top: 120px;">
             <div class="col">
                 <div class="table-responsive">
-                    <table class="table mb-0 text-center" >
+                    <table id="riwayat" class="table mt-2 mb-0 text-center" >
                         <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
                             <tr>
                                 <td>No.</td>
                                 <td>Tanggal</td>
                                 <td>Status Pemesanan</td>
-                                <td>Total</td>
                                 <td>Pembayaran</td>
-                                <td>Opsi</td>
+                                <td>Total Pesanan</td>
+                                <td>Biaya Kirim</td>
+                                <td>Aksi</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,7 +75,6 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $pemesanan->tanggal_pemesanan }}</td>
                             <td>{{ $pemesanan->status_pemesanan }}</td>
-                            <td>Rp. {{ number_format($pemesanan->total_pemesanan) }}</td>
                             <td>
                                 @if($pemesanan->status_pemesanan == 'belum bayar')
                                 belum bayar
@@ -74,6 +82,8 @@
                                 {{ $pemesanan->pembayaran->status_pembayaran }}
                                 @endif
                             </td>
+                            <td>Rp. {{ number_format($pemesanan->total_pemesanan) }}</td>
+                            <td>Rp. {{ number_format($pemesanan->biaya_ongkir) }}</td>
                             <td>
                                     <a class="btn" href="/pelanggan/riwayat/{{$pemesanan->id_pemesanan}}" style="background-color: #008CBA;">
                                         Detail

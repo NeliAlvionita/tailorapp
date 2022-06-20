@@ -119,23 +119,16 @@
                     </div> 
                     <div class="col-sm-2">
                         <div class="form-group">
+                            <label><h6>Lingkar Panggul :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
                             <label><h6>Lingkar Keris :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label><h6>Lingkar Lutut :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_lutut }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label><h6>Lingkar Paha :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_paha }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-2">
@@ -168,33 +161,43 @@
                         <div class="form-group">
                             <label><h6>Panjang Rok :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_rok }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lebar Bawah :</h6> </label>
+                            <label><h6>Lingkar Panggul :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lebar_bawah }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Tinggi Duduk :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->tinggi_duduk }}" readonly>
                         </div>
                     </div>
                 </div><br>
                 @endif
 
                 @if($detail->produk->kategori->nama_kategori=='Jas')
+                <div class="alert alert-success">
+                    <h6>Atasan</h6>
+                </div>
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Bahu :</h6> </label>
+                            <label><h6>Lebar Bahu :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_bahu }}" readonly>
+                            placeholder="{{ $detail->ukuran->lebar_bahu }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Lengan :</h6> </label>
+                            <label><h6>Panjang Tangan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_lengan }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -233,16 +236,49 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Leher :</h6> </label>
+                            <label><h6>Lingkar Lengan Bawah :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_leher }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_lenganbawah }}" readonly>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                </div><br>
+                <div class="alert alert-success">
+                    <h6>Bawahan</h6>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Perut :</h6> </label>
+                            <label><h6>Lingkar Pinggang :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_perut }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
+                        </div>
+                    </div> 
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Panggul :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Keris :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Panjang Celana :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Bawah :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_bawah }}" readonly>
                         </div>
                     </div>
                 </div><br>
@@ -252,16 +288,16 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Bahu :</h6> </label>
+                            <label><h6>Lebar Bahu :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_bahu }}" readonly>
+                            placeholder="{{ $detail->ukuran->lebar_bahu }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Lengan :</h6> </label>
+                            <label><h6>Panjang Tangan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_lengan }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -276,16 +312,16 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Dada :</h6> </label>
+                            <label><h6>Lingkar Lengan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <label><h6>Lingkar Dada :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -295,20 +331,20 @@
                             placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
                         </div>
                     </div>
-                </div><br>
-                    
-                <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Leher :</h6> </label>
+                            <label><h6>Lingkar Lengan Bawah :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_leher }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_lenganbawah }}" readonly>
                         </div>
                     </div>
                 </div><br>
+                    
+                <div class="row">
+                </div><br>
                 @endif
 
-                @if($detail->produk->kategori->nama_kategori=='Seragam')
+                @if($detail->produk->kategori->nama_kategori=='Seragam Laki-laki')
                 <br>
                 <div class="alert alert-success">
                     <h6>Atasan</h6>
@@ -317,16 +353,16 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Bahu :</h6> </label>
+                            <label><h6>Lebar Bahu :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_bahu }}" readonly>
+                            placeholder="{{ $detail->ukuran->lebar_bahu }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Lengan :</h6> </label>
+                            <label><h6>Panjang Tangan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_lengan }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -341,16 +377,16 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Dada :</h6> </label>
+                            <label><h6>Lingkar Lengan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <label><h6>Lingkar Dada :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -363,13 +399,98 @@
                 </div><br>
 
                 <div class="row">
-                    <div class="col-sm-4">
+                </div><br><br>
+
+                <div class="alert alert-success">
+                    <h6>Bawahan</h6>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Leher :</h6> </label>
+                            <label><h6>Lingkar Pinggang :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_leher }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
+                        </div>
+                    </div> 
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Panggul :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
                         </div>
                     </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Lingkar Keris :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>Panjang Celana :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+                @endif
+                @if($detail->produk->kategori->nama_kategori=='Seragam Perempuan')
+                <br>
+                <div class="alert alert-success">
+                    <h6>Atasan</h6>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lebar Bahu :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lebar_bahu }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Tangan :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Panjang Baju :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Dada :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>Lingkar Ketiak :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
                 </div><br><br>
 
                 <div class="alert alert-success">
@@ -386,40 +507,9 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Keris :</h6> </label>
+                            <label><h6>Panjang Rok :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label><h6>Lingkar Lutut :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_lutut }}" readonly>
-                        </div>
-                    </div>
-                </div><br>
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label><h6>Lingkar Paha :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_paha }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label><h6>Panjang Celana :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label><h6>Lebar Bawah :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lebar_bawah }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_rok }}" readonly>
                         </div>
                     </div>
                 </div><br>
