@@ -56,15 +56,16 @@
             </div>
             <div class="col">
                 <div class="table-responsive">
-                    <table id="riwayat" class="table mb-0 text-center" >
+                    <table id="riwayat" class="table mt-2 mb-0 text-center" >
                         <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal;">
                             <tr>
                                 <td>No.</td>
                                 <td>Tanggal</td>
                                 <td>Status Pemesanan</td>
-                                <td>Total</td>
                                 <td>Pembayaran</td>
-                                <td>Opsi</td>
+                                <td>Total Pesanan</td>
+                                <td>Biaya Kirim</td>
+                                <td>Aksi</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,7 +75,6 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $pemesanan->tanggal_pemesanan }}</td>
                             <td>{{ $pemesanan->status_pemesanan }}</td>
-                            <td>Rp. {{ number_format($pemesanan->total_pemesanan) }}</td>
                             <td>
                                 @if($pemesanan->status_pemesanan == 'belum bayar')
                                 belum bayar
@@ -82,6 +82,8 @@
                                 {{ $pemesanan->pembayaran->status_pembayaran }}
                                 @endif
                             </td>
+                            <td>Rp. {{ number_format($pemesanan->total_pemesanan) }}</td>
+                            <td>Rp. {{ number_format($pemesanan->biaya_ongkir) }}</td>
                             <td>
                                     <a class="btn" href="/pelanggan/riwayat/{{$pemesanan->id_pemesanan}}" style="background-color: #008CBA;">
                                         Detail

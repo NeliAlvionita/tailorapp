@@ -45,9 +45,9 @@
           <div class="footer-widget">
             <h4>About Our Company</h4>
             <div class="logo">
-              <img src="assets/logo.png" alt="">
+              <img src="{{ asset('assets/logo.png') }}" alt="">
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <p></p>
           </div>
         </div>
         <div class="col-lg-12">

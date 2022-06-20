@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-md-12">
                 @if(session()->has('message'))
-                <div class="alert alert-danger">
+                <div class="alert alert-success">
                     {{ session('message') }}
                 </div>
                 @endif
@@ -70,6 +70,12 @@
         </div>
 
         <div class="row" style="margin-top: 120px;">
+            <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                <center><h4>FaQ <em> San Tailor</em> </h4>
+                <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
+                <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
+            </div>
+            <br><br><br>
             <div class="col">
                 <div class="table-responsive">
                     <table id="faq" class="table mb-0">

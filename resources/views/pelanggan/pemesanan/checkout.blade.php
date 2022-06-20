@@ -20,10 +20,9 @@
                         <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
                         <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
                     </div>
-                    <br><br>
                     <div class="row mt-4">
                       <div class="col">
-                          <div class="table-responsive">
+                          <div class="table-responsive shadow">
                               <table class="table mb-0 text-center">
                                   <thead class="table" style="background: #35A9DB;  color: #fff;  font-weight: normal; ">
                                       <tr>
@@ -53,55 +52,55 @@
                               </table>
                           </div>
                       </div>
-                  </div>
+                  </div><br><br>
 
                     <div class="row mt-4">
-                      <form action="{{route('checkoutfix')}}" class="horizontal" role="form" method="POST">
+                        <form action="{{route('checkoutfix')}}" class="horizontal" role="form" method="POST">
                             @csrf
                             <div class="col">
-                              <h4>Informasi Pengiriman</h4>
-                              <hr>
-                              <div class="form-group">
-                                <label for="">Provinsi Tujuan</label>
-                                <select name="province_destination" class="form-control provinsi-tujuan @error('province_destination') is-invalid @enderror">
-                                    <option value=""> --Provinsi-- </option>
-                                    @foreach ($provinces as $province => $value)
-                                    <option value="{{$province}}">{{$value}}</option>
-                                    @endforeach
-                                </select>
-                                @error('province_destination')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                              </div>
-                              <div class="form-group">
-                                <label for="">Kota Tujuan</label>
-                                <select name="city_destination" class="form-control kota-tujuan @error('city_destination') is-invalid @enderror">
-                                    <option> --Kota-- </option>
-                                </select>
-                                @error('city_destination')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                              </div> <br>
-                              <div class="form-group">
-                                <h6>Alamat Lengkap :</h6>
-                                <textarea name="alamat_pengiriman" rows="5" class="form-control @error('alamat_pengiriman') is-invalid @enderror"></textarea>
-                                @error('alamat_pengiriman')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                              </div> <br>
-                              <input type="hidden" name="total_berat" value={{ $pemesanan->total_berat}}>
-                              <input type="hidden" name="tanggal_pemesanan" value="<?php echo date("Y-m-d"); ?>">
-                              <div class="gradient-button">
-                                <button type="submit" class="btn btn-success btn-block"> Submit </button>
-                              </div>  
+                                <h4>Informasi Pengiriman</h4>
+                                <hr style="border:3px solid; color:#000000;">
+                                <div class="form-group">
+                                    <label for="" style="font-weight:bold;">Provinsi Tujuan</label>
+                                    <select name="province_destination" class="form-control provinsi-tujuan @error('province_destination') is-invalid @enderror">
+                                        <option value=""> --Provinsi-- </option>
+                                        @foreach ($provinces as $province => $value)
+                                        <option value="{{$province}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('province_destination')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="" style="font-weight:bold;">Kota Tujuan</label>
+                                    <select name="city_destination" class="form-control kota-tujuan @error('city_destination') is-invalid @enderror">
+                                        <option> --Kota-- </option>
+                                    </select>
+                                    @error('city_destination')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div> <br>
+                                <div class="form-group">
+                                    <label for="" style="font-weight:bold;">Alamat Lengkap</label>
+                                    <textarea name="alamat_pengiriman" rows="5" class="form-control @error('alamat_pengiriman') is-invalid @enderror"></textarea>
+                                    @error('alamat_pengiriman')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div> <br>
+                                <input type="hidden" name="total_berat" value={{ $pemesanan->total_berat}}>
+                                <input type="hidden" name="tanggal_pemesanan" value="<?php echo date("Y-m-d"); ?>">
+                                <div class="gradient-button">
+                                    <button type="submit" class="btn btn-success btn-block"> Submit </button>
+                                </div>  
                             </div>
-                      </form>         
+                        </form>         
                     </div>    
                 </div>
             </div>

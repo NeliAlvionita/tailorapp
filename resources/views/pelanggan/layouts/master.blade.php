@@ -29,6 +29,11 @@
     <a href="https://api.whatsapp.com/send?phone=6281339908155">
       <img src="https://hantamo.com/free/whatsapp.svg" class="wabutton" alt="Whatsapp-Button" />
     </a>
+
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+
+
     <style>
       b {
         color: #4b8ef1;
@@ -43,6 +48,16 @@
         bottom:20px;
         right:20px;
         z-index:100;
+      }
+      #wrapper{
+        padding-right:-15px;
+        padding-left:-15px;
+        text-align:center;
+        margin-top:15%;
+      }
+      .popup-gallery img{
+        width:100%;
+        height:100%;
       }
     </style>
 
@@ -61,5 +76,11 @@
     <script src="{{ asset('assets/js/imagesloaded.js')}}"></script>
     <script src="{{ asset('assets/js/popup.js')}}"></script>
     <script src="{{ asset('assets/js/custom.js')}}"></script>
+    <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Magnific Popup core JS file -->
+    <script src="magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="{{ asset('assets/js/main.js')}}"></script>
   </body>
 </html>

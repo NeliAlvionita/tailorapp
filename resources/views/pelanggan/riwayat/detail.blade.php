@@ -74,13 +74,13 @@
                     @endif
                 </tr>
                 <tr>
-                  <td>Tanggal Dimulai Proses Jahit : 
+                  <td style="border:none;">Tanggal Dimulai Proses Jahit : 
                     @if($pemesanan->tanggal_mulai_jahit == NULL) belum diproses
                     @else{{ $pemesanan->tanggal_mulai_jahit}} @endif
                   </td>
                 </tr>
                 <tr>
-                  <td>Perkiraan Selesai Waktu Jahit :
+                  <td style="border:none;">Perkiraan Selesai Waktu Jahit :
                     @if($pemesanan->tanggal_selesai_jahit == NULL) belum diproses
                     @else{{ $pemesanan->tanggal_selesai_jahit}} @endif </td>
                 </tr>
@@ -126,11 +126,24 @@
               <td colspan="6" style="border:none;"></td>
             </tr>
             <tr>
-              <td colspan="3" style="border:none;"></td>
-                <td style="border:none;"><strong>Total Pembayaran : </strong></td>
-                <td align="left" style="border:none;"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
-                <td></td>
-            </tr>
+                                <td colspan="4" style="border:none;"></td>
+                                <td style="border:none;">
+                                    <strong>Biaya Kirim </strong>
+                                </td>
+                                <td style="border:none;">
+                                    Rp. {{ number_format($pemesanan->biaya_ongkir) }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="border:none;"></td>
+                                <td style="border:none;"><strong>Total Pembayaran  </strong></td>
+                                <td style="border:none;">
+                                    <strong>
+                                        <!-- Rp. {{ number_format($pemesanan->total_pemesanan) }} -->
+                                        Rp. {{ number_format($pemesanan->total_pemesanan+$pemesanan->biaya_ongkir) }}
+                                    </strong> 
+                                </td>
+                            </tr>
             <tr>
               <td colspan="6" style="border:none;"></td>
             </tr>

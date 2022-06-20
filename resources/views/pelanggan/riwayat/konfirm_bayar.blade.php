@@ -23,17 +23,22 @@
                     <br><br>
                     <form action="{{route('konfirm_bayar')}}" method="post" enctype="multipart/form-data"> 
                         @csrf
-                        <div class="row mt-4">
-                            <div class="col">
+                        <div class="row">
+                            <div class="col-lg-12">
                               
-                                <h4>Total Tagihan</h4>
-                                <hr>
+                                <h5>Total Tagihan</h5>
+                                <hr style="border:2px solid; color:#000000;">
                                 <div class="alert alert-info">
-                                  <h5>
-                                    Untuk pembayaran silahkan dapat transfer di rekening dibawah ini sebesar <strong> Rp. {{ number_format($pemesanan->total_pemesanan+$pemesanan->biaya_ongkir) }}</strong> 
-                                  </h5><br>
-                                  <h6> Total pemesanan : <strong> Rp. {{ number_format($pemesanan->total_pemesanan) }} </strong></h6>
-                                  Ongkor kirim : <strong>Rp. {{ number_format($pemesanan->biaya_ongkir) }}</strong><br><br>
+                                    <!-- <h6> Total pemesanan : 
+                                        <strong> Rp. {{ number_format($pemesanan->total_pemesanan) }} </strong>
+                                    </h6>
+                                    <h6>Ongkos kirim &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 
+                                        <strong>Rp. {{ number_format($pemesanan->biaya_ongkir) }}</strong>
+                                    </h6><br> -->
+                                    <h6>
+                                        Untuk pembayaran silahkan dapat transfer di rekening dibawah ini sebesar &nbsp;<strong style="font-size:20px;">Rp. {{ number_format($pemesanan->total_pemesanan+$pemesanan->biaya_ongkir) }}</strong>
+                                    </h6><br>
+                                  
                                   <h6>BANK BRI</h6>
                                   No. Rekening 012345-678-910 atas nama <strong>San Tailor</strong><br><br>
                                   <h6>BANK BCA</h6>
@@ -94,7 +99,7 @@
                                     @enderror
                                 </div> <br>
                               <div class="gradient-button">
-                                <button type="submit" class="btn btn-success btn-block"> <i class="fas fa-arrow-right"></i>Konfirmasi Pembayaran</button>
+                                <button type="submit" class="btn btn-success btn-block"> <i class="fas fa-arrow-right"></i> Konfirmasi Pembayaran</button>
                               </div>
                           
                             

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <div class="section-heading">
-          <h4>Testimoni <em> Pelanggan </em> San Tailor</h4>
+          <h4><em> Testimoni Pelanggan </em> San Tailor</h4>
           <img src="assets/images/heading-line-dec.png" alt="">
           <p>Berikut merupakan testimoni pelanggan San Tailor yang sudah pernah order.</p>
         </div>

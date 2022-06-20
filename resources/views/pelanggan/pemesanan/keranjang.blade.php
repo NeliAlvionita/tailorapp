@@ -32,10 +32,10 @@
             color: #504e4e;
         }
         .btns{
-            font-family: 'Roboto', sans-serif;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
+            font-family: arial;
+            padding: 10px;
+            font-size: 13px;
+            letter-spacing: 1.5px;
             font-weight: 500;
             color: #fff;
             background-color: #3490dc;
@@ -88,11 +88,11 @@
             <br><br><br>
             <div class="col-md-12">
                 @if(session()->has('message'))
-                <div class="alert alert-danger">
+                <div class="alert alert-success">
                     {{ session('message') }}
                 </div>
                 @endif
-            </div>
+            </div><br>
             <div class="col">
                 <div class="table-responsive">
                     <table class="table mb-0 text-center">
@@ -136,7 +136,8 @@
                                 </td>
                                 <td class="text-left"><strong>Rp. {{ number_format($detail_pemesanan->subtotal) }}</strong></td>
                                 
-                            </tr>    
+                            </tr>
+                            
                             @empty
                             <tr>
                                 <td colspan="8">Data Kosong</td>
@@ -150,18 +151,30 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="6"></td>
-                                    <td colspan="2">
-                                        <div class="gradient-button">
-                                            <a href="{{ route('checkout')}}" class="btns btn-xs ">
+                                    <td colspan="1" style="border:none;"></td>
+                                    <td style="border:none;">
+                                        <button class="btns" onclick="goBack()">
+                                            <i class="fa fa-arrow-left"></i> Kembali</button>
+                                        <script>
+                                            function goBack() {
+                                                window.history.back();
+                                            }
+                                        </script>
+                                    </td>
+                                    <td colspan="5" style="border:none;"></td>
+                                    <td style="border:none;">
+                                        <div class="gradient-button" style="align:left;">
+                                            <a href="{{ route('checkout')}}" class="btns btn-xs">
                                                 <i class="fa fa-arrow-right"></i> Check Out
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
                             @endif
+                            
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>

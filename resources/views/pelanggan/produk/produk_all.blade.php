@@ -63,7 +63,7 @@
                 <div class="row" style="margin-top: 120px;">
                     <div class="col-md-12">
                         @if(session()->has('message'))
-                        <div class="alert alert-danger">
+                        <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
                         @endif

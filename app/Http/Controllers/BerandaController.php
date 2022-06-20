@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Produk;
 use App\Testimoni;
 use App\Footer;
 use App\Faq;
@@ -15,8 +16,9 @@ class BerandaController extends Controller
     public function beranda()
     {
         $footer = Footer::first();
+        $produk = Produk::paginate(6);
         $testimoni = Testimoni::paginate(5);
-        return view('pelanggan/index', ['testimoni' => $testimoni], ['footer' => $footer]);
+        return view('pelanggan/index', compact('produk', 'testimoni', 'footer'));
     }
 
     public function faq()

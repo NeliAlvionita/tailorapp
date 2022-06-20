@@ -74,6 +74,25 @@
             color: #fff;
             transform: translateY(-7px);
         }
+        .btns{
+            padding:10px 12px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+            background-color: #3490dc;
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+        }
+        .btns:hover {
+            background-color: #2EE59D;
+            box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+            color: #fff;
+            transform: translateY(-7px);
+        }
         </style>
     </head>
     <body>
@@ -140,6 +159,15 @@
                         </div>
                         <br>
                         <div class="row wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s">
+                            <!-- <div class="col">
+                                <button class="btns" onclick="goBack()">
+                                <i class="fa fa-arrow-left"></i> Kembali</button>
+                                <script>
+                                    function goBack() {
+                                        window.history.back();
+                                    }
+                                </script>
+                            </div> -->
                             <div class="col gradient-button">
                                 <a class="btn" href="{{route('pemesanan.index', $produk_detail->id_produk)}}">Buat Pesanan</a>
                             </div>

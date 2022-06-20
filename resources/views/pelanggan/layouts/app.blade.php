@@ -55,10 +55,9 @@
         }
 
         .btn {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'arial';
             font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
+            letter-spacing: 1.5px;
             font-weight: 500;
             color: #fff;
             background-color: #3490dc;
