@@ -121,7 +121,7 @@
           </div>
           <div class="form-group">
             <label for="tanggal_selesai_jahit">Perkiraan Selesai</label>
-            <input type="text" name="tanggal_selesai_jahit" id="tanggal_selesai_jahit" class="form-control" 
+            <input type="date" name="tanggal_selesai_jahit" id="tanggal_selesai_jahit" class="form-control" 
             aria-describedby="helpId">
           </div>
           <button type="submit" class="btn btn-success">Simpan</button>

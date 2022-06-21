@@ -199,11 +199,17 @@
                   </a>
                 </li>
                 @endif
-              <li class="nav-item">
-                <a href="/admin/laporan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Laporan</p>
-                </a>
+                <li class="nav-item">
+                  <a href="/admin/pengeluaran" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Pengeluaran</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/laporan" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Laporan</p>
+                  </a>
               </li>
             </ul>
             </li>
@@ -326,6 +332,7 @@
             $('#footer').DataTable();
             $('#bahan').DataTable();
             $('#faq').DataTable();
+            $('#pengeluaran').DataTable();
           });
     </script>
 
