@@ -11,7 +11,7 @@
     <div class="card-body">
         <p>ID : {{$pengeluaran->id_pengeluaran}}</p>
         <p>Tanggal Pengeluaran : {{$pengeluaran->tanggal_pengeluaran }}</p>
-        <p>Total Pengeluaran : {{$pengeluaran->total_pengeluaran }}</p>
+        <p>Total Pengeluaran : Rp. {{ number_format($pengeluaran->total_pengeluaran) }} </p>
     </div>
 </div>
 <div class="row">
@@ -49,12 +49,12 @@
                       <td>{{$item->nama_barang}}</td>
                       <td>{{$item->satuan}}</td>
                       <td>{{$item->jumlah}}</td>
-                      <td>{{$item->harga}}</td>
-                      <td>{{$item->subtotal}}</td>
+                      <td>Rp. {{ number_format($item->harga) }}</td>
+                      <td>Rp. {{ number_format($item->subtotal) }}</td>
                       @if(auth()->user()->level=='admin')
                       <td>
                         <form action="/admin/pengeluaran/{{$item->id_detailpengeluaran}}" method="post">
-                          <a class="btn btn-warning" href="/admin/pengeluaran/{{$item->id_detailpengeluaran}}/ubah">Edit</a>
+                          <a class="btn btn-warning" href="/admin/detailpengeluaran/{{$item->id_detailpengeluaran}}/ubah">Edit</a>
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger">Hapus</button>

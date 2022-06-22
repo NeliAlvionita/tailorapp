@@ -1,11 +1,11 @@
-@extends('layouts.admin', ['title' => 'Tambah Detail Pengeluaran'])
+@extends('layouts.admin', ['title' => 'Ubah Detail Pengeluaran'])
 
-@section('title', 'Tambah Detail Pengeluaran')
+@section('title', 'Ubah Detail Pengeluaran')
 
 @section('content')
     <div class="card card-info card-outline">
         <div class="card-header">
-            <h3 class="card-title">Tambah Detail Pengeluaran</h3>
+            <h3 class="card-title">Ubah Detail Pengeluaran</h3>
         </div>
          <div class="card-body">
             <form action="/admin/detailpengeluaran/{{ $detailpengeluaran->id_pengeluaran }}" method="post" enctype="multipart/form-data">

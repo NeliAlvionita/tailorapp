@@ -42,6 +42,33 @@ class PengeluaranController extends Controller
         return redirect('/admin/pengeluaran')->with('message','Berhasil Menambahkan Pengeluaran');
     }
 
+    public function ubah(Request $request){
+        $pengeluaran = Pengeluaran::find($request->id_pengeluaran);
+        return view('admin/pengeluaran/ubah', ['pengeluaran' => $pengeluaran]);
+    }
+
+    public function update(Request $request){
+        $pengeluaran = Pengeluaran::find($request->id_pengeluaran);
+        $this->validate($request, [
+            'tanggal_pengeluaran' => ['required'],
+            'total_pengeluaran' => ['required', 'numeric'],
+            'bukti_nota' => ['mimes:jpeg,png,jpg,gif,svg'],
+        ]);
+
+        if ($bukti_nota = $request->file('bukti_nota')) {
+            $destinationPath = 'bukti_nota/';
+            $profileImage = date('YmdHis') . "." . $bukti_nota->getClientOriginalExtension();
+            $bukti_nota->move($destinationPath, $profileImage);
+            $pengeluaran->bukti_nota=$profileImage;
+        }
+
+        $pengeluaran->tanggal_pengeluaran = $request->tanggal_pengeluaran;
+        $pengeluaran->total_pengeluaran = $request->total_pengeluaran;
+        $pengeluaran->save();
+
+        return redirect('/admin/pengeluaran/')->with('message','Berhasil Mengupdate Data');
+    }
+
     public function detail(Request $request){
         $pengeluaran = Pengeluaran::find($request->id_pengeluaran);
         $detailpengeluaran = Detail_Pengeluaran::where('id_pengeluaran', '=', $request->id_pengeluaran)->get();

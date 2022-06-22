@@ -21,7 +21,7 @@
           <tr>
             <th>No</th>
             <th>Tanggal Pengeluaran</th>
-            <th>Total Pegeluaran</th>
+            <th>Total Pengeluaran</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -30,10 +30,13 @@
           <tr>
             <td>{{$index + 1}}</td>
             <td>{{$item->tanggal_pengeluaran}}</td>
-            <td>{{$item->total_pengeluaran}}</td>
+            <td>Rp. {{ number_format($item->total_pengeluaran) }}</td>
             <td>
               <form action="/admin/pemesanan/{{$item->id_pemesanan}}" method="post">
                 <a class="btn btn-primary" href="/admin/pengeluaran/{{$item->id_pengeluaran}}/detail">detail</a>
+                @if(auth()->user()->level=='admin')
+                <a class="btn btn-warning" href="/admin/pengeluaran/{{$item->id_pengeluaran}}/ubah">Ubah</a>
+                @endif
               </form>
             </td>
           </tr>
