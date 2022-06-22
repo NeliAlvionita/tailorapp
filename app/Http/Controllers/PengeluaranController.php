@@ -77,7 +77,7 @@ class PengeluaranController extends Controller
         ]);
         $detail_pengeluaran->save();
 
-        return redirect('/admin/pengeluaran')->with('message','Berhasil Menambahkan Pengeluaran');
+        return redirect('/admin/pengeluaran/'.$request->id_pengeluaran.'/detail')->with('message','Berhasil Menambahkan Pengeluaran');
     }
 
     public function ubah_detail(Request $request){
@@ -102,7 +102,7 @@ class PengeluaranController extends Controller
         $detailpengeluaran->subtotal = $request->subtotal;
         $detailpengeluaran->save();
 
-        return redirect('/admin/pengeluaran')->with('message','Berhasil Mengupdate Data');
+        return redirect('/admin/pengeluaran/'.$request->id_pengeluaran.'/detail')->with('message','Berhasil Mengupdate Data');
     }
 
     public function delete(Request $request)

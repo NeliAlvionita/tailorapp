@@ -10,7 +10,9 @@
         <h1 class="h3 mb-0 texty-gray-800  text-uppercase mb-1">Dashboard {{ Auth::user()->level }}</h1>
     </div>
     <div class="row">
+        @if(auth()->user()->level=='admin')
         <div class="col-xl-3 col-md-6 mb-4">
+            <a href="/admin/pelanggan" class="nav-link">
             <div class="card-border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -25,8 +27,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </a>
+        </div> 
         <div class="col-xl-3 col-md-6 mb-4">
+            <a href="/admin/produk" class="nav-link">
             <div class="card-border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -41,8 +45,10 @@
                     </div>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-xl-3 col-md-6 mb-4">
+            <a href="/admin/pemesanan" class="nav-link">
             <div class="card-border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -58,6 +64,45 @@
                 </div>
             </div>
         </div>
+        @endif
+        @if(auth()->user()->level=='pemilik')
+        <div class="col-xl-3 col-md-6 mb-4">
+            <a href="/admin/laporan" class="nav-link">
+            <div class="card-border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-1">Pemesanan</div>
+                            <div class="h5 mb-0 font-wight-bold text-gray-800">{{$pemesanan}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div> 
+        <div class="col-xl-3 col-md-6 mb-4">
+            <a href="/admin/pengeluaran" class="nav-link">
+            <div class="card-border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-success text-uppercase mb-1"> Data Pengeluaran</div>
+                            <div class="h5 mb-0 font-wight-bold text-gray-800">{{ $pengeluaran}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard fa-2x text-gray-300">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        @endif
     </div>
 </div>
 @endsection

@@ -131,6 +131,7 @@
             </ul>
           </li>
           @endif
+          @if(auth()->user()->level=='admin')
             <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -140,7 +141,6 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/admin" class="nav-link">
                     <i class="fas fa-fw fa-cog nav-icon"></i>
@@ -171,9 +171,9 @@
                     <p>Data Produk</p>
                   </a>
                 </li> 
-                @endif
               </ul>
             </li>
+            @endif
             <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>

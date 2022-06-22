@@ -21,24 +21,32 @@
                 <tr>
                     <td>Tanggal   : {{ $pemesanan->tanggal_pemesanan }}</td>
                     <td>Nama      : {{ $pemesanan->pelanggan->name }}</td>
+                    @if($pemesanan->pilihan_pengiriman == "Dikirim")
                     <td>Alamat    : {{ $pemesanan->alamat_pengiriman }}</td>
+                    @elseif($pemesanan->pilihan_pengiriman == "Diambil")
+                    <td>{{$pemesanan->pilihan_pengiriman }}</td>
+                    @endif
                 </tr>
                 <tr>
                     <td>Total     : {{ $pemesanan->total_pemesanan}}</td>
                     <td>Nomor Hp  : {{ $pemesanan->pelanggan->nomorhp }}</td>
-                    @if($pemesanan->ekspedisi == NULL)
-                    <td>Ekspedisi : Belum Dikirim</td>
-                    @else
-                    <td>Ekspedisi : {{ $pemesanan->ekspedisi}}</td>
+                    @if($pemesanan->pilihan_pengiriman == "Dikirim")
+                      @if($pemesanan->ekspedisi == NULL)
+                      <td>Ekspedisi : Belum Dikirim</td>
+                      @else
+                      <td>Ekspedisi : {{ $pemesanan->ekspedisi}}</td>
+                      @endif
                     @endif
                 </tr>
                 <tr>
                     <td>Status`   : {{ $pemesanan->status_pemesanan }}</td>
                     <td>Email     : {{ $pemesanan->pelanggan->email }}</td>
-                    @if($pemesanan->no_resi == NULL)
-                    <td>Nomor Resi: Belum Dikirim</td>
-                    @else
-                    <td>Nomor Resi: {{ $pemesanan->no_resi}}</td>
+                    @if($pemesanan->pilihan_pengiriman == "Dikirim")
+                      @if($pemesanan->no_resi == NULL)
+                      <td>Nomor Resi: Belum Dikirim</td>
+                      @else
+                      <td>Nomor Resi: {{ $pemesanan->no_resi}}</td>
+                      @endif
                     @endif
                 </tr>
                 <tr>
@@ -92,11 +100,13 @@
             <form action="/admin/pemesanan/{{$pemesanan->id_pemesanan}}" method="post">
             @csrf
             @method('PUT')
+            <input type="hidden" name="id_pemesanan" value={{ $pemesanan->id_pemesanan}}>
             <div class="form-group">
               <select name="status_pemesanan" id="status_pemesanan" class="form-control">
                 <option value="">-- Pilih Opsi --</option>
-                <option value="Belum Diproses">Belum Diproses</option>
-                <option value="Sedang Diproses">Sedang Diproses</option>
+                <option value="Belum Diproses">Pesanan Diproses</option>
+                <option value="Sedang Diproses">Pesanan Dikirim</option>
+                <option value="Sedang Diproses">Pesanan Diambil</option>
                 <option value="Pesanan Selesai">Pesanan Selesai</option>
               </select> 
             </div>
@@ -114,6 +124,7 @@
         <form action="/admin/pemesanan/{{$pemesanan->id_pemesanan}}/tanggal_proses" method="post">
           @csrf
           @method('PUT')
+          <input type="hidden" name="id_pemesanan" value={{ $pemesanan->id_pemesanan}}>
           <div class="form-group">
             <label for="tanggal_mulai_jahit">Tanggal Mulai Jahit</label>
             <input type="date" name="tanggal_mulai_jahit" id="tanggal_mulai_jahit" class="form-control" 
@@ -129,6 +140,7 @@
       </div>
     </div>
   </div>
+  @if($pemesanan->pilihan_pengiriman == "Dikirim")
   <div class="col">
     <div class="card card-info card-outline">
       <div class="card-header">
@@ -138,6 +150,7 @@
           <form action="/admin/pemesanan/{{$pemesanan->id_pemesanan}}/resi" method="post">
           @csrf
           @method('PUT')
+          <input type="hidden" name="id_pemesanan" value={{ $pemesanan->id_pemesanan}}>
           <div class="form-group">
             <label for="ekspedisi">Nama Ekspedisi Pengiriman</label>
             <input type="text" name="ekspedisi" id="ekspedisi" disabled class="form-control" placeholder="Nama Ekspedisi" value="{{$pemesanan->ekspedisi}}"
@@ -154,6 +167,7 @@
       </div>
     </div>
   </div>
+  @endif
 </div>
   
   @endsection

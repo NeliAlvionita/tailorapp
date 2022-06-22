@@ -28,28 +28,35 @@ class CheckoutController extends Controller
 
     public function checkout(Request $request){
         $this->validate($request,[
-            'alamat_pengiriman' => 'required',
-            'city_destination' => 'required',
-            'province_destination' => 'required'
+            'pilih_pengiriman' => 'required',
         ]);
-        $cost = RajaOngkir::ongkosKirim([
-            'origin'  => "255",
-            'destination' => $request->city_destination,
-            'weight'  => $request->total_berat,
-            'courier' => "jne",
-        ])->get();
-        $biaya_ongkir = $cost[0]['costs'][0]['cost'][0]['value'];
-
-        
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('status_pemesanan','=','0')->first();
-        $pemesanan->alamat_pengiriman = $request->alamat_pengiriman;
-        // $pemesanan->alamat_pengiriman = $request->alamat_pengiriman .',' .$request->city_destination .',' .$request->province_destination;
-        // dd($pemesanan->alamat_pengiriman);
-        $pemesanan->tanggal_pemesanan = $request->tanggal_pemesanan;
-        $pemesanan->biaya_ongkir = $biaya_ongkir;
-        $pemesanan->status_pemesanan = 'belum bayar';
-        $pemesanan->ekspedisi = "JNE";
-        $pemesanan->update();
+        if($request->pilih_pengiriman == "Dikirim"){
+            $this->validate($request,[
+                'alamat_pengiriman' => 'required',
+                'city_destination' => 'required',
+                'province_destination' => 'required'
+            ]);
+            $cost = RajaOngkir::ongkosKirim([
+                'origin'  => "255",
+                'destination' => $request->city_destination,
+                'weight'  => $request->total_berat,
+                'courier' => "jne",
+            ])->get();
+            $biaya_ongkir = $cost[0]['costs'][0]['cost'][0]['value'];
+            $pemesanan->pilihan_pengiriman = $request->pilih_pengiriman;
+            $pemesanan->alamat_pengiriman = $request->alamat_pengiriman;
+            $pemesanan->tanggal_pemesanan = $request->tanggal_pemesanan;
+            $pemesanan->biaya_ongkir = $biaya_ongkir;
+            $pemesanan->status_pemesanan = 'belum bayar';
+            $pemesanan->update();
+            $pemesanan->ekspedisi = "JNE";
+        }
+        else if($request->pilih_pengiriman == "Diambil"){
+            $pemesanan->pilihan_pengiriman = $request->pilih_pengiriman;
+            $pemesanan->status_pemesanan = 'belum bayar';
+            $pemesanan->update();
+        }
         Pembayaran::create([
             'id_pemesanan' => $pemesanan->id_pemesanan,
             'status_pembayaran' => 'belum bayar',
