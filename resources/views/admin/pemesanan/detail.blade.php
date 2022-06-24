@@ -6,9 +6,9 @@
 
 <div class="card card-info card-outline">
     <div class="card-header">
-      <h3 class="card-title">Detail Pemesanan</h3>
+      <h2 class="card-title">Detail Pemesanan</h2>
     </div>
-    <div class="card-body p-0">
+    <div class="card-body p-10 mt-15">
         <table class="table table-hover">
             <thead>
                 <tr>

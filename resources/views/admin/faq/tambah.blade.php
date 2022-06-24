@@ -4,6 +4,7 @@
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">Tambah FaQ</h3>
+            
         </div>
          <div class="card-body">
             <form action="/admin/faq" method="post" enctype="multipart/form-data">
@@ -30,6 +31,7 @@
             </div>
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button type="cancel" class="btn btn-default">Batal</button>
+                <a href="/admin/faq/" class="btn btn-primary float-right">Back</a>
             </form>
         </div>
     </div>                   

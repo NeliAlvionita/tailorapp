@@ -4,11 +4,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{ $title ?? 'Admin | Dashboard'}}</title>
+  <!-- fav icons -->
+  <link rel="shortcut icon" href="{{ asset('assets/logo1.png')}}">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Datatables -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- MULAI STYLE CSS -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -43,7 +50,10 @@
   <link rel="stylesheet" 
   href="{{asset('plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+            /* Reseting */
+            </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -78,9 +88,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/admin" class="brand-link">
-      <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{ asset('assets/logo1.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Admin</span>
+      <span class="brand-text font-weight-light">Admin San Tailor</span>
     </a>
 
     <!-- Sidebar -->
@@ -89,7 +99,9 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         
         <div class="info">
-          <a href="#" class="d-block">SAN TAILOR</a>
+          <a href="#">
+            <img src="{{ asset('assets/logo.png') }}" alt="" style="width:200px;">
+          </a>
         </div>
       </div>
 
@@ -99,8 +111,8 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="/admin/" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="/admin/" class="nav-link">
+              <i class="nav-icon fas fa-chart-line"></i>
               <p>
               Beranda
               </p>
@@ -108,7 +120,7 @@
           </li>
           @if(auth()->user()->level=='admin')
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard Pelanggan
@@ -132,8 +144,8 @@
           </li>
           @endif
             <li class="nav-item has-treeview menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-database"></i>
                 <p>
                   Data
                 <i class="right fas fa-angle-left"></i>
@@ -143,13 +155,13 @@
                 @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/admin" class="nav-link">
-                    <i class="fas fa-fw fa-cog nav-icon"></i>
+                    <i class="fas fa-fw fa-folder nav-icon"></i>
                     <p>Data Admin</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="/admin/pelanggan" class="nav-link">
-                    <i class="fas fa-fw fa-cog nav-icon"></i>
+                    <i class="fas fa-fw fa-folder nav-icon"></i>
                     <p>Data Pelanggan</p>
                   </a>
                 </li>
@@ -175,8 +187,8 @@
               </ul>
             </li>
             <li class="nav-item has-treeview menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <a href="#" class="nav-link">
+              <i class="fas fa-book nav-icon"></i>
                 <p>
                   Transaksi
                 <i class="right fas fa-angle-left"></i>
@@ -186,7 +198,7 @@
                 @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/pemesanan" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="fas fa-clipboard nav-icon"></i>
                     <p>Data Pemesanan</p>
                   </a>
                 </li>
@@ -194,21 +206,21 @@
                 @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/testimoni" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="fas fa-clipboard nav-icon"></i>
                     <p>Data Testimoni</p>
                   </a>
                 </li>
                 @endif
               <li class="nav-item">
                 <a href="/admin/laporan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard nav-icon"></i>
                   <p>Data Laporan</p>
                 </a>
               </li>
             </ul>
             </li>
             <li class="nav-item has-treeview menu-open">
-              <a href="{{ route('logout') }}" class="nav-link active"
+              <a href="{{ route('logout') }}" class="nav-link"
               onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"> 
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -245,9 +257,9 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>SAN TAILOR <a href="http://adminlte.io">@2020</a>.</strong>
+    <strong>Copyright © 2022 San Tailor.</strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Jasa jahit</b> 
+      <b>SAN TAILOR</b> 
     </div>
   </footer>
 
