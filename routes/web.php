@@ -98,6 +98,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pemilik']], function () {
 // Route Pelanggan
 Route::get('/', 'BerandaController@beranda');
 Route::get('/faq', 'BerandaController@faq');
+Route::get('/berita/{id_berita}', 'BerandaController@detail_berita' );
 Route::get('/pelanggan/akun', 'AkunController@lihat')->name('lihat.akun');
 Route::get('/pelanggan/akun/{id}/ubah', 'AkunController@ubah')->name('ubah.akun');
 Route::put('/pelanggan/akun/{id}', 'AkunController@update');
