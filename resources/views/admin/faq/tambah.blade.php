@@ -4,6 +4,7 @@
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">Tambah FaQ</h3>
+            
         </div>
          <div class="card-body">
             <form action="/admin/faq" method="post" enctype="multipart/form-data">
