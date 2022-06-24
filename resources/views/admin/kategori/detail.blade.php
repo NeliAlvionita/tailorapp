@@ -5,7 +5,7 @@
         <h3 class="card-title">Data Kategori Pakaian</h3>
         <a href="/admin/kategori/" class="btn btn-primary float-right">Back</a>
         </div>
-        <div class="card-body p-0">
+        <div class="card-body p-10 mt-10">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nama :</strong>

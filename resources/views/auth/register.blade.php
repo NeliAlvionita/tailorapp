@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+    <title>San Tailor</title>
+
+    <!-- fav icons -->
+    <link rel="shortcut icon" href="{{ asset('assets/logo1.png')}}">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -17,7 +26,7 @@
             }
 
             .wrapper {
-                max-width: 350px;
+                max-width: 550px;
                 min-height: 500px;
                 margin: 80px auto;
                 padding: 40px 30px 30px 30px;
@@ -115,7 +124,10 @@
         <div class="wrapper">
             <div class="text-center mt-4 name">
                 <center>
-                REGISTER
+                    <h4>
+                    REGISTER
+                    </h4>
+                
                 </center>
             </div>
             <div class="logo">
@@ -124,8 +136,8 @@
             <form class="p-3 mt-3" method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
-                    <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="name" required autocomplete="name" autofocus >
+                    <span class="fas fa-user"></span>
+                    <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Nama" required autocomplete="name" autofocus >
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -133,7 +145,7 @@
                     @enderror
                 </div>
                 <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
+                    <span class="fas fa-envelope"></span>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email Address" required autocomplete="email" autofocus >
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -142,8 +154,8 @@
                     @enderror
                 </div>
                 <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
-                    <input id="alamat" type="alamat" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="alamat" required autocomplete="alamat" autofocus >
+                    <span class="fas fa-map"></span>
+                    <input id="alamat" type="alamat" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Alamat" required autocomplete="alamat" autofocus >
                     @error('alamat')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -151,8 +163,8 @@
                     @enderror
                 </div>
                 <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
-                    <input id="nomorhp" type="nomorhp" class="form-control @error('nomorhp') is-invalid @enderror" name="nomorhp" value="{{ old('nomorhp') }}" placeholder="nomorhp" required autocomplete="nomorhp" autofocus >
+                    <span class="fas fa-phone"></span>
+                    <input id="nomorhp" type="nomorhp" class="form-control @error('nomorhp') is-invalid @enderror" name="nomorhp" value="{{ old('nomorhp') }}" placeholder="Nomor Telepon" required autocomplete="nomorhp" autofocus >
                     @error('nomorhp')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
