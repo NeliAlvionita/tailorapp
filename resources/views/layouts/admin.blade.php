@@ -137,6 +137,12 @@
                   <p>FaQ</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/admin/berita" class="nav-link">
+                  <i class="fas fa-fw fa-cog nav-icon"></i>
+                  <p>Berita</p>
+                </a>
+              </li>
             </ul>
           </li>
           @endif
@@ -342,6 +348,7 @@
             $('#bahan').DataTable();
             $('#faq').DataTable();
             $('#pengeluaran').DataTable();
+            $('#berita').DataTable();
           });
     </script>
 

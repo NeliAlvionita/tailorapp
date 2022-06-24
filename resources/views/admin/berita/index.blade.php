@@ -31,11 +31,11 @@
             <td>{{$item->isi}}</td>
             <td>
               <form action="/admin/berita/{{$item->id_berita}}" method="post">
-                <a class="btn btn-primary" href="/admin/berita/{{$item->id_berita}}/detail">Detail</a>
-                <a class="btn btn-warning" href="/admin/berita/{{$item->id_berita}}/ubah">Edit</a>
+                <a class="btn btn-primary" style="margin:8px;" href="/admin/berita/{{$item->id_berita}}/detail">Detail</a>
+                <a class="btn btn-warning" style="margin:8px;" href="/admin/berita/{{$item->id_berita}}/ubah">Edit</a>
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">Hapus</button>
+                <button type="submit" style="margin:8px;" class="btn btn-danger">Hapus</button>
               </form>
             </td>
           </tr>

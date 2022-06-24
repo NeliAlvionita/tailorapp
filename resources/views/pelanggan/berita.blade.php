@@ -73,7 +73,7 @@
                     </div><br><br>
                     <div class="card-body">
                         <center>
-                            <img class="zoom w3-hover-opacity" src="{{ asset('assets/uang.jpg') }}" alt="" style="width:500px; box-shadow: 5px 5px 5px lightblue;">
+                            <img class="zoom w3-hover-opacity" src="/gambar_berita/{{ $berita->gambar_berita }}" alt="" style="width:500px; box-shadow: 5px 5px 5px lightblue;">
                         </center>
                     </div>
                     <center>

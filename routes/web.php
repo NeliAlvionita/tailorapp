@@ -74,13 +74,13 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::put('/admin/faq/{id_faq}', 'FaqController@update');
     Route::delete('/admin/faq/{id_faq}', 'FaqController@delete');
     // Route Tabel Berita
-    Route::get('/admin/berita', 'BeritaController @index');
-    Route::get('/admin/berita/tambah', 'BeritaController @tambah');
-    Route::post('/admin/berita', 'BeritaController @store');
-    Route::get('/admin/berita/{id_berita}/detail', 'BeritaController @show');
-    Route::get('/admin/berita/{id_berita}/ubah', 'BeritaController @ubah');
-    Route::put('/admin/berita/{id_berita}', 'BeritaController @update');
-    Route::delete('/admin/berita/{id_berita}', 'BeritaController @delete');
+    Route::get('/admin/berita', 'BeritaController@index');
+    Route::get('/admin/berita/tambah', 'BeritaController@tambah');
+    Route::post('/admin/berita', 'BeritaController@store');
+    Route::get('/admin/berita/{id_berita}/detail', 'BeritaController@detail');
+    Route::get('/admin/berita/{id_berita}/ubah', 'BeritaController@ubah');
+    Route::put('/admin/berita/{id_berita}', 'BeritaController@update');
+    Route::delete('/admin/berita/{id_berita}', 'BeritaController@delete');
 
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pemilik']], function () {

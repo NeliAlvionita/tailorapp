@@ -8,7 +8,7 @@ class BeritaController extends Controller
 {
     public function index(){
         $berita = Berita::all();
-        return view('admin/berita', ['berita' => $berita]);
+        return view('admin/berita/index', ['berita' => $berita]);
     }
 
     public function tambah(){
@@ -23,7 +23,6 @@ class BeritaController extends Controller
             'gambar_berita' => ['mimes:jpeg,png,jpg,gif,svg'],
         ]);
         
-
         $input = $request->all();
 
         if ($gambar_berita = $request->file('gambar_berita')) {
@@ -50,7 +49,7 @@ class BeritaController extends Controller
 
     public function update(Request $request){
 
-        $berita = Berita::find($request->id_kategori);
+        $berita = Berita::find($request->id_berita);
         $this->validate($request, [
             'judul' => ['required', 'string', 'max:255'],
             'isi' => ['required', 'string', 'max:255'],
