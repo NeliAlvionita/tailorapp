@@ -152,20 +152,11 @@
                                 </tr>
                                 <tr>
                                     <td colspan="1" style="border:none;"></td>
-                                    <td style="border:none;">
-                                        <button class="btns" onclick="goBack()">
-                                            <i class="fa fa-arrow-left"></i> Kembali</button>
-                                        <script>
-                                            function goBack() {
-                                                window.history.back();
-                                            }
-                                        </script>
-                                    </td>
                                     <td colspan="5" style="border:none;"></td>
                                     <td style="border:none;">
                                         <div class="gradient-button" style="align:left;">
                                             <a href="{{ route('checkout')}}" class="btns btn-xs">
-                                                <i class="fa fa-arrow-right"></i> Check Out
+                                                <i class="fa fa-arrow-right"></i> Submit
                                             </a>
                                         </div>
                                     </td>

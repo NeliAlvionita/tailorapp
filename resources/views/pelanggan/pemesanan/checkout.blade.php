@@ -61,6 +61,19 @@
                                 <h4>Informasi Pengiriman</h4>
                                 <hr style="border:3px solid; color:#000000;">
                                 <div class="form-group">
+                                    <label for="" style="font-weight:bold;">Pilih Pengiriman</label>
+                                    <select name="pilih_pengiriman" id="pilih_pengiriman" class="form-control @error('pilih_pengiriman') is-invalid @enderror">
+                                        <option value=""> --Pilih--</option>
+                                        <option value="Diambil">Diambil</option>
+                                        <option value="Dikirim">Dikirim</option>
+                                    </select>
+                                    @error('pilih_pengiriman')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div><br>
+                                <div class="form-group provinsi">
                                     <label for="" style="font-weight:bold;">Provinsi Tujuan</label>
                                     <select name="province_destination" class="form-control provinsi-tujuan @error('province_destination') is-invalid @enderror">
                                         <option value=""> --Provinsi-- </option>
@@ -74,7 +87,7 @@
                                     </span>
                                     @enderror
                                 </div><br>
-                                <div class="form-group">
+                                <div class="form-group provinsi">
                                     <label for="" style="font-weight:bold;">Kota Tujuan</label>
                                     <select name="city_destination" class="form-control kota-tujuan @error('city_destination') is-invalid @enderror">
                                         <option> --Kota-- </option>
@@ -85,7 +98,7 @@
                                     </span>
                                     @enderror
                                 </div> <br>
-                                <div class="form-group">
+                                <div class="form-group provinsi">
                                     <label for="" style="font-weight:bold;">Alamat Lengkap</label>
                                     <textarea name="alamat_pengiriman" rows="5" class="form-control @error('alamat_pengiriman') is-invalid @enderror"></textarea>
                                     @error('alamat_pengiriman')
@@ -107,5 +120,16 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+<script>
+     $('select[name="pilih_pengiriman"]').on('change', function (){
+        let provinceId = $(this).val();
+        if (provinceId == 'Diambil') {
+            $('.provinsi').hide();
+        } else {
+            $('.provinsi').show();
+        }
+    });
+</script>
 @include('pelanggan.layouts.footer')
 @endsection

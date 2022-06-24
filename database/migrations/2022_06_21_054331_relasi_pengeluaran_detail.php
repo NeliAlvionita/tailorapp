@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFaqTable extends Migration
+class RelasiPengeluaranDetail extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateFaqTable extends Migration
      */
     public function up()
     {
-        Schema::create('faq', function (Blueprint $table) {
-            $table->bigIncrements('id_faq');
-            $table->string('pertanyaan');
-            $table->string('jawaban');
-            $table->timestamps();
+        Schema::table('detail_pengeluaran', function (Blueprint $table) {
+            $table->foreign("id_pengeluaran")->references('id_pengeluaran')->on('pengeluaran');
         });
     }
 
@@ -28,6 +25,6 @@ class CreateFaqTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq');
+        //
     }
 }
