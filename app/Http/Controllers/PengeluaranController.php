@@ -12,7 +12,7 @@ class PengeluaranController extends Controller
         $pengeluaran = Pengeluaran::all();
 
         return view('admin/pengeluaran/index', ['pengeluaran'=> $pengeluaran]);
-    }
+    } 
 
     public function tambah(){
         return view('admin/pengeluaran/tambah');
