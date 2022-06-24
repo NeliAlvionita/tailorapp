@@ -53,7 +53,7 @@
                       <td>Rp. {{ number_format($item->subtotal) }}</td>
                       @if(auth()->user()->level=='admin')
                       <td>
-                        <form action="/admin/pengeluaran/{{$item->id_detailpengeluaran}}" method="post">
+                        <form action="/admin/detailpengeluaran/{{$item->id_detailpengeluaran}}" method="post">
                           <a class="btn btn-warning" href="/admin/detailpengeluaran/{{$item->id_detailpengeluaran}}/ubah">Edit</a>
                           @csrf
                           @method('DELETE')

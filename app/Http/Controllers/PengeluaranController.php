@@ -69,6 +69,20 @@ class PengeluaranController extends Controller
         return redirect('/admin/pengeluaran/')->with('message','Berhasil Mengupdate Data');
     }
 
+    public function delete(Request $request)
+    {
+        $pengeluaran = Pengeluaran::findOrFail($request->id_pengeluaran);
+        if (count($pengeluaran->detail_pengeluaran) == 0) {
+            $pengeluaran->delete();
+                return redirect('/admin/pengeluaran')->with('message', 'Berhasil Menghapus Data');
+            
+        } else {
+            return redirect('/admin/pengeluaran')->with('message', 'Gagal Menghapus Data, Ada Data Detail Pengeluaran Yang Masih Tersimpan');
+        }
+    }
+
+    // detail pengeluaran
+
     public function detail(Request $request){
         $pengeluaran = Pengeluaran::find($request->id_pengeluaran);
         $detailpengeluaran = Detail_Pengeluaran::where('id_pengeluaran', '=', $request->id_pengeluaran)->get();
@@ -132,13 +146,13 @@ class PengeluaranController extends Controller
         return redirect('/admin/pengeluaran/'.$request->id_pengeluaran.'/detail')->with('message','Berhasil Mengupdate Data');
     }
 
-    public function delete(Request $request)
+    public function delete_detail(Request $request)
     {
         $detailpengeluaran = Detail_Pengeluaran::findOrFail($request->id_detailpengeluaran);
+        $id_pengeluaran = $detailpengeluaran->id_pengeluaran;
         if ($detailpengeluaran->delete()) {
-            return redirect('/admin/pengeluaran')->with('message', 'Berhasil Menghapus Data');
-        }
-        
+            return redirect('/admin/pengeluaran/'.$id_pengeluaran.'/detail')->with('message', 'Berhasil Menghapus Data');
+        }  
     }
 
     

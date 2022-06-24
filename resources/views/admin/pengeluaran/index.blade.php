@@ -32,10 +32,13 @@
             <td>{{$item->tanggal_pengeluaran}}</td>
             <td>Rp. {{ number_format($item->total_pengeluaran) }}</td>
             <td>
-              <form action="/admin/pemesanan/{{$item->id_pemesanan}}" method="post">
+              <form action="/admin/pengeluaran/{{$item->id_pengeluaran}}" method="post">
                 <a class="btn btn-primary" href="/admin/pengeluaran/{{$item->id_pengeluaran}}/detail">detail</a>
                 @if(auth()->user()->level=='admin')
                 <a class="btn btn-warning" href="/admin/pengeluaran/{{$item->id_pengeluaran}}/ubah">Ubah</a>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Hapus</button>
                 @endif
               </form>
             </td>

@@ -8,7 +8,7 @@
             <h3 class="card-title">Ubah Detail Pengeluaran</h3>
         </div>
          <div class="card-body">
-            <form action="/admin/detailpengeluaran/{{ $detailpengeluaran->id_pengeluaran }}" method="post" enctype="multipart/form-data">
+            <form action="/admin/detailpengeluaran/{{ $detailpengeluaran->id_detailpengeluaran }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
