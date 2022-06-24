@@ -41,6 +41,7 @@
             <th>Tanggal</th>
             <th>Status</th>
             <th>Total Pembayaran</th>
+            <th>Aksi</th>
           </tr>
   </thead>
   <tbody>
@@ -51,6 +52,9 @@
             <td>{{$item->tanggal_pemesanan}}</td>
             <td>{{$item->status_pemesanan}}</td>
             <td>{{$item->total_pemesanan}}</td>
+            <td>
+              <a class="btn btn-primary" href="/admin/laporan/{{$item->id_pemesanan}}/detail">detail</a>
+            </td>
           </tr>
           @endforeach
   </tbody>

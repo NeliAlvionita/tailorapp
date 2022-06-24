@@ -4,18 +4,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{ $title ?? 'Admin | Dashboard'}}</title>
-  <!-- fav icons -->
-  <link rel="shortcut icon" href="{{ asset('assets/logo1.png')}}">
+    <!-- fav icons -->
+    <link rel="shortcut icon" href="{{ asset('assets/logo1.png')}}">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Datatables -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- MULAI STYLE CSS -->
-
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -49,11 +47,10 @@
   <!-- summernote -->
   <link rel="stylesheet" 
   href="{{asset('plugins/summernote/summernote-bs4.css')}}">
-  <!-- Google Font: Source Sans Pro -->
   <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-            /* Reseting */
-            </style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+    /* Reseting */
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -143,6 +140,7 @@
             </ul>
           </li>
           @endif
+          @if(auth()->user()->level=='admin')
             <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-database"></i>
@@ -152,7 +150,6 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/admin" class="nav-link">
                     <i class="fas fa-fw fa-folder nav-icon"></i>
@@ -183,12 +180,12 @@
                     <p>Data Produk</p>
                   </a>
                 </li> 
-                @endif
               </ul>
             </li>
+            @endif
             <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link">
-              <i class="fas fa-book nav-icon"></i>
+                <i class="fas fa-book nav-icon"></i>
                 <p>
                   Transaksi
                 <i class="right fas fa-angle-left"></i>
@@ -211,11 +208,17 @@
                   </a>
                 </li>
                 @endif
-              <li class="nav-item">
-                <a href="/admin/laporan" class="nav-link">
-                  <i class="fas fa-clipboard nav-icon"></i>
-                  <p>Data Laporan</p>
-                </a>
+                <li class="nav-item">
+                  <a href="/admin/pengeluaran" class="nav-link">
+                    <i class="fas fa-clipboard nav-icon"></i>
+                    <p>Data Pengeluaran</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/laporan" class="nav-link">
+                    <i class="fas fa-clipboard nav-icon"></i>
+                    <p>Data Laporan</p>
+                  </a>
               </li>
             </ul>
             </li>
@@ -338,6 +341,7 @@
             $('#footer').DataTable();
             $('#bahan').DataTable();
             $('#faq').DataTable();
+            $('#pengeluaran').DataTable();
           });
     </script>
 

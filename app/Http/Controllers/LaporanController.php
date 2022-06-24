@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use App\Pemesanan;
+use Illuminate\Http\Request;
 
 class LaporanController extends Controller
 {
@@ -23,5 +25,10 @@ class LaporanController extends Controller
             ->whereBetween('tanggal_pemesanan', [$tanggal_mulai, $tanggal_akhir])
             ->get();
         return view('admin/laporan/cetak', ['cetaklaporan' => $cetaklaporan, 'tanggal_mulai' => $tanggal_mulai, 'tanggal_akhir' => $tanggal_akhir]);
+    }
+
+    public function detail(Request $request){
+        $pemesanan = Pemesanan::find($request->id_pemesanan);
+        return view('admin/laporan/detail', ['pemesanan' => $pemesanan]);
     }
 }

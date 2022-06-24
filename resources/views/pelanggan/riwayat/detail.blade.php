@@ -53,24 +53,32 @@
                 <tr>
                     <td style="border:none;">Tanggal&nbsp; : {{ $pemesanan->tanggal_pemesanan }}</td>
                     <td style="border:none;">Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->name }}</td>
+                    @if($pemesanan->pilihan_pengiriman == "Diambil")
+                    <td style="border:none;"> {{$pemesanan->pilihan_pengiriman}}</td>
+                    @elseif($pemesanan->pilihan_pengiriman == "Dikirim")
                     <td style="border:none;">Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->alamat_pengiriman }}</td>
+                    @endif
                 </tr>
                 <tr>
                     <td style="border:none;">Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->total_pemesanan}}</td>
                     <td style="border:none;">Nomor Hp&nbsp; : {{ $pemesanan->pelanggan->nomorhp }}</td>
-                    @if($pemesanan->ekspedisi == NULL)
-                    <td style="border:none;">Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Belum Dikirim</td>
-                    @else
-                    <td style="border:none;">Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->ekspedisi}}</td>
+                    @if($pemesanan->pilihan_pengiriman == "Dikirim")
+                      @if($pemesanan->ekspedisi == NULL)
+                      <td style="border:none;">Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Belum Dikirim</td>
+                      @else
+                      <td style="border:none;">Ekspedisi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->ekspedisi}}</td>
+                      @endif
                     @endif
                 </tr>
                 <tr>
                     <td style="border:none;">Status&nbsp;&nbsp;&nbsp;&nbsp;: {{ $pemesanan->status_pemesanan }}</td>
                     <td style="border:none;">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->email }}</td>
-                    @if($pemesanan->no_resi == NULL)
-                    <td style="border:none;">Nomor Resi&nbsp;&nbsp;: Belum Dikirim</td>
-                    @else
-                    <td style="border:none;">Nomor Resi&nbsp;&nbsp;: {{ $pemesanan->no_resi}}</td>
+                    @if($pemesanan->pilihan_pengiriman == "Dikirim")
+                      @if($pemesanan->no_resi == NULL)
+                      <td style="border:none;">Nomor Resi&nbsp;&nbsp;: Belum Dikirim</td>
+                      @else
+                      <td style="border:none;">Nomor Resi&nbsp;&nbsp;: {{ $pemesanan->no_resi}}</td>
+                      @endif
                     @endif
                 </tr>
                 <tr>

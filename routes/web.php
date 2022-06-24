@@ -75,10 +75,23 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::delete('/admin/faq/{id_faq}', 'FaqController@delete');
 
 });
-// Route Laporan
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pemilik']], function () {
+    // Route Pengeluaran
+    Route::get('/admin/pengeluaran', 'PengeluaranController@index');
+    Route::get('/admin/pengeluaran/tambah', 'PengeluaranController@tambah');
+    Route::post('/admin/pengeluaran', 'PengeluaranController@store');
+    Route::get('/admin/pengeluaran/{id_pengeluaran}/ubah', 'PengeluaranController@ubah');
+    Route::put('/admin/pengeluaran/{id_pengeluaran}', 'PengeluaranController@update');
+    Route::get('/admin/pengeluaran/{id_pengeluaran}/detail', 'PengeluaranController@detail');
+    Route::get('/admin/pengeluaran/{id_pengeluaran}/tambahdetail', 'PengeluaranController@tambah_detail');
+    Route::post('/admin/detailpengeluaran', 'PengeluaranController@submit_detail');
+    Route::get('/admin/detailpengeluaran/{id_detailpengeluaran}/ubah', 'PengeluaranController@ubah_detail');
+    Route::put('/admin/detailpengeluaran/{id_detailpengeluaran}', 'PengeluaranController@update_detail');
+    Route::delete('/admin/pengeluaran/{id_detailpengeluaran}', 'PengeluaranController@delete');
+    // Route Laporan
     Route::get('/admin', 'AdminController@admin');
     Route::get('/admin/laporan', 'LaporanController@index');
+    Route::get('/admin/laporan/{id_pemesanan}/detail', 'LaporanController@detail');
     Route::get('/cetak-laporan/{tanggal_mulai}/{tanggal_akhir}', 'LaporanController@cetak')->name('cetak-laporan');
 });
 // Route Pelanggan

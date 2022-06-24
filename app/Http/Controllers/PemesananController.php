@@ -24,20 +24,20 @@ class PemesananController extends Controller
         $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
         $pemesanan->status_pemesanan=$request->status_pemesanan;
         $pemesanan->save();
-        return redirect('/admin/pemesanan');
+        return redirect('/admin/pemesanan/'.$request->id_pemesanan.'/detail');
     }
     public function tanggal_proses(Request $request){
         $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
         $pemesanan->tanggal_mulai_jahit=$request->tanggal_mulai_jahit;
         $pemesanan->tanggal_selesai_jahit=$request->tanggal_selesai_jahit;
         $pemesanan->save();
-        return redirect('/admin/pemesanan');
+        return redirect('/admin/pemesanan/'.$request->id_pemesanan.'/detail');
     }
     public function submitResi(Request $request){
         $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
         $pemesanan->no_resi=$request->no_resi;
         $pemesanan->save();
-        return redirect('/admin/pemesanan');
+        return redirect('/admin/pemesanan/'.$request->id_pemesanan.'/detail');
     }
     public function detail_bayar(Request $request){
         $pemesanan = Pemesanan::find($request->id_pemesanan);

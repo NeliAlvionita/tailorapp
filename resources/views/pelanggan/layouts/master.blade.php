@@ -26,11 +26,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
     <a href="https://api.whatsapp.com/send?phone=6281339908155">
       <img src="https://hantamo.com/free/whatsapp.svg" class="wabutton" alt="Whatsapp-Button" />
     </a>
-
     <style>
       b {
         color: #4b8ef1;
@@ -75,6 +73,5 @@
     <script src="{{ asset('assets/js/custom.js')}}"></script>
     <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
   </body>
 </html>
