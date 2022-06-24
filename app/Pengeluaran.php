@@ -12,7 +12,7 @@ class Pengeluaran extends Model
 
     public $timestamps = false;
 
-    public function detail_pemesanan(){
+    public function detail_pengeluaran(){
         return $this-> hasMany('App\Detail_Pengeluaran', 'id_pengeluaran', 'id_pengeluaran');
     }
 }
