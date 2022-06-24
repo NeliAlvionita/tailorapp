@@ -18,6 +18,7 @@ class CreateBeritasTable extends Migration
             $table->string("judul");
             $table->string("isi");
             $table->string("detail");
+            $table->string("gambar_berita");
         });
     }
 

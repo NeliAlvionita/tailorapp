@@ -1,15 +1,16 @@
-@extends('layouts.admin', ['title' => 'Tambah Berita'])
+@extends('layouts.admin', ['title' => 'Ubah Berita'])
 
-@section('title', 'Tambah Berita')
+@section('title', 'Ubah Berita')
 
 @section('content')
     <div class="card card-info card-outline">
         <div class="card-header">
-            <h3 class="card-title">Tambah Berita</h3>
+            <h3 class="card-title">Ubah Berita</h3>
         </div>
          <div class="card-body">
-            <form action="/admin/berita" method="post" enctype="multipart/form-data">
+            <form action="/admin/berita/{{ $berita->id_berita }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="judul">Judul Berita</label>
                 <input type="text" name="judul" id="judul" class="form-control @error('judul') is-invalid @enderror" placeholder="Judul Berita"
@@ -48,7 +49,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
-                <img src="/gambar_berita/{{ $kategori->gambar_berita }}" width="300px">
+                <img src="/gambar_berita/{{ $berita->gambar_berita }}" width="300px">
             </div>
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button type="cancel" class="btn btn-default">Batal</button>
