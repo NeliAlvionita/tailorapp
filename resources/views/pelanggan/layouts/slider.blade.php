@@ -58,17 +58,18 @@
     </div>
     <div class="container">
       <div class="row">
+      @foreach($berita as $index => $item)
         <div class="col-lg-3">
           <div class="service-item first-service">
             <div class="icon"></div>
-            <h4>Tunggu Santai Dari Rumah</h4>
-            <p><b>Percayakan pada San Tailor.</b>
-            Sistem bekerja, sekolah, dan beraktivitas telah dibatasi oleh Pemerintah. 
-            Hal ini membutuhkan kerjasama anda juga demi memutus penyebaran wabah Virus Covid-19. 
+            <h4>{{ $item->judul }}</h4>
+            <p>{{ $item->isi }}
             </p>
+            <a href="/berita/{{$item->id_berita}}">Selengkapnya <i class="fa fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3">
+        @endforeach
+        <!-- <div class="col-lg-3">
           <div class="service-item second-service">
             <div class="icon"></div>
             <h4>#DirumahAja</h4>
@@ -100,7 +101,7 @@
               Cukup lakukan pembayaran sebelum pesanan anda dikonfirmasi.
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
