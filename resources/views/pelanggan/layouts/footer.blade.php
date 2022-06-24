@@ -3,21 +3,26 @@
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <div class="section-heading">
-            <h4>Bergabunglah dengan email kami untuk menerima berita &amp; promo terbaru</h4>
+            <h4>Social Media San Tailor</h4>
           </div>
         </div>
         <div class="col-lg-6 offset-lg-3">
-          <form id="search" action="#" method="GET">
+          <form id="search">
             <div class="row">
-              <div class="col-lg-6 col-sm-6">
-                <fieldset>
-                  <input type="address" name="address" class="email" placeholder="Alamat Email..." autocomplete="on" required>
-                </fieldset>
+              <div class="col-lg-4 col-sm-4">
+                <a class="social-media-icon" href="https://link_social_mendia_anda" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
+                  <span class="fab fa-facebook"></span>
+                </a>
               </div>
-              <div class="col-lg-6 col-sm-6">
-                <fieldset>
-                  <button type="submit" class="main-button">Langganan <i class="fa fa-angle-right"></i></button>
-                </fieldset>
+              <div class="col-lg-4 col-sm-4">
+                <a class="social-media-icon" href="https://link_social_mendia_anda" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
+                  <span class="fab fa-instagram"></span>
+                </a>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                <a class="social-media-icon" href="https://api.whatsapp.com/send?phone=6281339908155" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
+                  <span class="fab fa-whatsapp"></span>
+                </a>
               </div>
             </div>
           </form>
@@ -43,11 +48,12 @@
         </div>
         <div class="col-lg-4">
           <div class="footer-widget">
-            <h4>About Our Company</h4>
+            <h4>Teknologi Informasi Politeknik Negeri Malang</h4>
             <div class="logo">
-              <img src="{{ asset('assets/logo.png') }}" alt="">
+              <img src="{{ asset('assets/polinema.png') }}" alt="">
+              <span>&nbsp;<img src="{{ asset('assets/logojti.png') }}" alt=""></span>
             </div>
-            <p></p>
+            <p>Chafidhoturrochimah / 1931710013 <br> Neli Alvionita / 1931710087</p>
           </div>
         </div>
         <div class="col-lg-12">

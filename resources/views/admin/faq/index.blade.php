@@ -34,7 +34,7 @@
                 <a class="btn btn-warning" href="/admin/faq/{{$item->id_faq}}/ubah">Edit</a>
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">Hapus</button>
+                <button type="submit" class="btn btn-danger" style="margin-top:8px;">Hapus</button>
               </form>
             </td>
           </tr>

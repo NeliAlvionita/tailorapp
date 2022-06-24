@@ -18,11 +18,10 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-1"> Data Pelanggan</div>
-                            <div class="h5 mb-0 font-wight-bold text-gray-800">{{$user}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$user}}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300">
-                            </i>
+                            <i class="fas fa-calendar fa-2x text-gray-300" style="color:#1E90FF;"></i>
                         </div>
                     </div>
                 </div>
@@ -36,11 +35,10 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="h5 mb-0 font-weight-bold text-success text-uppercase mb-1"> Data Produk</div>
-                            <div class="h5 mb-0 font-wight-bold text-gray-800">{{ $produk}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $produk}}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-clipboard fa-2x text-gray-300">
-                            </i>
+                            <i class="fas fa-clipboard fa-2x text-gray-300" style="color:#006400;"></i>
                         </div>
                     </div>
                 </div>
@@ -54,10 +52,10 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="h5 mb-0 font-weight-bold text-warning text-uppercase mb-1"> Data Pemesanan</div>
-                            <div class="h5 mb-0 font-wight-bold text-gray-800">{{$pemesanan}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$pemesanan}}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-shopping-cart fa-2x text-gray-300">
+                            <i class="fas fa-shopping-cart fa-2x text-gray-300" style="color:#FF8C00;">
                             </i>
                         </div>
                     </div>
@@ -72,12 +70,11 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-1">Pemesanan</div>
-                            <div class="h5 mb-0 font-wight-bold text-gray-800">{{$pemesanan}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-1">Laporan Pemesanan</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$pemesanan}}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300">
-                            </i>
+                            <i class="fas fa-calendar fa-2x text-gray-300" style="color:#1E90FF;"></i>
                         </div>
                     </div>
                 </div>
@@ -90,12 +87,11 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="h5 mb-0 font-weight-bold text-success text-uppercase mb-1"> Data Pengeluaran</div>
-                            <div class="h5 mb-0 font-wight-bold text-gray-800">{{ $pengeluaran}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-success text-uppercase mb-1"> Laporan Pengeluaran</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pengeluaran}}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-clipboard fa-2x text-gray-300">
-                            </i>
+                            <i class="fas fa-clipboard fa-2x text-gray-300" style="color:#006400;"></i>
                         </div>
                     </div>
                 </div>

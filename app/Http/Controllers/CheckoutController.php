@@ -49,8 +49,8 @@ class CheckoutController extends Controller
             $pemesanan->tanggal_pemesanan = $request->tanggal_pemesanan;
             $pemesanan->biaya_ongkir = $biaya_ongkir;
             $pemesanan->status_pemesanan = 'belum bayar';
-            $pemesanan->update();
             $pemesanan->ekspedisi = "JNE";
+            $pemesanan->update();
         }
         else if($request->pilih_pengiriman == "Diambil"){
             $pemesanan->pilihan_pengiriman = $request->pilih_pengiriman;
