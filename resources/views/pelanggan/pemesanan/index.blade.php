@@ -129,12 +129,11 @@
                         </div>
 
                         <div class="alert alert-primary">
-                            <h6 style="color:black;">PANDUAN PENGUKURAN</h6><br>
-                                <ol class="list-group list-group-numbered">
-                                    <li class="list-group-item">Anda hanya membutuhkan alat bantu berupa meteran</li>
-                                    <li class="list-group-item">Mengukur dengan cara langsung mengukur di badan atau Mengukur dengan baju yang pas</li>
-                                    <li class="list-group-item">Melihat Contoh Model Yang mengenakan</li>
-                                    <li class="list-group-item">Mencatat Ukuran Pakaian Anda</li>
+                                <ol class="list-group list-group-numbered" >
+                                    <li class="list-group-item" style="border:none;">Anda hanya membutuhkan alat bantu berupa meteran</li>
+                                    <li class="list-group-item" style="border:none;">Mengukur dengan cara langsung mengukur di badan atau Mengukur dengan baju yang pas</li>
+                                    <li class="list-group-item" style="border:none;">Melihat Contoh Model Yang mengenakan</li>
+                                    <li class="list-group-item" style="border:none;">Mencatat Ukuran Pakaian Anda</li>
                                 </ol>
                         </div>
 
