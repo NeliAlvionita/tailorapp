@@ -10,17 +10,17 @@
           <form id="search">
             <div class="row">
               <div class="col-lg-4 col-sm-4">
-                <a class="social-media-icon" href="https://link_social_mendia_anda" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
+                <a class="social-media-icon" href="{{$footer->nama_fb}}" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
                   <span class="fab fa-facebook"></span>
                 </a>
               </div>
               <div class="col-lg-4 col-sm-4">
-                <a class="social-media-icon" href="https://link_social_mendia_anda" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
+                <a class="social-media-icon" href="{{$footer->nama_ig}}" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
                   <span class="fab fa-instagram"></span>
                 </a>
               </div>
               <div class="col-lg-4 col-sm-4">
-                <a class="social-media-icon" href="https://api.whatsapp.com/send?phone=6281339908155" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
+                <a class="social-media-icon" href="{{$footer->nomor_wa}}" style="text-shadow: 1px 1px 1px #ccc;font-size: 3em; color:#fff;">
                   <span class="fab fa-whatsapp"></span>
                 </a>
               </div>

@@ -19,6 +19,9 @@
             <th>Nama Toko</th>
             <th>Alamat Toko</th>
             <th>Nomor Telepon</th>
+            <th>Nomor WhatsApp</th>
+            <th>Instagram</th>
+            <th>Facebook</th>
             <th>Email</th>
             <th>Tentang</th>
             <th>Aksi</th>
@@ -30,6 +33,9 @@
             <td>{{$item->nama_toko}}</td>
             <td>{{$item->alamat_toko}}</td>
             <td>{{$item->nomor_telepon}}</td>
+            <td>{{$item->nomor_wa}}</td>
+            <td>{{$item->nama_ig}}</td>
+            <td>{{$item->nama_fb}}</td>
             <td>{{$item->email_toko}}</td>
             <td>{{$item->tentang}}</td>
             <td>

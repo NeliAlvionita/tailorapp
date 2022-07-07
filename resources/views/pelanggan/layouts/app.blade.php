@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 
-        <a href="https://api.whatsapp.com/send?phone=6281339908155">
+        <a href="{{$footer->nomor_wa}}">
             <img src="https://hantamo.com/free/whatsapp.svg" class="wabutton" alt="Whatsapp-Button" />
         </a>
         <style>

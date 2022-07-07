@@ -40,6 +40,36 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="">Nomor WhatsApp</label>
+                <input type="text" name="nomor_wa" id="nomor_wa" class="form-control @error('nomor_wa') is-invalid @enderror" value="{{ $footer->nomor_wa }}" 
+                aria-describedby="helpId">
+                @error('nomor_wa')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="">Instagram</label>
+                <input type="text" name="nama_ig" id="nama_ig" class="form-control @error('nama_ig') is-invalid @enderror" value="{{ $footer->nama_ig }}" 
+                aria-describedby="helpId">
+                @error('nama_ig')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="">Facebook</label>
+                <input type="text" name="nama_fb" id="nama_fb" class="form-control @error('nama_fb') is-invalid @enderror" value="{{ $footer->nama_fb }}" 
+                aria-describedby="helpId">
+                @error('nama_fb')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="">Email Toko</label>
                 <input type="text" name="email_toko" id="email_toko" class="form-control @error('email_toko') is-invalid @enderror" value="{{ $footer->email_toko }}" 
                 aria-describedby="helpId">

@@ -27,12 +27,17 @@ class FooterController extends Controller
             'nomor_telepon' => ['required', 'string', 'max:255'],
             'email_toko' => ['required', 'string', 'max:255'],
             'tentang' => ['required', 'string', 'max:255'],
+            'nomor_wa' => ['required', 'string', 'max:255'],
+            'nama_ig' => ['required', 'string', 'max:255'],
         ]);
         $footer->nama_toko=$request->nama_toko;
         $footer->alamat_toko=$request->alamat_toko;
         $footer->nomor_telepon=$request->nomor_telepon;
         $footer->email_toko=$request->email_toko;
         $footer->tentang=$request->tentang;
+        $footer->nomor_wa=$request->nomor_wa;
+        $footer->nama_ig=$request->nama_ig;
+        $footer->nama_fb=$request->nama_fb;
         $footer->save(); 
  
 

@@ -20,6 +20,9 @@ class CreateFootersTable extends Migration
             $table->string("nomor_telepon");
             $table->string("email_toko");
             $table->string("tentang");
+            $table->string("nomor_wa");
+            $table->string("nama_ig");
+            $table->string("nama_fb");
         });
     }
 
