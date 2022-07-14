@@ -97,23 +97,37 @@
             <h3 class="card-title">Update Status Pemesanan</h3>
         </div>
         <div class="card-body">
-            <form action="/admin/pemesanan/{{$pemesanan->id_pemesanan}}" method="post">
+            <form action="/admin/pemesanan/{{$pemesanan->id_pemesanan}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <input type="hidden" name="id_pemesanan" value={{ $pemesanan->id_pemesanan}}>
             <div class="form-group">
               <select name="status_pemesanan" id="status_pemesanan" class="form-control">
                 <option value="">-- Pilih Opsi --</option>
-                <option value="Belum Diproses">Pesanan Diproses</option>
-                <option value="Sedang Diproses">Pesanan Dikirim</option>
-                <option value="Sedang Diproses">Pesanan Diambil</option>
+                <option value="Pesanan Ditolak">Pesanan Ditolak</option>
+                <option value="Pesanan Diproses">Pesanan Diproses</option>
+                <option value="Pesanan Dikirim">Pesanan Dikirim</option>
+                <option value="Pesanan Diambil">Pesanan Diambil</option>
                 <option value="Pesanan Selesai">Pesanan Selesai</option>
               </select> 
+            </div>
+            <div class="form-group bukti_return">
+              <label for="bukti_return">Bukti Return (Jika Pesanan Ditolak)</label>
+              <input type="file" name="bukti_return" id="bukti_return" class="form-control" 
+              aria-describedby="helpId">
             </div>
             <button type="submit" class="btn btn-success">Simpan</button>
           </form>
         </div>
     </div>
+    <div class="card card-info card-outline">
+      <div class="card-header">
+          <h3 class="card-title">Bukti Return</h3>
+      </div>
+      <div class="card-body">
+        <img src="/bukti_return/{{ $pemesanan->bukti_return }}" width="400px">
+      </div>
+  </div>
   </div>
   <div class="col">
     <div class="card card-info card-outline">
@@ -169,5 +183,16 @@
   </div>
   @endif
 </div>
+<script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+<script>
+     $('select[name="status_pemesanan"]').on('change', function (){
+        let provinceId = $(this).val();
+        if (provinceId == 'Pesanan Ditolak') {
+            $('.bukti_return').show();
+        } else {
+            $('.bukti_return').hide();
+        }
+    });
+</script>
   
-  @endsection
+@endsection

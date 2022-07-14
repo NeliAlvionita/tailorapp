@@ -58,10 +58,15 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::put('/admin/pemesanan/{id_pemesanan}/resi', 'PemesananController@submitResi');
     Route::get('/admin/pemesanan/{id_pemesanan}/pembayaran', 'PemesananController@detail_bayar');
     Route::put('/admin/pemesanan/{id_pemesanan}/update', 'PemesananController@update_bayar');
+    Route::put('/admin/pemesanan/{id_pemesanan}/updatelunas', 'PemesananController@update_lunas');
     Route::get('/admin/pemesanan/{id_pemesanan}/ukuran', 'PemesananController@detail_ukuran');
     Route::get('/admin/pemesanan/{id_pemesanan}/cetak-ukuran', 'PemesananController@cetak_ukuran')->name('admin.cetak.ukuran');
     // Route Testimoni
     Route::get('/admin/testimoni', 'TestimoniController@admin');
+    // Route Komplain
+    Route::get('/admin/komplain', 'KomplainController@index');
+    Route::get('/admin/komplain/{id_komplain}/detail', 'KomplainController@detail');
+    Route::put('/admin/komplain/{id_komplain}', 'KomplainController@update_komplain');
     // Route Footer
     Route::get('/admin/footer', 'FooterController@index');
     Route::get('/admin/footer/{id_footer}/ubah', 'FooterController@ubah');
@@ -130,13 +135,19 @@ Route::post('/pelanggan/checkout', 'CheckoutController@checkout')->name('checkou
 Route::get('/pelanggan/riwayat', 'RiwayatController@index')->name('riwayat');
 Route::get('/pelanggan/riwayat/{id_pemesanan}', 'RiwayatController@detail');
 Route::get('/pelanggan/riwayat/{id_pemesanan}/bayar', 'RiwayatController@pembayaran')->name('riwayat.bayar');
+Route::get('/pelanggan/riwayat/{id_pemesanan}/buktireturn', 'RiwayatController@bukti_return')->name('bukti.return');
 Route::post('/pelanggan/riwayat/konfirm', 'RiwayatController@konfirm_bayar')->name('konfirm_bayar');
 Route::get('/pelanggan/riwayat/{id_pemesanan}/cetak-nota', 'RiwayatController@cetak_nota')->name('cetak.nota');
 Route::get('/pelanggan/riwayat/detail/{id_detailpemesanan}', 'RiwayatController@detailpemesanan');
+Route::get('/pelanggan/riwayat/{id_pemesanan}/lunas', 'RiwayatController@pelunasan')->name('riwayat.lunas');
+Route::post('/pelanggan/riwayat/konfirmlunas', 'RiwayatController@konfirm_lunas')->name('konfirm_lunas');
 //testimoni
 Route::get('/pelanggan/riwayat/{id_pemesanan}/testimoni', 'TestimoniController@tambah')->name('tambah.testimoni');
 Route::get('/pelanggan/testimoni', 'TestimoniController@index')->name('testi');
 Route::post('/pelanggan/riwayat/testimoni', 'TestimoniController@store');
+//komplain
+Route::get('/pelanggan/riwayat/{id_pemesanan}/komplain', 'KomplainController@pengajuan_komplain')->name('ajukan.komplain');
+Route::post('/pelanggan/riwayat/komplain', 'KomplainController@store');
 
 //ongkir
 // Route::get('/ongkir', 'OngkirController@index');

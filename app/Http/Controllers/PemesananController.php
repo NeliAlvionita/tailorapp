@@ -23,6 +23,12 @@ class PemesananController extends Controller
     public function update_status(Request $request){
         $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
         $pemesanan->status_pemesanan=$request->status_pemesanan;
+        if ($bukti_return = $request->file('bukti_return')) {
+            $destinationPath = 'bukti_return/';
+            $profileImage = date('YmdHis') . "." . $bukti_return->getClientOriginalExtension();
+            $bukti_return->move($destinationPath, $profileImage);
+            $pemesanan->bukti_return = "$profileImage";
+        }
         $pemesanan->save();
         return redirect('/admin/pemesanan/'.$request->id_pemesanan.'/detail');
     }
@@ -48,6 +54,12 @@ class PemesananController extends Controller
         $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
         $pemesanan->pembayaran->status_pembayaran=$request->status_pembayaran;
         $pemesanan->pembayaran->save();
+        return redirect('/admin/pemesanan');
+    }
+    public function update_lunas(Request $request){
+        $pemesanan = Pemesanan::findOrFail($request->id_pemesanan);
+        $pemesanan->pelunasan->status_pelunasan=$request->status_pelunasan;
+        $pemesanan->pelunasan->save();
         return redirect('/admin/pemesanan');
     }
     public function detail_ukuran(Request $request){

@@ -205,12 +205,16 @@
                     <p>Data Pemesanan</p>
                   </a>
                 </li>
-                @endif
-                @if(auth()->user()->level=='admin')
                 <li class="nav-item">
                   <a href="/admin/testimoni" class="nav-link">
                     <i class="fas fa-clipboard nav-icon"></i>
                     <p>Data Testimoni</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/komplain" class="nav-link">
+                    <i class="fas fa-clipboard nav-icon"></i>
+                    <p>Data Komplain</p>
                   </a>
                 </li>
                 @endif

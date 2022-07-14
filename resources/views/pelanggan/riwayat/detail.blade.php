@@ -71,7 +71,13 @@
                     @endif
                 </tr>
                 <tr>
-                    <td style="border:none;">Status&nbsp;&nbsp;&nbsp;&nbsp;: {{ $pemesanan->status_pemesanan }}</td>
+                    <td style="border:none;">Status&nbsp;&nbsp;&nbsp;&nbsp;: {{ $pemesanan->status_pemesanan }}
+                     @if($pemesanan->status_pemesanan == "Pesanan Ditolak")
+                     <a class="btn" href="{{ route('bukti.return', $pemesanan->id_pemesanan)}}" style="background-color: #ffae00;">
+                      Bukti Return
+                    </a>
+                     @endif
+                     </td>
                     <td style="border:none;">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $pemesanan->pelanggan->email }}</td>
                     @if($pemesanan->pilihan_pengiriman == "Dikirim")
                       @if($pemesanan->no_resi == NULL)
@@ -157,6 +163,14 @@
             </tr>
           </tbody>
       </table>
+      @if($pemesanan->status_pemesanan=='Pesanan Selesai')
+      <a class="btn" href="{{ route('tambah.testimoni', $pemesanan->id_pemesanan)}}" style="background-color: #4CAF50;">
+        Testimoni
+      </a>
+      <a class="btn" href="{{ route('ajukan.komplain', $pemesanan->id_pemesanan)}}" style="background-color: #ffae00;">
+        Komplain
+      </a>
+      @endif
     </div>
 </div>
 </div>

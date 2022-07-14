@@ -9,7 +9,7 @@ class Pemesanan extends Model
     protected $table = "pemesanan";
     protected $primaryKey = "id_pemesanan";
     protected $fillable = ["id_pelanggan", "tanggal_pemesanan", "total_pemesanan", "total_berat", "alamat_pengiriman", "pilihan_pengiriman", "biaya_ongkir", "status_pemesanan", "tanggal_mulai_jahit",
-    "tanggal_selesai_jahit", "ekspedisi", "no_resi"];
+    "tanggal_selesai_jahit", "ekspedisi", "no_resi", "bukti_return"];
 
     public $timestamps = false;
 
@@ -23,5 +23,12 @@ class Pemesanan extends Model
 
     public function pembayaran(){
         return $this-> belongsTo('App\Pembayaran', 'id_pemesanan', 'id_pemesanan');
+    }
+    public function pelunasan(){
+        return $this-> belongsTo('App\Pelunasan', 'id_pemesanan', 'id_pemesanan');
+    }
+
+    public function komplain(){
+        return $this-> belongsTo('App\Komplain', 'id_pemesanan', 'id_pemesanan');
     }
 }

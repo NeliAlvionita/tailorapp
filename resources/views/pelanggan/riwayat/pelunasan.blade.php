@@ -67,7 +67,7 @@
                                 </tr>
                                 <tr>
                                     <td style="border:none;"><strong>Tanggal Pemesanan&nbsp;&nbsp; :</strong> {{ $pemesanan->tanggal_pemesanan }}</td>
-                                    <td style="border:none;"><strong>Nama Penyetor&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->nama }}</td>
+                                    <td style="border:none;"><strong>Nama Penyetor&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pelunasan->nama }}</td>
                                 </tr>
                                 <tr>
                                     @if($pemesanan->pilihan_pengiriman == "Dikirim")
@@ -75,7 +75,7 @@
                                     @else 
                                     <td></td>
                                     @endif
-                                    <td style="border:none;"><strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pembayaran->bank}} </td>
+                                    <td style="border:none;"><strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> {{ $pemesanan->pelunasan->bank}} </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -117,17 +117,17 @@
                                 </tr>
                                 <tr>
                                     <td colspan="3" style="border:none;"></td>
-                                    <td style="border:none;"><strong>Total Pembayaran DP </strong></td>
+                                    <td style="border:none;"><strong>Total Pembayaran Pelunasan </strong></td>
                                     <td style="border:none;">
                                         <strong>
-                                            Rp. {{ number_format($pemesanan->pembayaran->jumlah) }}
+                                            Rp. {{ number_format($pemesanan->pelunasan->jumlah) }}
                                         </strong> 
                                     </td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                 </tr>
-                                @if($pemesanan->pembayaran->status_pembayaran=='Lunas')
+                                @if($pemesanan->pelunasan->status_pelunasan=='Lunas')
                                 <tr>
                                     <td colspan="5" style="border:none;"></td>
                                 </tr>
@@ -157,14 +157,7 @@
                         </table> 
                     </div>
                 </div><br><br>
-                @if($pemesanan->pembayaran->status_pembayaran=='Lunas')
-                <div class="gradient-button">
-                <a class="btns" href="{{ route('cetak.nota', $pemesanan->id_pemesanan) }}">
-                    <i class="fas fa-print"></i> Cetak Nota
-                </a>
-                </div>
-                @endif
-                @if($pemesanan->pembayaran->status_pembayaran=='belum dicek')
+                @if($pemesanan->pelunasan->status_pelunasan=='belum dicek')
                 <div class="row">
                     <div class="col">
                         <div class="alert alert-info">

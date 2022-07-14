@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2022 at 02:22 PM
+-- Generation Time: Jun 29, 2022 at 02:08 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -45,6 +45,30 @@ INSERT INTO `bahan` (`id_bahan`, `nama_bahan`, `ukuran`, `harga_tambah`) VALUES
 (5, 'american drill', 'XL', 15000),
 (6, 'american drill', 'M', 7000),
 (7, 'american drill', 'L', 10000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berita`
+--
+
+CREATE TABLE `berita` (
+  `id_berita` bigint(20) UNSIGNED NOT NULL,
+  `judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gambar_berita` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `berita`
+--
+
+INSERT INTO `berita` (`id_berita`, `judul`, `isi`, `detail`, `gambar_berita`) VALUES
+(2, 'Tunggu Santai Dari Rumah', 'Percayakan pada San Tailor. Sistem bekerja, sekolah, dan beraktivitas telah dibatasi oleh Pemerintah.', 'Percayakan pada San Tailor. Sistem bekerja, sekolah, dan beraktivitas telah dibatasi oleh Pemerintah. Hal ini membutuhkan kerjasama anda juga demi memutus penyebaran wabah Virus Covid-19.', '20220624124218.jpg'),
+(3, '#DirumahAja', 'Kami yang akan menjahit pakaian Anda. Sistem bekerja, sekolah, dan beraktivitas telah dibatasi oleh Pemerintah.', 'Kami yang akan menjahit pakaian Anda. Sistem bekerja, sekolah, dan beraktivitas telah dibatasi oleh Pemerintah. Hal ini membutuhkan kerjasama anda juga demi memutus penyebaran wabah Virus Covid-19.', '20220624124258.jpg'),
+(5, 'Jahit', 'Cepat, Mudah, Aman.  San Tailor sekarang hadir dengan pilihan Metode Pengiriman.', 'Cepat, Mudah, Aman.  San Tailor sekarang hadir dengan pilihan Metode Pengiriman.  Metode ini kami hadirkan untuk mempermudah proses pengiriman pesanan anda. Pengiriman bisa dilakukan dengan cara diambil oleh pelanggan atau dikirimkan', '20220624124639.jpg'),
+(6, 'Bayar Dulu, Bebas Khawatir Kemudian', 'Bayar Pesanan setelah checkout. Kemudian kami akan segera memproses pesanan anda.', 'Bayar Pesanan setelah Checkout. Kemudian kami akan segera memproses pesanan anda. Pantau terus riwayat pesanan untuk melihat status pesanan dan perkiraan selesai jahitan', '20220624125640.jpg');
 
 -- --------------------------------------------------------
 
@@ -601,7 +625,37 @@ INSERT INTO `detail_pemesanan` (`id_detailpemesanan`, `id_pemesanan`, `id_produk
 (70, 38, 15, 1, 160000, 600, 10000, NULL, NULL),
 (71, 38, 16, 1, 157000, 600, 7000, NULL, NULL),
 (72, 38, 17, 1, 160000, 600, 10000, NULL, NULL),
-(73, 38, 18, 1, 312000, 600, 12000, NULL, NULL);
+(73, 38, 18, 1, 312000, 600, 12000, NULL, NULL),
+(76, 41, 13, 1, 150000, 400, 0, NULL, NULL),
+(77, 42, 2, 1, 100000, 300, 0, NULL, NULL),
+(78, 43, 13, 1, 150000, 400, 0, NULL, NULL),
+(79, 44, 16, 1, 150000, 600, 0, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_pengeluaran`
+--
+
+CREATE TABLE `detail_pengeluaran` (
+  `id_detailpengeluaran` bigint(20) UNSIGNED NOT NULL,
+  `id_pengeluaran` bigint(20) UNSIGNED NOT NULL,
+  `nama_barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `satuan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `detail_pengeluaran`
+--
+
+INSERT INTO `detail_pengeluaran` (`id_detailpengeluaran`, `id_pengeluaran`, `nama_barang`, `satuan`, `jumlah`, `harga`, `subtotal`, `created_at`, `updated_at`) VALUES
+(11, 2, 'Benang Jahit Merah', 'buah', 20, 2000, 40000, NULL, NULL),
+(12, 2, 'Benang Jahit Hitam', 'buah', 20, 10000, 200000, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -658,7 +712,7 @@ CREATE TABLE `footer` (
 --
 
 INSERT INTO `footer` (`id_footer`, `nama_toko`, `alamat_toko`, `nomor_telepon`, `email_toko`, `tentang`) VALUES
-(1, 'San Tailor', 'Jl. Silikat No.50A, Kota Malang', '082143567898', 'santailor@gmail.com', 'San Tailor merupakan penjahit yang melayani jasa menjahit             pakaian dari kemeja, seragam sekolah, celana, rok, sampai jas,             baik untuk laki-laki maupun perempuan.');
+(1, 'San Tailor', 'Jl. Silikat No.50A,  Kec. Blimbing Kota Malang', '082143567898', 'santailor@gmail.com', 'San Tailor merupakan penjahit yang melayani jasa menjahit             pakaian dari kemeja, seragam sekolah, celana, rok, sampai jas,             baik untuk laki-laki maupun perempuan.');
 
 -- --------------------------------------------------------
 
@@ -681,10 +735,10 @@ CREATE TABLE `kategori` (
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `gambar_ukuran`, `created_at`, `updated_at`) VALUES
 (1, 'Celana', '20220516001212.png', NULL, NULL),
 (2, 'Rok', '20220516001223.png', NULL, NULL),
-(3, 'Seragam Laki-laki', '20220516001234.png', NULL, NULL),
+(3, 'Seragam Pria', '20220624051950.png', NULL, NULL),
 (5, 'Kemeja', '20220516002636.png', NULL, NULL),
 (6, 'Jas', '20220526031351.png', NULL, NULL),
-(7, 'Seragam Perempuan', '20220619051259.png', NULL, NULL);
+(7, 'Seragam Perempuan', '20220624052006.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -739,7 +793,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (34, '2022_06_12_073321_create_provinces_table', 11),
 (35, '2022_06_12_073350_create_cities_table', 11),
 (36, '2022_06_12_234918_create_couriers_table', 12),
-(37, '2022_06_13_114049_create_footers_table', 13);
+(37, '2022_06_13_114049_create_footers_table', 13),
+(38, '2022_06_21_052726_create_pengeluarans_table', 14),
+(39, '2022_06_21_053830_create_detail__pengeluarans_table', 14),
+(40, '2022_06_21_054331_relasi_pengeluaran_detail', 14),
+(41, '2022_06_24_102133_create_beritas_table', 15);
 
 -- --------------------------------------------------------
 
@@ -784,7 +842,12 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `id_pemesanan`, `nama`, `bank`, `jumlah`, `tanggal_pembayaran`, `bukti`, `status_pembayaran`, `created_at`, `updated_at`) VALUES
-(16, 37, 'Yoona', 'BCA', 898000, '2022-06-19', '20220619072142.jpg', 'Lunas', NULL, NULL);
+(16, 37, 'Yoona', 'BCA', 898000, '2022-06-19', '20220619072142.jpg', 'Lunas', NULL, NULL),
+(17, 38, 'neli', 'BCA', 1014000, '2022-06-23', '20220623143513.jpg', 'Lunas', NULL, NULL),
+(18, 38, NULL, NULL, NULL, NULL, NULL, 'belum bayar', NULL, NULL),
+(21, 41, 'Yoona', 'BCA', 150000, '2022-06-21', '20220621154542.jpg', 'belum dicek', NULL, NULL),
+(22, 42, 'Yoona', 'BCA', 120000, '2022-06-23', '20220623143552.jpg', 'belum dicek', NULL, NULL),
+(23, 43, 'Alvi', 'bni', 170000, '2022-06-23', '20220623145320.jpg', 'Lunas', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -799,6 +862,7 @@ CREATE TABLE `pemesanan` (
   `total_pemesanan` int(11) NOT NULL,
   `total_berat` int(11) NOT NULL,
   `alamat_pengiriman` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pilihan_pengiriman` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `biaya_ongkir` int(11) DEFAULT NULL,
   `status_pemesanan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `tanggal_mulai_jahit` date DEFAULT NULL,
@@ -813,9 +877,36 @@ CREATE TABLE `pemesanan` (
 -- Dumping data for table `pemesanan`
 --
 
-INSERT INTO `pemesanan` (`id_pemesanan`, `id_pelanggan`, `tanggal_pemesanan`, `total_pemesanan`, `total_berat`, `alamat_pengiriman`, `biaya_ongkir`, `status_pemesanan`, `tanggal_mulai_jahit`, `tanggal_selesai_jahit`, `ekspedisi`, `no_resi`, `created_at`, `updated_at`) VALUES
-(37, 3, '2022-06-19', 877000, 2800, 'Randubango', 21000, 'pesanan masuk', NULL, NULL, 'JNE', NULL, NULL, NULL),
-(38, 3, '2022-06-19', 1014000, 3100, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `pemesanan` (`id_pemesanan`, `id_pelanggan`, `tanggal_pemesanan`, `total_pemesanan`, `total_berat`, `alamat_pengiriman`, `pilihan_pengiriman`, `biaya_ongkir`, `status_pemesanan`, `tanggal_mulai_jahit`, `tanggal_selesai_jahit`, `ekspedisi`, `no_resi`, `created_at`, `updated_at`) VALUES
+(37, 3, '2022-06-19', 877000, 2800, 'Randubango', 'Dikirim', 21000, 'Pesanan Selesai', '2022-06-23', '2022-06-24', 'JNE', 'JP0987171', NULL, NULL),
+(38, 3, '2022-06-19', 1014000, 3100, '', 'Diambil', NULL, 'pesanan masuk', NULL, NULL, NULL, NULL, NULL, NULL),
+(41, 3, '2022-06-21', 150000, 400, NULL, 'Diambil', NULL, 'pesanan masuk', NULL, NULL, NULL, NULL, NULL, NULL),
+(42, 3, '2022-06-21', 100000, 300, 'jl. mawar', 'Dikirim', 20000, 'pesanan masuk', NULL, NULL, NULL, NULL, NULL, NULL),
+(43, 3, '2022-06-23', 150000, 400, 'Jl. Flamboyan No 66', 'Dikirim', 20000, 'Pesanan Diproses', '2022-06-29', '2022-07-06', 'JNE', 'JP09871712', NULL, NULL),
+(44, 3, '2022-06-24', 150000, 600, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengeluaran`
+--
+
+CREATE TABLE `pengeluaran` (
+  `id_pengeluaran` bigint(20) UNSIGNED NOT NULL,
+  `tanggal_pengeluaran` date NOT NULL,
+  `total_pengeluaran` int(11) NOT NULL,
+  `bukti_nota` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pengeluaran`
+--
+
+INSERT INTO `pengeluaran` (`id_pengeluaran`, `tanggal_pengeluaran`, `total_pengeluaran`, `bukti_nota`, `created_at`, `updated_at`) VALUES
+(2, '2022-06-22', 1500000, '20220622134150.jpg', NULL, NULL),
+(3, '2022-06-28', 1000000, '20220628125923.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -914,6 +1005,13 @@ CREATE TABLE `testimoni` (
   `isi_testimoni` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `testimoni`
+--
+
+INSERT INTO `testimoni` (`id_testimoni`, `id_pemesanan`, `isi_testimoni`) VALUES
+(10, 37, 'Jahitan cepat dan rapih');
+
 -- --------------------------------------------------------
 
 --
@@ -956,7 +1054,11 @@ INSERT INTO `ukuran` (`id_ukuran`, `id_detailpemesanan`, `catatan`, `foto_model`
 (55, 70, 'tdk ada', '-', '50', '61', '74', '60', '56', NULL, '44', '74', '69', '107', '104', NULL, NULL, NULL),
 (56, 71, 'tdk ada', '-', '41', '54', '65', '94', '34', NULL, '25', '67', NULL, NULL, NULL, '102', NULL, NULL),
 (57, 72, 'tdk ada', '-', '42', '56', '60', '96', '35', '20', '15', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(58, 73, 'tdk ada', '-', '50', '61', '74', '50', '34', '20', '25', '74', '69', '107', '104', NULL, '20', NULL);
+(58, 73, 'tdk ada', '-', '50', '61', '74', '50', '34', '20', '25', '74', '69', '107', '104', NULL, '20', NULL),
+(61, 76, NULL, '-', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '22', '22', '67', '104', NULL, '20', NULL),
+(62, 77, NULL, '-', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '75', '22', '102', '104', NULL, '20', NULL),
+(63, 78, NULL, '-', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '75', '66', '107', '104', NULL, '48', NULL),
+(64, 79, NULL, '-', '50', '50', '74', '50', '34', NULL, '15', '22', NULL, NULL, NULL, '104', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -984,7 +1086,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `alamat`, `nomorhp`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
 (2, 'Bapak Pemilik', 'pemilik@gmail.com', 'Mojokerto', '1111111', NULL, '$2y$10$xECrKP3klR/g6RUQkGs2sOpMk9N5gdUzcNiJpPMJk/inCCCpccWKe', 'pemilik', NULL, '2022-05-05 19:43:09', '2022-06-15 22:10:26'),
-(3, 'Lee Yoona', 'yumin@gmail.com', 'surabaya', '0000000', NULL, '$2y$10$3vKmWYuilsQc8iW55vt2o.4.9Gg0oLpKtyMrNyPXaP8vdBkgo8Jja', 'pelanggan', NULL, '2022-05-14 08:15:27', '2022-05-23 05:21:03'),
+(3, 'Neli Alvio', 'neli123@gmail.com', 'surabaya', '0000000', NULL, '$2y$10$3vKmWYuilsQc8iW55vt2o.4.9Gg0oLpKtyMrNyPXaP8vdBkgo8Jja', 'pelanggan', NULL, '2022-05-14 08:15:27', '2022-06-23 07:48:38'),
 (4, 'Sehun', 'sehun@gmail.com', 'jkt', '111111', NULL, '$2y$10$r5l63xgWrfLwRehOT.FbyeHm6AHz4EiaQmztAYYLa1Z8ttWwWXkW6', 'pelanggan', NULL, '2022-05-14 08:21:56', '2022-05-14 08:21:56'),
 (5, 'sella', 'sella@gmail.com', 'jakarta', '082166666', NULL, '$2y$10$6WilU/O6jgepUHhB8yXEbOxu7j2Qbt5Z6btZ9boHgiHAaeHnh1I4C', 'pelanggan', NULL, '2022-05-14 21:40:33', '2022-05-14 21:40:33'),
 (7, 'Neli Alvionita', 'admin@gmail.com', NULL, NULL, NULL, '$2y$10$mMYaJ/oUxeyjUMwsXnaMg.MTLI.H6Cj6O91G/8VTxB6XSRXxGzm0G', 'admin', NULL, '2022-05-18 23:29:13', '2022-05-18 23:29:13'),
@@ -1003,6 +1105,12 @@ ALTER TABLE `bahan`
   ADD PRIMARY KEY (`id_bahan`);
 
 --
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id_berita`);
+
+--
 -- Indexes for table `cities`
 --
 ALTER TABLE `cities`
@@ -1015,6 +1123,13 @@ ALTER TABLE `detail_pemesanan`
   ADD PRIMARY KEY (`id_detailpemesanan`),
   ADD KEY `detail_pemesanan_id_pemesanan_foreign` (`id_pemesanan`),
   ADD KEY `detail_pemesanan_id_produk_foreign` (`id_produk`);
+
+--
+-- Indexes for table `detail_pengeluaran`
+--
+ALTER TABLE `detail_pengeluaran`
+  ADD PRIMARY KEY (`id_detailpengeluaran`),
+  ADD KEY `detail_pengeluaran_id_pengeluaran_foreign` (`id_pengeluaran`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -1067,6 +1182,12 @@ ALTER TABLE `pemesanan`
   ADD KEY `pemesanan_id_pelanggan_foreign` (`id_pelanggan`);
 
 --
+-- Indexes for table `pengeluaran`
+--
+ALTER TABLE `pengeluaran`
+  ADD PRIMARY KEY (`id_pengeluaran`);
+
+--
 -- Indexes for table `produk`
 --
 ALTER TABLE `produk`
@@ -1108,7 +1229,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bahan`
 --
 ALTER TABLE `bahan`
-  MODIFY `id_bahan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_bahan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id_berita` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -1120,7 +1247,13 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `detail_pemesanan`
 --
 ALTER TABLE `detail_pemesanan`
-  MODIFY `id_detailpemesanan` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id_detailpemesanan` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT for table `detail_pengeluaran`
+--
+ALTER TABLE `detail_pengeluaran`
+  MODIFY `id_detailpengeluaran` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1144,31 +1277,37 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kategori` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_pembayaran` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_pemesanan` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `pengeluaran`
+--
+ALTER TABLE `pengeluaran`
+  MODIFY `id_pengeluaran` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_produk` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -1180,19 +1319,19 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `testimoni`
 --
 ALTER TABLE `testimoni`
-  MODIFY `id_testimoni` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_testimoni` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ukuran`
 --
 ALTER TABLE `ukuran`
-  MODIFY `id_ukuran` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_ukuran` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
@@ -1204,6 +1343,12 @@ ALTER TABLE `users`
 ALTER TABLE `detail_pemesanan`
   ADD CONSTRAINT `detail_pemesanan_id_pemesanan_foreign` FOREIGN KEY (`id_pemesanan`) REFERENCES `pemesanan` (`id_pemesanan`),
   ADD CONSTRAINT `detail_pemesanan_id_produk_foreign` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
+
+--
+-- Constraints for table `detail_pengeluaran`
+--
+ALTER TABLE `detail_pengeluaran`
+  ADD CONSTRAINT `detail_pengeluaran_id_pengeluaran_foreign` FOREIGN KEY (`id_pengeluaran`) REFERENCES `pengeluaran` (`id_pengeluaran`);
 
 --
 -- Constraints for table `pembayaran`

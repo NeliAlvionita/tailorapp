@@ -16,12 +16,12 @@
             <div class="row" style="margin-top: 120px;">
                 <div class="col-lg-12">
                     <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
-                        <center><h4>Konfirmasi <em>Pembayaran</em> Uang Muka</h4>
+                        <center><h4>Konfirmasi <em>Pelunasan</em> </h4>
                         <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
                         <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
                     </div>
                     <br><br>
-                    <form action="{{route('konfirm_bayar')}}" method="post" enctype="multipart/form-data"> 
+                    <form action="{{route('konfirm_lunas')}}" method="post" enctype="multipart/form-data"> 
                         @csrf
                         <div class="row">
                             <div class="col-lg-12">
@@ -29,8 +29,11 @@
                                 <h5>Total Tagihan</h5>
                                 <hr style="border:2px solid; color:#000000;">
                                 <div class="alert alert-info">
+                                     <h6> Total pelunasan : 
+                                        <strong> Rp. {{ number_format($total_pelunasan) }} </strong>
+                                    </h6><br>
                                     <h6>
-                                        Untuk pembayaran uang muka silahkan dapat transfer di rekening dibawah ini sebesar &nbsp;<strong style="font-size:20px;">Rp. {{ number_format($uangmuka) }}</strong>
+                                        Untuk sisa pembayaran yang harus dilunasi silahkan dapat transfer di rekening dibawah ini sebesar &nbsp;<strong style="font-size:20px;">Rp. {{ number_format($total_pelunasan) }}</strong>
                                     </h6><br>
                                   
                                   <h6>BANK BRI</h6>
@@ -67,15 +70,15 @@
                                 <div class="form-group">
                                     <label for="">Jumlah</label>
                                     <input id="jumlah" type="text"  disabled class="form-control @error('jumlah') is-invalid @enderror" name="jumlah"
-                                    autocomplete="jumlah" value={{$uangmuka}}>
-                                    <input type="hidden" name="jumlah" value={{ $uangmuka}}>
+                                    autocomplete="jumlah" value={{$total_pelunasan}}>
+                                    <input type="hidden" name="jumlah" value={{ $total_pelunasan}}>
                                 </div><br>
                                 <div class="form-group">
                                     <label for="">Tanggal Pembayaran</label>
-                                    <input id="tanggal_pembayaran" type="date" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" name="tanggal_pembayaran"
-                                    autocomplete="tanggal_pembayaran" autofocus>
+                                    <input id="tanggal_pelunasan" type="date" class="form-control @error('tanggal_pelunasan') is-invalid @enderror" name="tanggal_pelunasan"
+                                    autocomplete="tanggal_pelunasan" autofocus>
                     
-                                    @error('tanggal_pembayaran')
+                                    @error('tanggal_pelunasan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -24,7 +24,7 @@ class PengeluaranController extends Controller
         $this->validate($request, [
             'tanggal_pengeluaran' => ['required'],
             'total_pengeluaran' => ['required', 'numeric'],
-            'bukti_nota' => ['mimes:jpeg,png,jpg,gif,svg'],
+            'bukti_nota' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
         
 
@@ -52,7 +52,7 @@ class PengeluaranController extends Controller
         $this->validate($request, [
             'tanggal_pengeluaran' => ['required'],
             'total_pengeluaran' => ['required', 'numeric'],
-            'bukti_nota' => ['mimes:jpeg,png,jpg,gif,svg'],
+            'bukti_nota' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         if ($bukti_nota = $request->file('bukti_nota')) {

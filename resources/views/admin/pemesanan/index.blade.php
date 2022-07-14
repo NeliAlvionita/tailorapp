@@ -17,8 +17,8 @@
             <th>Tanggal</th>
             <th>Total</th>
             <th>Status Pemesanan</th>
-            <th>Status Pembayaran</th>
-            <th>Ekspedisi</th>
+            <th>Pembayaran DP</th>
+            <th>Pelunasan</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -31,7 +31,7 @@
             <td>{{$item->total_pemesanan}}</td>
             <td>{{$item->status_pemesanan}}</td>
             <td>{{$item->pembayaran->status_pembayaran}}</td>
-            <td>{{$item->ekspedisi}}</td>
+            <td>{{$item->pelunasan->status_pelunasan}}</td>
             <td>
               <form action="/admin/pemesanan/{{$item->id_pemesanan}}" method="post">
                 <a class="btn btn-primary" href="/admin/pemesanan/{{$item->id_pemesanan}}/detail" style="margin:5px;">Detail</a>

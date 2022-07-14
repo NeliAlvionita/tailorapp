@@ -30,7 +30,7 @@ class ProdukController extends Controller
             'id_kategori' => ['required'],
             'nama_produk' => ['required', 'string', 'max:255'],
             'nama_bahan' => ['required', 'string'],
-            'foto_produk' => ['mimes:jpeg,png,jpg,gif,svg'],
+            'foto_produk' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
             'harga' => ['required', 'numeric'],
             'detail_produk' => ['required', 'string', 'max:255'],
             'berat_produk' => ['required', 'numeric'],
