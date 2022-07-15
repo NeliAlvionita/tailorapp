@@ -66,10 +66,30 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="harga_jahit">Harga Jahit Tanpa Bahan</label>
+                <input type="text" name="harga_jahit" id="harga_jahit" class="form-control @error('harga_jahit') is-invalid @enderror" placeholder="harga jahit" value="{{ $produk->harga_jahit}}"
+                aria-describedby="helpId">
+                @error('harga_jahit')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="berat_produk">Berat (gr)</label>
                 <input type="text" name="berat_produk" id="berat_produk" class="form-control @error('berat_produk') is-invalid @enderror" value="{{ $produk->berat_produk }}" placeholder="Harga (Rp.)"
                 aria-describedby="helpId">
                 @error('berat_produk')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="stok_bahan">Stok Bahan</label>
+                <input type="text" name="stok_bahan" id="stok_bahan" class="form-control @error('stok_bahan') is-invalid @enderror" placeholder="stok_bahan" value="{{ $produk->stok_bahan }}"
+                aria-describedby="helpId">
+                @error('stok_bahan')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

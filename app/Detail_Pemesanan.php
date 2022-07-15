@@ -8,7 +8,7 @@ class Detail_Pemesanan extends Model
 {
     protected $table = "detail_pemesanan";
     protected $primaryKey = "id_detailpemesanan";
-    protected $fillable = ["id_pemesanan", "id_produk", "jumlah", "subtotal","subberat", "biaya_tambahan"];
+    protected $fillable = ["id_pemesanan", "id_produk", "jumlah", "subtotal","subberat", "biaya_tambahan", "tanggal_pengiriman_bahan", "asal_bahan"];
 
     public $timestamps = false;
 

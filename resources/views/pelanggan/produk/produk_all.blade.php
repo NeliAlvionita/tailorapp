@@ -107,13 +107,20 @@
                                                     Bahan: Kain {{ $item->nama_bahan}}
                                                 </p>
                                                 <p>
-                                                    Rp. {{ number_format($item->harga) }}
+                                                    Harga Jahit + Bahan: Rp. {{ number_format($item->harga) }}
+                                                </p>
+                                                <p>
+                                                    Harga Jahit: Rp. {{ number_format($item->harga_jahit) }}
+                                                </p>
+                                                <p>
+                                                    Stok: @if($item->stok_bahan>0) ada @else habis @endif
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
                                             <div class="col-md-12 gradient-button kotak" >
                                                 <a href="{{ route('produk.detail', $item->id_produk) }}" class="btn" style="border:none;"><i class="fas fa-eye"></i> Detail</a>
+                                                <a  @if($item->stok_bahan<1) class="btn disabled" @else class="btn" @endif  href="{{route('pemesanan.index', $item->id_produk)}}">Buat Pesanan</a>
                                             </div>
                                         </div>
                                     </div>

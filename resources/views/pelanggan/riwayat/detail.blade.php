@@ -114,6 +114,7 @@
               <th>Nama</th>
               <th>Harga</th>
               <th>Jumlah</th>
+              <th>Bahan</th>
               <th>Biaya Tambahan</th>
               <th>Sub Total</th>
               <th>Aksi</th>
@@ -126,6 +127,7 @@
               <td>{{$item->produk->nama_produk}}</td>
               <td>{{$item->produk->harga}}</td>
               <td>{{$item->jumlah}}</td>
+              <td>{{$item->asal_bahan }}</td>
               <td>Rp. {{ number_format($item->biaya_tambahan)}} /pcs</td>
               <td>Rp. {{ number_format($item->subtotal)}}</td>
               <td>

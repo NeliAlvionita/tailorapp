@@ -72,6 +72,7 @@
               <th>No</th>
               <th>Nama Produk</th>
               <th>Harga</th>
+              <th>Bahan</th>
               <th>Jumlah</th>
               <th>Sub Total</th>
             </tr>
@@ -81,7 +82,12 @@
             <tr>
               <td>{{$index + 1}}</td>
               <td>{{$item->produk->nama_produk}}</td>
+              @if($item->asal_bahan == "Bahan Penjahit")
               <td>{{$item->produk->harga}}</td>
+              @else
+              <td>{{$item->produk->harga_jahit}}</td>
+              @endif
+              <td>{{$item->asal_bahan }}</td>
               <td>{{$item->jumlah}}</td>
               <td>{{$item->subtotal}}</td>
             </tr>
