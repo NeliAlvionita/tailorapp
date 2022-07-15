@@ -30,10 +30,12 @@ class ProdukController extends Controller
             'id_kategori' => ['required'],
             'nama_produk' => ['required', 'string', 'max:255'],
             'nama_bahan' => ['required', 'string'],
-            'foto_produk' => ['mimes:jpeg,png,jpg,gif,svg'],
+            'foto_produk' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
             'harga' => ['required', 'numeric'],
             'detail_produk' => ['required', 'string', 'max:255'],
             'berat_produk' => ['required', 'numeric'],
+            'stok_bahan' => ['required', 'numeric'],
+            'harga_jahit' => ['required', 'numeric'],
         ]);
         
 
@@ -77,6 +79,8 @@ class ProdukController extends Controller
             'harga' => ['required', 'numeric'],
             'detail_produk' => ['required', 'string', 'max:255'],
             'berat_produk' => ['required', 'numeric'],
+            'stok_bahan' => ['required', 'numeric'],
+            'harga_jahit' => ['required', 'numeric'],
         ]);
 
         if ($foto_produk = $request->file('foto_produk')) {
@@ -92,6 +96,8 @@ class ProdukController extends Controller
         $produk->harga=$request->harga;
         $produk->detail_produk=$request->detail_produk;
         $produk->berat_produk=$request->berat_produk;
+        $produk->stok_bahan=$request->stok_bahan;
+        $produk->harga_jahit=$request->harga_jahit;
         $produk->save(); 
  
 

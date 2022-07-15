@@ -139,9 +139,15 @@
                                     {{ $produk_detail->nama_produk }}
                                 </h2> <br>
                                 <h6>
-                                    Rp. {{ number_format($produk_detail->harga) }}
+                                    Stok: @if($produk_detail->stok_bahan>0) ada @else habis @endif
+                                </h6><br>
+                                <h6>
+                                    Harga Jahit + Bahan: Rp. {{ number_format($produk_detail->harga) }}
                                 </h6>
                                 <br>
+                                <h6>
+                                    Harga Jahit: Rp. {{ number_format($produk_detail->harga_jahit) }}
+                                </h6><br>
                                 <p>
                                     {{ $produk_detail->detail_produk }}
                                 </p><br>
@@ -169,7 +175,7 @@
                                 </script>
                             </div> -->
                             <div class="col gradient-button">
-                                <a class="btn" href="{{route('pemesanan.index', $produk_detail->id_produk)}}">Buat Pesanan</a>
+                                <a  @if($item->stok_bahan<1) class="btn disabled" @else class="btn" @endif  href="{{route('pemesanan.index', $produk_detail->id_produk)}}">Buat Pesanan</a>
                             </div>
                         </div>
                     </div>

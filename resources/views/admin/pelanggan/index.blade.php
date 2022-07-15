@@ -14,7 +14,7 @@
           <tr>
             <th>No</th>
             <th>Nama</th>
-            <th>Username</th>
+            <th>Email</th>
             <th>Alamat</th>
             <th>Aksi</th>
           </tr>
@@ -24,7 +24,7 @@
           <tr>
             <td>{{$index + 1}}</td>
             <td>{{$item->name}}</td>
-            <td>{{$item->username}}</td> 
+            <td>{{$item->email}}</td> 
             <td>{{$item->alamat}}</td>
             <td>
               <form action="/admin/pelanggan/{{$item->id}}" method="post">

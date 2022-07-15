@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Pembayaran;
+use App\Pelunasan;
 use App\Pemesanan;
 use App\Footer;
 use App\Detail_Pemesanan;
@@ -39,10 +40,12 @@ class RiwayatController extends Controller
     public function pembayaran($id_pemesanan){
         $footer = Footer::first();
         $pemesanan = Pemesanan::find($id_pemesanan);
+        $uangmuka = 0.5 * ($pemesanan->total_pemesanan + $pemesanan->biaya_ongkir);
         if($pemesanan->status_pemesanan=="belum bayar"){
             return view('pelanggan/riwayat/konfirm_bayar', [
                 'pemesanan' => $pemesanan,
-                'footer' => $footer
+                'footer' => $footer,
+                'uangmuka' => $uangmuka
             ]);
         }
         else{
@@ -60,13 +63,10 @@ class RiwayatController extends Controller
             'bank' => 'required',
             'jumlah' => 'required',
             'tanggal_pembayaran' => 'required',
-            'bukti' => ['mimes:jpeg,png,jpg,gif,svg'],
+            'bukti' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('id_pemesanan','=', $request->id_pemesanan)->first();
-        $pemesanan->status_pemesanan = 'pesanan masuk';
-        $pemesanan->update();
-
         $pembayaran = Pembayaran::where('id_pemesanan', '=', $request->id_pemesanan)->first();
 
         if ($bukti = $request->file('bukti')) {
@@ -82,6 +82,8 @@ class RiwayatController extends Controller
         $pembayaran->bukti = $inputbukti;
         $pembayaran->status_pembayaran = 'belum dicek';
         $pembayaran->update();
+        $pemesanan->status_pemesanan = 'pesanan masuk';
+        $pemesanan->update();
         
 
         return redirect(route('riwayat'))->with('message', 'Berhasil Melakukan Pembayaran, Tunggu Pengecekan Data oleh Admin');
@@ -109,5 +111,58 @@ class RiwayatController extends Controller
             ->where('pemesanan.id_pemesanan', '=', $id_pemesanan)
             ->get();
         return view('pelanggan/riwayat/cetak_nota', ['pemesanan' => $pemesanan, 'cetak_nota' => $cetak_nota]);
+    }
+
+    public function pelunasan($id_pemesanan){
+        $footer = Footer::first();
+        $pemesanan = Pemesanan::find($id_pemesanan);
+        $total_pelunasan = $pemesanan->total_pemesanan - $pemesanan->pembayaran->jumlah;
+        if($pemesanan->pelunasan->status_pelunasan=="belum lunas"){
+            return view('pelanggan/riwayat/konfirm_bayarlunas', [
+                'pemesanan' => $pemesanan,
+                'footer' => $footer,
+                'total_pelunasan' => $total_pelunasan,
+            ]);
+        }
+        else{
+            return view('pelanggan/riwayat/pelunasan', [
+                'pemesanan' => $pemesanan,
+                'footer' => $footer
+            ]);
+        }
+    }
+
+    public function konfirm_lunas(Request $request){ 
+        $this->validate($request,[
+            'nama' => 'required',
+            'bank' => 'required',
+            'jumlah' => 'required',
+            'tanggal_pelunasan' => 'required',
+            'bukti' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
+        ]);
+        $pelunasan = Pelunasan::where('id_pemesanan', '=', $request->id_pemesanan)->first();
+
+        if ($bukti = $request->file('bukti')) {
+            $destinationPath = 'buktilunas/';
+            $profileImage = date('YmdHis') . "." . $bukti->getClientOriginalExtension();
+            $bukti->move($destinationPath, $profileImage);
+            $inputbukti = "$profileImage";
+        }
+        $pelunasan->nama =  $request->nama;
+        $pelunasan->bank = $request->bank;
+        $pelunasan->jumlah = $request->jumlah;
+        $pelunasan->tanggal_pelunasan = $request->tanggal_pelunasan;
+        $pelunasan->bukti = $inputbukti;
+        $pelunasan->status_pelunasan = 'belum dicek';
+        $pelunasan->update();
+        
+
+        return redirect(route('riwayat'))->with('message', 'Berhasil Melakukan Pembayaran Pelunasan, Tunggu Pengecekan Data oleh Admin');
+    }
+
+    public function bukti_return($id_pemesanan){
+        $footer = Footer::first();
+        $pemesanan = Pemesanan::find($id_pemesanan);
+        return view("pelanggan/riwayat/buktireturn", ['pemesanan' => $pemesanan, 'footer' => $footer]);
     }
 }

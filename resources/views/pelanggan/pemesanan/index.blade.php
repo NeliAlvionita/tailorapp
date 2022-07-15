@@ -43,6 +43,7 @@
                                     <label><h6> Nama Produk :</h6></label>
                                     <input type="text" name="produk" readonly class="form-control" placeholder="{{ $produk->nama_produk }}">
                                     <input type="hidden" name="harga" value="{{ $produk->harga}}">
+                                    <input type="hidden" name="harga_jahit" value="{{ $produk->harga_jahit}}">
                                     <input type="hidden" name="berat_produk" value="{{ $produk->berat_produk}}">
                                     <input type="hidden" name="id_produk" value="{{ $produk->id_produk}}">
                                     <input type="hidden" name="nama_bahan" value="{{ $produk->nama_bahan }}">
@@ -103,7 +104,6 @@
                                 </div>
                             </div>
                         </div><br>
-
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -120,12 +120,39 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label><h6> Bahan :</h6></label>
+                                    <select name="pilih_bahan" id="pilih_bahan" class="form-control @error('pilih_bahan') is-invalid @enderror">
+                                        <option value=""> --Pilih--</option>
+                                        <option value="Bahan Sendiri">Bahan Sendiri</option>
+                                        <option value="Bahan Penjahit">Bahan Penjahit</option>
+                                    </select>
+                                    @error('pilih_bahan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group tanggal">
+                                    <label><h6> Tanggal Pengiriman Bahan :</h6></label>
+                                    <input type="date" name="tanggal_pengiriman_bahan" id="tanggal_pengiriman_bahan" class="form-control" 
+                                    aria-describedby="helpId">
+                                    @error('tanggal_pengiriman_bahan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div> 
                         </div><br>
+
 
                         <div class="heading">
                             <h4> Pengukuran</h4>
-                            <hr style="height:5px;color:black;background-color:black">
-                            
+                            <hr style="height:5px;color:black;background-color:black"> 
                         </div>
 
                         <div class="alert alert-primary">
@@ -613,7 +640,7 @@
                         </div><br>
                         @endif
 
-                        @if($produk->kategori->nama_kategori=='Seragam Laki-laki')
+                        @if($produk->kategori->nama_kategori=='Seragam Pria')
                         <div class="heading">
                             <h6>Atasan</h6>
                             <hr style="height:5px;color:black;background-color:black">
@@ -925,9 +952,9 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div><br>
+                        </div><br><br>
                         @endif
-                        <div class="row wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s">
+                        <div class="row wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s"><br><br>
                             <div class="col" >
                                 <button type="submit" class="btn btn-dark btn-block"><i class="fas fa-shopping-cart"></i>  Masukkan Keranjang</button>
                             </div>
@@ -941,5 +968,16 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+<script>
+     $('select[name="pilih_bahan"]').on('change', function (){
+        let bahan = $(this).val();
+        if (bahan == 'Bahan Sendiri') {
+            $('.tanggal').show();
+        } else {
+            $('.tanggal').hide();
+        }
+    });
+</script>
 @include('pelanggan.layouts.footer')
 @endsection

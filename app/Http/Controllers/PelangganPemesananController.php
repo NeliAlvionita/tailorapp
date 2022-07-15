@@ -309,11 +309,17 @@ class PelangganPemesananController extends Controller
             }
         }
         //Menghitung Sub total harga dan SubBerat
-        $total_harga = $request->jumlah*($request->harga+$hargatambahan);
+       
+        if($request->pilih_bahan == "Bahan Sendiri"){
+            $total_harga = $request->jumlah*$request->harga_jahit;
+        } else if ($request->pilih_bahan == "Bahan Penjahit"){
+            $total_harga = $request->jumlah*($request->harga+$hargatambahan);
+        }
         $subberat = $request->jumlah*($request->berat_produk);
 
         //Apakah user punya data pesanan utama yg status nya 0
         $pemesanan = Pemesanan::where('id_pelanggan', Auth::user()->id)->where('status_pemesanan','=','0')->first();
+        
         //Menyimpan / Update Data Pesanan Utama
         if(empty($pemesanan))
         {
@@ -339,7 +345,9 @@ class PelangganPemesananController extends Controller
             'jumlah' => $request->jumlah,
             'subtotal'=> $total_harga,
             'subberat' => $subberat,
-            'biaya_tambahan' => $hargatambahan
+            'biaya_tambahan' => $hargatambahan,
+            'tanggal_pengiriman_bahan' => $request->tanggal_pengiriman_bahan,
+            'asal_bahan' => $request->pilih_bahan
         ]);
         $detail_pemesanan->save();
 
@@ -372,6 +380,10 @@ class PelangganPemesananController extends Controller
             'tinggi_duduk' => $request->tinggi_duduk
             
         ]);
+
+        $produk = Produk::where('id_produk', $request->id_produk)->first();
+        $produk->stok_bahan = $produk->stok_bahan-$request->jumlah;
+        $produk->save();
 
         return redirect(route('produk'))->with('message', 'Berhasil Menambahkan Keranjang');
 

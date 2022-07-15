@@ -62,7 +62,8 @@
                                 <td>No.</td>
                                 <td>Tanggal</td>
                                 <td>Status Pemesanan</td>
-                                <td>Pembayaran</td>
+                                <td>Uang Muka</td>
+                                <td>Pelunasan</td>
                                 <td>Total Pesanan</td>
                                 <td>Biaya Kirim</td>
                                 <td>Aksi</td>
@@ -75,13 +76,8 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $pemesanan->tanggal_pemesanan }}</td>
                             <td>{{ $pemesanan->status_pemesanan }}</td>
-                            <td>
-                                @if($pemesanan->status_pemesanan == 'belum bayar')
-                                belum bayar
-                                @else
-                                {{ $pemesanan->pembayaran->status_pembayaran }}
-                                @endif
-                            </td>
+                            <td> {{ $pemesanan->pembayaran->status_pembayaran }}</td>
+                            <td> {{ $pemesanan->pelunasan->status_pelunasan }}</td>
                             <td>Rp. {{ number_format($pemesanan->total_pemesanan) }}</td>
                             <td>Rp. {{ number_format($pemesanan->biaya_ongkir) }}</td>
                             <td>
@@ -91,10 +87,10 @@
                                     <a class="btn" href="{{ route('riwayat.bayar', $pemesanan->id_pemesanan) }}" style="background-color: #ffae00">
                                         Pembayaran
                                     </a>
-                                    @if($pemesanan->status_pemesanan=='Pesanan Selesai')
-                                    <a class="btn" href="{{ route('tambah.testimoni', $pemesanan->id_pemesanan)}}" style="background-color: #4CAF50;">
-                                        Tambah Testimoni
-                                    </a>
+                                    @if($pemesanan->status_pemesanan=='Pesanan Selesai') 
+                                    <a class="btn" href="{{ route('riwayat.lunas', $pemesanan->id_pemesanan)}}" style="background-color: #4CAF50;">
+                                        Pelunasan
+                                      </a>
                                     @endif
                             </td>
                         </tr>

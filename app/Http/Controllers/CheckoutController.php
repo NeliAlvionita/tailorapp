@@ -5,6 +5,7 @@ use App\Province;
 use App\Pemesanan;
 use App\Footer;
 use App\Pembayaran;
+use App\Pelunasan;
 use Kavist\RajaOngkir\Facades\RajaOngkir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +61,10 @@ class CheckoutController extends Controller
         Pembayaran::create([
             'id_pemesanan' => $pemesanan->id_pemesanan,
             'status_pembayaran' => 'belum bayar',
+        ]);
+        Pelunasan::create([
+            'id_pemesanan' => $pemesanan->id_pemesanan,
+            'status_pelunasan' => 'belum lunas',
         ]);
         return redirect(route('riwayat'))->with('message','Pesanan Masuk, Silahkan Periksa Pada Menu Pembayaran untuk melakukan konfirmasi pembayaran');
 

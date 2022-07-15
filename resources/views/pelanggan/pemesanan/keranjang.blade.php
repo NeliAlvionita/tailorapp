@@ -117,7 +117,11 @@
                                 <td>{{ $detail_pemesanan->produk->kategori->nama_kategori }}</td>
                                 <td>{{ $detail_pemesanan->produk->nama_produk }}</td>
                                 <td>{{ $detail_pemesanan->jumlah }}</td>
+                                @if($detail_pemesanan->asal_bahan == "Bahan Sendiri")
+                                <td>Rp. {{ number_format($detail_pemesanan->produk->harga_jahit) }}</td>
+                                @else
                                 <td>Rp. {{ number_format($detail_pemesanan->produk->harga) }}</td>
+                                @endif
                                 <td>Rp. {{ number_format($detail_pemesanan->biaya_tambahan) }} /pcs</td>
                                 <td>
                                     <a href="/pelanggan/keranjang/{{$detail_pemesanan->id_detailpemesanan}}/ubah">

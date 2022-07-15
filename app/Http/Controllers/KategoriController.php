@@ -22,7 +22,7 @@ class KategoriController extends Controller
 
         $this->validate($request, [
             'nama_kategori' => ['required', 'string', 'max:255'],
-            'gambar_ukuran' => ['mimes:jpeg,png,jpg,gif,svg'],
+            'gambar_ukuran' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
         
 
