@@ -9,6 +9,7 @@ use App\Detail_Pemesanan;
 use App\Ukuran;
 use App\Bahan;
 use App\Footer;
+use App\Produk;
 use Illuminate\Http\Request;
 
 class KeranjangController extends Controller
@@ -357,18 +358,29 @@ class KeranjangController extends Controller
         $harga = $detailpemesanan->pemesanan->total_pemesanan-$detailpemesanan->subtotal;
         $berat = $detailpemesanan->pemesanan->total_berat-$detailpemesanan->subberat;
         //hitung sub total keranjang saat ini
-        $subtotal = $request->jumlah*($request->harga+$hargatambahan);
+        if($request->pilih_bahan == "Bahan Sendiri"){
+            $subtotal = $request->jumlah*$request->harga_jahit;
+        } else if ($request->pilih_bahan == "Bahan Penjahit"){
+            $subtotal = $request->jumlah*($request->harga+$hargatambahan);
+        }
         $subberat = $request->jumlah*($request->berat_produk);
 
         //menyimpan total pemesanan
         $detailpemesanan->pemesanan->total_pemesanan = $harga+$subtotal;
         $detailpemesanan->pemesanan->total_berat = $berat+$subberat;
         $detailpemesanan->pemesanan->update();
+        //menyimpan stok produk
+        $produk = Produk::where('id_produk', $request->id_produk)->first();
+        $produk->stok_bahan = $produk->stok_bahan+$detailpemesanan->jumlah;
+        $produk->stok_bahan = $produk->stok_bahan-$request->jumlah;
+        $produk->save();
         //menyimpan detail pemesanan
         $detailpemesanan->jumlah = $request->jumlah;
         $detailpemesanan->subtotal = $subtotal;
         $detailpemesanan->subberat = $subberat;
         $detailpemesanan->biaya_tambahan = $hargatambahan;
+        $detailpemesanan->tanggal_pengiriman_bahan = $request->tanggal_pengiriman_bahan;
+        $detailpemesanan->asal_bahan = $request->pilih_bahan;
         $detailpemesanan->update();
         //menyimpan ukuran
         if ($foto_model = $request->file('foto_model')) {
@@ -393,6 +405,8 @@ class KeranjangController extends Controller
         $detailpemesanan->ukuran->lingkar_bawah = $request->lingkar_bawah;
         $detailpemesanan->ukuran->tinggi_duduk = $request->tinggi_duduk;
         $detailpemesanan->ukuran->update();
+
+       
 
         return redirect(route('keranjang'))->with('message', 'Berhasil Mengupdate Keranjang');
 

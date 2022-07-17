@@ -120,6 +120,33 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label><h6> Bahan :</h6></label>
+                                    <select name="pilih_bahan" id="pilih_bahan" class="form-control @error('pilih_bahan') is-invalid @enderror">
+                                        <option value=""> --Pilih--</option>
+                                        <option value="Bahan Sendiri">Bahan Sendiri</option>
+                                        <option value="Bahan Penjahit">Bahan Penjahit</option>
+                                    </select>
+                                    @error('pilih_bahan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group tanggal">
+                                    <label><h6> Tanggal Pengiriman Bahan :</h6></label>
+                                    <input type="date" name="tanggal_pengiriman_bahan" id="tanggal_pengiriman_bahan" class="form-control"  value="{{ $detailpemesanan->tanggal_pengiriman_bahan}}"
+                                    aria-describedby="helpId">
+                                    @error('tanggal_pengiriman_bahan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div> 
                         </div><br>
 
                         <div class="heading">
@@ -939,5 +966,16 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+<script>
+     $('select[name="pilih_bahan"]').on('change', function (){
+        let bahan = $(this).val();
+        if (bahan == 'Bahan Sendiri') {
+            $('.tanggal').show();
+        } else {
+            $('.tanggal').hide();
+        }
+    });
+</script>
 @include('pelanggan.layouts.footer')
 @endsection

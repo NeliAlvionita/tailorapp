@@ -117,10 +117,10 @@
                                 </tr>
                                 <tr>
                                     <td colspan="3" style="border:none;"></td>
-                                    <td style="border:none;"><strong>Total Pembayaran  </strong></td>
+                                    <td style="border:none;"><strong>Total Pembayaran DP </strong></td>
                                     <td style="border:none;">
                                         <strong>
-                                            Rp. {{ number_format($pemesanan->total_pemesanan+$pemesanan->biaya_ongkir) }}
+                                            Rp. {{ number_format($pemesanan->pembayaran->jumlah) }}
                                         </strong> 
                                     </td>
                                 </tr>

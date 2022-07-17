@@ -16,7 +16,7 @@
             <div class="row" style="margin-top: 120px;">
                 <div class="col-lg-12">
                     <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
-                        <center><h4>Konfirmasi <em>Pembayaran</em> </h4>
+                        <center><h4>Konfirmasi <em>Pembayaran</em> Uang Muka</h4>
                         <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
                         <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
                     </div>
@@ -29,14 +29,8 @@
                                 <h5>Total Tagihan</h5>
                                 <hr style="border:2px solid; color:#000000;">
                                 <div class="alert alert-info">
-                                    <!-- <h6> Total pemesanan : 
-                                        <strong> Rp. {{ number_format($pemesanan->total_pemesanan) }} </strong>
-                                    </h6>
-                                    <h6>Ongkos kirim &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 
-                                        <strong>Rp. {{ number_format($pemesanan->biaya_ongkir) }}</strong>
-                                    </h6><br> -->
                                     <h6>
-                                        Untuk pembayaran silahkan dapat transfer di rekening dibawah ini sebesar &nbsp;<strong style="font-size:20px;">Rp. {{ number_format($pemesanan->total_pemesanan+$pemesanan->biaya_ongkir) }}</strong>
+                                        Untuk pembayaran uang muka silahkan dapat transfer di rekening dibawah ini sebesar &nbsp;<strong style="font-size:20px;">Rp. {{ number_format($uangmuka) }}</strong>
                                     </h6><br>
                                   
                                   <h6>BANK BRI</h6>
@@ -73,8 +67,8 @@
                                 <div class="form-group">
                                     <label for="">Jumlah</label>
                                     <input id="jumlah" type="text"  disabled class="form-control @error('jumlah') is-invalid @enderror" name="jumlah"
-                                    autocomplete="jumlah" value={{$pemesanan->total_pemesanan+$pemesanan->biaya_ongkir}}>
-                                    <input type="hidden" name="jumlah" value={{ $pemesanan->total_pemesanan+$pemesanan->biaya_ongkir}}>
+                                    autocomplete="jumlah" value={{$uangmuka}}>
+                                    <input type="hidden" name="jumlah" value={{ $uangmuka}}>
                                 </div><br>
                                 <div class="form-group">
                                     <label for="">Tanggal Pembayaran</label>

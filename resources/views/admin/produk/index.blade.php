@@ -20,6 +20,7 @@
             <th>Kategori</th>
             <th>Produk</th>
             <th>Bahan</th>
+            <th>Stok Bahan</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -31,6 +32,7 @@
             <td>{{$item->kategori->nama_kategori}}</td>
             <td>{{$item->nama_produk}}</td>
             <td>{{$item->nama_bahan}}</td>
+            <td>{{$item->stok_bahan}}</td>
             <td>
               <form action="/admin/produk/{{$item->id_produk}}" method="post">
                 <a class="btn btn-primary" href="/admin/produk/{{$item->id_produk}}/detail">Detail</a>

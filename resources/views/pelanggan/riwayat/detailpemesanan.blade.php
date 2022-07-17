@@ -79,11 +79,23 @@
                 </div><br>
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <strong>Model Baju yang akan dibuat :</strong>
                         </div>
                         <img src="/foto_model/{{ $detail->ukuran->foto_model }}" width="50"> 
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label><h6> Bahan :</h6></label>
+                            <input type="text" name="bahan" readonly class="form-control" placeholder="{{ $detail->asal_bahan }}" rows="3" >
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label><h6> Tanggal Pengiriman Bahan :</h6></label>
+                            <input type="text" name="bahan" readonly class="form-control" placeholder="{{ $detail->tanggal_pengiriman_bahan }}" rows="3" >
+                        </div>
                     </div>
                 </div><br><br>
 

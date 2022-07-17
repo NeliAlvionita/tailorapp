@@ -20,7 +20,7 @@ class BeritaController extends Controller
             'judul' => ['required', 'string', 'max:255'],
             'isi' => ['required', 'string', 'max:255'],
             'detail' => ['required', 'string', 'max:255'],
-            'gambar_berita' => ['mimes:jpeg,png,jpg,gif,svg'],
+            'gambar_berita' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
         
         $input = $request->all();
@@ -54,7 +54,7 @@ class BeritaController extends Controller
             'judul' => ['required', 'string', 'max:255'],
             'isi' => ['required', 'string', 'max:255'],
             'detail' => ['required', 'string', 'max:255'],
-            'gambar_berita' => ['mimes:jpeg,png,jpg,gif,svg'],
+            'gambar_berita' => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         if ($gambar_berita = $request->file('gambar_berita')) {
