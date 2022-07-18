@@ -117,6 +117,15 @@
                                 </tr>
                                 <tr>
                                     <td colspan="3" style="border:none;"></td>
+                                    <td style="border:none;"><strong>Pembayaran Uang Muka (DP) </strong></td>
+                                    <td style="border:none;">
+                                        <strong>
+                                            Rp. {{ number_format($pemesanan->pembayaran->jumlah) }}
+                                        </strong> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:none;"></td>
                                     <td style="border:none;"><strong>Total Pembayaran Pelunasan </strong></td>
                                     <td style="border:none;">
                                         <strong>

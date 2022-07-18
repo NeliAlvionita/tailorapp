@@ -174,7 +174,6 @@
                         <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span>
                         <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
                     </div><br><br>
-                    <h5>KOMPLAIN</h5>
                     <div class="row mt-100 wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s">
                         <div class="col col-md-6"><br>
                             <div class="card zoom-effect" style="margin-top:10px;">
@@ -183,16 +182,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6" style="font-family: sans-serif;">
-                            <h5> <center> Isi Komplain </center> </h5> <br>
-                            <p> {{ $pemesanan->komplain->isi_komplain }}</p><br>
-                        </div>
+                        <div class="col-md-6 mt-5 section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                            <h4> <em>Isi Komplain: </em></h4>
+                            <h5>{{ $pemesanan->komplain->isi_komplain }}</h5>
+                        </div><br><br>
                         <br><br>
                     </div><br><br>
-                    <h5>RESPON</h5>
+                    <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
+                            <h4> <em>RESPON </em></h4>
+                        </div><br><br>
                     <div class="row mt-100 wow fadeIn" id="top" data-wow-duration="4s" data-wow-delay="0.5s">
                         <div class="col col-md-6">
-                            <p>Bukti Transfer Return (Jika Komplain Diterima</p>
+                            <h5>Bukti Transfer Return (Jika Komplain Diterima)</h5>
                             <div class="card zoom-effect" style="margin-top:10px;">
                                 <div class="card-body kotak text-center">
                                     @if($pemesanan->komplain->bukti_return == NULL)
@@ -204,9 +205,9 @@
                             </div>
                         </div>
                         <div class="col-md-6" style="font-family: sans-serif;">
-                            <h5> Status Komplain:  {{ $pemesanan->komplain->status_komplain }}</h5> <br>
-                            <h6> Respon Komplain </h6> <br>
-                            <p> {{ $pemesanan->komplain->isi_respon }}</p><br>
+                            <h5> <strong>Status Komplain: <strong> {{ $pemesanan->komplain->status_komplain }}</h5> <br>
+                            <h5> <strong>Respon Komplain <strong> </h5> <br>
+                            <h6> {{ $pemesanan->komplain->isi_respon }}</h6><br>
                         </div>
                         <br><br>
                     </div>
