@@ -19,44 +19,44 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Tanggal   : {{ $pemesanan->tanggal_pemesanan }}</td>
-                    <td>Nama      : {{ $pemesanan->pelanggan->name }}</td>
+                    <td style="border:none;">Tanggal   : {{ $pemesanan->tanggal_pemesanan }}</td>
+                    <td  style="border:none;">Nama      : {{ $pemesanan->pelanggan->name }}</td>
                     @if($pemesanan->pilihan_pengiriman == "Dikirim")
-                    <td>Alamat    : {{ $pemesanan->alamat_pengiriman }}</td>
+                    <td  style="border:none;">Alamat    : {{ $pemesanan->alamat_pengiriman }}</td>
                     @elseif($pemesanan->pilihan_pengiriman == "Diambil")
-                    <td>{{$pemesanan->pilihan_pengiriman }}</td>
+                    <td  style="border:none;">{{$pemesanan->pilihan_pengiriman }}</td>
                     @endif
                 </tr>
                 <tr>
-                    <td>Total     : {{ $pemesanan->total_pemesanan}}</td>
-                    <td>Nomor Hp  : {{ $pemesanan->pelanggan->nomorhp }}</td>
+                    <td  style="border:none;">Total     : {{ $pemesanan->total_pemesanan}}</td>
+                    <td style="border:none;">Nomor Hp  : {{ $pemesanan->pelanggan->nomorhp }}</td>
                     @if($pemesanan->pilihan_pengiriman == "Dikirim")
                       @if($pemesanan->ekspedisi == NULL)
-                      <td>Ekspedisi : Belum Dikirim</td>
+                      <td style="border:none;">Ekspedisi : Belum Dikirim</td>
                       @else
-                      <td>Ekspedisi : {{ $pemesanan->ekspedisi}}</td>
+                      <td style="border:none;">Ekspedisi : {{ $pemesanan->ekspedisi}}</td>
                       @endif
                     @endif
                 </tr>
                 <tr>
-                    <td>Status`   : {{ $pemesanan->status_pemesanan }}</td>
-                    <td>Email     : {{ $pemesanan->pelanggan->email }}</td>
+                    <td  style="border:none;">Status`   : {{ $pemesanan->status_pemesanan }}</td>
+                    <td style="border:none;">Email     : {{ $pemesanan->pelanggan->email }}</td>
                     @if($pemesanan->pilihan_pengiriman == "Dikirim")
                       @if($pemesanan->no_resi == NULL)
-                      <td>Nomor Resi: Belum Dikirim</td>
+                      <td style="border:none;">Nomor Resi: Belum Dikirim</td>
                       @else
-                      <td>Nomor Resi: {{ $pemesanan->no_resi}}</td>
+                      <td style="border:none;">Nomor Resi: {{ $pemesanan->no_resi}}</td>
                       @endif
                     @endif
                 </tr>
                 <tr>
-                  <td>Tanggal Dimulai Proses Jahit : 
+                  <td style="border:none;">Tanggal Dimulai Proses Jahit : 
                     @if($pemesanan->tanggal_mulai_jahit == NULL) belum diproses
                     @else{{ $pemesanan->tanggal_mulai_jahit}} @endif
                   </td>
                 </tr>
                 <tr>
-                  <td>Perkiraan Selesai Waktu Jahit :
+                  <td style="border:none;">Perkiraan Selesai Waktu Jahit :
                     @if($pemesanan->tanggal_selesai_jahit == NULL) belum diproses
                     @else{{ $pemesanan->tanggal_selesai_jahit}} @endif </td>
                 </tr>

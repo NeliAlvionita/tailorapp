@@ -87,7 +87,7 @@
                                     <a class="btn" href="{{ route('riwayat.bayar', $pemesanan->id_pemesanan) }}" style="background-color: #ffae00">
                                         Pembayaran
                                     </a>
-                                    @if($pemesanan->status_pemesanan=='Pesanan Selesai') 
+                                    @if($pemesanan->status_pemesanan=='Pesanan Dikirim' OR $pemesanan->status_pemesanan=='Pesanan Diambil' OR $pemesanan->status_pemesanan=='Pesanan Selesai') 
                                     <a class="btn" href="{{ route('riwayat.lunas', $pemesanan->id_pemesanan)}}" style="background-color: #4CAF50;">
                                         Pelunasan
                                       </a>

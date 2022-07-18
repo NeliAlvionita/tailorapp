@@ -142,7 +142,7 @@
               <td colspan="6" style="border:none;"></td>
             </tr>
             <tr>
-                                <td colspan="4" style="border:none;"></td>
+                                <td colspan="5" style="border:none;"></td>
                                 <td style="border:none;">
                                     <strong>Biaya Kirim </strong>
                                 </td>
@@ -151,7 +151,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="4" style="border:none;"></td>
+                                <td colspan="5" style="border:none;"></td>
                                 <td style="border:none;"><strong>Total Pembayaran  </strong></td>
                                 <td style="border:none;">
                                     <strong>

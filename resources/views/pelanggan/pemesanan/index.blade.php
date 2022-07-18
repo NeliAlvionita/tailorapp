@@ -174,7 +174,7 @@
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Pinggang :</h6> </label>
+                                    <label><h6>A. Lingkar Pinggang :</h6> </label>
                                     <input id="lingkar_pinggang" type="text"
                                         class="form-control @error('lingkar_pinggang') is-invalid @enderror"
                                         name="lingkar_pinggang" value="{{ old('lingkar_pinggang') }}"
@@ -189,7 +189,7 @@
                             </div> 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Panggul :</h6> </label>
+                                    <label><h6>B. Lingkar Panggul :</h6> </label>
                                     <input id="lingkar_panggul" type="text"
                                         class="form-control @error('lingkar_panggul') is-invalid @enderror"
                                         name="lingkar_panggul" value="{{ old('lingkar_panggul') }}"
@@ -204,7 +204,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Keris :</h6> </label>
+                                    <label><h6>C. Lingkar Keris :</h6> </label>
                                     <input id="lingkar_keris" type="text"
                                         class="form-control @error('lingkar_keris') is-invalid @enderror"
                                         name="lingkar_keris" value="{{ old('lingkar_keris') }}"
@@ -220,7 +220,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Celana :</h6> </label>
+                                    <label><h6>D. Panjang Celana :</h6> </label>
                                     <input id="panjang_celana" type="text"
                                         class="form-control @error('panjang_celana') is-invalid @enderror"
                                         name="panjang_celana" value="{{ old('panjang_celana') }}"
@@ -236,7 +236,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Bawah :</h6> </label>
+                                    <label><h6>E. Lingkar Bawah :</h6> </label>
                                     <input id="lingkar_bawah" type="text"
                                         class="form-control @error('lingkar_bawah') is-invalid @enderror"
                                         name="lingkar_bawah" value="{{ old('lingkar_bawah') }}"
@@ -256,7 +256,7 @@
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Pinggang :</h6> </label>
+                                    <label><h6>A. Lingkar Pinggang :</h6> </label>
                                     <input id="lingkar_pinggang" type="text"
                                         class="form-control @error('lingkar_pinggang') is-invalid @enderror"
                                         name="lingkar_pinggang" value="{{ old('lingkar_pinggang') }}"
@@ -272,23 +272,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Rok :</h6> </label>
-                                    <input id="panjang_rok" type="text"
-                                        class="form-control @error('panjang_rok') is-invalid @enderror"
-                                        name="panjang_rok" value="{{ old('panjang_rok') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('panjang_rok')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Panggul :</h6> </label>
+                                    <label><h6>B. Lingkar Panggul :</h6> </label>
                                     <input id="lingkar_panggul" type="text"
                                         class="form-control @error('lingkar_panggul') is-invalid @enderror"
                                         name="lingkar_panggul" value="{{ old('lingkar_panggul') }}"
@@ -304,7 +288,23 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Tinggi Duduk :</h6> </label>
+                                    <label><h6>C. Panjang Rok :</h6> </label>
+                                    <input id="panjang_rok" type="text"
+                                        class="form-control @error('panjang_rok') is-invalid @enderror"
+                                        name="panjang_rok" value="{{ old('panjang_rok') }}"
+                                        autocomplete="name" autofocus>
+
+                                    @error('panjang_rok')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label><h6>D. Tinggi Duduk :</h6> </label>
                                     <input id="tinggi_duduk" type="text"
                                         class="form-control @error('tinggi_duduk') is-invalid @enderror"
                                         name="tinggi_duduk" value="{{ old('tinggi_duduk') }}"
@@ -329,7 +329,7 @@
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lebar Bahu :</h6> </label>
+                                    <label><h6>A. Lebar Bahu :</h6> </label>
                                     <input id="lebar_bahu" type="text"
                                         class="form-control @error('lebar_bahu') is-invalid @enderror"
                                         name="lebar_bahu" value="{{ old('lebar_bahu') }}"
@@ -345,7 +345,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Tangan :</h6> </label>
+                                    <label><h6>B. Panjang Tangan :</h6> </label>
                                     <input id="panjang_tangan" type="text"
                                         class="form-control @error('panjang_tangan') is-invalid @enderror"
                                         name="panjang_tangan" value="{{ old('panjang_tangan') }}"
@@ -361,7 +361,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Baju :</h6> </label>
+                                    <label><h6>C. Panjang Baju :</h6> </label>
                                     <input id="panjang_baju" type="text"
                                         class="form-control @error('panjang_baju') is-invalid @enderror"
                                         name="panjang_baju" value="{{ old('panjang_baju') }}"
@@ -377,7 +377,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Dada :</h6> </label>
+                                    <label><h6>D. Lingkar Dada :</h6> </label>
                                     <input id="lingkar_dada" type="text"
                                         class="form-control @error('lingkar_dada') is-invalid @enderror"
                                         name="lingkar_dada" value="{{ old('lingkar_dada') }}"
@@ -392,7 +392,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Lengan :</h6> </label>
+                                    <label><h6>E. Lingkar Lengan :</h6> </label>
                                     <input id="lingkar_lengan" type="text"
                                         class="form-control @error('lingkar_lengan') is-invalid @enderror"
                                         name="lingkar_lengan" value="{{ old('lingkar_lengan') }}"
@@ -408,7 +408,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Ketiak :</h6> </label>
+                                    <label><h6>F. Lingkar Ketiak :</h6> </label>
                                     <input id="lingkar_ketiak" type="text"
                                         class="form-control @error('lingkar_ketiak') is-invalid @enderror"
                                         name="lingkar_ketiak" value="{{ old('lingkar_ketiak') }}"
@@ -424,7 +424,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Lengan Bawah :</h6> </label>
+                                    <label><h6>G. Lingkar Lengan Bawah :</h6> </label>
                                     <input id="lingkar_lenganbawah" type="text"
                                         class="form-control @error('lingkar_lenganbawah') is-invalid @enderror"
                                         name="lingkar_lenganbawah" value="{{ old('lingkar_lenganbawah') }}"
@@ -445,7 +445,7 @@
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Pinggang :</h6> </label>
+                                    <label><h6>H. Lingkar Pinggang :</h6> </label>
                                     <input id="lingkar_pinggang" type="text"
                                         class="form-control @error('lingkar_pinggang') is-invalid @enderror"
                                         name="lingkar_pinggang" value="{{ old('lingkar_pinggang') }}"
@@ -458,40 +458,10 @@
                                     @enderror
                                 </div>
                             </div> 
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Panggul :</h6> </label>
-                                    <input id="lingkar_panggul" type="text"
-                                        class="form-control @error('lingkar_panggul') is-invalid @enderror"
-                                        name="lingkar_panggul" value="{{ old('lingkar_panggul') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('lingkar_panggul')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Keris :</h6> </label>
-                                    <input id="lingkar_keris" type="text"
-                                        class="form-control @error('lingkar_keris') is-invalid @enderror"
-                                        name="lingkar_keris" value="{{ old('lingkar_keris') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('lingkar_keris')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Celana :</h6> </label>
+                                    <label><h6>I. Panjang Celana :</h6> </label>
                                     <input id="panjang_celana" type="text"
                                         class="form-control @error('panjang_celana') is-invalid @enderror"
                                         name="panjang_celana" value="{{ old('panjang_celana') }}"
@@ -507,7 +477,38 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Bawah :</h6> </label>
+                                    <label><h6>J. Lingkar Panggul :</h6> </label>
+                                    <input id="lingkar_panggul" type="text"
+                                        class="form-control @error('lingkar_panggul') is-invalid @enderror"
+                                        name="lingkar_panggul" value="{{ old('lingkar_panggul') }}"
+                                        autocomplete="name" autofocus>
+
+                                    @error('lingkar_panggul')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label><h6>K. Lingkar Keris :</h6> </label>
+                                    <input id="lingkar_keris" type="text"
+                                        class="form-control @error('lingkar_keris') is-invalid @enderror"
+                                        name="lingkar_keris" value="{{ old('lingkar_keris') }}"
+                                        autocomplete="name" autofocus>
+
+                                    @error('lingkar_keris')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label><h6>L. Lingkar Bawah :</h6> </label>
                                     <input id="lingkar_bawah" type="text"
                                         class="form-control @error('lingkar_bawah') is-invalid @enderror"
                                         name="lingkar_bawah" value="{{ old('lingkar_bawah') }}"
@@ -527,7 +528,7 @@
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lebar Bahu :</h6> </label>
+                                    <label><h6>A. Lebar Bahu :</h6> </label>
                                     <input id="lebar_bahu" type="text"
                                         class="form-control @error('lebar_bahu') is-invalid @enderror"
                                         name="lebar_bahu" value="{{ old('lebar_bahu') }}"
@@ -543,7 +544,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Tangan :</h6> </label>
+                                    <label><h6>B. Panjang Tangan :</h6> </label>
                                     <input id="panjang_tangan" type="text"
                                         class="form-control @error('panjang_tangan') is-invalid @enderror"
                                         name="panjang_tangan" value="{{ old('panjang_tangan') }}"
@@ -559,7 +560,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Baju :</h6> </label>
+                                    <label><h6>C. Panjang Baju :</h6> </label>
                                     <input id="panjang_baju" type="text"
                                         class="form-control @error('panjang_baju') is-invalid @enderror"
                                         name="panjang_baju" value="{{ old('panjang_baju') }}"
@@ -575,7 +576,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Lengan :</h6> </label>
+                                    <label><h6>D. Lingkar Lengan :</h6> </label>
                                     <input id="lingkar_lengan" type="text"
                                         class="form-control @error('lingkar_lengan') is-invalid @enderror"
                                         name="lingkar_lengan" value="{{ old('lingkar_lengan') }}"
@@ -591,7 +592,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Dada :</h6> </label>
+                                    <label><h6>E. Lingkar Dada :</h6> </label>
                                     <input id="lingkar_dada" type="text"
                                         class="form-control @error('lingkar_dada') is-invalid @enderror"
                                         name="lingkar_dada" value="{{ old('lingkar_dada') }}"
@@ -607,7 +608,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Ketiak :</h6> </label>
+                                    <label><h6>F. Lingkar Ketiak :</h6> </label>
                                     <input id="lingkar_ketiak" type="text"
                                         class="form-control @error('lingkar_ketiak') is-invalid @enderror"
                                         name="lingkar_ketiak" value="{{ old('lingkar_ketiak') }}"
@@ -623,7 +624,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Lengan Bawah :</h6> </label>
+                                    <label><h6>G. Lingkar Lengan Bawah :</h6> </label>
                                     <input id="lingkar_lenganbawah" type="text"
                                         class="form-control @error('lingkar_lenganbawah') is-invalid @enderror"
                                         name="lingkar_lenganbawah" value="{{ old('lingkar_lenganbawah') }}"
@@ -648,7 +649,7 @@
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lebar Bahu :</h6> </label>
+                                    <label><h6>A. Lebar Bahu :</h6> </label>
                                     <input id="lebar_bahu" type="text"
                                         class="form-control @error('lebar_bahu') is-invalid @enderror"
                                         name="lebar_bahu" value="{{ old('lebar_bahu') }}"
@@ -664,13 +665,13 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Tangan :</h6> </label>
-                                    <input id="panjang_tangan" type="text"
-                                        class="form-control @error('panjang_tangan') is-invalid @enderror"
-                                        name="panjang_tangan" value="{{ old('panjang_tangan') }}"
+                                    <label><h6>B. Lingkar Ketiak :</h6> </label>
+                                    <input id="lingkar_ketiak" type="text"
+                                        class="form-control @error('lingkar_ketiak') is-invalid @enderror"
+                                        name="lingkar_ketiak" value="{{ old('lingkar_ketiak') }}"
                                         autocomplete="name" autofocus>
 
-                                    @error('panjang_tangan')
+                                    @error('lingkar_ketiak')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -680,23 +681,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Baju :</h6> </label>
-                                    <input id="panjang_baju" type="text"
-                                        class="form-control @error('panjang_baju') is-invalid @enderror"
-                                        name="panjang_baju" value="{{ old('panjang_baju') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('panjang_baju')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Lengan :</h6> </label>
+                                    <label><h6>C. Lingkar Lengan :</h6> </label>
                                     <input id="lingkar_lengan" type="text"
                                         class="form-control @error('lingkar_lengan') is-invalid @enderror"
                                         name="lingkar_lengan" value="{{ old('lingkar_lengan') }}"
@@ -712,7 +697,23 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Dada :</h6> </label>
+                                    <label><h6>D. Panjang Baju :</h6> </label>
+                                    <input id="panjang_baju" type="text"
+                                        class="form-control @error('panjang_baju') is-invalid @enderror"
+                                        name="panjang_baju" value="{{ old('panjang_baju') }}"
+                                        autocomplete="name" autofocus>
+
+                                    @error('panjang_baju')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label><h6>E. Lingkar Dada :</h6> </label>
                                     <input id="lingkar_dada" type="text"
                                         class="form-control @error('lingkar_dada') is-invalid @enderror"
                                         name="lingkar_dada" value="{{ old('lingkar_dada') }}"
@@ -728,13 +729,13 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Ketiak :</h6> </label>
-                                    <input id="lingkar_ketiak" type="text"
-                                        class="form-control @error('lingkar_ketiak') is-invalid @enderror"
-                                        name="lingkar_ketiak" value="{{ old('lingkar_ketiak') }}"
+                                    <label><h6>F. Panjang Tangan :</h6> </label>
+                                    <input id="panjang_tangan" type="text"
+                                        class="form-control @error('panjang_tangan') is-invalid @enderror"
+                                        name="panjang_tangan" value="{{ old('panjang_tangan') }}"
                                         autocomplete="name" autofocus>
 
-                                    @error('lingkar_ketiak')
+                                    @error('panjang_tangan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -745,12 +746,11 @@
                         <div class="heading">
                             <h6>Bawahan</h6>
                             <hr style="height:5px;color:black;background-color:black">
-                            
                         </div>
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Pinggang :</h6> </label>
+                                    <label><h6>G. Lingkar Pinggang :</h6> </label>
                                     <input id="lingkar_pinggang" type="text"
                                         class="form-control @error('lingkar_pinggang') is-invalid @enderror"
                                         name="lingkar_pinggang" value="{{ old('lingkar_pinggang') }}"
@@ -763,24 +763,10 @@
                                     @enderror
                                 </div>
                             </div> 
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Panggul :</h6> </label>
-                                    <input id="lingkar_panggul" type="text"
-                                        class="form-control @error('lingkar_panggul') is-invalid @enderror"
-                                        name="lingkar_panggul" value="{{ old('lingkar_panggul') }}"
-                                        autocomplete="name" autofocus>
 
-                                    @error('lingkar_panggul')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Keris :</h6> </label>
+                                    <label><h6>H. Lingkar Keris :</h6> </label>
                                     <input id="lingkar_keris" type="text"
                                         class="form-control @error('lingkar_keris') is-invalid @enderror"
                                         name="lingkar_keris" value="{{ old('lingkar_keris') }}"
@@ -796,13 +782,29 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Celana :</h6> </label>
+                                    <label><h6>I. Panjang Celana :</h6> </label>
                                     <input id="panjang_celana" type="text"
                                         class="form-control @error('panjang_celana') is-invalid @enderror"
                                         name="panjang_celana" value="{{ old('panjang_celana') }}"
                                         autocomplete="name" autofocus>
 
                                     @error('panjang_celana')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label><h6>J. Lingkar Panggul :</h6> </label>
+                                    <input id="lingkar_panggul" type="text"
+                                        class="form-control @error('lingkar_panggul') is-invalid @enderror"
+                                        name="lingkar_panggul" value="{{ old('lingkar_panggul') }}"
+                                        autocomplete="name" autofocus>
+
+                                    @error('lingkar_panggul')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -820,7 +822,7 @@
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lebar Bahu :</h6> </label>
+                                    <label><h6>A. Lebar Bahu :</h6> </label>
                                     <input id="lebar_bahu" type="text"
                                         class="form-control @error('lebar_bahu') is-invalid @enderror"
                                         name="lebar_bahu" value="{{ old('lebar_bahu') }}"
@@ -836,13 +838,13 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Tangan :</h6> </label>
-                                    <input id="panjang_tangan" type="text"
-                                        class="form-control @error('panjang_tangan') is-invalid @enderror"
-                                        name="panjang_tangan" value="{{ old('panjang_tangan') }}"
+                                    <label><h6>B. Lingkar Ketiak :</h6> </label>
+                                    <input id="lingkar_ketiak" type="text"
+                                        class="form-control @error('lingkar_ketiak') is-invalid @enderror"
+                                        name="lingkar_ketiak" value="{{ old('lingkar_ketiak') }}"
                                         autocomplete="name" autofocus>
 
-                                    @error('panjang_tangan')
+                                    @error('lingkar_ketiak')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -852,23 +854,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Baju :</h6> </label>
-                                    <input id="panjang_baju" type="text"
-                                        class="form-control @error('panjang_baju') is-invalid @enderror"
-                                        name="panjang_baju" value="{{ old('panjang_baju') }}"
-                                        autocomplete="name" autofocus>
-
-                                    @error('panjang_baju')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label><h6>Lingkar Lengan :</h6> </label>
+                                    <label><h6>C. Lingkar Lengan :</h6> </label>
                                     <input id="lingkar_lengan" type="text"
                                         class="form-control @error('lingkar_lengan') is-invalid @enderror"
                                         name="lingkar_lengan" value="{{ old('lingkar_lengan') }}"
@@ -884,7 +870,23 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Dada :</h6> </label>
+                                    <label><h6>D. Panjang Baju :</h6> </label>
+                                    <input id="panjang_baju" type="text"
+                                        class="form-control @error('panjang_baju') is-invalid @enderror"
+                                        name="panjang_baju" value="{{ old('panjang_baju') }}"
+                                        autocomplete="name" autofocus>
+
+                                    @error('panjang_baju')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label><h6>E. Lingkar Dada :</h6> </label>
                                     <input id="lingkar_dada" type="text"
                                         class="form-control @error('lingkar_dada') is-invalid @enderror"
                                         name="lingkar_dada" value="{{ old('lingkar_dada') }}"
@@ -900,13 +902,13 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Ketiak :</h6> </label>
-                                    <input id="lingkar_ketiak" type="text"
-                                        class="form-control @error('lingkar_ketiak') is-invalid @enderror"
-                                        name="lingkar_ketiak" value="{{ old('lingkar_ketiak') }}"
+                                    <label><h6>F. Panjang Tangan :</h6> </label>
+                                    <input id="panjang_tangan" type="text"
+                                        class="form-control @error('panjang_tangan') is-invalid @enderror"
+                                        name="panjang_tangan" value="{{ old('panjang_tangan') }}"
                                         autocomplete="name" autofocus>
 
-                                    @error('lingkar_ketiak')
+                                    @error('panjang_tangan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -917,12 +919,11 @@
                         <div class="heading">
                             <h6>Bawahan</h6>
                             <hr style="height:5px;color:black;background-color:black">
-                            
                         </div>
                         <div class="row">
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Lingkar Pinggang :</h6> </label>
+                                    <label><h6>G. Lingkar Pinggang :</h6> </label>
                                     <input id="lingkar_pinggang" type="text"
                                         class="form-control @error('lingkar_pinggang') is-invalid @enderror"
                                         name="lingkar_pinggang" value="{{ old('lingkar_pinggang') }}"
@@ -938,7 +939,7 @@
 
                             <div class="col-sm-2">
                                 <div class="form-group">
-                                    <label><h6>Panjang Rok :</h6> </label>
+                                    <label><h6>I. Panjang Rok :</h6> </label>
                                     <input id="panjang_rok" type="text"
                                         class="form-control @error('panjang_rok') is-invalid @enderror"
                                         name="panjang_rok" value="{{ old('panjang_rok') }}"

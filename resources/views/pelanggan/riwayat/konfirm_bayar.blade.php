@@ -30,7 +30,8 @@
                                 <hr style="border:2px solid; color:#000000;">
                                 <div class="alert alert-info">
                                     <h6>
-                                        Untuk pembayaran uang muka silahkan dapat transfer di rekening dibawah ini sebesar &nbsp;<strong style="font-size:20px;">Rp. {{ number_format($uangmuka) }}</strong>
+                                        Untuk pembayaran uang muka (DP) silahkan dapat transfer di rekening dibawah ini sebesar &nbsp;
+                                        <strong style="font-size:20px;">Rp. {{ number_format($uangmuka) }}</strong>
                                     </h6><br>
                                   
                                   <h6>BANK BRI</h6>
@@ -93,7 +94,7 @@
                                     @enderror
                                 </div> <br>
                               <div class="gradient-button">
-                                <button type="submit" class="btn btn-success btn-block"> <i class="fas fa-arrow-right"></i> Konfirmasi Pembayaran</button>
+                                <button type="submit" class="btn btn-success btn-block"> <i class="fas fa-arrow-right">&nbsp;</i> Submit</button>
                               </div>
                           
                             

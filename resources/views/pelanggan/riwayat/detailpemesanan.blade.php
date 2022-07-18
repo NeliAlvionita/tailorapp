@@ -124,35 +124,35 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Pinggang :</h6> </label>
+                            <label><h6>A. Lingkar Pinggang :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
                         </div>
                     </div> 
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Panggul :</h6> </label>
+                            <label><h6>B. Lingkar Panggul :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Keris :</h6> </label>
+                            <label><h6>C. Lingkar Keris :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Panjang Celana :</h6> </label>
+                            <label><h6>D. Panjang Celana :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lebar Bawah :</h6> </label>
+                            <label><h6>E. Lebar Bawah :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lebar_bawah }}" readonly>
                         </div>
@@ -164,28 +164,31 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Pinggang :</h6> </label>
+                            <label><h6>A. Lingkar Pinggang :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
                         </div>
                     </div>
+
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Rok :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_rok }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label><h6>Lingkar Panggul :</h6> </label>
+                            <label><h6>B. Lingkar Panggul :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
                         </div>
                     </div>
+
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Tinggi Duduk :</h6> </label>
+                            <label><h6>C. Panjang Rok :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->panjang_rok }}" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><h6>D. Tinggi Duduk :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->tinggi_duduk }}" readonly>
                         </div>
@@ -200,21 +203,21 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lebar Bahu :</h6> </label>
+                            <label><h6>A. Lebar Bahu :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lebar_bahu }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Tangan :</h6> </label>
+                            <label><h6>B. Panjang Tangan :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Baju :</h6> </label>
+                            <label><h6>C. Panjang Baju :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
                         </div>
@@ -224,21 +227,21 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Dada :</h6> </label>
+                            <label><h6>D. Lingkar Dada :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <label><h6>E. Lingkar Lengan :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Ketiak :</h6> </label>
+                            <label><h6>F. Lingkar Ketiak :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
                         </div>
@@ -248,7 +251,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Lengan Bawah :</h6> </label>
+                            <label><h6>G. Lingkar Lengan Bawah :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_lenganbawah }}" readonly>
                         </div>
@@ -260,35 +263,35 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Pinggang :</h6> </label>
+                            <label><h6>H. Lingkar Pinggang :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
                         </div>
                     </div> 
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Panggul :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label><h6>Lingkar Keris :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label><h6>Panjang Celana :</h6> </label>
+                            <label><h6>I. Panjang Celana :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Bawah :</h6> </label>
+                            <label><h6>J. Lingkar Panggul :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>K. Lingkar Keris :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>L. Lingkar Bawah :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_bawah }}" readonly>
                         </div>
@@ -300,21 +303,21 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lebar Bahu :</h6> </label>
+                            <label><h6>A. Lebar Bahu :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lebar_bahu }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Tangan :</h6> </label>
+                            <label><h6>B. Panjang Tangan :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Baju :</h6> </label>
+                            <label><h6>C. Panjang Baju :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
                         </div>
@@ -324,28 +327,28 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <label><h6>D. Lingkar Lengan :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Dada :</h6> </label>
+                            <label><h6>E. Lingkar Dada :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Ketiak :</h6> </label>
+                            <label><h6>F. Lingkar Ketiak :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Lengan Bawah :</h6> </label>
+                            <label><h6>G. Lingkar Lengan Bawah :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_lenganbawah }}" readonly>
                         </div>
@@ -365,47 +368,47 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lebar Bahu :</h6> </label>
+                            <label><h6>A. Lebar Bahu :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lebar_bahu }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Tangan :</h6> </label>
+                            <label><h6>B. Lingkar Ketiak :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Baju :</h6> </label>
+                            <label><h6>C. Lingkar Lengan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
                         </div>
                     </div>
                 </div><br>
 
                 <div class="row">
-                    <div class="col-sm-4">
+                <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <label><h6>D. Panjang Baju :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Dada :</h6> </label>
+                            <label><h6>E. Lingkar Dada :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Ketiak :</h6> </label>
+                            <label><h6>F. Panjang Tangan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
                         </div>
                     </div>
                 </div><br>
@@ -420,30 +423,30 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Pinggang :</h6> </label>
+                            <label><h6>G. Lingkar Pinggang :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
                         </div>
                     </div> 
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Lingkar Panggul :</h6> </label>
-                            <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label><h6>Lingkar Keris :</h6> </label>
+                            <label><h6>H. Lingkar Keris :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_keris }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
-                            <label><h6>Panjang Celana :</h6> </label>
+                            <label><h6>I. Panjang Celana :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->panjang_celana }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><h6>J. Lingkar Panggul :</h6> </label>
+                            <input type="text" class="form-control" 
+                            placeholder="{{ $detail->ukuran->lingkar_panggul }}" readonly>
                         </div>
                     </div>
                 </div><br>
@@ -457,50 +460,53 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lebar Bahu :</h6> </label>
+                            <label><h6>A. Lebar Bahu :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lebar_bahu }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Tangan :</h6> </label>
+                            <label><h6>B. Lingkar Ketiak :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Baju :</h6> </label>
+                            <label><h6>C. Lingkar Lengan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
+                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
                         </div>
                     </div>
                 </div><br>
 
                 <div class="row">
-                    <div class="col-sm-4">
+                <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Lengan :</h6> </label>
+                            <label><h6>D. Panjang Baju :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_lengan }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_baju }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Dada :</h6> </label>
+                            <label><h6>E. Lingkar Dada :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_dada }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Ketiak :</h6> </label>
+                            <label><h6>F. Panjang Tangan :</h6> </label>
                             <input type="text" class="form-control" 
-                            placeholder="{{ $detail->ukuran->lingkar_ketiak }}" readonly>
+                            placeholder="{{ $detail->ukuran->panjang_tangan }}" readonly>
                         </div>
                     </div>
                 </div><br>
+
+                <div class="row">
+                </div><br><br>
 
                 <div class="row">
                 </div><br><br>
@@ -512,14 +518,14 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Lingkar Pinggang :</h6> </label>
+                            <label><h6>G. Lingkar Pinggang :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->lingkar_pinggang }}" readonly>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label><h6>Panjang Rok :</h6> </label>
+                            <label><h6>I. Panjang Rok :</h6> </label>
                             <input type="text" class="form-control" 
                             placeholder="{{ $detail->ukuran->panjang_rok }}" readonly>
                         </div>

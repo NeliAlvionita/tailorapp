@@ -81,7 +81,7 @@
 
         <div class="row" style="margin-top: 120px;">
             <div class="section-heading wow fadeIn" id="top" data-wow-duration="2s" data-wow-delay="1s">
-                <center><h4>Keranjang <em>Pemesanan</em> </h4>
+                <center><h4><em>Keranjang </em> Pemesanan</h4>
                 <img src="{{ asset('assets/images/heading-line-dec.png')}}" alt="">
                 <span><img src="{{ asset('assets/images/heading-line-dec.png')}}" alt=""></span></center>
             </div>
@@ -150,13 +150,20 @@
                         
                             @if(!empty($pemesanan))
                                 <tr>
-                                    <td colspan="7" align="right"><strong>Total Yang Harus dibayarkan : </strong></td>
-                                    <td align="center"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
-                                    <td></td>
+                                    <td colspan="7" style="border:none;"></td>
                                 </tr>
                                 <tr>
+                                    <td colspan="6" style="border:none;"></td>
+                                    <td colspan="1" style="border:none;" align="right"><strong>Total Yang Harus dibayarkan : </strong></td>
+                                    <td align="center" style="border:none;"><strong>Rp. {{ number_format($pemesanan->total_pemesanan) }}</strong> </td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td colspan="7" style="border:none;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" style="border:none;"></td>
                                     <td colspan="1" style="border:none;"></td>
-                                    <td colspan="5" style="border:none;"></td>
                                     <td style="border:none;">
                                         <div class="gradient-button" style="align:left;">
                                             <a href="{{ route('checkout')}}" class="btns btn-xs">
